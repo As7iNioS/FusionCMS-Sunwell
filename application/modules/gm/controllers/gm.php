@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * @property Realms realms
+ * @property Gm_model gm_model
+ */
 class Gm extends MX_Controller
 {
-	public function __construct()
+    public function __construct()
 	{
 		parent::__construct();
 
@@ -168,15 +172,11 @@ class Gm extends MX_Controller
 
 		if($ticket)
 		{
-			$title = $this->config->item('gm_answertitle');
 			$body = $this->input->post('message');
 			if(strlen($body) >= 8000)
 				die(lang("message_too_long", "gm"));
 
-			$realm->getEmulator()->sendMail($realm->getCharacters()->getNameByGuid($ticket['guid']), $title, $body);
-
-			$this->plugins->onAnswer($realmId, $ticket['guid'], $title, $body);
-
+            $this->realms->getRealm($realmId)->getEmulator()->ticketResponse($ticket["ticketId"], $body);
 			die('1');
 		}
 		else
@@ -200,18 +200,7 @@ class Gm extends MX_Controller
 		//Get the ticket
 		$ticket = $this->gm_model->getTicket($realm, $id);
 
-		if(column("gm_tickets", "completed"))
-		{
-			//A row exists, update it
-			$this->gm_model->setTicketCompleted($realm->getCharacters()->getConnection(), $id, $realm->getId());
-			die('1');
-		}
-		else
-		{
-			//Remove it
-			$this->gm_model->deleteTicket($realm->getCharacters()->getConnection(), $id, $realm->getId());
-			die('1');
-		}
+        $this->realms->getRealm($realmId)->getEmulator()->ticketClose($ticket["ticketId"]);
 
 		$this->plugins->onClose($realmId, $id);
 	}

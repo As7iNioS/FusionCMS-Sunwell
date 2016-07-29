@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/oregoncore_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Oregoncore_ra extends Oregoncore_soap implements Emulator
+class Oregoncore_ra extends Oregoncore_soap implements IEmulator
 {	
 	/**
 	 * The telnet socket

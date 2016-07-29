@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/trinity_tbc_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Trinity_tbc_external extends Trinity_tbc_soap implements Emulator
+class Trinity_tbc_external extends Trinity_tbc_soap implements IEmulator
 {	
 	/**
 	 * Send items via ingame mail to a specific character

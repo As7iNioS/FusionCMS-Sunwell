@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Oregoncore_soap implements Emulator
+class Oregoncore_soap implements IEmulator
 {
 	protected $config;
 	
@@ -132,6 +132,7 @@ class Oregoncore_soap implements Emulator
 			"message" => "message",
 			"createTime" => "createtime",
 			"completed" => "closed",
+			"response" => "response",
 		)
 	);
 

@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/arkcore_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Arkcore_ra extends Arkcore_soap implements Emulator
+class Arkcore_ra extends Arkcore_soap implements IEmulator
 {	
 	/**
 	 * The telnet socket

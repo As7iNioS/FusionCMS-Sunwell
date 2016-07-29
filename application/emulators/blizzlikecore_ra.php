@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/blizzlikecore_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Blizzlikecore_ra extends Blizzlikecore_soap implements Emulator
+class Blizzlikecore_ra extends Blizzlikecore_soap implements IEmulator
 {	
 	/**
 	 * The telnet socket

@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Skyfire_soap implements Emulator
+class Skyfire_soap implements IEmulator
 {
 	protected $config;
 	

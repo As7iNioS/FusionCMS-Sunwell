@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Mangos_soap implements Emulator
+class Mangos_soap implements IEmulator
 {
 	protected $config;
 	

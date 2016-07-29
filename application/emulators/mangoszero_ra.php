@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/mangoszero_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Mangoszero_ra extends Mangoszero_soap implements Emulator
+class Mangoszero_ra extends Mangoszero_soap implements IEmulator
 {
 	/**
 	 * The telnet socket

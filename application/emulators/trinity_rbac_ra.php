@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/trinity_rbac_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Trinity_rbac_ra extends Trinity_rbac_soap implements Emulator
+class Trinity_rbac_ra extends Trinity_rbac_soap implements IEmulator
 {	
 	/**
 	 * The telnet socket

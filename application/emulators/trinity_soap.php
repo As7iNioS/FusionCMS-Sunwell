@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Trinity_soap implements Emulator
+class Trinity_soap implements IEmulator
 {
 	protected $config;
 	
@@ -431,12 +431,12 @@ class Trinity_soap implements Emulator
 
     /**
      * Sets response for ticket and closes it.
-     * @param String$ticket
+     * @param String $ticket
      * @param String $body
      */
     public function ticketResponse($ticket, $body)
     {
-        $this->send(".ticket response appendln ".$$ticket." \"".$body."\"");
+        $this->send(".ticket response appendln ".$ticket." \"".$body."\"");
     }
 
     /**
@@ -444,6 +444,6 @@ class Trinity_soap implements Emulator
      */
     public function ticketClose($ticket)
     {
-        $this->send(".ticket complete ".$$ticket);
+        $this->send(".ticket complete ".$ticket);
     }
 }

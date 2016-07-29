@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Arcemu implements Emulator
+class Arcemu implements IEmulator
 {
 	private $config;
 	

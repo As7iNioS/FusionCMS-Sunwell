@@ -1,6 +1,6 @@
 <?php
 
-interface Emulator
+interface IEmulator
 {
 	public function getExpansions();
 	public function getExpansionName($id);
@@ -10,6 +10,8 @@ interface Emulator
 	public function hasStats();
 	public function sendItems($character, $subject, $body, $items);
 	public function sendMail($character, $subject, $body);
+	public function ticketResponse($ticket, $body);
+	public function ticketClose($ticket);
 	public function getTable($name);
 	public function getColumn($table, $name);
 	public function getQuery($name);

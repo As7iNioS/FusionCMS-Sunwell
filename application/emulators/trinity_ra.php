@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/trinity_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Trinity_ra extends Trinity_soap implements Emulator
+class Trinity_ra extends Trinity_soap implements IEmulator
 {	
 	/**
 	 * The telnet socket

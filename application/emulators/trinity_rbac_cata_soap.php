@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Trinity_rbac_cata_soap implements Emulator
+class Trinity_rbac_cata_soap implements IEmulator
 {
 	protected $config;
 	

@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Blizzlikecore_soap implements Emulator
+class Blizzlikecore_soap implements IEmulator
 {
 	protected $config;
 	

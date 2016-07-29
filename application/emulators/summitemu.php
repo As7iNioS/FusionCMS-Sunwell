@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Summitemu implements Emulator
+class Summitemu implements IEmulator
 {
 	private $config;
 	

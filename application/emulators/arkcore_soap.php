@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Arkcore_soap implements Emulator
+class Arkcore_soap implements IEmulator
 {
 	protected $config;
 	

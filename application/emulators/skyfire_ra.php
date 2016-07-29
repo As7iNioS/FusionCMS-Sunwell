@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/skyfire_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Skyfire_ra extends Skyfire_soap implements Emulator
+class Skyfire_ra extends Skyfire_soap implements IEmulator
 {	
 	/**
 	 * The telnet socket

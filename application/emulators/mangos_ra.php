@@ -6,7 +6,7 @@ require_once(dirname(__FILE__).'/mangos_soap.php');
  * Abstraction layer for supporting different emulators
  */
 
-class Mangos_ra extends Mangos_soap implements Emulator
+class Mangos_ra extends Mangos_soap implements IEmulator
 {
 	/**
 	 * The telnet socket

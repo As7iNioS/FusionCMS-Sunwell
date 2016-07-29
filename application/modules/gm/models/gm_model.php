@@ -160,7 +160,7 @@ class Gm_model extends CI_Model
 			return false;
 		}
 	}
-	
+
 	public function getBan($realmdConnection, $accountId)
 	{
 		if($realmdConnection && $accountId)

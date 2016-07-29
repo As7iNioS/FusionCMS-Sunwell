@@ -39,7 +39,7 @@ class Realms
 		require_once('application/libraries/realm.php');
 		
 		// Load the emulator interface
-		require_once('application/interfaces/emulator.php');
+		require_once('application/interfaces/IEmulator.php');
 		
 		// Get the realms
 		$this->CI->load->model('cms_model');
@@ -91,7 +91,7 @@ class Realms
 	
 	/**
 	 * Get the realm objects
-	 * @return Array
+	 * @return Realms
 	 */
 	public function getRealms()
 	{
@@ -100,7 +100,7 @@ class Realms
 	
 	/**
 	 * Get one specific realm object
-	 * @return Object
+	 * @return Realm
 	 */
 	public function getRealm($id)
 	{
@@ -272,10 +272,11 @@ class Realms
 		}
 	}
 
-	/**
-	 * Load the general emulator, from the first realm
-	 */
-	public function getEmulator()
+    /**
+     * Load the general emulator, from the first realm
+     * @return IEmulator mixed
+     */
+    public function getEmulator()
 	{
 		if ($this->realms)
 		{
