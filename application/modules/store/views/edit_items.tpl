@@ -11,7 +11,7 @@
 	</form>
 
 	<script type="text/javascript">
-		var formType = {if $item.query}"query"{else if $item.command}"command"{else}"item"{/if};
+		var formType = {if $item.query}"query"{else if $item.command}"command";{else}"item"{/if};;
 	</script>
 	
 	<form onSubmit="Items.save(this, {$item.id}); return false" id="command_form" {if !$item.command}style="display:none;"{/if}>

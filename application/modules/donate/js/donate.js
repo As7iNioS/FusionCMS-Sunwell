@@ -25,4 +25,4 @@ var Donate = {
 		$("#paypal_area").hide();
 		$("#paygol_area").show();
 	}
-}
+};

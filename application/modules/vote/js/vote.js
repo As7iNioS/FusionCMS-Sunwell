@@ -24,7 +24,7 @@ var Vote = {
 		
 		return false;
 	}
-}
+};
 
 $(document).ready(function()
 {
