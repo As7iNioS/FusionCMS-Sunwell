@@ -56,7 +56,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 
 	// whether SET NAMES must be used to set the character set
 	var $use_set_names;
-	
+
 	// --------------------------------------------------------------------
 
 	/**
@@ -455,6 +455,8 @@ class CI_DB_mysqli_driver extends CI_DB {
 	 */
 	function _error_message()
 	{
+	    if (is_bool($this->conn_id)) return null;
+
 		return mysqli_error($this->conn_id);
 	}
 

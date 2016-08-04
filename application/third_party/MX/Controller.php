@@ -41,7 +41,7 @@ class MX_Controller
 	public $autoload = array();
 	private $standardModule = "news";
 
-	public function __construct() 
+	public function __construct()
 	{
 		$class = str_replace(CI::$APP->config->item('controller_suffix'), '', get_class($this));
 		
@@ -85,7 +85,8 @@ class MX_Controller
 		// Is the module enabled?
 		if(!isset($module['enabled']) || !$module['enabled'])
 		{
-			CI::$APP->template->show404();
+            redirect('cms_error');
+//			CI::$APP->template->show404();
 		}
 
 		// Default to current version
