@@ -6,7 +6,7 @@ class Page extends MX_Controller
 	{
 		if($page == "error")
 		{
-			redirect('error');
+			redirect('cms_error');
 		}
 		else
 		{
