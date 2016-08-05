@@ -5,7 +5,22 @@ class Register extends MX_Controller
 	private $usernameError;
 	private $emailError;
 
-	public function __construct()
+    /**
+     * @var Activation_model
+     */
+    private $activation_model;
+
+    /**
+     * @var User
+     */
+    private $user;
+
+    /**
+     * @var External_account_model
+     */
+    private $external_account_model;
+
+    public function __construct()
 	{
 		parent::__construct();
 		

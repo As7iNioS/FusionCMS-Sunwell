@@ -26,6 +26,11 @@
  */
 class CI_Model {
 
+    /**
+     * @var CI_DB_driver
+     */
+
+    public $db;
 	/**
 	 * Constructor
 	 *

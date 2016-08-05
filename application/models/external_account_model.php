@@ -10,7 +10,10 @@
 
 class External_account_model extends CI_Model
 {
-	private $connection;
+    /**
+     * @var CI_DB_driver
+     */
+    private $connection;
 	private $id;
 	private $username;
 	private $sha_pass_hash;
@@ -103,13 +106,16 @@ class External_account_model extends CI_Model
 		}
 	}
 
-	/**
-	 * Create a new account
-	 * @param String $username
-	 * @param String $password
-	 * @param String $email
-	 */
-	public function createAccount($username, $password, $email, $expansion, $isHashed = false) 
+    /**
+     * Create a new account
+     * @param String $username
+     * @param String $password
+     * @param String $email
+     * @param $expansion
+     * @param bool $isHashed
+     * @param int $active
+     */
+	public function createAccount($username, $password, $email, $expansion, $isHashed = false, $active = 1)
 	{
 		$this->connect();
 
@@ -121,7 +127,8 @@ class External_account_model extends CI_Model
 			column("account", "email") => $email,
 			column("account", "expansion") => $expansion,
 			column("account", "last_ip") => $this->input->ip_address(),
-			column("account", "joindate") => date("Y-m-d")
+			column("account", "joindate") => date("Y-m-d"),
+			column("account", "active") => $active
 		);
 
 		// Fix for ArcEmu
@@ -366,12 +373,19 @@ class External_account_model extends CI_Model
 		$this->connection->where(column("account", "id"), $userId);
 		$this->connection->update(table("account_access"), array(column("account_access", "gmlevel") => $newRank));
 	}
-	
-	/*
-	| -------------------------------------------------------------------
-	|  Getters
-	| -------------------------------------------------------------------
-	*/
+
+    public function setActive($userId)
+    {
+        $this->connect();
+
+        $this->connection->query("UPDATE `account` SET active = 1 WHERE `id` = '$userId'");
+    }
+
+    /*
+    | -------------------------------------------------------------------
+    |  Getters
+    | -------------------------------------------------------------------
+    */
 	public function getId($username = false)
 	{
 		if(!$username)
