@@ -216,19 +216,8 @@ class CI_DB_driver {
 			return FALSE;
 		}
 
-		// Some DBs have functions that return the version, and don't run special
-		// SQL queries per se. In these instances, just return the result.
-		$driver_version_exceptions = array('oci8', 'sqlite', 'cubrid');
-
-		if (in_array($this->dbdriver, $driver_version_exceptions))
-		{
-			return $sql;
-		}
-		else
-		{
-			$query = $this->query($sql);
-			return $query->row('ver');
-		}
+        $query = $this->query($sql);
+        return $query->row('ver');
 	}
 
 	// --------------------------------------------------------------------
@@ -374,15 +363,6 @@ class CI_DB_driver {
 		$RES->conn_id	= $this->conn_id;
 		$RES->result_id	= $this->result_id;
 
-		if ($this->dbdriver == 'oci8')
-		{
-			$RES->stmt_id		= $this->stmt_id;
-			$RES->curs_id		= NULL;
-			$RES->limit_used	= $this->limit_used;
-			$this->stmt_id		= FALSE;
-		}
-
-		// oci8 vars must be set before calling this
 		$RES->num_rows	= $RES->num_rows();
 
 		// Is query caching enabled?  If so, we'll serialize the
@@ -997,7 +977,7 @@ class CI_DB_driver {
 	 */
 	function call_function($function)
 	{
-		$driver = ($this->dbdriver == 'postgre') ? 'pg_' : $this->dbdriver.'_';
+		$driver = $this->dbdriver.'_';
 
 		if (FALSE === strpos($driver, $function))
 		{

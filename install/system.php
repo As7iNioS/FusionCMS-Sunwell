@@ -134,44 +134,24 @@ class Install
 			$config->set($key, $value);
 		}
 
-		if(in_array($_POST['emulator'], array('arcemu', 'summitemu')))
-		{
-			switch($_POST['expansion'])
-			{
-				case "wotlk":
-					$config->set('disabled_expansions', array(32));
-				break;
+        switch($_POST['expansion'])
+        {
+            case "wotlk":
+                $config->set('disabled_expansions', array(3));
+            break;
 
-				case "tbc":
-					$config->set('disabled_expansions', array(24,32));
-				break;
+            case "tbc":
+                $config->set('disabled_expansions', array(2,3));
+            break;
 
-				case "vanilla":
-					$config->set('disabled_expansions', array(8,24,32));
-				break;
-			}
-		}
-		else
-		{
-			switch($_POST['expansion'])
-			{
-				case "wotlk":
-					$config->set('disabled_expansions', array(3));
-				break;
+            case "vanilla":
+                $config->set('disabled_expansions', array(1,2,3));
+            break;
 
-				case "tbc":
-					$config->set('disabled_expansions', array(2,3));
-				break;
-
-				case "vanilla":
-					$config->set('disabled_expansions', array(1,2,3));
-				break;
-
-				default:
-					$config->set('disabled_expansions', array());
-				break;
-			}
-		}
+            default:
+                $config->set('disabled_expansions', array());
+            break;
+        }
 
 		$config->save();
 
@@ -330,24 +310,6 @@ $db["account"]["stricton"] = FALSE;';
 	private function ranks()
 	{
 		$this->connect();
-
-		switch($_POST['emulator'])
-		{
-			case "arcemu":
-				$this->SplitSQL("SQL/ranks_arcemu.sql");
-			break;
-
-			case "summitemu":
-				$this->SplitSQL("SQL/ranks_arcemu.sql");
-			break;
-
-			case "mangos_ra":
-			case "mangos_soap":
-			case "mangosr2_ra":
-			case "mangosr2_soap":
-				$this->SplitSQL("SQL/ranks_mangos.sql");
-			break;
-		}
 
 		die('1');
 	}

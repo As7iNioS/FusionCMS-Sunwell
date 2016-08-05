@@ -3,7 +3,7 @@
 class Visitor_model extends CI_Model
 {
 	private $db;
-	
+
 	public function __construct()
 	{
 		parent::__construct();
