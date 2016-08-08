@@ -8,24 +8,41 @@
 				}
 			</style>
 		<![endif]-->
-		<section id="wrapper">
+<div id="lang-en" onclick="document.location='/?index.php?lang=en';">EN</div><div id="lang-pl" onclick="document.location='/?index.php?lang=pl';">PL</div>&nbsp;<br>
+<section id="wrapper">
 			{$modals}
 			<header id="hand"></header>
+                        
 			<ul id="top_menu">
 				{foreach from=$menu_top item=menu_1}
 					<li><a {$menu_1.link}>{$menu_1.name}</a></li>
 				{/foreach}
 			</ul>
+
 			<div id="main">
 				<aside id="left">
-					<article>
-						<h1 class="top">Main menu</h1>
-						<ul id="left_menu">
-							{foreach from=$menu_side item=menu_2}
-								<li><a {$menu_2.link}><img src="{$image_path}bullet.png">{$menu_2.name}</a></li>
-							{/foreach}
-						</ul>
-					</article>
+                                            
+<div id="menu">
+<div class="menupos" style="width: 110px;" onclick="document.location='index.php';"><a href="index.php">Home</a></div>
+<div id="menupos-informacje" style="width: 127px;">
+Information
+<div style="height: 16px;"></div>
+<a href="?index.php?id=whysunwell">Why Sunwell</a><br>
+<a href="?index.php?id=rules">Rules</a><br>
+<a href="?index.php?id=changelog">Changelog</a><br>
+<a href="?index.php?id=bugtracker">Bug Tracker</a><br>
+<a href="?index.php?id=premium">Premium</a><br>
+</div>
+<div class="menupos" style="width: 132px;" onclick="document.location='/?index.php?id=howtoplay';"><a href="?index.php?id=howtoplay">How to play</a></div>
+<div class="menupos" style="margin-left: 271px; width: 119px;" onclick="document.location='?/armory/';"><a href="?armory/">Armory</a></div>
+<div class="menupos" style="width: 109px;" onclick="document.location='?http://www.sunwell.pl/forum/';"><a href="?http://www.sunwell.pl/forum/">Forum</a></div>
+<div class="menupos" style="width: 146px;" onclick="document.location='/?index.php?id=ranking';"><a href="?index.php?id=ranking">Ranking</a></div>
+</div>
+<ul id="left_menu">
+	{foreach from=$menu_side item=menu_2}
+		<li><a {$menu_2.link}><img src="{$image_path}bullet.png">{$menu_2.name}</a></li>
+	{/foreach}
+</ul>
 
 					{foreach from=$sideboxes item=sidebox}
 						<article>
