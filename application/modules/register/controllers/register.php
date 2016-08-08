@@ -1,14 +1,24 @@
 <?php
 
-/**
- * @property User user
- * @property Activation_model activation_model
- * @property External_account_model external_account_model
- */
 class Register extends MX_Controller
 {
 	private $usernameError;
 	private $emailError;
+
+    /**
+     * @var Activation_model
+     */
+    private $activation_model;
+
+    /**
+     * @var User
+     */
+    private $user;
+
+    /**
+     * @var External_account_model
+     */
+    private $external_account_model;
 
     public function __construct()
 	{
