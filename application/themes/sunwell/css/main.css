@@ -145,36 +145,33 @@ Also called a "sidebox" */
 /* Right content box inside of the body div, right column.
 This is the box(es) where the page content goes. */
 .main_box {
-	background-color:#f0f0f0;
-	width:708px;
+	
+	width:100%;
 	height:auto;
-	border:1px solid #ffffff;
+	
 	margin-bottom:10px;
 	line-height:1.4;
 }
 
 /* Right box top bar / title */
 .main_box_top {
-	width:708px;
-	background-image:url(../images/top.jpg);
-	height:32px;
-	color:#172e3c;
-	text-align:center;
-	text-shadow:1px 1px 0px #ffffff;
-	font-size:14px;
-	padding-top:6px;
-	display:block;
-}
-
-.main_box_top:hover {
-	color:#000;
-	text-decoration:none;
+    height: 67px;
+    font-family: Georgia;
+    text-align: left;
+    padding-left: 60px;
+    font-size: 21px;
+    line-height: 67px;
+    color: #1b4a76;
+    background: url(../images/lay/pagetitle_bg.png) 20px top no-repeat;
+    margin-top: 45px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Right box bottom */
 .main_box_bottom {
 	clear:both;
-	background-color:#f9f9f9;
+	
 	padding:5px;
 	color:#666;
 }
@@ -342,6 +339,7 @@ a:hover
 	line-height: 67px;
 	color: #1b4a76;
 	background: url(../images/lay/pagetitle_bg.png) 20px top no-repeat;
+        margin-top: 45px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
@@ -389,7 +387,7 @@ body{background:url(../images/lay/bg.jpg) center top no-repeat;background-color:
 	#footer-wrap{padding:20px 0px 24px 0px;background-color:#000;color:#ddd;}
 	#footer{position:relative;width:970px;left:50%;margin-left:-485px;font-size:11px;line-height:16px;}
 	.rightpanel-image{width:340px;height:122px;background:url(../images/rightpanel/rightpanel_img_bg.png) left top no-repeat;text-align:center;margin-left:2px;padding-top:12px;}
-	.page-title{height:67px;font-family:Georgia;text-align:left;padding-left:60px;font-size:21px;line-height:67px;color:#1b4a76;background:url(../images/lay/pagetitle_bg.png) 20px top no-repeat;margin-top:30px;text-transform:uppercase;letter-spacing:1px;}
+	.page-title{height:67px;font-family:Georgia;text-align:left;padding-left:60px;font-size:21px;line-height:67px;color:#1b4a76;background:url(../images/lay/pagetitle_bg.png) 20px top no-repeat;margin-top:45px;text-transform:uppercase;letter-spacing:1px;}
 	.page-title:first-letter{font-size:28px;}.error{margin:0px 30px 6px 30px;padding:12px 12px 12px 50px;border:solid 1px rgba(216,80,80,0.75);background:url(../images/lay/errormark.png) 8px center no-repeat;background-color:rgba(200,48,51,0.5);color:#fff;font-weight:bold;text-align:left;}
 	.success{margin:0px 30px 6px 30px;padding:12px 12px 12px 50px;border:solid 1px rgba(135,181,100,0.75);background:url(../images/lay/successmark.png) 5px center no-repeat;background-color:rgba(125,176,104,0.5);color:#000;font-weight:bold;text-align:left;}
 	#menu a:link,#menu a:visited,#menu a:hover{text-decoration:none;font-weight:bold;color:rgb(229,195,79);font-size:13px;}

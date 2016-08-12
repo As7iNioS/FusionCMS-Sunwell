@@ -28,7 +28,10 @@ a:link, a:visited
 	color: #2a557d;
 	font-weight: bold;
 }
-
+#content_ajax ul, #content_ajax ol{
+    margin: 0px 40px;
+}
+#content_ajax {margin-top: 20px;}
 a:hover
  {
 	text-decoration: underline;
@@ -88,6 +91,67 @@ a:hover
 #features-img{
     width: 100%;
     height: 100%;
+}
+.zalogowany-jako-username {
+    font-size: 20px;
+    color: rgb(229,195,79);
+    font-weight: normal;
+    font-family: serif;
+}
+.menupos:nth-child(1) {
+    width: 110px; 
+}
+.menupos:nth-child(2) {
+    width: 127px; 
+}
+.menupos:nth-child(3) {
+    width: 132px; 
+}
+
+.menupos:nth-child(4) {
+    width: 119px; 
+    margin-left: 271px;
+}
+
+.menupos:nth-child(5) {
+    width: 109px; 
+}
+.menupos:nth-child(6) {
+    width: 146px; 
+}
+.rightcenter ul {
+    margin: 0; 
+    padding: 0;
+    width:90%;
+    list-style-type: none;
+}
+
+.rightcenter ul li a {
+    text-decoration: none;
+    color: rgb(229,195,79); 
+    padding: 10.5px 11px;
+    display:block;
+}
+ 
+.rightcenter ul li a:visited {
+        color: rgb(229,195,79);
+}
+ 
+.rightcenter ul li a:hover, .rightcenter ul li .current {
+        color: rgb(229,195,79);
+        background-color: rgba(255,255,255,0.2);
+}
+.titleright {
+    font-size: 20px;
+    color: rgb(229,195,79);
+    font-weight: normal;
+    font-family: serif;
+}
+.rightcenter {
+    margin: 12px;
+}
+.rightcenter ul {
+    margin: 5px 20px;
 }
 input::-moz-focus-inner{border:0;padding:0;}
 img{border:0px;}

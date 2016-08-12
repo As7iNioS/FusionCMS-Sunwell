@@ -1,35 +1,18 @@
+<div class="page-title">News</div>&nbsp;
 {foreach from=$articles item=article}
-	<article class="main_box">
-		<a href="{$url}news/view/{$article.id}" class="main_box_top">{$article.headline}</a>
-		<div class="main_box_body">
+    <div class="news-container">
 			{if $article.avatar}
-				<div class="avatar">
-					<img src="{$article.avatar}" alt="avatar" height="120" width="120">
+				<div class="newsimg-border">
+					<img src="{$article.avatar}" alt="avatar" style="width: 100%; height: auto;">
 				</div>
 			{/if}
-			
+                        <span class="news-title">{$article.headline}</span><br>
+		
+                        <span class="news-author">{lang("posted_by", "news")} {$article.author}, {$article.date}</span><br><br>
 			{$article.content}
 			
 			<div class="clear"></div>
-		</div>
-		<div class="main_box_bottom">
-
-			{if $article.comments != -1}
-				<a {$article.link} class="news_comments" {$article.comments_button_id}>
-					{lang("comments", "news")} ({$article.comments})
-				</a>
-			{/if}
-
-			{lang("posted_by", "news")} <b><a href="{$url}profile/{$article.author_id}" data-tip="{lang("view_profile", "news")}">{$article.author}</a></b> {lang("on", "news")} <b>{$article.date}</b>
-
-			{if $article.tags}
-				{foreach from=$article.tags item=tag}
-					<a href="{$url}/news/{$tag.name}">{$tag.name}</a>
-				{/foreach}
-			{/if}
-		</div>
-
-		<div class="comments" {$article.comments_id}></div>
+		
 		{if $single}
 			<script type="text/javascript">
 				$(document).ready(function()
@@ -50,7 +33,8 @@
 				});
 			</script>
 		{/if}
-	</article>
+	<br style="clear: both">&nbsp;
+    </div>
 
 {/foreach}
 {$pagination}

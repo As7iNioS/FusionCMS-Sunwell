@@ -1,17 +1,7 @@
-{literal}
 <script type="text/javascript">
 	var shoutCount = {$count},
 		shoutsPerPage = {$shoutsPerPage},
 		currentShout = 0;
-
-	var extraLanguage = {};
-
-	extraLanguage.ago = "{lang('ago', 'sidebox_shoutbox')}";
-	extraLanguage.view_profile = "{lang('view_profile', 'sidebox_shoutbox')}";
-	extraLanguage.said = "{lang('said', 'sidebox_shoutbox')}";
-	extraLanguage.message_limit = "{lang('message_limit', 'sidebox_shoutbox')}";
-
-	var isStaff = {if hasPermission("shoutAsStaff", "sidebox_shoutbox")}true{else}false{/if};
 
 	{literal}
 	var Shoutbox = {
@@ -61,7 +51,7 @@
 			if(message.val().length == 0
 			|| message.val().length > 255)
 			{
-				UI.alert(extraLanguage.message_limit);
+				UI.alert("The message must be between 0-255 characters long!");
 			}
 			else
 			{
@@ -77,12 +67,10 @@
 					$("#shoutbox_characters_remaining").html("0 / 255");
 
 					var content = JSON.parse(data);
-					
-					var staff = (isStaff) ? '<img src="' + Config.URL + 'application/images/icons/icon_blizzard.gif" align="absmiddle"/>&nbsp;': '';
 
 					$("#the_shouts").prepend('<div class="shout" id="my_shout_' + content.uniqueId + '" style="display:none">'+
-												'<span class="shout_date">' + content.time + ' ' + extraLanguage.ago + '</span>' +
-												'<div class="shout_author">' + staff + '<a href="' + Config.URL + 'profile/' + content.id + '" data-tip="' + extraLanguage.view_profile + '">' + content.name + '</a> ' + extraLanguage.said + ':</div>' +
+												'<span class="shout_date">' + content.time + ' ago</span>' +
+												'<div class="shout_author"><a href="' + Config.URL + 'profile/' + content.id + '" data-tip="View profile">' + content.name + '</a> said:</div>' +
 												content.message +
 											'</div>');
 
@@ -109,28 +97,32 @@
 	};
 	{/literal}
 </script>
-{/literal}
+
 <div id="shoutbox">
-{if $logged_in == false || !hasPermission("shout", "sidebox_shoutbox")}
-	<form onSubmit="UI.alert('{lang("log_in", "sidebox_shoutbox")}');return false;">
-		<textarea name="shoutbox_content" placeholder="{lang("log_in", "sidebox_shoutbox")}" disabled="disabled"></textarea>
+{if $logged_in == false}
+	<form onSubmit="UI.alert('Please log in to shout!');return false;">
+		<textarea name="shoutbox_content" placeholder="Please log in to shout!" disabled="disabled"></textarea>
 		<div class="shout_characters_remaining"><span id="shoutbox_characters_remaining">0 / 255</span></div>
-		<input type="submit" id="shoutbox_submit" value="{lang("submit", "sidebox_shoutbox")}"/>
+		<input type="submit" id="shoutbox_submit" value="Submit message"/>
+		<div class="clear"></div>
 	</form>
 {else}
 	<form onSubmit="Shoutbox.submit(); return false">
 		<textarea
 			id="shoutbox_content"
-			placeholder="{lang("enter", "sidebox_shoutbox")}"
+			placeholder="Enter a message..."
 			onFocus="this.style.height='70px';"
-			onkeyup="UI.limitCharacters(this, 'shoutbox_characters_remaining')"
 			onBlur="window.setTimeout(function() { $('#shoutbox_content').height('16px'); },700);"
+			onkeyup="UI.limitCharacters(this, 'shoutbox_characters_remaining')"
 			maxlength="255"
 			spellcheck="false"></textarea>
 		<div class="shout_characters_remaining"><span id="shoutbox_characters_remaining">0 / 255</span></div>
-		<input type="submit" name="shoutbox_submit" value="{lang("submit", "sidebox_shoutbox")}" />
+		<input type="submit" name="shoutbox_submit" value="Submit message" />
+		<div class="clear"></div>
 	</form>
 {/if}
+
+<div class="side_divider"></div>
 
 <div id="the_shouts">{$shouts}</div>
 
