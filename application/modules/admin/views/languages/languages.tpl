@@ -21,8 +21,4 @@
 		{/foreach}
 	{/if}
 	</ul>
-
-	<span>
-		<center><b>Want more?</b> Get more languages from the <a href="https://github.com/raxezdev/FusionCMS-Localization" target="_blank">localization GitHub repository</a></center>
-	</span>
 </section>
