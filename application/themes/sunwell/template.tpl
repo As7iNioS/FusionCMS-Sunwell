@@ -4,7 +4,7 @@
     <div id="lang-en" onclick="setLanguage('english', this)" >EN</div><div id="lang-pl" onclick="setLanguage('polish', this)">PL</div>&nbsp;<br>
 <div id="menu">
      {foreach from=$menu_top item=menu_1}
-	<div class="menupos">
+	<div class="menupos" onclick="document.location='{$menu_1.linkon}';">
             <a {$menu_1.link}>{$menu_1.name}</a>
         </div>
     {/foreach}				

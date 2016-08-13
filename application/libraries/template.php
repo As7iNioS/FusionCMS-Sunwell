@@ -450,6 +450,7 @@ class Template
 			{
 				 $links[$key]['link'] = $this->page_url . $links[$key]['link'];
 			}
+                        $links[$key]['linkon'] = ''.$links[$key]['link'].'';
 
 			// Append if it's a direct link or not
 			$links[$key]['link'] = 'href="'.$links[$key]['link'].'" direct="'.$links[$key]['direct_link'].'"';
