@@ -24,6 +24,7 @@ class Realm_model extends CI_Model
 
 			return $row[0]['id'];
 		}
+		return null;
 	}
 
 	public function save($id, $data)

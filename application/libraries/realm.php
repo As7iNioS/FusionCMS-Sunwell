@@ -6,6 +6,7 @@
  * @author Xavier Geerinck
  * @author Elliott Robbins
  * @link http://fusion-hub.com
+ * @property IEmulator $emulator
  */
 
 class Realm
@@ -20,12 +21,16 @@ class Realm
 	private $CI;
 	private $characters;
 	private $world;
+	private $auth;
 	private $emulator;
 
 	// Runtime values
 	private $online;
 	private $onlineFaction;
 	private $isOnline;
+	private $startTime;
+	private $revision;
+	private $maxPlayers;
 
 	/**
 	 * Initialize the realm
@@ -56,10 +61,12 @@ class Realm
 		{
 			$this->config["override_".$part."_char"] = $this->config['characters'][$part];
 			$this->config["override_".$part."_world"] = $this->config['world'][$part];
+			$this->config["override_".$part."_auth"] = $this->config['auth'][$part];
 		}
 
 		$this->config['characters_database'] = $this->config['characters']['database'];
 		$this->config['world_database'] = $this->config['world']['database'];
+		$this->config['auth_database'] = $this->config['auth']['database'];
 
 		// Get the CodeIgniter instance
 		$this->CI = &get_instance();
@@ -67,7 +74,8 @@ class Realm
 		// Load the objects
 		require_once('application/models/world_model.php');
 		require_once('application/models/characters_model.php');
-		
+		require_once('application/models/auth_model.php');
+
 		// Make sure the emulator is installed
 		if(file_exists('application/emulators/'.$emulator.'.php'))
 		{
@@ -85,71 +93,72 @@ class Realm
 		$this->emulator = new $emulator($config);
 		$this->characters = new Characters_model($config);
 		$this->world = new World_model($config);
+		$this->auth = new Auth_model($config);
 	}
 
-	/**
-	 * Get the amount of online players
-	 * @param String $faction horde/alliance
-	 * @return Int
-	 */
-	public function getOnline($faction = false)
-	{
-		if(!$faction)
-		{
-			if(!empty($this->online))
-			{
-				return $this->online;
-			}
-			else
-			{
-				// Get the online count
-				$cache = $this->CI->cache->get("online_".$this->id);
+    /**
+     * Get the amount of online players
+     * @param String $faction horde/alliance
+     * @return Int
+     */
+    public function getOnline($faction = false)
+    {
+        if(!$faction)
+        {
+            if(!empty($this->online))
+            {
+                return $this->online;
+            }
+            else
+            {
+                // Get the online count
+                $cache = $this->CI->cache->get("online_".$this->id);
 
-				// Can we use the cache?
-				if($cache !== false)
-				{
-					$this->online = $cache;
-				}
-				else
-				{
-					// Load and save as cache
-					$this->online = $this->characters->getOnlineCount();
+                // Can we use the cache?
+                if($cache !== false)
+                {
+                    $this->online = $cache;
+                }
+                else
+                {
+                    // Load and save as cache
+                    $this->online = $this->characters->getOnlineCount();
 
-					// Cache it for 5 minutes
-					$this->CI->cache->save("online_".$this->id, $this->online, 60*5);
-				}
+                    // Cache it for 5 minutes
+                    $this->CI->cache->save("online_".$this->id, $this->online, 60*5);
+                }
 
-				return $this->online;
-			}
-		}
-		else
-		{
-			if(!empty($this->onlineFaction[$faction]))
-			{
-				return $this->onlineFaction[$faction];
-			}
-			else
-			{
-				$cache = $this->CI->cache->get("online_".$this->id."_".$faction);
+                return $this->online;
+            }
+        }
+        else
+        {
+            if(!empty($this->onlineFaction[$faction]))
+            {
+                return $this->onlineFaction[$faction];
+            }
+            else
+            {
+                $cache = $this->CI->cache->get("online_".$this->id."_".$faction);
 
-				// Can we use the cache?
-				if($cache !== false)
-				{
-					$this->onlineFaction[$faction] = $cache;
-				}
-				else
-				{
-					// Load and save as cache
-					$this->onlineFaction[$faction] = $this->characters->getOnlineCount($faction);
+                // Can we use the cache?
+                if($cache !== false)
+                {
+                    $this->onlineFaction[$faction] = $cache;
+                }
+                else
+                {
+                    // Load and save as cache
+                    $this->onlineFaction[$faction] = $this->characters->getOnlineCount($faction);
 
-					// Cache it for 5 minutes
-					$this->CI->cache->save("online_".$this->id."_".$faction, $this->onlineFaction[$faction], 60*5);
-				}
-			}
+                    // Cache it for 5 minutes
+                    $this->CI->cache->save("online_".$this->id."_".$faction, $this->onlineFaction[$faction], 60*5);
+                }
+            }
 
-			return $this->onlineFaction[$faction];
-		}
-	}
+            return $this->onlineFaction[$faction];
+        }
+    }
 
 	/**
 	 * Get the amount of characters that belongs to a certain account
@@ -260,6 +269,11 @@ class Realm
 		return $this->characters;
 	}
 
+	public function getAuth()
+	{
+		return $this->auth;
+	}
+
     /**
      * @return IEmulator
      */
@@ -322,4 +336,122 @@ class Realm
 			return false;
 		}
 	}
+
+    /**
+     * Get realm uptime
+     * @param Boolean $realtime
+     * @return Boolean
+     */
+    public function getUptime($realtime = false)
+    {
+        if($this->startTime == null){
+            if(!$realtime)
+            {
+                $this->startTime = $this->CI->cache->get("starttime_".$this->getId());
+            }
+
+            if ($this->startTime == null){
+                $this->startTime = $this->getAuth()->getStartTime();
+            }
+
+            if ($this->startTime == null){
+                return null;
+            }
+        }
+
+        // Cache it for 5 minutes
+        $this->CI->cache->save("starttime_".$this->id, $this->startTime, 60*5);
+
+        $startTime = DateTime::createFromFormat('U', $this->startTime);
+        $startTime->setTimezone(new DateTimeZone("UTC"));
+        $currentTime = new DateTime();
+        $currentTime->setTimezone(new DateTimeZone("UTC"));
+
+        $interval = $currentTime->diff($startTime);
+
+        $diffStr = "";
+
+        if ($interval->m > 0){
+            $diffStr .= $interval->m . lang("months") . " ";
+        }
+        if ($interval->d > 0){
+            $diffStr .= $interval->d . lang("days") . " ";
+        }
+        if ($interval->h > 0){
+            $diffStr .= $interval->h . lang("hours") . " ";
+        }
+        if ($interval->i > 0){
+            $diffStr .= $interval->i . lang("minutes") . " ";
+        }
+        if ($interval->s > 0){
+            $diffStr .= $interval->s . lang("seconds") . " ";
+        }
+        $diffStr = trim($diffStr);
+
+        return $diffStr;
+    }
+
+    /**
+     * Get realm revision
+     * @param Boolean $realtime
+     * @return Boolean
+     */
+    public function getRevision($realtime = false)
+    {
+        if($this->revision != null)
+        {
+            return $this->revision;
+        }
+        else
+        {
+            if(!$realtime)
+            {
+                $data = $this->CI->cache->get("revision_".$this->getId());
+
+                if($data)
+                {
+                    return $data;
+                }
+            }
+
+            $this->revision = $this->getAuth()->getRevision();
+
+            // Cache it for 5 minutes
+            $this->CI->cache->save("revision_".$this->id, $this->revision, 60*5);
+
+            return $this->revision;
+        }
+    }
+
+    /**
+     * Get max player count this session
+     * @param Boolean $realtime
+     * @return Boolean
+     */
+    public function getMaxPlayerCount($realtime = false)
+    {
+        if($this->maxPlayers != null)
+        {
+            return $this->maxPlayers;
+        }
+        else
+        {
+            if(!$realtime)
+            {
+                $data = $this->CI->cache->get("maxplayers_".$this->getId());
+
+                if($data)
+                {
+                    return $data;
+                }
+            }
+
+            $this->maxPlayers = $this->getAuth()->getMaxPlayers();
+
+            // Cache it for 5 minutes
+            $this->CI->cache->save("maxplayers_".$this->id, $this->maxPlayers, 60*5);
+
+            return $this->maxPlayers;
+        }
+    }
 }

@@ -80,6 +80,16 @@ class Realms
 						"dbdriver" => "mysqli",
 						"port" => (array_key_exists("override_port_char", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
 						"pconnect" => false,
+					),
+
+					"auth" => array(
+						"hostname" => (array_key_exists("override_hostname_auth", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
+						"username" => (array_key_exists("override_username_auth", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
+						"password" => (array_key_exists("override_password_auth", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
+						"database" => $realm['auth_database'],
+						"dbdriver" => "mysqli",
+						"port" => (array_key_exists("override_port_auth", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
+						"pconnect" => false,
 					)
 				);
 

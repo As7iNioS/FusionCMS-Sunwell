@@ -28,11 +28,11 @@ $lang['minute'] = "minute";
 $lang['second'] = "second";
 
 // Plural forms
-$lang['months'] = "months";
-$lang['days'] = "days";
-$lang['hours'] = "hours";
-$lang['minutes'] = "minutes";
-$lang['seconds'] = "seconds";
+$lang['months'] = "m.";
+$lang['days'] = "d.";
+$lang['hours'] = "h.";
+$lang['minutes'] = "m.";
+$lang['seconds'] = "s.";
 
 // Permission errors
 $lang['denied'] = "Permission denied";

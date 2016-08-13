@@ -38,6 +38,9 @@
 		<label for="world">World database</label>
 		<input type="text" id="world" name="world" value="{$realm->getConfig('world_database')}" />
 
+		<label for="world">Auth database</label>
+		<input type="text" id="auth" name="auth" value="{$realm->getConfig('auth_database')}" />
+
 		<label for="cap">Max allowed players online</label>
 		<input type="text" id="cap" name="cap" value="{$realm->getCap()}" />
 

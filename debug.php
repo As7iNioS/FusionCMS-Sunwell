@@ -64,13 +64,20 @@ if($c1)
 			$world['password'] = (array_key_exists("override_password_world", $row) && !empty($row['override_password_world'])) ? $row['override_password_world'] : $row['password'];
 			$world['port'] = (array_key_exists("override_port_world", $row) && !empty($row['override_port_world'])) ? ":".$row['override_port_world'] : "" ;
 
+            $auth['hostname'] = (array_key_exists("override_hostname_auth", $row) && !empty($row['override_hostname_auth'])) ? $row['override_hostname_auth'] : $row['hostname'];
+            $auth['username'] = (array_key_exists("override_username_auth", $row) && !empty($row['override_username_auth'])) ? $row['override_username_auth'] : $row['username'];
+            $auth['password'] = (array_key_exists("override_password_auth", $row) && !empty($row['override_password_auth'])) ? $row['override_password_auth'] : $row['password'];
+            $auth['port'] = (array_key_exists("override_port_auth", $row) && !empty($row['override_port_auth'])) ? ":".$row['override_port_auth'] : "" ;
+
 			$r_char[$row['id']] = mysql_connect($char['hostname'].$char['port'], $char['username'], $char['password']) or die("<div class='error'>".$row['realmName']." error:".mysql_error()."</div>");
 			$r_world[$row['id']] = mysql_connect($world['hostname'].$world['port'], $world['username'], $world['password']) or die("<div class='error'>".$row['realmName']." error:".mysql_error()."</div>");
+			$r_auth[$row['id']] = mysql_connect($auth['hostname'].$auth['port'], $auth['username'], $auth['password']) or die("<div class='error'>".$row['realmName']." error:".mysql_error()."</div>");
 
 			echo "<div class='realm'>Realm #".$row['id']." (".$row['realmName'].") connections (world & characters) successful</div>";
 
 			mysql_select_db($row['char_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysql_error()."</div>");
 			mysql_select_db($row['world_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysql_error()."</div>");
+			mysql_select_db($row['auth_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysql_error()."</div>");
 
 			try {
 				$connect = fsockopen($row['hostname'], $row['realm_port'], $errno, $errstr, 1.5);

@@ -74,6 +74,7 @@ class Realmmanager extends MX_Controller
 		$data['password'] = $this->input->post('password');
 		$data['char_database'] = $this->input->post('characters'); 
 		$data['world_database'] = $this->input->post('world');
+		$data['auth_database'] = $this->input->post('auth');
 		$data['cap'] = $this->input->post('cap');
 		$data['realm_port'] = $this->input->post('port');
 		$data['emulator'] = $this->input->post('emulator');
@@ -90,6 +91,11 @@ class Realmmanager extends MX_Controller
 		$data['override_username_world'] = $this->input->post('override_username_world');
 		$data['override_password_world'] = $this->input->post('override_password_world');
 		$data['override_port_world'] = $this->input->post('override_port_world');
+
+		$data['override_hostname_auth'] = $this->input->post('override_hostname_auth');
+		$data['override_username_auth'] = $this->input->post('override_username_auth');
+		$data['override_password_auth'] = $this->input->post('override_password_auth');
+		$data['override_port_auth'] = $this->input->post('override_port_auth');
 
 		if(!is_numeric($data['cap']))
 		{
@@ -129,6 +135,7 @@ class Realmmanager extends MX_Controller
 
 		$data['char_database'] = $this->input->post('characters'); 
 		$data['world_database'] = $this->input->post('world');
+		$data['auth_database'] = $this->input->post('auth');
 		$data['cap'] = $this->input->post('cap');
 		$data['realm_port'] = $this->input->post('port');
 		$data['emulator'] = $this->input->post('emulator');

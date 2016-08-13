@@ -29,10 +29,10 @@ $lang['second'] = "sek.";
 
 // Plural forms
 $lang['months'] = "msc.";
-$lang['days'] = "dn.";
-$lang['hours'] = "godz.";
-$lang['minutes'] = "min.";
-$lang['seconds'] = "sek.";
+$lang['days'] = "d.";
+$lang['hours'] = "g.";
+$lang['minutes'] = "m.";
+$lang['seconds'] = "s.";
 
 // Permission errors
 $lang['denied'] = "Brak uprawnień";
