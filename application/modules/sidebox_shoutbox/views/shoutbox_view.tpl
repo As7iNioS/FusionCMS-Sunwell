@@ -1,3 +1,4 @@
+{literal}
 <script type="text/javascript">
 	var shoutCount = {$count},
 		shoutsPerPage = {$shoutsPerPage},
@@ -108,7 +109,7 @@
 	};
 	{/literal}
 </script>
-
+{/literal}
 <div id="shoutbox">
 {if $logged_in == false || !hasPermission("shout", "sidebox_shoutbox")}
 	<form onSubmit="UI.alert('{lang("log_in", "sidebox_shoutbox")}');return false;">

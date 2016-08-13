@@ -1,6 +1,5 @@
-<article class="main_box">
-	<a class="main_box_top">{$headline}</a>
-	<div class="main_box_body">
+
+    <div class="page-title">{$headline}</div>
+	<div class="page-container">
 		{$content}
 	</div>
-</article>

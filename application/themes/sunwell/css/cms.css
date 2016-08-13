@@ -34,18 +34,17 @@
 
 /* Image slider background element */
 #slider_wrapper {
-	width:708px;
-	height:205px;
-	background-color:#F0F0F0;
-	border:1px solid white;
+	width:80%;
+	height:auto;
+        margin: 0 auto;
 }
 
 /* Image slider element */
 #slider {
 	margin-left:2px;
 	margin-top:2px;
-	width:704px;
-	height:201px;
+	width:100%;
+	height:auto;
 }
 
 /* Slider text bar */
@@ -485,46 +484,14 @@ input[type="email"]:focus {
 
 /* Online players bar and realm bar (used on UCP, profiles) */
 .online_realm_button, #ucp_characters h1 {
-	border:1px solid #b7b7b7;
-	background-color:#dbdbdb;
-	background-image: linear-gradient(bottom, #DBDBDB 0%, #E7E7E7 100%);
-	background-image: -o-linear-gradient(bottom, #DBDBDB 0%, #E7E7E7 100%);
-	background-image: -moz-linear-gradient(bottom, #DBDBDB 0%, #E7E7E7 100%);
-	background-image: -webkit-linear-gradient(bottom, #DBDBDB 0%, #E7E7E7 100%);
-	background-image: -ms-linear-gradient(bottom, #DBDBDB 0%, #E7E7E7 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #DBDBDB),
-		color-stop(1, #E7E7E7)
-	);
+	
 	text-shadow:1px 1px 0px #ffffff;
-	box-shadow:0px 1px 0px #fff inset;
-	-webkit-box-shadow:0px 1px 0px #fff inset;
-	-moz-box-shadow:0px 1px 0px #fff inset;
 	color:#666;
 }
 
 .online_realm_button:hover {
-	border:1px solid #162937;
-	background-color:#314b64;
-	background-image: linear-gradient(bottom, #2e465d 0%, #3f576f 100%);
-	background-image: -o-linear-gradient(bottom, #2e465d 0%, #3f576f 100%);
-	background-image: -moz-linear-gradient(bottom, #2e465d 0%, #3f576f 100%);
-	background-image: -webkit-linear-gradient(bottom, #2e465d 0%, #3f576f 100%);
-	background-image: -ms-linear-gradient(bottom, #2e465d 0%, #3f576f 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #2e465d),
-		color-stop(1, #3f576f)
-	);
+    background-color: rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0px #000;
-	box-shadow:0px 1px 0px #497ca4 inset;
-	-webkit-box-shadow:0px 1px 0px #497ca4 inset;
-	-moz-box-shadow:0px 1px 0px #497ca4 inset;
 	color:#c8dbee;
 }
 
