@@ -128,7 +128,7 @@
 		<!-- Top bar -->
 		<header>
 			<div class="center_1020">
-				<a href="{$url}admin/" class="logo"></a>
+				<a href="{$url}admin/" class="logosun"></a>
 
 				<!-- Top menu -->
 				<aside class="right">
@@ -199,27 +199,6 @@
 		<!-- Footer -->
 		<footer>
 			<div class="center_1020">
-				<div class="divider2"></div>
-				<aside id="logo"><a href="#" class="logo"></a></aside>
-				<div class="divider"></div>
-				<aside id="links">
-					<a href="http://www.fusion-hub.com" target="_blank">FusionHub</a>
-					<a href="http://www.fusion-hub.com/modules" target="_blank">Modules</a>
-					<a href="http://www.fusion-hub.com/themes" target="_blank">Themes</a>
-					<a href="http://www.fusion-hub.com/support" target="_blank">Support</a>
-				</aside>
-				<div class="divider"></div>
-				<aside id="facebook">
-					<h1>Like us on Facebook!</h1>
-					<div id="fb_icon"></div>
-					<a href="http://facebook.com/HeroicForge" target="_blank">HeroicForge</a>
-				</aside>
-				<div class="divider"></div>
-				<aside id="html5">
-					<a href="http://www.w3.org/html/logo/" data-tip="This website makes use of the next generation of web technologies">
-						<img src="{$url}application/themes/admin/images/html5.png">
-					</a>
-				</aside>
 				<div class="divider"></div>
 				<div class="clear"></div>
 			</div>

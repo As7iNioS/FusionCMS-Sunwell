@@ -31,7 +31,7 @@ a:link, a:visited
 #content_ajax ul, #content_ajax ol{
     margin: 0px 40px;
 }
-#content_ajax {margin-top: 20px;}
+#content_ajax {margin: 20px;}
 a:hover
  {
 	text-decoration: underline;
