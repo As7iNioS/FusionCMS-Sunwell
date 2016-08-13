@@ -43,45 +43,6 @@ Information
         {$page}
     </div>
     <div id="content-right">
-        <center>
-            <div id="realmstatuscode">
-                <div style="height: 14px;"></div>
-                <span class="zalogowany-jako-username" style="font-size: 20px;">Graczy online: 0</span>
-                <div class="realm-border"
-                     onmouseover="tooltip.show('<CENTER><B>Typ realmu:</B> PvP<BR><B><FONT COLOR=#7dafff>0</FONT></B> vs <B><FONT COLOR=#ff3333>0</FONT></B><BR><B>Rev:</B> 3846<BR><BR></CENTER><B>Exp kill rate:</B> 1x<BR><B>Exp quest rate:</B> 1x<BR><B>Exp exploration rate:</B> 1x<BR><B>Drop rate:</B> 1x<BR><B>Gold rate:</B> 1x<BR><B>Reputation rate:</B> 1x<BR><B>Honor rate:</B> 1x<BR><B>Profession rate:</B> 1x');"
-                     onmouseout="tooltip.hide();">
-                    <img alt="" src="{$path}themes/sunwell/images/rightpanel/status_down.png" class="realm-status">
-                    <div class="realm-name">Feronis</div>
-                    <div class="realm-text">Up: 0m <span
-                                style="color: darkcyan; font-weight: bold;">&nbsp;|&nbsp;</span> Players: 0 (max 2235)
-                    </div>
-                </div>
-                <div class="realm-border"
-                     onmouseover="tooltip.show('<CENTER><B>Typ realmu:</B> PvP<BR><B><FONT COLOR=#7dafff>0</FONT></B> vs <B><FONT COLOR=#ff3333>0</FONT></B><BR><B>Rev:</B> 3890<BR><BR></CENTER><B>Exp kill rate:</B> 20x<BR><B>Exp quest rate:</B> 20x<BR><B>Exp exploration rate:</B> 1x<BR><B>Drop rate:</B> 3x<BR><B>Gold rate:</B> 2x<BR><B>Reputation rate:</B> 2x<BR><B>Honor rate:</B> 2x<BR><B>Profession rate:</B> 2x');"
-                     onmouseout="tooltip.hide();">
-                    <img alt="" src="{$path}themes/sunwell/images/rightpanel/status_down.png" class="realm-status">
-                    <div class="realm-name">Stormrage</div>
-                    <div class="realm-text">Up: 0m <span
-                                style="color: darkcyan; font-weight: bold;">&nbsp;|&nbsp;</span> Players: 0 (max 1204)
-                    </div>
-                </div>
-            </div>
-        </center>
-        <div class="right-spacer"></div>
-        <center>
-            <!--<form action="?login" method="POST" onsubmit="return DoLogin()">
-            <span class="field-title-text">Account login:</span><br>
-            <input type="text" class="field-wide" name="username" id="loginUsername"><br><br>
-            <span class="field-title-text">Account password:</span><br>
-            <input type="password" class="field-wide" name="" id="loginPassTemp"><br><br>
-            <input type="hidden" name="password" id="loginPassword">
-            <div style="margin: 0px 0px 5px 36px; text-align: left; height: 20px;">
-            <input type="checkbox" name="remember" style="float: left;"><div style="float: left; margin: -1px 0px 0px 6px; color: rgb(229,195,79);">Remember me!</div>
-            </div>
-            <button type="submit" class="button-normal">Log in</button> <button type="button" class="button-normal" style="margin-left: 32px;" onclick="document.location='?index.php?id=register';">Register</button>
-            </form><div style="height: 30px;"></div>
-            <a href="?index.php?id=resetpass">Forgotten password? Click here.</a> -->
-        </center>
         <div class="rightcenter">
             <span class="titleright">Navigation</span>
             <ul>
