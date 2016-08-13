@@ -98,7 +98,6 @@ class Accounts extends MX_Controller
 				'internal_details' => $internal_details,
 				'external_details' => $data,
 				'access_id'  => $this->accounts_model->getAccessId($data['id']),
-				'expansions' => $this->realms->getExpansions(),
 				'guestId' => $this->config->item('default_guest_group'),
 				'groups' => $this->acl_model->getGroups(),
 				'userGroup' => $userGroup[0]['id'],
@@ -153,7 +152,6 @@ class Accounts extends MX_Controller
 			die();
 		}
 
-		$external_account_data[column("account", "expansion")] = $this->input->post("expansion");
 		$external_account_data[column("account", "email")] = $this->input->post("email");
 		
 
@@ -163,7 +161,7 @@ class Accounts extends MX_Controller
 
 			foreach($_POST as $k => $v)
 			{
-				if($v !== '' && !in_array($k, array("vp", "dp", "nickname", "email", "group", "expansion", "password", "gm_level")))
+				if($v !== '' && !in_array($k, array("vp", "dp", "nickname", "email", "group", "password", "gm_level")))
 				{
 					$permissionParts = explode("-", $k);
 

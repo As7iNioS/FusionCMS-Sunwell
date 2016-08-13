@@ -80,7 +80,6 @@ class Register extends MX_Controller
 						"email_error" => $this->emailError,
 						"password_error" => "",
 						"password_confirm_error" => "",
-						"expansions" => $this->realms->getExpansions(),
 						"use_captcha" => $this->config->item('use_captcha'),
 						"captcha_error" => "",
 						"url" => $this->template->page_url
@@ -116,14 +115,6 @@ class Register extends MX_Controller
 		}
 		else
 		{
-			if($this->input->post("register_expansion") != false)
-			{
-				if(!array_key_exists($this->input->post("register_expansion"), $this->realms->getExpansions()))
-				{
-					die("Hey, don't modify the expansion value...");
-				}
-			}
-
 			if(!$this->username_check($this->input->post("register_username")))
 			{
 				die();
@@ -155,7 +146,7 @@ class Register extends MX_Controller
 
 			if($this->config->item('enable_email_activation'))
 			{
-				$key = $this->activation_model->add($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'), $this->input->post('register_expansion'));
+				$key = $this->activation_model->add($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
 				
 				$link = base_url().'register/activate/'.$key;
 
@@ -164,7 +155,7 @@ class Register extends MX_Controller
 			else
 			{
 				//Register our user.
-				$this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'), $this->input->post('register_expansion'));
+				$this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
 				
 				// Log in
 				$sha_pass_hash = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));
@@ -229,7 +220,7 @@ class Register extends MX_Controller
 
 		$this->activation_model->remove($account['id'], $account['username'], $account['email']);
 
-		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], $account['expansion'], true);
+		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], true);
 		
 		// Log in
 		$this->user->setUserDetails($account['username'], $account['password']);

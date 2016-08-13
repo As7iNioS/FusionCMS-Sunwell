@@ -18,7 +18,6 @@ class External_account_model extends CI_Model
 	private $joindate;
 	private $last_ip;
 	private $last_login;
-	private $expansion;
 	private $account_cache;
 
 	public function __construct()
@@ -40,7 +39,6 @@ class External_account_model extends CI_Model
 			$this->joindate =  "";
 			$this->last_ip =  "";
 			$this->last_login = "";
-			$this->expansion = 0;
 		}
 	}
 
@@ -84,7 +82,6 @@ class External_account_model extends CI_Model
 			$this->joindate = $result["joindate"];
 			$this->last_ip = $result["last_ip"];
 			$this->last_login = $result["last_login"];
-			$this->expansion = $result["expansion"];
 
 			return true;
 		}
@@ -97,7 +94,6 @@ class External_account_model extends CI_Model
 			$this->joindate =  "";
 			$this->last_ip =  "";
 			$this->last_login = "";
-			$this->expansion = 0;
 
 			return false;
 		}
@@ -108,11 +104,10 @@ class External_account_model extends CI_Model
      * @param String $username
      * @param String $password
      * @param String $email
-     * @param $expansion
      * @param bool $isHashed
      * @param int $active
      */
-	public function createAccount($username, $password, $email, $expansion, $isHashed = false, $active = 1)
+	public function createAccount($username, $password, $email, $isHashed = false, $active = 1)
 	{
 		$this->connect();
 
@@ -122,7 +117,6 @@ class External_account_model extends CI_Model
 			column("account", "username") => $username,
 			column("account", "password") => ($isHashed) ? $password : $this->user->createHash($username, $password),
 			column("account", "email") => $email,
-			column("account", "expansion") => $expansion,
 			column("account", "last_ip") => $this->input->ip_address(),
 			column("account", "joindate") => date("Y-m-d"),
 			column("account", "active") => $active
@@ -348,15 +342,7 @@ class External_account_model extends CI_Model
 		$this->connection->where(column("account", "username"), $username);
 		$this->connection->update(table("account"), array(column("account", "email") => $newEmail));
 	}
-	
-	public function setExpansion($username, $newExpansion)
-	{
-		$this->connect();
 
-		$this->connection->where(column("account", "username"), $username);
-		$this->connection->update(table("account"), array(column("account", "expansion") => $newExpansion));
-	}
-	
 	public function setRank($userId, $newRank)
 	{
 		$this->connect();
@@ -523,10 +509,5 @@ class External_account_model extends CI_Model
 	public function getLastIp()
 	{
 		return $this->last_ip;
-	}
-
-	public function getExpansion()
-	{
-		return $this->expansion;
 	}
 }

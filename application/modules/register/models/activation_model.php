@@ -2,13 +2,12 @@
 
 class Activation_model extends CI_Model
 {
-	public function add($username, $password, $email, $expansion)
+	public function add($username, $password, $email)
 	{
 		$data = array(
 			'username' => $username,
 			'email' => $email,
 			'password' =>  $this->user->createHash($username, $password),
-			'expansion' => $expansion,
 			'timestamp' => time(),
 			'ip' => $this->input->ip_address(),
 			'key' => sha1($username.$email.$password.time())

@@ -303,25 +303,6 @@ class Realms
 	}
 
 	/**
-	 * Get enabled expansions
-	 */
-	public function getExpansions()
-	{
-		$expansions = $this->getEmulator()->getExpansions();
-		$return = array();
-
-		foreach($expansions as $key => $value)
-		{
-			if(!in_array($key, $this->CI->config->item("disabled_expansions")))
-			{
-				$return[$key] = $value;
-			}
-		}
-
-		return $return;
-	}
-
-	/**
 	* Format an avatar path as in Class-Race-Gender-Level
 	* @return String
 	*/

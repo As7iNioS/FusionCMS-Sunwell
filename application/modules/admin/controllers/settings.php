@@ -25,7 +25,6 @@ class Settings extends MX_Controller
 		$config['title'] = $this->config->item('title');
 		$config['server_name'] = $this->config->item('server_name');
 		$config['realmlist'] = $this->config->item('realmlist');
-		$config['disabled_expansions'] = $this->config->item('disabled_expansions');
 		$config['keywords'] = $this->config->item('keywords');
 		$config['description'] = $this->config->item('description');
 		$config['analytics'] = $this->config->item('analytics');
@@ -87,27 +86,6 @@ class Settings extends MX_Controller
 		$fusionConfig->set('cdn', $this->input->post('cdn'));
 		$fusionConfig->set('has_smtp', $this->input->post('has_smtp'));
 
-		switch($this->input->post('disabled_expansions'))
-		{
-			case "wotlk":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Cataclysm"));
-			break;
-
-			case "tbc":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"));
-			break;
-
-			case "none":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("TBC"), $this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"));
-			break;
-
-			default:
-				$disabled_expansions = array();
-			break;
-		}
-
-		$fusionConfig->set('disabled_expansions', $disabled_expansions);
-		
 		$fusionConfig->save();
 
 		die('yes');

@@ -10,8 +10,7 @@ class Info extends MX_Controller
 			"currentIp" => $this->input->ip_address(),
 			"lastIp" => $this->user->getLastIp(),
 			"vp" => $this->user->getVp(),
-			"dp" => $this->user->getDp(),
-			"expansion" => $this->realms->getEmulator()->getExpansionName($this->user->getExpansion())
+			"dp" => $this->user->getDp()
 		);
 					
 		$page = $this->template->loadPage("info.tpl", $data);

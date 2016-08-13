@@ -17,7 +17,6 @@ $lang['user_panel'] = "User panel";
 $lang['change_avatar'] = "Change avatar";
 $lang['nickname'] = "Nickname";
 $lang['location'] = "Location";
-$lang['expansion'] = "Expansion";
 $lang['account_rank'] = "Account rank";
 $lang['voting_points'] = "Voting points";
 $lang['donation_points'] = "Donation points";
@@ -44,14 +43,6 @@ $lang['changes_saved'] = "Changes have been saved!";
 $lang['invalid_pw'] = "Incorrect password!";
 $lang['nickname_taken'] = "Nickname is already taken";
 $lang['invalid_language'] = "Invalid language";
-
-// Change expansion
-$lang['change_expansion'] = "Change expansion";
-$lang['expansion_changed'] = "Your expansion has been changed.";
-$lang['back_to_ucp'] = "Click here to go back to the User panel!";
-$lang['invalid_expansion'] = "The expansion you selected does not exists!";
-$lang['expansion'] = "Expansion";
-$lang['none'] = "None";
 
 /**
  * Only translate these if World of Warcraft does it themselves,

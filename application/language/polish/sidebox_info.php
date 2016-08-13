@@ -12,7 +12,6 @@
  *	will automatically look in that folder too.
  */
 
-$lang['expansion'] = "Dodatek";
 $lang['last_ip'] = "Ostatnie IP";
 $lang['current_ip'] = "Obecne IP";
 $lang['vp'] = "VP";

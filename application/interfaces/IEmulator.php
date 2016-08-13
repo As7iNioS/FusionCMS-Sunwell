@@ -2,9 +2,6 @@
 
 interface IEmulator
 {
-	public function getExpansions();
-	public function getExpansionName($id);
-	public function getExpansionId($name);
 	public function sendCommand($command);
 	public function hasConsole();
 	public function hasStats();

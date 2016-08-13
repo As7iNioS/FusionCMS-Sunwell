@@ -138,14 +138,6 @@
 			<label for="realmlist">Realmlist</label>
 			<input type="text" id="realmlist" placeholder="logon.myserver.com" value="{$config.realmlist}" />
 
-			<label for="disabled_expansions">Max expansion</label>
-			<select id="disabled_expansions">
-				<option value="cata" {if count($config.disabled_expansions) == 0}selected{/if}>Cataclysm</option>
-				<option value="wotlk" {if count($config.disabled_expansions) == 1}selected{/if}>Wrath of the Lich King</option>
-				<option value="tbc" {if count($config.disabled_expansions) == 2}selected{/if}>The Burning Crusade</option>
-				<option value="none" {if count($config.disabled_expansions) == 3}selected{/if}>No expansion allowed</option>
-			</select>
-
 			<label for="keywords">Search engine: keywords (separated by comma)</label>
 			<input type="text" id="keywords" placeholder="world of warcraft,wow,private server,pvp" value="{$config.keywords}" />
 

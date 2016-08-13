@@ -9,8 +9,7 @@
 
     "permissions": {
         "view": {"default" : true, "description": "View the ucp screen." },
-        "canUpdateAccountSettings": {"default": true, "description": "Can update the account settings as password, location."},
-        "canChangeExpansion": {"default" : false, "description": "Can update the expansion." }
+        "canUpdateAccountSettings": {"default": true, "description": "Can update the account settings as password, location."}
     },
 
     "roles": {
@@ -26,8 +25,7 @@
             "description": "Can update the account info",
 
             "permissions": {
-                "canUpdateAccountSettings": true,
-                "canChangeExpansion": false
+                "canUpdateAccountSettings": true
             }
         }
     },

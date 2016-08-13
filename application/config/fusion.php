@@ -75,21 +75,6 @@ $config['has_smtp'] = 1;
 
 /*
 |--------------------------------------------------------------------------
-| Disabled expansions
-|--------------------------------------------------------------------------
-|
-| You may disable expansions by their expansion ids, in case you're
-| running a WoTLK server and don't want accounts to have Cataclysm
-| expansion enabled.
-|
-| array(3) would disable Cataclysm while array(2,3) would disable both
-| WoTLK and Cataclysm.
-|
-*/
-$config['disabled_expansions'] = array(3);
-
-/*
-|--------------------------------------------------------------------------
 | Custom header image
 |--------------------------------------------------------------------------
 */

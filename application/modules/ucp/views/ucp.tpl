@@ -24,14 +24,6 @@
 					</td>
 				</tr>
 				<tr>
-					<td width="10%"><img src="{$url}application/images/icons/plugin.png" /></td>
-					<td width="40%">Expansion</td>
-					<td width="50%">
-						<a href="{$url}ucp/expansion" data-tip="Change expansion" style="float:right;margin-right:10px;"><img src="{$url}application/images/icons/cog.png" align="absbottom" /></a>
-						{$expansion}
-					</td>
-				</tr>
-				<tr>
 					<td width="10%"><img src="{$url}application/images/icons/award_star_bronze_1.png" /></td>
 					<td width="40%">{lang("account_rank", "ucp")}</td>
 					<td width="50%">{foreach from=$groups item=group} <span {if $group.color}style="color:{$group.color}"{/if}>{$group.name}</span> {/foreach}</td>
@@ -85,10 +77,6 @@
 
 	{if hasPermission('canUpdateAccountSettings', 'ucp') && $config['settings']}
 		<a href="{$url}{$config.settings}" style="background-image:url({$url}application/modules/ucp/images/account_settings.jpg)"></a>
-	{/if}
-
-	{if hasPermission('canChangeExpansion', "ucp") && $config['expansion']}
-        <a href="{$url}{$config.expansion}" style="background-image:url({$url}application/modules/ucp/images/change_expansion.jpg)"></a>
 	{/if}
 
 	{if hasPermission('view', "gm") && $config['gm']}

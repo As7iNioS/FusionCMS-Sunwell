@@ -191,7 +191,6 @@ var Settings = {
 			title:$("#title").val(),
 			server_name:$("#server_name").val(),
 			realmlist:$("#realmlist").val(),
-			disabled_expansions:$("#disabled_expansions").val(),
 			keywords:$("#keywords").val(),
 			description:$("#description").val(),
 			analytics:$("#analytics").val(),

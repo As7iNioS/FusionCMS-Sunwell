@@ -17,7 +17,6 @@ class User
 	private $username;
 	private $password;
 	private $email;
-	private $expansion;
 	private $online;
 	private $vp;
 	private $dp;
@@ -58,12 +57,11 @@ class User
 				'username' => $this->CI->external_account_model->getUsername(),
 				'password' => $this->CI->external_account_model->getShaPassHash(),
 				'email' => $this->CI->external_account_model->getEmail(),
-				'expansion' => $this->CI->external_account_model->getExpansion(),
 				'online' => true,
 				'register_date' => preg_replace("/\s.*/", "", $this->CI->external_account_model->getJoinDate()),
 				'last_ip' => $this->CI->external_account_model->getLastIp(),
 				'nickname' => $this->CI->internal_user_model->getNickname(),
-				'language' => $this->CI->internal_user_model->getLanguage(),
+				'language' => $this->CI->internal_user_model->getLanguage()
 			);
 
 			// Set the session with the above data
@@ -288,7 +286,6 @@ class User
 			$this->username = $this->CI->session->userdata('username');
 			$this->password = $this->CI->session->userdata('password');
 			$this->email = $this->CI->session->userdata('email');
-			$this->expansion = $this->CI->session->userdata('expansion');
 			$this->online = true;
 			$this->register_date = $this->CI->session->userdata('register_date');
 			$this->last_ip = $this->CI->session->userdata('last_ip');
@@ -306,7 +303,6 @@ class User
 			$this->username =  0;
 			$this->password = 0;
 			$this->email = null;
-			$this->expansion = 0;
 			$this->online = false;
 			$this->vp = 0;
 			$this->dp = 0;
@@ -494,16 +490,6 @@ class User
 	}
 
 	/**
-	 * Get the expansion of the user
-	 * @return int
-	 */
-	public function getExpansion()
-	{
-		$this->getUserData();
-		return $this->expansion;
-	}
-
-	/**
 	 * Get if the user is online
 	 * @return boolean
 	 */
@@ -606,16 +592,6 @@ class User
 		if(!$newEmail) return;
 		$this->CI->external_account_model->setEmail($this->username, $newEmail);
 		$this->CI->session->set_userdata('email', $newEmail);
-	}
-
-	/**
-	 * Set the expansion of the user
-	 * @param $newExpansion
-	 */
-	public function setExpansion($newExpansion)
-	{
-		$this->CI->external_account_model->setExpansion($this->username, $newExpansion);
-		$this->CI->session->set_userdata('expansion', $newExpansion);
 	}
 
 	/**

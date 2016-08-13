@@ -28,16 +28,6 @@
 				<span id="password_confirm_error">{$password_confirm_error}</span>
 			</td>
 		</tr>
-		<tr>
-			<td><label for="register_expansion">{lang("expansion", "register")}</label></td>
-			<td>
-				<select id="register_expansion" name="register_expansion">
-					{foreach from=$expansions key=id item=expansion}
-						<option value="{$id}">{$expansion}</option>
-					{/foreach}
-				</select>
-			</td>
-		</tr>
 
 		{if $use_captcha}
 			<tr>

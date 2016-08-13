@@ -33,5 +33,4 @@ $lang['username'] = "Username";
 $lang['email'] = "Email";
 $lang['password'] = "Password";
 $lang['confirm'] = "Confirm password";
-$lang['expansion'] = "Expansion";
 $lang['submit'] = "Create account!";

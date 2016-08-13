@@ -17,7 +17,6 @@ $lang['user_panel'] = "Panel użytkownika";
 $lang['change_avatar'] = "Zmień avatar";
 $lang['nickname'] = "Nick";
 $lang['location'] = "Lokalizacja";
-$lang['expansion'] = "Dodatek";
 $lang['account_rank'] = "Ranga konta";
 $lang['voting_points'] = "Punkty głosowania";
 $lang['donation_points'] = "Punkty premium";
@@ -44,14 +43,6 @@ $lang['changes_saved'] = "Zmiany zostały zapisane!";
 $lang['invalid_pw'] = "Nieprawidłowe hasło!";
 $lang['nickname_taken'] = "Nick jest już zajęty";
 $lang['invalid_language'] = "Nieprawidłowy język";
-
-// Change expansion
-$lang['change_expansion'] = "Zmień dodatek";
-$lang['expansion_changed'] = "Dodatek został zmieniony.";
-$lang['back_to_ucp'] = "Kliknij tu, aby powrócić do panelu użytkownika!";
-$lang['invalid_expansion'] = "Wybrany dodatek nie istnieje!";
-$lang['expansion'] = "Dodatek";
-$lang['none'] = "Brak";
 
 /**
  * Only translate these if World of Warcraft does it themselves,
