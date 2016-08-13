@@ -12,18 +12,18 @@
  *	will automatically look in that folder too.
  */
 
-$lang['username'] = "Username";
-$lang['recover'] = "Recover password!";
-$lang['new_password'] = "Your new password is";
-$lang['your_new_password'] = "your new password";
-$lang['smtp_disabled'] = "This feature is disabled because the server doesn't have SMTP installed.";
-$lang['password_recovery'] = "Password recovery";
-$lang['email_sent'] = "An email has been sent to you with further information. Please check your inbox to proceed.";
-$lang['reset_password'] = "reset your password";
-$lang['email'] = "You have requested to reset your password, to complete the request please navigate to ";
-$lang['doesnt_exist'] = "The user doesn't exist.";
-$lang['go_back'] = "Go back";
-$lang['changed'] = "Your password has been changed! The new password has been sent to your email adress.";
-$lang['invalid'] = "Invalid key.";
-$lang['no_key'] = "No key entered.";
-$lang['error_while_inserting'] = "Error while inserting the key.";
+$lang['username'] = "Nazwa użytkownika";
+$lang['recover'] = "Odzyskaj hasło!";
+$lang['new_password'] = "Twoje nowe hasło to";
+$lang['your_new_password'] = "twoje nowe hasło";
+$lang['smtp_disabled'] = "Ta opcja jest zablokowana, ponieważ serwer nie ma skonfigurowanego STMP.";
+$lang['password_recovery'] = "Odzyskanie hasła";
+$lang['email_sent'] = "Email z dalszymi informacjami został do Ciebie wysłany. Sprawdź skrzynkę odbiorczą, aby kontynuować.";
+$lang['reset_password'] = "zmień swoje hasło";
+$lang['email'] = "Zażądano niedawno zresetowania hasła. Aby kontynuować, udaj się pod wskazany adres ";
+$lang['doesnt_exist'] = "Użytkownik nie istnieje.";
+$lang['go_back'] = "Wstecz";
+$lang['changed'] = "Twoje hasło zostało zmienione. Nowe hasło zostało wysłane na Twój adres email.";
+$lang['invalid'] = "Nieprawidłowy klucz.";
+$lang['no_key'] = "Nie podano klucza.";
+$lang['error_while_inserting'] = "Błąd podczas wprowadzania klucza.";

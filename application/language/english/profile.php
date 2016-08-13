@@ -15,7 +15,6 @@
 $lang['doesnt_exist'] = "User doesn't exist";
 $lang['doesnt_exist_long'] = "The requested user does not exist.";
 $lang['nickname'] = "Nickname";
-$lang['location'] = "Location";
 $lang['status'] = "Status";
 $lang['signed_up'] = "Signed up";
 $lang['rank'] = "Rank";
