@@ -19,13 +19,9 @@
 			Please manage the group visibility via <a href="{$url}admin/aclmanager/groups">the group manager</a>
 		</div>
 
-		<label for="Pages_content">
-			Content
-		</label>
+		<label for="pages_content">Content</label>
+		<input type="hidden" id="pages_content" data-type="textarea" value="{htmlspecialchars($page.content)}"/>
 	</form>
-		<div style="padding:10px;">
-			<textarea name="pages_content" class="tinymce" id="pages_content" cols="30" rows="10">{$page.content}</textarea>
-		</div>
 	<form onSubmit="Pages.send({$page.id}); return false">
 		<input type="submit" value="Save page" />
 	</form>
@@ -35,5 +31,6 @@
 	require([Config.URL + "application/themes/admin/js/mli.js"], function()
 	{
 		new MultiLanguageInput($("#headline"));
+        new MultiLanguageInput($("#pages_content"));
 	});
 </script>

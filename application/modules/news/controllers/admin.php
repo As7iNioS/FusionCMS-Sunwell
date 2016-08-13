@@ -119,15 +119,21 @@ class Admin extends MX_Controller
 		$comments = $this->input->post('comments');
 		$content = $this->input->post('content');
 
-		if(strlen($headline) > 70 || empty($headline))
-		{
-			die("The headline must be between 1-70 characters long");
-		}
+        $headlineParsed = json_decode($headline);
+        foreach ($headlineParsed as $language => $text) {
+            if(strlen($text) > 70 || empty($text))
+            {
+                die("The headline must be between 1-70 characters long - language: $language");
+            }
+        }
 
-		if(empty($content))
-		{
-			die("Content can't be empty");
-		}
+        $contentParsed = json_decode($content);
+        foreach ($contentParsed as $language => $text) {
+            if(empty($text))
+            {
+                die("Content can't be empty - language: $language");
+            }
+        }
 
 		if(in_array($comments, array("1", "yes", "true")))
 		{

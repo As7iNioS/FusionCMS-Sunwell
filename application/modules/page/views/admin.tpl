@@ -42,8 +42,8 @@
 
 		<form onSubmit="Pages.send(); return false">
 			<label for="headline">Headline</label>
-			<input type="text" id="headline" />
-			
+			<input type="hidden" id="headline" />
+
 			<label for="identifier">Unique link identifier (as in mywebsite.com/page/<b>mypage</b>)</label>
 			<input type="text" id="identifier" placeholder="mypage" />
 
@@ -57,13 +57,9 @@
 				Please manage the group visibility via <a href="{$url}admin/aclmanager/groups">the group manager</a> once you have created the page
 			</div>
 
-			<label for="pages_content">
-				Content
-			</label>
+			<label for="pages_content">Content</label>
+			<input type="hidden" id="pages_content" data-type="textarea"/>
 		</form>
-			<div style="padding:10px;">
-				<textarea name="pages_content" class="tinymce" id="pages_content" cols="30" rows="10"></textarea>
-			</div>
 		<form onSubmit="Pages.send(); return false">
 			<input type="submit" value="Submit page" />
 		</form>
@@ -74,5 +70,6 @@
 	require([Config.URL + "application/themes/admin/js/mli.js"], function()
 	{
 		new MultiLanguageInput($("#headline"));
+        new MultiLanguageInput($("#pages_content"));
 	});
 </script>

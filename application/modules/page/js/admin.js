@@ -39,10 +39,11 @@ var Pages = {
 			name: $("#headline").val(),
 			identifier: $("#identifier").val(),
 			rank_needed: $("#rank_needed").val(),
-			content: $("#pages_content").html(),
+			content: $("#pages_content").val(),
 			visibility: $("#visibility").val(),
 			csrf_token_name: Config.CSRF
 		};
+
 
 		$.post(Config.URL + "page/admin/create" + ((id) ? "/" + id : ""), data, function(response)
 		{

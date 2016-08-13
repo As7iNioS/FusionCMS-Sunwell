@@ -45,14 +45,10 @@
 		<form onSubmit="News.send(); return false">
 			<label for="headline">Headline</label>
 			<input type="hidden" id="headline" />
-			
-			<label for="news_content">
-				Content
-			</label>
+
+			<label for="news_content">Content</label>
+			<input type="hidden" id="news_content" data-type="textarea"/>
 		</form>
-			<div style="padding:10px;">
-				<textarea name="news_content" class="tinymce" id="news_content" cols="30" rows="10"></textarea>
-			</div>
 		<form onSubmit="News.send(); return false">
 			<label>Article settings</label>
 
@@ -70,6 +66,7 @@
 <script>
 	require([Config.URL + "application/themes/admin/js/mli.js"], function()
 	{
-		new MultiLanguageInput($("#headline"));
+        new MultiLanguageInput($("#headline"));
+        new MultiLanguageInput($("#news_content"));
 	});
 </script>

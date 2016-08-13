@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Sunwell" uploadOnCheckin="2e1e0776-e592-433d-b75b-4b053ac94624">
+  <component name="PublishConfigData" serverName="Sunwell">
     <serverData>
       <paths name="Sunwell">
         <serverdata>
@@ -20,6 +20,5 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="Sunwell" />
   </component>
 </project>
