@@ -6,14 +6,11 @@
  * @author Xavier Geerinck
  * @author Elliott Robbins
  * @link http://fusion-hub.com
+ * @property CI_DB_driver connection
  */
 
 class External_account_model extends CI_Model
 {
-    /**
-     * @var CI_DB_driver
-     */
-    private $connection;
 	private $id;
 	private $username;
 	private $sha_pass_hash;
@@ -130,12 +127,6 @@ class External_account_model extends CI_Model
 			column("account", "joindate") => date("Y-m-d"),
 			column("account", "active") => $active
 		);
-
-		// Fix for ArcEmu
-		if(get_class($this->realms->getEmulator()) == "Arcemu")
-		{
-			$data['banned'] = 0;
-		}
 
 		$this->connection->insert(table("account"), $data);
 

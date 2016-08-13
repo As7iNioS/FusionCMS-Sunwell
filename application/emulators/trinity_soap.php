@@ -64,7 +64,8 @@ class Trinity_soap implements IEmulator
 			"expansion" => "expansion",
 			"v" => "v",
 			"s" => "s",
-			"sessionkey" => "sessionkey"
+			"sessionkey" => "sessionkey",
+            "active" => "active"
 		),
 
 		"account_access" => array(
