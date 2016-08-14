@@ -37,7 +37,8 @@ class Realmmanager extends MX_Controller
 			'username_world' => ($realm->getConfig('override_username_world')) ? $realm->getConfig('override_username_world') : $realm->getConfig('username'),
 			'password_world' => ($realm->getConfig('override_password_world')) ? $realm->getConfig('override_password_world') : $realm->getConfig('password'),
 			'port_world' => ($realm->getConfig('override_port_world')) ? $realm->getConfig('override_port_world') : 3306,
-			'emulators' => $this->getEmulators()
+			'emulators' => $this->getEmulators(),
+			'patches' => $this->getPatches(),
 		);
 
 		// Load my view
@@ -55,6 +56,13 @@ class Realmmanager extends MX_Controller
 		require("application/config/emulator_names.php");
 
 		return $emulators;
+	}
+
+	private function getPatches()
+	{
+		require("application/config/patch_names.php");
+
+		return $patches;
 	}
 
 	public function delete($id)
@@ -77,6 +85,7 @@ class Realmmanager extends MX_Controller
 		$data['auth_database'] = $this->input->post('auth');
 		$data['cap'] = $this->input->post('cap');
 		$data['realm_port'] = $this->input->post('port');
+		$data['gameBuild'] = $this->input->post('gameBuild');
 		$data['emulator'] = $this->input->post('emulator');
 		$data['console_username'] = $this->input->post('console_username');
 		$data['console_password'] = $this->input->post('console_password');
@@ -138,6 +147,7 @@ class Realmmanager extends MX_Controller
 		$data['auth_database'] = $this->input->post('auth');
 		$data['cap'] = $this->input->post('cap');
 		$data['realm_port'] = $this->input->post('port');
+        $data['gameBuild'] = $this->input->post('gameBuild');
 		$data['emulator'] = $this->input->post('emulator');
 		$data['console_username'] = $this->input->post('console_username');
 
@@ -161,6 +171,11 @@ class Realmmanager extends MX_Controller
 		if(!is_numeric($data['cap']))
 		{
 			die('Cap must be a number');
+		}
+
+		if(!is_numeric($data['gameBuild']))
+		{
+			die('Game build must be a number');
 		}
 
 		if(!is_numeric($data['realm_port']))

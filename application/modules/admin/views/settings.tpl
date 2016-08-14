@@ -102,6 +102,13 @@
 			<label for="port">Realm port (usually 8129)</label>
 			<input type="text" id="port" />
 
+			<label for="gameBuild">Game build (for progress realms)</label>
+			<select id="gameBuild" name="gameBuild">
+				<option value="0" {if 0 == $realm->getConfig('gameBuild')}selected{/if}>Non-progressive realm</option>
+				{foreach from=$patches key=patch_id item=patch_name}
+					<option value="{$patch_id}" {if $patch_id == $realm->getConfig('gameBuild')}selected{/if}>{$patch_name}</option>
+				{/foreach}
+			</select>
 
 			<label for="emulator">Emulator</label>
 			<select id="emulator">

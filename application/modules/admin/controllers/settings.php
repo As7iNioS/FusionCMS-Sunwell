@@ -49,6 +49,7 @@ class Settings extends MX_Controller
 			'url' => $this->template->page_url,
 			'realms' => $this->realms->getRealms(),
 			'emulators' => $this->getEmulators(),
+			'patches' => $this->getPatches(),
 			'config' => $config,
 			'smtp' => $smtp
 		);
@@ -68,6 +69,13 @@ class Settings extends MX_Controller
 		require("application/config/emulator_names.php");
 
 		return $emulators;
+	}
+
+	private function getPatches()
+	{
+		require("application/config/patch_names.php");
+
+		return $patches;
 	}
 
 	public function saveWebsite()
