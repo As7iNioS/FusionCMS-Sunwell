@@ -26,7 +26,7 @@ $config['security_code'] = "1234qwer";
 | Must be located in application/views/NAME and must contain a valid theme manifest
 |
 */
-$config['theme'] = "default";
+$config['theme'] = "sunwell";
 
 /*
 |--------------------------------------------------------------------------
