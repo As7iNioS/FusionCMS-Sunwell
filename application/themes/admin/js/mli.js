@@ -54,7 +54,7 @@ function MultiLanguageInput(field)
 			var languages = '<select id="insertLanguage">' + options + '</select>';
             var lang = $("#insertLanguage").val();
 
-			if(options)
+            if(options)
 			{
 				UI.confirm(languages, 'Insert', function()
 				{
@@ -95,6 +95,8 @@ function MultiLanguageInput(field)
      */
 	var createField = function(language, text)
 	{
+	    if (language == null) return;
+
 		if(!text)
 		{
 			text = "";
@@ -122,7 +124,9 @@ function MultiLanguageInput(field)
      */
 	var createTextArea = function(language, text)
 	{
-		if(!text)
+        if (language == null) return;
+
+        if(!text)
 		{
 			text = "";
 		}

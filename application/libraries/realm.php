@@ -355,7 +355,7 @@ class Realm
             }
 
             if ($this->startTime == null){
-                return null;
+                return "-";
             }
         }
 

@@ -476,6 +476,7 @@ class Template
 				$slides_arr[$key]['link'] = $this->page_url . $image['link'];
 			}
 
+			$slides_arr[$key]['title'] = langColumn($image['title']);
 			$slides_arr[$key]['text'] = langColumn($image['text']);
 
 			// Replace {path} by the theme image path

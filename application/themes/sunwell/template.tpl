@@ -35,7 +35,7 @@ Information
         <div id="slider_wrapper" {if !$show_slider}style="display:none;"{/if}>
             <div id="slider">
                 {foreach from=$slider item=image}
-                    <a href="{$image.link}"><img src="{$image.image}" title="{$image.text}"/></a>
+                    <a href="{$image.link}"><img src="{$image.image}" title="<h3><a href='{$image.link}'>{$image.title}</a></h3><br>{$image.text}"/></a>
                 {/foreach}
             </div>
         </div>

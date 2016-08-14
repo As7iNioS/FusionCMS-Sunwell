@@ -100,15 +100,13 @@ var Slider = {
 	 */
 	save: function(form, id)
 	{
-		var values = {csrf_token_name: Config.CSRF};
-
-		$(form).find("input, select").each(function()
-		{
-			if($(this).attr("type") != "submit")
-			{
-				values[$(this).attr("name")] = $(this).val();
-			}
-		});
+        var values = {
+            image: $("#image").val(),
+            link: $("#link").val(),
+            title: $("#title").val(),
+            text: $("#text").val(),
+            csrf_token_name: Config.CSRF
+        };
 
 		if(this.fusionEditor != false)
 		{

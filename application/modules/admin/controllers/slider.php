@@ -31,9 +31,10 @@ class Slider extends MX_Controller
 					$slides[$key]['image'] = "...".mb_substr($slides[$key]['image'], strlen($slides[$key]['image'])-15, 15);
 				}
 
-				if(strlen($value['text']) > 12)
+				$title = $slides[$key]['title'] = langColumn($value['title']);
+				if(strlen($title) > 18)
 				{
-					$slides[$key]['text'] = mb_substr($value['text'], 0, 12) . '...';
+					$slides[$key]['title'] = mb_substr($title, 0, 18) . '...';
 				}
 
 				if(strlen($value['link']) > 12)
@@ -218,6 +219,7 @@ class Slider extends MX_Controller
 
 		$data["image"] = $this->input->post("image");
 		$data["link"] = $this->input->post("link");
+		$data["title"] = $this->input->post("title");
 		$data["text"] = $this->input->post("text");
 
 		if(!preg_match("/http:\/\//", $data['image']))
