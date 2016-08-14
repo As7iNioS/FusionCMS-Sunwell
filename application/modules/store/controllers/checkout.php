@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @property Realms realms
+ */
 class Checkout extends MX_Controller
 {
 	private $vp;
@@ -78,6 +81,11 @@ class Checkout extends MX_Controller
 			// Put it in the realm array
 			if(!isset($realms[$items[$item['id']]['realm']]))
 			{
+			    $realm = $this->realms->getRealm($items[$item['id']]['realm']);
+                $realmBuild = $realm->getConfig('gameBuild');
+                if ($realmBuild && $items[$item['id']]['addedInBuild'] > $realmBuild){
+                    die(lang("future_content", "store"));
+                }
 				$realms[$items[$item['id']]['realm']] = array(
 					'name' => $this->realms->getRealm($items[$item['id']]['realm'])->getName(),
 					'items' => array(),

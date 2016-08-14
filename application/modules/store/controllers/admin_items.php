@@ -190,6 +190,7 @@ class Admin_items extends MX_Controller
 			$data["name"] = $post_name ? $post_name : $item_data['name'];
 			$data["tooltip"] = 1;
 			$data["quality"] = $item_data['Quality'];
+			$data["addedInBuild"] = $item_data['AddedInBuild'];
 			if(!preg_match("/inv_.+/i", $data["icon"]))
 				$data["icon"] = file_get_contents($this->template->page_url."icon/get/".$data["realm"]."/".$data["itemid"]);
 		}

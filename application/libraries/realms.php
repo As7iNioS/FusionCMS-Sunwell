@@ -61,6 +61,8 @@ class Realms
 					"hostname" => $realm['hostname'],
 					"realm_port" => $realm['realm_port'],
 
+					"gameBuild" => $realm['gameBuild'],
+
 					// Database settings
 					"world" => array(
 						"hostname" => (array_key_exists("override_hostname_world", $realm) && !empty($realm['override_hostname_world'])) ? $realm['override_hostname_world'] : $realm['hostname'],

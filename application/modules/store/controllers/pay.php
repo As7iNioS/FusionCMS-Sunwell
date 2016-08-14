@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @property Realms realms
+ */
 class Pay extends MX_Controller
 {
 	private $vp;
@@ -95,6 +98,10 @@ class Pay extends MX_Controller
 		foreach($cart as $item)
 		{
 			$realm = $this->realms->getRealm($items[$item['id']]['realm']);
+            $realmBuild = $realm->getConfig('gameBuild');
+            if ($realmBuild && $items[$item['id']]['addedInBuild'] > $realmBuild){
+                die(lang("future_content", "store"));
+            }
 
 			// Create a realm item array if it doesn't exist
 			if(!isset($realmItems[$realm->getId()]))

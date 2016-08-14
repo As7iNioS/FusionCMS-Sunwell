@@ -54,3 +54,4 @@ $lang['loading'] = "Ładowanie...";
 $lang['want_to_buy'] = "Czy na pewno chcesz zakupić wybrane przedmioty?";
 $lang['yes'] = "Tak";
 $lang['free_items'] = "Nie możesz kupić przedmiotów, które kosztują 0 VP lub 0 PP.";
+$lang['future_content'] = "Nie możesz kupić przedmiotów, które pochodzą z przyszłego contentu.";

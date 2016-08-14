@@ -1,16 +1,20 @@
 <?php
 
+/**
+ * @property Realms realms
+ */
 class Store_model extends CI_Model
 {
-	public function getItems($realm)
+	public function getItems($realmId)
 	{
+        $gameBuild = intval($this->realms->getRealm($realmId)->getConfig('gameBuild'));
 		//$this->db->select('*')->from('store_items')->where(array('realm' => $realm))->order_by('group,id', 'ASC');
 		$query = $this->db->query("SELECT DISTINCT store_items.*
 									FROM store_items
 									INNER JOIN store_groups ON store_items.group = store_groups.id
-									WHERE store_items.realm = ?
+									WHERE store_items.realm = ? AND IF(? = 0, 1 = 1, store_items.addedInBuild <= ?)
 									GROUP BY store_items.id
-									ORDER BY store_groups.orderNumber ASC, store_items.id ASC;", array($realm));
+									ORDER BY store_groups.orderNumber ASC, store_items.id ASC;", array($realmId, $gameBuild, $gameBuild));
 		
 		if($query->num_rows() > 0)
 		{
