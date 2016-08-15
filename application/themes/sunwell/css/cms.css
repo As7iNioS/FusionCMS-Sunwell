@@ -331,16 +331,16 @@ input[type="submit"]:active, .nice_button:active {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-    font-family: Arial, Helvetica, Sans-serif;
-    font-size: 12px;
+    font-family: Arial, Helvetica, Sans-serif, serif;
+    font-size: 13px;
     width: 80%;
     padding: 8px;
-    color: #666;
-    background-color: #fff;
-    border: 1px solid #999;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #6A6A6A;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
     margin: 5px;
     -webkit-transition: all 300ms;
     -moz-transition: all 300ms;
@@ -352,11 +352,17 @@ input[type="email"] {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-    color: #333;
-    border: 1px solid #1f9ebc;
-    box-shadow: 0px 0px 10px #3acbed;
-    -moz-box-shadow: 0px 0px 10px #3acbed;
-    -webkit-box-shadow: 0px 0px 10px #3acbed;
+    color: #fff;
+    border: 1px solid #969696;
+    box-shadow: 0px 0px 3px #969696;
+    -moz-box-shadow: 0px 0px 3px #969696;
+    -webkit-box-shadow: 0px 0px 3px #969696;
+}
+
+label {
+    font-family: Arial, Helvetica, Sans-serif, serif;
+    color: #000000;
+    font-weight: 500;
 }
 
 /* Full-page styles (log in, register etc.) */
