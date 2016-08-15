@@ -1,26 +1,7 @@
-
-
-
-
-
-/*
-     FILE ARCHIVED ON 18:03:58 sty 4, 2016 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 8:56:14 sie 5, 2016.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
 function loaded()
 {
 	document.getElementById('content-left').style.minHeight = document.getElementById('content-right').clientHeight+200+"px";
 	features_timeout_autoswitch = setTimeout('autoswitchfeature()', 10000);
-
-	// temporary promo
-	/*features_curr_num = 0;
-	if (features_timeout_autoswitch)
-		clearTimeout(features_timeout_autoswitch);
-	features_timeout_autoswitch = setTimeout('autoswitchfeature()', 22500);*/
 }
 
 
