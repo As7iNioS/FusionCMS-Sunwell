@@ -1,7 +1,17 @@
 {form_open('login')}
 	<center id="sidebox_login">
-		<input type="text" name="login_username" id="login_username" value="" placeholder="{lang("username", "sidebox_info")}">
-		<input type="password" name="login_password" id="login_password" value="" placeholder="{lang("password", "sidebox_info")}">
-		<input type="submit" name="login_submit" value="{lang("log_in", "sidebox_info")}">
+        <label for="login_username">{lang("username", "sidebox_info")}:</label>
+		<input type="text" name="login_username" id="login_username">
+        <div style="height: 15px;"></div>
+        <label for="login_password">{lang("password", "sidebox_info")}:</label>
+		<input type="password" name="login_password" id="login_password">
+        <div style="height: 15px;"></div>
+		<div style="margin: 0 0 5px 22px; text-align: left; height: 20px;">
+            <label for="login_remember" style="margin-left: 5px;">{lang("remember_me", "sidebox_info")}</label><input type="checkbox" name="login_remember" id="login_remember" style="float: left;">
+		</div>
+		<button class="button-normal" type="submit" name="login_submit">{lang("log_in", "sidebox_info")}</button>
+		<button type="button" class="button-normal" style="margin-left: 32px;" onclick="document.location='{$url}register';">{lang("register", "sidebox_info")}</button>
+        <div style="height: 30px;"></div>
+        <a href="{$url}password_recovery">{lang("forgot_password_link", "sidebox_info")}</a>
 	</center>
 </form>

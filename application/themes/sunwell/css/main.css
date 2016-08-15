@@ -511,7 +511,7 @@ body {
     width: 672px;
 
     background: url(../images/lay/content-top.jpg) center top no-repeat, url(../images/lay/content-leftborder.jpg) left top repeat-y, url(../images/lay/content-rightborder.jpg) 648px top repeat-y, url(../images/lay/content-bg.jpg) left top repeat;
-    min-height: 710px;
+    min-height: 740px;
 }
 
 #content-left-bottombg {
@@ -1996,4 +1996,11 @@ select {
     margin-left: 5px;
     background: url(../images/tt_bottom.gif) top right no-repeat;
     overflow: hidden
+}
+
+#sidebox_login label{
+    font-size: 13px;
+    color: rgb(229,195,79);
+    font-weight: normal;
+    line-height: 0;
 }
