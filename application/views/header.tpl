@@ -5,10 +5,8 @@
 		
 		<link rel="stylesheet" href="{$path}css/default.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}cms.css" type="text/css" />
-		<link rel="stylesheet" href="{$style_path}sunwell.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}main.css" type="text/css" />
 		<script type="text/javascript" src="{$path}themes/sunwell/js/frameprotection.js"></script>
-		<script type="text/javascript" src="{$path}themes/sunwell/js/javascriptEN.js?p"></script>
 		<script type="text/javascript" src="{$path}themes/sunwell/js/sha1.js"></script>
 		<script type="text/javascript" src="{$path}themes/sunwell/js/script.js"></script>
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}" type="text/css" />{/if}

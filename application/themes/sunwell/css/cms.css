@@ -34,14 +34,14 @@
 
 /* Image slider background element */
 #slider_wrapper {
-	width:80%;
+	width:100%;
 	height:auto;
         margin: 0 auto;
 }
 
 /* Image slider element */
 #slider {
-	margin-left:2px;
+	margin-left:7px;
 	margin-top:2px;
 	width:100%;
 	height:auto;
