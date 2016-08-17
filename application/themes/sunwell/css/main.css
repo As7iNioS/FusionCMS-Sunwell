@@ -3,7 +3,7 @@
 #wrapper {
     width: 960px;
     height: auto;
-    margin: 0px auto 0px auto;
+    margin: 0 auto 0 auto;
     position: relative;
 }
 
@@ -13,7 +13,7 @@
     position: absolute;
     height: 25px;
     z-index: 10;
-    top: 0px;
+    top: 0;
     color: #eeeeee;
     padding-top: 7px;
     text-align: right;
@@ -68,14 +68,14 @@ nav li a {
     height: 41px;
     width: 100%;
     padding-top: 15px;
-    text-shadow: 1px 1px 0px #ffffff;
+    text-shadow: 1px 1px 0 #ffffff;
 }
 
 nav li a:hover {
     color: #baff00;
     text-decoration: none;
     background-image: url(../images/menu_hover.jpg);
-    text-shadow: 1px 1px 0px #0c1922;
+    text-shadow: 1px 1px 0 #0c1922;
 }
 
 /* Body div, contains the actual page content,
@@ -131,7 +131,7 @@ Also called a "sidebox" */
     height: 32px;
     color: #172e3c;
     text-align: center;
-    text-shadow: 1px 1px 0px #ffffff;
+    text-shadow: 1px 1px 0 #ffffff;
     font-size: 14px;
     padding-top: 6px;
 }
@@ -155,7 +155,7 @@ This is the box(es) where the page content goes. */
 /* Right box top bar / title */
 .main_box_top {
     height: 67px;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     text-align: left;
     padding-left: 60px;
     font-size: 21px;
@@ -190,7 +190,7 @@ This is the box(es) where the page content goes. */
 /* Footer */
 footer {
     width: 960px;
-    margin: auto 0px auto 0px;
+    margin: auto 0 auto 0;
     height: 66px;
     background-image: url(../images/footer.jpg);
     margin-bottom: 50px;
@@ -198,13 +198,13 @@ footer {
     padding-top: 20px;
     font-size: 14px;
     color: #666;
-    text-shadow: 1px 1px 0px #ffffff;
+    text-shadow: 1px 1px 0 #ffffff;
 }
 
 /* Footer, cms notice */
 #cms {
     color: #999;
-    text-shadow: 1px 1px 0px #ffffff;
+    text-shadow: 1px 1px 0 #ffffff;
     text-align: center;
     margin-top: 10px;
     margin-right: 5px;
@@ -227,7 +227,7 @@ footer {
 }
 
 #cms a:hover {
-    background-position: 0px 13px;
+    background-position: 0 13px;
 }
 
 /* Left-box list styles [left-menu] */
@@ -269,7 +269,7 @@ footer {
     -moz-border-radius: 5px;
     padding: 1px;
     font-size: 10px;
-    text-shadow: 1px 1px 0px #ffffff;
+    text-shadow: 1px 1px 0 #ffffff;
     color: #666;
 }
 
@@ -284,8 +284,8 @@ footer {
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
@@ -293,12 +293,10 @@ html, body {
 }
 
 body {
-    background: url(../images/lay/bg.jpg) center -250px no-repeat;
-    background-attachment: fixed;
     background-size: 2500px 1400px;
-    background-color: #000000;
+    background: #000000 url(../images/lay/bg.jpg) no-repeat fixed center -250px;
     color: #ffffff;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 12px;
 }
 
@@ -309,7 +307,7 @@ a:link, a:visited {
 }
 
 #content_ajax ul, #content_ajax ol {
-    margin: 0px 40px;
+    margin: 0 40px;
 }
 
 #content_ajax {
@@ -346,7 +344,7 @@ a:hover {
 
 .page-title {
     height: 67px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     text-align: left;
     padding-left: 60px;
     font-size: 21px;
@@ -366,7 +364,7 @@ a:hover {
     font-size: 16px;
     font-weight: bold;
     color: #000;
-    margin: 0px 40px;
+    margin: 0 40px;
 }
 
 .sc-paragraph {
@@ -424,7 +422,7 @@ a:hover {
 .rightcenter ul li a {
     text-decoration: none;
     color: rgb(229, 195, 79);
-    padding: 10.5px 11px;
+    padding: 11px 11px;
     display: block;
 }
 
@@ -458,21 +456,20 @@ input::-moz-focus-inner {
 }
 
 img {
-    border: 0px;
+    border: 0;
 }
 
 table {
     border-collapse: collapse;
     color: #ffffff;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 12px;
 }
 
 body {
-    background: url(../images/lay/bg.jpg) center top no-repeat;
-    background-color: #000000;
+    background: #000000 url(../images/lay/bg.jpg) no-repeat center top;
     color: #ffffff;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 12px;
 }
 
@@ -533,7 +530,7 @@ body {
     width: 348px;
     background: url(../images/lay/right-top.jpg) center top no-repeat, url(../images/lay/right-bg.jpg) left top repeat;
     min-height: 200px;
-    padding: 20px 0px;
+    padding: 20px 0;
 }
 
 #content-right a:link, #content-right a:visited {
@@ -558,7 +555,7 @@ body {
 }
 
 #footer-wrap {
-    padding: 20px 0px 24px 0px;
+    padding: 20px 0 24px 0;
     background-color: #000;
     color: #ddd;
 }
@@ -583,7 +580,7 @@ body {
 
 .page-title {
     height: 67px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     text-align: left;
     padding-left: 60px;
     font-size: 21px;
@@ -600,22 +597,20 @@ body {
 }
 
 .error {
-    margin: 0px 30px 6px 30px;
+    margin: 0 30px 6px 30px;
     padding: 12px 12px 12px 50px;
     border: solid 1px rgba(216, 80, 80, 0.75);
-    background: url(../images/lay/errormark.png) 8px center no-repeat;
-    background-color: rgba(200, 48, 51, 0.5);
+    background: rgba(200, 48, 51, 0.5) url(../images/lay/errormark.png) no-repeat 8px center;
     color: #fff;
     font-weight: bold;
     text-align: left;
 }
 
 .success {
-    margin: 0px 30px 6px 30px;
+    margin: 0 30px 6px 30px;
     padding: 12px 12px 12px 50px;
     border: solid 1px rgba(135, 181, 100, 0.75);
-    background: url(../images/lay/successmark.png) 5px center no-repeat;
-    background-color: rgba(125, 176, 104, 0.5);
+    background: rgba(125, 176, 104, 0.5) url(../images/lay/successmark.png) no-repeat 5px center;
     color: #000;
     font-weight: bold;
     text-align: left;
@@ -657,15 +652,15 @@ body {
     padding-top: 14px;
     position: relative;
     z-index: 255;
-    -moz-border-radius: 0px 0px 0px 0px;
-    border-radius: 0px 0px 0px 0px;
+    -moz-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
 }
 
 #menupos-informacje:hover {
     height: 207px;
     background: url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) right top repeat;
-    -moz-border-radius: 0px 0px 8px 8px;
-    border-radius: 0px 0px 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
 }
 
 #menupos-informacje a:hover {
@@ -679,13 +674,13 @@ body {
     height: 27px;
     left: 50%;
     margin-left: 292px;
-    margin-top: 0px;
+    margin-top: 0;
     background: url(../images/lay/flag_en.gif) 13px 6px no-repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
     border: solid 1px rgb(16, 43, 58);
-    border-top: 0px;
-    border-right: 0px;
-    -moz-border-radius: 0px 0px 0px 8px;
-    border-radius: 0px 0px 0px 8px;
+    border-top: 0;
+    border-right: 0;
+    -moz-border-radius: 0 0 0 8px;
+    border-radius: 0 0 0 8px;
     cursor: pointer;
     font-size: 13px;
     line-height: 27px;
@@ -708,12 +703,12 @@ body {
 
     left: 50%;
     margin-left: 362px;
-    margin-top: 0px;
+    margin-top: 0;
     background: url(../images/lay/flag_pl.gif) 13px 6px no-repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
     border: solid 1px rgb(16, 43, 58);
-    border-top: 0px;
-    -moz-border-radius: 0px 0px 8px 0px;
-    border-radius: 0px 0px 8px 0px;
+    border-top: 0;
+    -moz-border-radius: 0 0 8px 0;
+    border-radius: 0 0 8px 0;
     cursor: pointer;
     font-size: 13px;
     line-height: 27px;
@@ -731,14 +726,14 @@ body {
     height: 27px;
     left: 50%;
     margin-left: 194px;
-    margin-top: 0px;
+    margin-top: 0;
     background: url(../images/lay/social/facebook.png) center 3px no-repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
     background-size: 20px, auto;
     border: solid 1px rgb(16, 43, 58);
-    border-top: 0px;
-    border-right: 0px;
-    -moz-border-radius: 0px 0px 0px 8px;
-    border-radius: 0px 0px 0px 8px;
+    border-top: 0;
+    border-right: 0;
+    -moz-border-radius: 0 0 0 8px;
+    border-radius: 0 0 0 8px;
     cursor: pointer;
     font-size: 13px;
     line-height: 27px;
@@ -755,14 +750,14 @@ body {
     height: 27px;
     left: 50%;
     margin-left: 222px;
-    margin-top: 0px;
+    margin-top: 0;
     background: url(../images/lay/social/youtube2.png) center 4px no-repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
     background-size: 18px, auto;
     border: solid 1px rgb(16, 43, 58);
-    border-top: 0px;
-    border-right: 0px;
-    -moz-border-radius: 0px 0px 0px 0px;
-    border-radius: 0px 0px 0px 0px;
+    border-top: 0;
+    border-right: 0;
+    -moz-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
     cursor: pointer;
     font-size: 13px;
     line-height: 27px;
@@ -779,13 +774,13 @@ body {
     height: 27px;
     left: 50%;
     margin-left: 250px;
-    margin-top: 0px;
+    margin-top: 0;
     background: url(../images/lay/social/twitter.png) center 2px no-repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
     background-size: 20px, auto;
     border: solid 1px rgb(16, 43, 58);
-    border-top: 0px;
-    -moz-border-radius: 0px 0px 8px 0px;
-    border-radius: 0px 0px 8px 0px;
+    border-top: 0;
+    -moz-border-radius: 0 0 8px 0;
+    border-radius: 0 0 8px 0;
     cursor: pointer;
     font-size: 13px;
     line-height: 27px;
@@ -797,7 +792,7 @@ body {
 }
 
 .realm-border {
-    margin-top: 16px;
+    margin-top: 5px;
     width: 314px;
     height: 60px;
     border: solid 1px #000;
@@ -808,8 +803,12 @@ body {
     text-align: left;
 }
 
+.realm-border:not(:first-of-type){
+    margin-top: 16px;
+}
+
 .realm-status {
-    margin: 11px 8px 0px 8px;
+    margin: 11px 8px 0 8px;
     float: left;
 }
 
@@ -833,7 +832,7 @@ body {
 .right-spacer {
     height: 34px;
     background: url(../images/rightpanel/right_spacer.png) left top no-repeat;
-    margin: 15px 0px;
+    margin: 15px 0;
 }
 
 .field-title-text {
@@ -843,11 +842,10 @@ body {
 }
 
 .field-wide {
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    border: 0;
     width: 287px;
     height: 41px;
-    background: url(../images/forms/textfield_wide.png) left top no-repeat;
+    background: rgba(0, 0, 0, 0) url(../images/forms/textfield_wide.png) no-repeat left top;
     color: #ccc;
     text-align: center;
     font-weight: bold;
@@ -855,11 +853,10 @@ body {
 }
 
 .field-normal {
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    border: 0;
     width: 214px;
     height: 35px;
-    background: url(../images/forms/textfield_normal.png) left top no-repeat;
+    background: rgba(0, 0, 0, 0) url(../images/forms/textfield_normal.png) no-repeat left top;
     color: #ccc;
     text-align: left;
     padding-left: 10px;
@@ -868,11 +865,10 @@ body {
 }
 
 .field-small {
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    border: 0;
     width: 63px;
     height: 35px;
-    background: url(../images/forms/textfield_small.png) left top no-repeat;
+    background: rgba(0, 0, 0, 0) url(../images/forms/textfield_small.png) no-repeat left top;
     color: #ccc;
     text-align: left;
     padding-left: 10px;
@@ -881,11 +877,10 @@ body {
 }
 
 .button-normal {
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    border: 0;
     width: 122px;
     height: 35px;
-    background: url(../images/forms/button_normal.png) left top no-repeat;
+    background: rgba(0, 0, 0, 0) url(../images/forms/button_normal.png) no-repeat left top;
     color: rgb(229, 195, 79);
     text-align: center;
     font-weight: normal;
@@ -915,11 +910,10 @@ body {
 }
 
 .button-wide {
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    border: 0;
     width: 225px;
     height: 35px;
-    background: url(../images/forms/button_wide.png) left top no-repeat;
+    background: rgba(0, 0, 0, 0) url(../images/forms/button_wide.png) no-repeat left top;
     color: rgb(229, 195, 79);
     text-align: center;
     font-weight: normal;
@@ -938,7 +932,7 @@ body {
 .formtable {
     color: #694123;
     font-size: 15px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     font-weight: normal;
 }
 
@@ -973,7 +967,7 @@ select {
     margin-top: 28px;
     background: url(../images/index/features_bg.png) left top no-repeat;
     text-align: left;
-    padding: 8px 0px 0px 8px;
+    padding: 8px 0 0 8px;
 }
 
 #features-overlay {
@@ -1001,16 +995,16 @@ select {
 }
 
 #features-title {
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     font-size: 22px;
     height: 45px;
     line-height: 45px;
-    padding: 3px 10px 0px 10px;
+    padding: 3px 10px 0 10px;
     font-weight: bold;
 }
 
 #features-text {
-    padding: 0px 10px;
+    padding: 0 10px;
     font-weight: normal;
     font-size: 13px;
 }
@@ -1042,7 +1036,7 @@ select {
 }
 
 .news-container {
-    margin: 0px 30px 24px 30px;
+    margin: 0 30px 24px 30px;
     background: url(../images/index/news_line.png) -5px bottom no-repeat;
     color: #000;
 }
@@ -1092,7 +1086,7 @@ select {
 }
 
 .news-page-inactive {
-    padding: 3px 0px;
+    padding: 3px 0;
     width: 19px;
     border: solid 1px #555;
     background-color: #c3c3c3;
@@ -1101,7 +1095,7 @@ select {
 }
 
 .news-page-active {
-    padding: 3px 0px;
+    padding: 3px 0;
     width: 19px;
     border: solid 1px #000;
     background-color: #3b6174;
@@ -1113,7 +1107,7 @@ select {
     font-size: 16px;
     font-weight: bold;
     color: #000;
-    margin: 0px 40px;
+    margin: 0 40px;
 }
 
 .onas-paragraph {
@@ -1146,7 +1140,7 @@ select {
     font-size: 20px;
     line-height: 42px;
     color: rgb(229, 195, 79);
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
 }
 
 .jz-text {
@@ -1209,7 +1203,7 @@ select {
     font-size: 16px;
     font-weight: bold;
     color: #000;
-    margin: 0px 40px;
+    margin: 0 40px;
 }
 
 .premium-paragraph {
@@ -1257,12 +1251,12 @@ select {
 .ranking-spacer {
     height: 2px;
     background: url(../images/index/news_line.png) center top no-repeat;
-    margin: 24px 0px;
+    margin: 24px 0;
 }
 
 #ranking-tabs-container {
     position: absolute;
-    margin: 0px 29px;
+    margin: 0 29px;
 }
 
 .tab-normal-active {
@@ -1272,13 +1266,13 @@ select {
     display: inline-block;
     margin-left: 10px;
     font-size: 15px;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-weight: bold;
     letter-spacing: 1px;
     color: rgb(229, 195, 79);
     height: 40px;
     line-height: 40px;
-    padding: 0px 15px;
+    padding: 0 15px;
     border: solid 1px rgb(0, 0, 0);
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -1293,13 +1287,13 @@ select {
     display: inline-block;
     margin-left: 10px;
     font-size: 15px;
-    font-family: "Myriad Pro";
+    font-family: "Myriad Pro", serif;
     font-weight: bold;
     letter-spacing: 1px;
     color: rgb(22, 56, 73);
     height: 40px;
     line-height: 40px;
-    padding: 0px 15px;
+    padding: 0 15px;
     border: solid 1px #555;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -1326,17 +1320,17 @@ select {
 #rankingtable th {
     text-align: left;
     height: 35px;
-    border: 0px;
+    border: 0;
     vertical-align: middle;
     padding-left: 12px;
     color: #fff;
-    background: url(../images/ranking/table-head-limiter.jpg) 0px top no-repeat;
+    background: url(../images/ranking/table-head-limiter.jpg) 0 top no-repeat;
 }
 
 #rankingtable td {
     text-align: left;
     height: 36px;
-    border: 0px;
+    border: 0;
     vertical-align: middle;
     padding-left: 12px;
     color: #000;
@@ -1355,12 +1349,12 @@ select {
 }
 
 .r-det {
-    border: solid 0px #000;
+    border: solid 0 #000;
     border-collapse: collapse;
 }
 
 .r-det td, .r-det th {
-    border: solid 0px #000;
+    border: solid 0 #000;
     border-collapse: collapse;
     text-align: center;
     padding: 1px 8px;
@@ -1377,7 +1371,7 @@ select {
     position: absolute;
     width: 500px;
     height: 36px;
-    margin: 47px 0px 0px 140px;
+    margin: 47px 0 0 140px;
     color: rgb(112, 78, 55);
     font-size: 15px;
     font-weight: bold;
@@ -1420,7 +1414,7 @@ select {
 }
 
 #ucp-wrapper {
-    margin: 0px 29px;
+    margin: 0 29px;
 }
 
 #ucp-wrapper a:link, #ucp-wrapper a:visited, #ucp-wrapper a:hover {
@@ -1438,7 +1432,7 @@ select {
     width: 49%;
     color: rgb(105, 65, 35);
     font-size: 20px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     text-transform: uppercase;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
@@ -1453,17 +1447,17 @@ select {
     border: solid 1px rgb(228, 179, 89);
     background-color: rgba(238, 219, 179, 0.5);
     text-align: left;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 13px;
     text-transform: none;
     color: #000;
-    text-shadow: 0px 0px 0px #000;
+    text-shadow: 0 0 0 #000;
 }
 
 .pp-number-small {
     display: inline-block;
     color: rgb(0, 0, 0);
-    padding: 0px 22px 0px 0px;
+    padding: 0 22px 0 0;
     font-weight: bold;
     font-size: 15px;
     line-height: 20px;
@@ -1473,7 +1467,7 @@ select {
 .gold-number-small {
     display: inline-block;
     color: rgb(0, 0, 0);
-    padding: 0px 22px 0px 0px;
+    padding: 0 22px 0 0;
     font-weight: bold;
     font-size: 15px;
     line-height: 20px;
@@ -1483,7 +1477,7 @@ select {
 .vote-number-small {
     display: inline-block;
     color: rgb(0, 0, 0);
-    padding: 0px 22px 0px 0px;
+    padding: 0 22px 0 0;
     font-weight: bold;
     font-size: 15px;
     line-height: 20px;
@@ -1493,7 +1487,7 @@ select {
 #ucp-premium-menu {
     position: absolute;
     z-index: 9;
-    margin: 68px 0px 0px 494px;
+    margin: 68px 0 0 494px;
     width: 280px;
     height: 150px;
     border: solid 1px rgb(94, 67, 47);
@@ -1544,7 +1538,7 @@ select {
 .premium-subpage-title {
     color: rgb(105, 65, 35);
     font-size: 20px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     text-transform: uppercase;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
@@ -1561,18 +1555,18 @@ select {
 
 .zdobadz-pp-tab-sms .sms1 {
     position: absolute;
-    margin: 3px 0px 0px 12px;
+    margin: 3px 0 0 12px;
     font-size: 18px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     color: rgb(136, 75, 30);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .zdobadz-pp-tab-sms .sms2 {
     position: absolute;
-    margin: 24px 0px 0px 12px;
+    margin: 24px 0 0 12px;
     font-size: 18px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     color: rgb(56, 95, 130);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     font-weight: bold;
@@ -1581,18 +1575,18 @@ select {
 
 .zdobadz-pp-tab-sms .sms3 {
     position: absolute;
-    margin: 42px 0px 0px 44px;
+    margin: 42px 0 0 44px;
     font-size: 18px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     color: rgb(136, 75, 30);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .zdobadz-pp-tab-sms .sms4 {
     position: absolute;
-    margin: 42px 0px 0px 128px;
+    margin: 42px 0 0 128px;
     font-size: 20px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(56, 95, 130);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     font-weight: bold;
@@ -1601,19 +1595,19 @@ select {
 
 .zdobadz-pp-tab-sms .sms5 {
     position: absolute;
-    margin: 12px 0px 0px 165px;
+    margin: 12px 0 0 165px;
     width: 120px;
     text-align: right;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(0, 0, 0);
 }
 
 .zdobadz-pp-tab-sms .sms6 {
     position: absolute;
-    margin: 34px 0px 0px 200px;
+    margin: 34px 0 0 200px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(136, 75, 30);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     padding-left: 28px;
@@ -1638,7 +1632,7 @@ select {
     height: 36px;
     line-height: 36px;
     font-size: 18px;
-    font-family: Georgia;
+    font-family: Georgia, Arial, serif;
     color: rgb(56, 95, 130);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     font-weight: bold;
@@ -1652,7 +1646,7 @@ select {
     width: 100px;
     line-height: 36px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(0, 0, 0);
     font-weight: bold;
     text-align: right;
@@ -1664,7 +1658,7 @@ select {
     height: 36px;
     line-height: 36px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(136, 75, 30);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     padding-left: 24px;
@@ -1683,17 +1677,17 @@ select {
 
 .pu-tab .przy1 {
     position: absolute;
-    margin: 11px 0px 0px 8px;
+    margin: 11px 0 0 8px;
 }
 
 .pu-tab .przy2 {
     position: absolute;
-    margin: 0px 0px 0px 28px;
+    margin: 0 0 0 28px;
     height: 36px;
     line-height: 36px;
     width: 200px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(0, 0, 0);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     font-weight: bold;
@@ -1706,7 +1700,7 @@ select {
     line-height: 36px;
     width: 100px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(136, 75, 30);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     padding-left: 24px;
@@ -1720,7 +1714,7 @@ select {
     line-height: 36px;
     width: 100px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: Arial, serif;
     color: rgb(136, 75, 30);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     padding-left: 24px;
@@ -1729,7 +1723,7 @@ select {
 
 .item-container {
     float: left;
-    margin: 5px 0px 5px 10px;
+    margin: 5px 0 5px 10px;
     width: 289px;
     height: 83px;
     background: url(../images/ucp/item-bg.png) left top no-repeat;
@@ -1737,15 +1731,15 @@ select {
 
 .item-container .ic1 {
     position: absolute;
-    margin: 34px 0px 0px 9px;
+    margin: 34px 0 0 9px;
 }
 
 .item-container .ic2 {
     position: absolute;
     width: 62px;
     height: 62px;
-    margin: 7px 0px 0px 36px;
-    padding: 6px 0px 0px 6px;
+    margin: 7px 0 0 36px;
+    padding: 6px 0 0 6px;
     background: url(../images/ucp/item-border.png) left top no-repeat;
     cursor: pointer;
 }
@@ -1754,12 +1748,12 @@ select {
     position: absolute;
     width: 56px;
     height: 22px;
-    margin: 49px 0px 0px 40px;
+    margin: 49px 0 0 40px;
     font-weight: bold;
     color: #eee;
     font-size: 18px;
-    font-family: Arial;
-    text-shadow: 0px 0px 3px #000, 0px 0px 3px #000, 0px 0px 3px #000, 0px 0px 2px #000, 0px 0px 2px #000, 0px 0px 2px #000;
+    font-family: Arial, serif;
+    text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 3px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000;
     text-align: right;
     cursor: pointer;
 }
@@ -1767,13 +1761,13 @@ select {
 .item-container .ic3 {
     position: absolute;
     font-weight: bold;
-    margin: 15px 0px 0px 110px;
+    margin: 15px 0 0 110px;
     width: 177px;
 }
 
 .item-container .ic4 {
     position: absolute;
-    margin: 47px 0px 0px 102px;
+    margin: 47px 0 0 102px;
     color: rgb(105, 65, 35);
     font-weight: normal;
     font-size: 13px;
@@ -1781,21 +1775,21 @@ select {
 
 .item-container .ic5-b {
     position: absolute;
-    margin: 49px 0px 0px 1px;
+    margin: 49px 0 0 1px;
     width: 30px;
     height: 30px;
 }
 
 .item-container .ic5-a {
     position: absolute;
-    margin: 52px 0px 0px 2px;
+    margin: 52px 0 0 2px;
     width: 26px;
     height: 26px;
 }
 
 .item-container .ic5-h {
     position: absolute;
-    margin: 53px 0px 0px 3px;
+    margin: 53px 0 0 3px;
     width: 24px;
     height: 24px;
 }
@@ -1819,16 +1813,16 @@ select {
 #gmpaneltable th {
     text-align: center;
     height: 35px;
-    border: 0px;
+    border: 0;
     vertical-align: middle;
     color: #fff;
-    background: url(../images/gmpanel/table-head-limiter.jpg) 0px top no-repeat;
+    background: url(../images/gmpanel/table-head-limiter.jpg) 0 top no-repeat;
 }
 
 #gmpaneltable td {
     text-align: center;
     height: 50px;
-    border: 0px;
+    border: 0;
     vertical-align: middle;
     color: #000;
 }
@@ -1840,19 +1834,19 @@ select {
 }
 
 #gmpaneltable td div table {
-    border: 0px;
+    border: 0;
     background: none;
     width: 100%;
     height: 100%;
 }
 
 #gmpaneltable td div table tr {
-    border: 0px;
+    border: 0;
 }
 
 #gmpaneltable td div table td {
     line-height: 16px;
-    border: 0px;
+    border: 0;
     text-align: center;
     vertical-align: middle;
     width: 100%;
@@ -1875,19 +1869,19 @@ select {
 #votetable th {
     text-align: center;
     height: 35px;
-    border: 0px;
+    border: 0;
     vertical-align: middle;
-    padding: 0px;
+    padding: 0;
     color: #fff;
-    background: url(../images/ranking/table-head-limiter.jpg) 0px top no-repeat;
+    background: url(../images/ranking/table-head-limiter.jpg) 0 top no-repeat;
 }
 
 #votetable td {
     text-align: center;
     height: 63px;
-    border: 0px;
+    border: 0;
     vertical-align: middle;
-    padding: 0px 0px 2px 0px;
+    padding: 0 0 2px 0;
     color: #000;
 }
 
@@ -1986,7 +1980,7 @@ select {
     background: #666;
     color: #FFF;
     font-size: 12px;
-    font-family: Arial;
+    font-family: Arial, serif;
     line-height: 16px;
 }
 

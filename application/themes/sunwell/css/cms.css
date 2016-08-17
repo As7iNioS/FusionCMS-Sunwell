@@ -24,7 +24,7 @@
 
 .location {
     background-color: rgba(240, 240, 240, 0.4);
-    box-shadow: 0px 0px 10px #999;
+    box-shadow: 0 0 10px #999;
 }
 
 .location:hover {
@@ -75,24 +75,24 @@
 .comment, .message_box {
     background-color: #f9f9f9;
     border: 1px solid #c7c7c7;
-    box-shadow: 0px 0px 15px #999;
-    -moz-box-shadow: 0px 0px 15px #999;
-    -webkit-box-shadow: 0px 0px 15px #999;
+    box-shadow: 0 0 15px #999;
+    -moz-box-shadow: 0 0 15px #999;
+    -webkit-box-shadow: 0 0 15px #999;
     color: #2b2b2b;
 }
 
 .comment:hover, .message_box:hover {
-    box-shadow: 0px 0px 15px #666;
-    -moz-box-shadow: 0px 0px 15px #666;
-    -webkit-box-shadow: 0px 0px 15px #666;
+    box-shadow: 0 0 15px #666;
+    -moz-box-shadow: 0 0 15px #666;
+    -webkit-box-shadow: 0 0 15px #666;
     border: 1px solid #999;
 }
 
 .comment a img, .message_box a img {
     border: 1px solid #fff;
-    box-shadow: 0px 0px 15px #666;
-    -moz-box-shadow: 0px 0px 15px #666;
-    -webkit-box-shadow: 0px 0px 15px #666;
+    box-shadow: 0 0 15px #666;
+    -moz-box-shadow: 0 0 15px #666;
+    -webkit-box-shadow: 0 0 15px #666;
 }
 
 .comment_author:hover, .message_box_author:hover {
@@ -112,9 +112,9 @@
 .popup {
     background-color: #eee;
     border: 1px solid #fff;
-    box-shadow: 0px 0px 35px #000;
-    -webkit-box-shadow: 0px 0px 35px #000;
-    -moz-box-shadow: 0px 0px 35px #000;
+    box-shadow: 0 0 35px #000;
+    -webkit-box-shadow: 0 0 35px #000;
+    -moz-box-shadow: 0 0 35px #000;
 }
 
 .popup a {
@@ -177,7 +177,6 @@
     background-image: -o-linear-gradient(top, #bfbfbf, #9a9a9a);
     background-image: linear-gradient(top, #bfbfbf, #9a9a9a);
     border: 1px solid #9a9a9a;
-    border-bottom: 1px solid #9a9a9a;
     -webkit-box-shadow: inset 0 1px 0 0 #cbcbcb;
     -moz-box-shadow: inset 0 1px 0 0 #cbcbcb;
     -ms-box-shadow: inset 0 1px 0 0 #cbcbcb;
@@ -221,9 +220,9 @@
     background-color: rgba(7, 12, 33, 0.9);
     border: 1px solid #777777;
     border-top: 1px solid #cfcfcf;
-    -webkit-box-shadow: 0px 0px 3px #000;
-    -moz-box-shadow: 0px 0px 3px #000;
-    box-shadow: 0px 0px 3px #000;
+    -webkit-box-shadow: 0 0 3px #000;
+    -moz-box-shadow: 0 0 3px #000;
+    box-shadow: 0 0 3px #000;
     color: #fff;
 }
 
@@ -232,7 +231,7 @@ textarea {
     padding: 8px;
     background-color: #ffffff;
     border: 1px solid #c7c7c7;
-    font-family: Arial, Helvetica, Sans-serif;
+    font-family: Arial, Helvetica, Sans-serif, serif;
     font-size: 12px;
     color: #666;
     border-radius: 2px;
@@ -248,13 +247,13 @@ textarea {
 textarea:focus {
     color: #333;
     border: 1px solid #1f9ebc;
-    box-shadow: 0px 0px 10px #3acbed;
-    -moz-box-shadow: 0px 0px 10px #3acbed;
-    -webkit-box-shadow: 0px 0px 10px #3acbed;
+    box-shadow: 0 0 10px #3acbed;
+    -moz-box-shadow: 0 0 10px #3acbed;
+    -webkit-box-shadow: 0 0 10px #3acbed;
 }
 
 select {
-    font-family: Arial, Helvetica, Sans-serif;
+    font-family: Arial, Helvetica, Sans-serif, serif;
     font-size: 12px;
     width: 84%;
     padding: 8px;
@@ -288,10 +287,10 @@ input[type="submit"], .nice_button {
             color-stop(0, #DBDBDB),
             color-stop(1, #E7E7E7)
     );
-    text-shadow: 1px 1px 0px #ffffff;
-    box-shadow: 0px 1px 0px #fff inset;
-    -webkit-box-shadow: 0px 1px 0px #fff inset;
-    -moz-box-shadow: 0px 1px 0px #fff inset;
+    text-shadow: 1px 1px 0 #ffffff;
+    box-shadow: 0 1px 0 #fff inset;
+    -webkit-box-shadow: 0 1px 0 #fff inset;
+    -moz-box-shadow: 0 1px 0 #fff inset;
     color: #666;
     margin-top: 10px;
     border-radius: 2px;
@@ -314,17 +313,17 @@ input[type="submit"]:hover, .nice_button:hover, .nice_active {
             color-stop(0, #2e465d),
             color-stop(1, #3f576f)
     );
-    text-shadow: 1px 1px 0px #000;
-    box-shadow: 0px 1px 0px #497ca4 inset;
-    -webkit-box-shadow: 0px 1px 0px #497ca4 inset;
-    -moz-box-shadow: 0px 1px 0px #497ca4 inset;
+    text-shadow: 1px 1px 0 #000;
+    box-shadow: 0 1px 0 #497ca4 inset;
+    -webkit-box-shadow: 0 1px 0 #497ca4 inset;
+    -moz-box-shadow: 0 1px 0 #497ca4 inset;
     color: #c8dbee;
 }
 
 input[type="submit"]:active, .nice_button:active {
-    box-shadow: 0px 0px 5px #08121c inset;
-    -webkit-box-shadow: 0px 0px 5px #08121c inset;
-    -moz-box-shadow: 0px 0px 5px #08121c inset;
+    box-shadow: 0 0 5px #08121c inset;
+    -webkit-box-shadow: 0 0 5px #08121c inset;
+    -moz-box-shadow: 0 0 5px #08121c inset;
     color: #96afc8;
 }
 
@@ -354,9 +353,9 @@ input[type="password"]:focus,
 input[type="email"]:focus {
     color: #fff;
     border: 1px solid #969696;
-    box-shadow: 0px 0px 3px #969696;
-    -moz-box-shadow: 0px 0px 3px #969696;
-    -webkit-box-shadow: 0px 0px 3px #969696;
+    box-shadow: 0 0 3px #969696;
+    -moz-box-shadow: 0 0 3px #969696;
+    -webkit-box-shadow: 0 0 3px #969696;
 }
 
 label {
@@ -374,22 +373,22 @@ label {
 
 .avatar, #ucp_avatar, .store_item .item_icon {
     border: 1px solid #fff;
-    box-shadow: 0px 0px 10px #666;
-    -webkit-box-shadow: 0px 0px 10px #666;
-    -moz-box-shadow: 0px 0px 10px #666;
+    box-shadow: 0 0 10px #666;
+    -webkit-box-shadow: 0 0 10px #666;
+    -moz-box-shadow: 0 0 10px #666;
 }
 
 .avatar {
     margin-right: 15px !important;
-    margin-left: 0px !important;
+    margin-left: 0 !important;
     margin-top: 3px !important;
     margin-bottom: 5px;
 }
 
 #ucp_avatar:hover {
-    box-shadow: 0px 0px 15px #1e1e1e;
-    -webkit-box-shadow: 0px 0px 15px #1e1e1e;
-    -moz-box-shadow: 0px 0px 15px #1e1e1e;
+    box-shadow: 0 0 15px #1e1e1e;
+    -webkit-box-shadow: 0 0 15px #1e1e1e;
+    -moz-box-shadow: 0 0 15px #1e1e1e;
 }
 
 .ucp_divider {
@@ -398,8 +397,7 @@ label {
 }
 
 .vertical_divider {
-    background-image: url(../images/vertical_divider.jpg);
-    background-repeat: no-repeat;
+    background: url(../images/vertical_divider.jpg) no-repeat;
     height: 424px;
     width: 33px;
 }
@@ -425,23 +423,23 @@ label {
 
 #ucp_buttons a {
     border: 1px solid #fff;
-    box-shadow: 0px 0px 10px #666;
-    -webkit-box-shadow: 0px 0px 10px #666;
-    -moz-box-shadow: 0px 0px 10px #666;
+    box-shadow: 0 0 10px #666;
+    -webkit-box-shadow: 0 0 10px #666;
+    -moz-box-shadow: 0 0 10px #666;
 }
 
 #ucp_buttons a:hover {
-    box-shadow: 0px 0px 15px #1e1e1e;
-    -webkit-box-shadow: 0px 0px 15px #1e1e1e;
-    -moz-box-shadow: 0px 0px 15px #1e1e1e;
+    box-shadow: 0 0 15px #1e1e1e;
+    -webkit-box-shadow: 0 0 15px #1e1e1e;
+    -moz-box-shadow: 0 0 15px #1e1e1e;
 }
 
 /* UCP: character list, character */
 #ucp_characters a {
     border: 1px solid #fff;
-    box-shadow: 0px 0px 10px #666;
-    -webkit-box-shadow: 0px 0px 10px #666;
-    -moz-box-shadow: 0px 0px 10px #666;
+    box-shadow: 0 0 10px #666;
+    -webkit-box-shadow: 0 0 10px #666;
+    -moz-box-shadow: 0 0 10px #666;
 
 }
 
@@ -493,20 +491,20 @@ label {
 /* Online players bar and realm bar (used on UCP, profiles) */
 .online_realm_button, #ucp_characters h1 {
 
-    text-shadow: 1px 1px 0px #ffffff;
+    text-shadow: 1px 1px 0 #ffffff;
     color: #666;
 }
 
 .online_realm_button:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    text-shadow: 1px 1px 0px #000;
+    text-shadow: 1px 1px 0 #000;
     color: #c8dbee;
 }
 
 .online_realm_button:active {
-    box-shadow: 0px 0px 5px #08121c inset;
-    -webkit-box-shadow: 0px 0px 5px #08121c inset;
-    -moz-box-shadow: 0px 0px 5px #08121c inset;
+    box-shadow: 0 0 5px #08121c inset;
+    -webkit-box-shadow: 0 0 5px #08121c inset;
+    -moz-box-shadow: 0 0 5px #08121c inset;
     color: #96afc8;
 }
 
@@ -590,9 +588,9 @@ label {
 .fusioneditor .fusioneditor_tools a:hover {
     border: 1px solid #b7b7b7;
     background-color: #fff;
-    box-shadow: 0px 1px 0px #fff inset;
-    -webkit-box-shadow: 0px 1px 0px #fff inset;
-    -moz-box-shadow: 0px 1px 0px #fff inset;
+    box-shadow: 0 1px 0 #fff inset;
+    -webkit-box-shadow: 0 1px 0 #fff inset;
+    -moz-box-shadow: 0 1px 0 #fff inset;
 }
 
 .fusioneditor .fusioneditor_tools a:active {
@@ -647,7 +645,7 @@ label {
 
 /* Store: item group title */
 .item_group_title, .store_item {
-    text-shadow: 1px 1px 0px #fff;
+    text-shadow: 1px 1px 0 #fff;
 }
 
 .item_group_title {
@@ -666,8 +664,8 @@ label {
     -moz-border-radius: 2px;
     background-color: #e9e9e9;
     border: 1px solid #ffffff;
-    box-shadow: 1px 1px 0px #d7d7d7 inset;
-    padding: 0px;
+    box-shadow: 1px 1px 0 #d7d7d7 inset;
+    padding: 0;
 }
 
 /* Store: item */
