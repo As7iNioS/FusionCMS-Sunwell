@@ -723,10 +723,6 @@ input[type="radio"] {
 	display:none;
 }
 
-.staff_comment .comment_author img {
-	margin-top:3px !important;
-}
-
 .comment {
 	word-wrap:break-word;
 }

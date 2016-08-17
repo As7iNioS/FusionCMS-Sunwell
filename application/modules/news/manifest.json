@@ -24,10 +24,6 @@
 	"permissions": {
 		"view": { "default": true, "description": "View the news" },
 		"canViewSpecificArticle": { "default": true, "description": "View a specific news article" },
-		"canViewComments": { "default": true, "description": "View comments on news articles" },
-		"canAddComment": { "default": true, "description": "Add a comment to an article" },
-		"canRemoveComment": { "default": false, "description": "Remove a comment from an article" },
-		"postCommentAsStaff": { "default": false, "description": "Add a comment to an article as staff" },
 		"canViewAdmin": { "default": false, "description": "View the news through the admin panel. Requires view permission in admin module" },
 		"canAddArticle": { "default": false, "description": "Add an article" },
 		"canRemoveArticle": { "default": false, "description": "Remove an article" },
@@ -50,16 +46,6 @@
 
 			"permissions": {
 				"canAddComment": true
-			}
-		},
-
-		"moderate": {
-			"description": "Moderate the comments",
-			"dangerLevel": 1,
-
-			"permissions": {
-				"canRemoveComment": true,
-				"postCommentAsStaff": true
 			}
 		},
 

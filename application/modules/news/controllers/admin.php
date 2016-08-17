@@ -115,8 +115,6 @@ class Admin extends MX_Controller
 		requirePermission("canAddArticle");
 
 		$headline = $this->input->post('headline');
-		$avatar = $this->input->post('avatar');
-		$comments = $this->input->post('comments');
 		$content = $this->input->post('content');
 
         $headlineParsed = json_decode($headline);
@@ -135,41 +133,23 @@ class Admin extends MX_Controller
             }
         }
 
-		if(in_array($comments, array("1", "yes", "true")))
-		{
-			$comments = "0";
-		}
-		else
-		{
-			$comments = "-1";
-		}
-
-		if(in_array($avatar, array("1", "yes", "true")))
-		{
-			$avatar = $this->user->getAvatar();
-		}
-		else
-		{
-			$avatar = "";
-		}
-
 		if($id)
 		{
-			$this->news_model->update($id, $headline, $avatar, $comments, $content);
+			$this->news_model->update($id, $headline, $content);
 
 			// Add log
 			$this->logger->createLog('Edited article', $headline);
 
-			$this->plugins->onUpdate($id, $headline, $content, $avatar, $comments);
+			$this->plugins->onUpdate($id, $headline, $content);
 		}
 		else
 		{
-			$this->news_model->create($headline, $avatar, $comments, $content);
+			$this->news_model->create($headline, $content);
 
 			// Add log
 			$this->logger->createLog('Created article', $headline);
 
-			$this->plugins->onCreate($headline, $content, $avatar, $comments);
+			$this->plugins->onCreate($headline, $content);
 		}
 
 		$this->cache->delete('news_*.cache');

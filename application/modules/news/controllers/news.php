@@ -13,7 +13,6 @@ class News extends MX_Controller
 		$this->load->config('news');
 		$this->load->library('pagination');
 		$this->load->model('news_model');
-		$this->load->model('comments_model');
 	}
 
 	public function sortByDate($a, $b)
@@ -108,9 +107,6 @@ class News extends MX_Controller
 				$this->news_articles[$key]['content'] = langColumn($article['content']);
 				$this->news_articles[$key]['date'] = date("Y/m/d", $article['timestamp']);
 				$this->news_articles[$key]['author'] = $this->user->getNickname($article['author_id']);
-				$this->news_articles[$key]['link'] = ($article['comments'] == -1)? '' : "href='javascript:void(0)' onClick='Ajax.showComments(".$article['id'].")'";
-				$this->news_articles[$key]['comments_id'] = "id='comments_".$article['id']."'";
-				$this->news_articles[$key]['comments_button_id'] = "id='comments_button_".$article['id']."'";
 				$this->news_articles[$key]['tags'] = $this->news_model->getTags($id);
 			}
 
@@ -172,9 +168,6 @@ class News extends MX_Controller
 			$this->news_articles[$key]['content'] = langColumn($article['content']);
 			$this->news_articles[$key]['date'] = date("Y/m/d", $article['timestamp']);
 			$this->news_articles[$key]['author'] = $this->user->getNickname($article['author_id']);
-			$this->news_articles[$key]['link'] = ($article['comments'] == -1)? '' : "href='javascript:void(0)' onClick='Ajax.showComments(".$article['id'].")'";
-			$this->news_articles[$key]['comments_id'] = "id='comments_".$article['id']."'";
-			$this->news_articles[$key]['comments_button_id'] = "id='comments_button_".$article['id']."'";
 			$this->news_articles[$key]['tags'] = $this->news_model->getTags($article['id']);
 		}
 	}

@@ -14,12 +14,6 @@
 		</div>
 		<div class="main_box_bottom">
 
-			{if $article.comments != -1}
-				<a {$article.link} class="news_comments" {$article.comments_button_id}>
-					{lang("comments", "news")} ({$article.comments})
-				</a>
-			{/if}
-
 			{lang("posted_by", "news")} <b><a href="{$url}profile/{$article.author_id}" data-tip="{lang("view_profile", "news")}">{$article.author}</a></b> {lang("on", "news")} <b>{$article.date}</b>
 
             {if $article.tags}

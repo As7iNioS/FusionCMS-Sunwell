@@ -50,10 +50,6 @@ $route['page/admin/(:any)'] = "page/admin/$1";
 $route['page/admin'] = "page/admin/index";
 $route['page/(:any)'] = "page/index/$1";
 
-// Comments
-$route['news/comments/get/(:num)'] = "news/comments/get/$1";
-$route['news/comments/add/(:num)'] = "news/comments/add/$1";
-
 // Profile
 $route['profile/(:any)'] = "profile/index/$1";
 $route['messages/page/(:any)'] = "messages/index/$1";

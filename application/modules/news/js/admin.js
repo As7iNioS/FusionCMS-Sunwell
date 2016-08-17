@@ -38,7 +38,6 @@ var News = {
 		var data = {
 			headline: $("#headline").val(),
 			avatar: $("#avatar").is(":checked"),
-			comments: $("#comments").is(":checked"),
 			content: $("#news_content").val(),
 			csrf_token_name: Config.CSRF
 		};

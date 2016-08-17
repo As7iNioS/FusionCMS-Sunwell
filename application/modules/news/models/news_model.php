@@ -17,11 +17,11 @@ class News_model extends CI_Model
 	{
 		if($start === true)
 		{
-			$this->db->select('id, headline, content, timestamp, author_id, avatar, comments');
+			$this->db->select('id, headline, content, timestamp, author_id, avatar');
 		}
 		else
 		{
-			$this->db->select('id, headline, content, timestamp, author_id, avatar, comments');
+			$this->db->select('id, headline, content, timestamp, author_id, avatar');
 			$this->db->limit($limit, $start);
 		}
 
@@ -105,55 +105,18 @@ class News_model extends CI_Model
 	}
 
 	/**
-	 * Check whether an article exists or not
-	 * @param Int $id
-	 * @param Boolean $comment Check if comments are enabled
-	 * @return bool
-	 */
-	public function articleExists($id, $comment = false)
-	{
-		if (!$id)
-			return false;
-
-		$this->db->select('comments');
-		$this->db->where('id', $id);
-		$query = $this->db->get('articles');
-
-		$result = $query->result_array();
-
-		// If comments are enabled
-		if($comment && count($result) && $result[0]['comments'] != -1)
-		{
-			return true;
-		}
-		// If article exists
-		elseif(!$comment && count($result))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	/**
 	 * Create a news article
 	 * @param $headline
-	 * @param $avatar
-	 * @param $comments
 	 * @param $content
 	 * @return bool
 	 */
-	public function create($headline, $avatar, $comments, $content)
+	public function create($headline, $content)
 	{
-		if (!is_string($headline) || !is_string($avatar) || !is_string($content))
+		if (!is_string($headline) || !is_string($content))
 			return false;
 
 		$data = array(
 			'headline' => $headline,
-			'avatar' => $avatar,
-			'comments' => $comments,
 			'content' => $content,
 			'timestamp' => time(),
 			'author_id' => $this->user->getId()
@@ -168,33 +131,18 @@ class News_model extends CI_Model
 	 * Update the article with the given id
 	 * @param $id
 	 * @param $headline
-	 * @param $avatar
-	 * @param $comments
 	 * @param $content
 	 * @return bool
 	 */
-	public function update($id, $headline, $avatar, $comments, $content)
+	public function update($id, $headline, $content)
 	{
-		if (!is_numeric($id) || !is_string($headline) ||  !is_string($avatar) || !is_string($content))
+		if (!is_numeric($id) || !is_string($headline) || !is_string($content))
 			return false;
 
 		$data = array(
 			'headline' => $headline,
-			'avatar' => $avatar,
-			'comments' => $comments,
 			'content' => $content,
 		);
-
-		if($data['comments'] == 0)
-		{
-			$query = $this->db->query("SELECT COUNT(*) as `total` FROM comments WHERE article_id=?", array($id));
-			$result = $query->result_array();
-
-			if($result[0]['total'] != 0)
-			{
-				$data['comments'] = $result[0]['total'];
-			}
-		}
 
 		$this->db->where('id', $id);
 		$this->db->update("articles", $data);

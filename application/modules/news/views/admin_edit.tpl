@@ -15,9 +15,6 @@
 		<input type="checkbox" id="avatar" {if $article.avatar}checked="yes"{/if} value="1"/>
 		<label for="avatar" class="inline_label">Show your avatar</label>
 
-		<input type="checkbox" id="comments" {if $article.comments != -1}checked="yes"{/if} value="1"/>
-		<label for="comments" class="inline_label">Allow comments</label>
-
 		<input type="submit" value="Save article" />
 	</form>
 </section>

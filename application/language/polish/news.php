@@ -12,11 +12,4 @@
  *	will automatically look in that folder too.
  */
 
-$lang['type_comment'] = "Napisz komentarz...";
-$lang['characters'] = "znaków";
-$lang['submit'] = "Wyślij komentarz";
-$lang['log_in'] = "Zaloguj się, aby móc komentować";
-$lang['view_profile'] = "Zobacz profil";
-$lang['comments'] = "Komentarze";
-$lang['posted_by'] = "Opublikowany przez";
-$lang['on'] = "dnia"; /* Posted by Jesper >on< 2013/01/29 */
+$lang['posted_by'] = "przez";

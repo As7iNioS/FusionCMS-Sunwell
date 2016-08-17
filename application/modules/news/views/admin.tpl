@@ -17,10 +17,9 @@
 			<li>
 				<table width="100%">
 					<tr>
-						<td width="40%"><b>{$article.headline}</b></td>
-						<td width="15%">{$article.nickname}</td>
+						<td width="50%"><b>{$article.headline}</b></td>
+						<td width="20%">{$article.nickname}</td>
 						<td width="20%">{date("Y/m/d", $article.timestamp)}</td>
-						<td width="15%"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_chats.png" align="absbottom"/> &nbsp;{if $article.comments != -1}{$article.comments}{else}Off{/if}</td>
 						<td style="text-align:right;">
 							{if hasPermission("canEditArticle")}
 							<a href="{$url}news/admin/edit/{$article.id}" data-tip="Edit"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_edit.png" /></a>&nbsp;
@@ -54,9 +53,6 @@
 
 			<input type="checkbox" id="avatar" checked="yes" value="1"/>
 			<label for="avatar" class="inline_label">Show your avatar</label>
-
-			<input type="checkbox" id="comments" checked="yes" value="1"/>
-			<label for="comments" class="inline_label">Allow comments</label>
 
 			<input type="submit" value="Submit article" />
 		</form>
