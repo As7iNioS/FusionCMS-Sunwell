@@ -110,8 +110,8 @@ $config['header_url'] = false;
 */
 $config['slider'] = true;
 $config['slider_home'] = true;
-$config['slider_interval'] = 5000;
-$config['slider_style'] = false;
+$config['slider_interval'] = 20000;
+$config['slider_style'] = "slide";
 
 /*
 |--------------------------------------------------------------------------

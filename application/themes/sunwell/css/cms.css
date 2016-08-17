@@ -485,7 +485,9 @@ label {
 
 /* Realmlist box in the realm status sidebox */
 #realmlist {
-
+    margin: 15px 0 0;
+    font-family: Arial, serif;
+    font-size: 10pt;
 }
 
 /* Online players bar and realm bar (used on UCP, profiles) */

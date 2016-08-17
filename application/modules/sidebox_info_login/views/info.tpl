@@ -17,8 +17,7 @@
 			<td id="info_dp">{$dp}</td>
 		</tr>
 	</table>
-	<center>
-		<a href="{$url}ucp" class="nice_button">{lang("user_panel", "sidebox_info")}</a>
-		<a href="{$url}logout" class="nice_button">{lang("log_out", "sidebox_info")}</a>
-	</center>
+	<div style="height: 15px;"></div>
+	<button type="button" class="button-normal" onclick="document.location='{$url}ucp';">{lang("user_panel", "sidebox_info")}</button>
+	<button type="button" class="button-normal" style="margin-left: 32px;" onclick="document.location='{$url}logout';">{lang("log_out", "sidebox_info")}</button>
 </section>
