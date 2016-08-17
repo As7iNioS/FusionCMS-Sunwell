@@ -47,7 +47,6 @@ class Ucp extends MX_Controller
 			"register_date" => $this->user->getRegisterDate(),
 			"status" => $this->user->getAccountStatus(),
 			"characters" => $characters,
-			"avatar" => $this->user->getAvatar($this->user->getId()),
 			"id" => $this->user->getId(),
 
 			"config" => array(

@@ -14,7 +14,6 @@
 
 // UCP
 $lang['user_panel'] = "User panel";
-$lang['change_avatar'] = "Change avatar";
 $lang['nickname'] = "Nickname";
 $lang['location'] = "Location";
 $lang['account_rank'] = "Account rank";
@@ -22,16 +21,6 @@ $lang['voting_points'] = "Voting points";
 $lang['donation_points'] = "Donation points";
 $lang['account_status'] = "Account status";
 $lang['member_since'] = "Member since";
-
-// Avatar
-$lang['change_avatar'] = "Change avatar";
-$lang['make_use'] = "We make use of";
-$lang['provides_way'] = "which provides an easy way to maintain your avatars across the web.";
-$lang['to_change'] = "To change your avatar you need to";
-$lang['sign_up_for'] = "sign up for";
-$lang['or'] = "or";
-$lang['log_into'] = "log into";
-$lang['using_email'] = "using the following email:";
 
 // Settings
 $lang['settings'] = "Account settings";

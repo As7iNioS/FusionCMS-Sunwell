@@ -5,9 +5,6 @@
 	
 	"favicon": "favicon.gif",
 
-	"normal_avatar": "avatars/0_normal.jpg",
-	"small_avatar": "avatars/0_small.jpg",
-
 	"slider_text": {
 		"next": "Next",
 		"previous": "Prev"

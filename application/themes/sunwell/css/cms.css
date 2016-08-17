@@ -371,7 +371,7 @@ label {
     font-size: 16px;
 }
 
-.avatar, #ucp_avatar, .store_item .item_icon {
+.avatar, .store_item .item_icon {
     border: 1px solid #fff;
     box-shadow: 0 0 10px #666;
     -webkit-box-shadow: 0 0 10px #666;
@@ -383,12 +383,6 @@ label {
     margin-left: 0 !important;
     margin-top: 3px !important;
     margin-bottom: 5px;
-}
-
-#ucp_avatar:hover {
-    box-shadow: 0 0 15px #1e1e1e;
-    -webkit-box-shadow: 0 0 15px #1e1e1e;
-    -moz-box-shadow: 0 0 15px #1e1e1e;
 }
 
 .ucp_divider {

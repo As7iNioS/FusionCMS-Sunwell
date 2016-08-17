@@ -1,8 +1,4 @@
 <section id="ucp_top">
-	<a id="ucp_avatar" style="width:44px;height:44px;margin-top:7px;">
-		<img src="{$avatar}"/>
-	</a>
-
 	<section id="ucp_info" style="height:auto;">
 		<aside style="height:auto;width:190px;margin-right:10px;">
 			<table width="100%">

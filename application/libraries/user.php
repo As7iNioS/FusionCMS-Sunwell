@@ -360,32 +360,6 @@ class User
 	}
 
 	/**
-	 * Get the user's avatar
-	 * @param Int $id
-	 * @param String $size Small/normal
-	 * @return String
-	 */
-	public function getAvatar($id = false, $size = "normal")
-	{
-		if(!$id)
-		{
-			$id = $this->id;
-		}
-		
-		switch($size)
-		{
-			case "normal": $px = 120; break;
-			case "small": $px = 44; break;
-		}
-
-		$default = $this->CI->template->image_path.$this->CI->template->theme_data[$size.'_avatar'];
-
-		$email = $this->CI->external_account_model->getEmail($id);
-
-		return "https://secure.gravatar.com/avatar/".md5(strtolower(trim($email)))."?d=".urlencode($default)."&s=".$px;
-	}
-	
-	/**
 	 * get the user it's characters, returns array with realmnames and character names and character id when specified realm is -1 or the default
 	 * @param int $userId
 	 * @param int $realmId

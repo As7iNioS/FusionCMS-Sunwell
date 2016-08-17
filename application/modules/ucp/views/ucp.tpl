@@ -1,9 +1,4 @@
 <section id="ucp_top">
-	<a href="{$url}ucp/avatar" id="ucp_avatar">
-		<div>{lang("change_avatar", "ucp")}</div>
-		<img src="{$avatar}"/>
-	</a>
-
 	<section id="ucp_info">
 		<aside>
 			<table width="100%">
