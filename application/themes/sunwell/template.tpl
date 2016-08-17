@@ -40,15 +40,15 @@
         {$page}
     </div>
     <div id="content-right">
-        <div class="rightcenter">
-            <span class="titleright">Navigation</span>
-            <ul>
-                {foreach from=$menu_side item=menu_2}
-                    <li><a {$menu_2.link}>{$menu_2.name}</a></li>
-                {/foreach}
-            </ul>
-        </div>
-        <div class="right-spacer"></div>
+        {*<div class="rightcenter">*}
+            {*<span class="titleright">Navigation</span>*}
+            {*<ul>*}
+                {*{foreach from=$menu_side item=menu_2}*}
+                    {*<li><a {$menu_2.link}>{$menu_2.name}</a></li>*}
+                {*{/foreach}*}
+            {*</ul>*}
+        {*</div>*}
+        {*<div class="right-spacer"></div>*}
         {foreach from=$sideboxes item=sidebox}
             {if $sidebox.boxVisible}
             <div class="rightcenter">
