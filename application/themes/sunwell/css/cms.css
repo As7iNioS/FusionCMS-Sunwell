@@ -41,10 +41,10 @@
 
 /* Image slider element */
 #slider {
-    /* margin-left: 7px; */
-    margin-top: 2px;
-    width: 100%;
-    height: auto;
+    width: 587px;
+    height: 259px;
+    padding: 3px;
+    margin-bottom: 7px;
 }
 
 .fluxslider {

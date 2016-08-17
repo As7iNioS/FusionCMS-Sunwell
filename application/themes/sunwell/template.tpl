@@ -28,10 +28,12 @@
         <div id="content-righttop"></div>
         <div id="wheel"></div>
         <div id="slider_wrapper" {if !$show_slider}style="display:none;"{/if}>
-            <div id="slider">
-                {foreach from=$slider item=image}
-                    <a href="{$image.link}"><img src="{$image.image}" title="<h3><a href='{$image.link}'>{$image.title}</a></h3><br>{$image.text}"/></a>
-                {/foreach}
+            <div id="features">
+                <div id="slider">
+                    {foreach from=$slider item=image}
+                        <a href="{$image.link}"><img src="{$image.image}" title="<a id='features-title' href='{$image.link}'>{$image.title}</a><br><span id='features-text'>{$image.text}</span>"/></a>
+                    {/foreach}
+                </div>
             </div>
         </div>
 

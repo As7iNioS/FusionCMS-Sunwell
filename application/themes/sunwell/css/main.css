@@ -353,10 +353,15 @@ a:hover {
     background: url(../images/lay/pagetitle_bg.png) 20px top no-repeat;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-left: -20px;
 }
 
 .page-title:first-letter {
     font-size: 28px;
+}
+
+.page.page-title{
+    padding-left: 90px;
 }
 
 .sc-subtitle {
@@ -576,24 +581,6 @@ body {
     text-align: center;
     margin-left: 2px;
     padding-top: 12px;
-}
-
-.page-title {
-    height: 67px;
-    font-family: Georgia, Arial, serif;
-    text-align: left;
-    padding-left: 60px;
-    font-size: 21px;
-    line-height: 67px;
-    color: #1b4a76;
-    background: url(../images/lay/pagetitle_bg.png) 20px top no-repeat;
-    margin-top: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.page-title:first-letter {
-    font-size: 28px;
 }
 
 .error {
@@ -995,11 +982,22 @@ select {
 
 #features {
     width: 601px;
-    height: 352px;
-    margin-top: 28px;
+    height: 272px;
     background: url(../images/index/features_bg.png) left top no-repeat;
     text-align: left;
     padding: 8px 0 0 8px;
+    margin: 28px auto 0;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#features .caption{
+    height: 100px;
+    padding: 3px;
+}
+
+#slider_previous, #slider_next{
+    top: 100px !important;
 }
 
 #features-overlay {
