@@ -338,12 +338,22 @@ class Template
 						$object = new $sidebox['type']();
 					}
 
-					// Add the sidebox to the output.
-					array_push($out, array('name' => langColumn($sidebox['displayName']), 'data' => $object->view()));
+                    // Add the sidebox to the output.
+					array_push($out, [
+					    'name' => langColumn($sidebox['displayName']),
+					    'boxVisible' => $sidebox['boxVisible'],
+					    'titleVisible' => $sidebox['titleVisible'],
+                        'data' => $object->view()
+                    ]);
 				}
 				else
 				{
-					array_push($out, array('name' => "Oops, something went wrong", 'data' => 'The following sidebox module is missing or contains an invalid module structure: <b>sidebox_'.$sidebox['type'].'</b>'));
+					array_push($out, [
+					    'name' => "Oops, something went wrong",
+					    'boxVisible' => 1,
+					    'titleVisible' => 1,
+                        'data' => 'The following sidebox module is missing or contains an invalid module structure: <b>sidebox_'.$sidebox['type'].'</b>'
+                    ]);
 				}
 			}
 		}

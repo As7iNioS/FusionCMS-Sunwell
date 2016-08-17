@@ -22,22 +22,6 @@
         {/if}
     {/foreach}
 </div>
-<!--<div id="menu">
-<div class="menupos" style="width: 110px;" onclick="document.location='index.php';"><a href="index.php">Home</a></div>
-<div id="menupos-informacje" style="width: 127px;">
-Information
-<div style="height: 16px;"></div>
-<a href="?index.php?id=whysunwell">Why Sunwell</a><br>
-<a href="?index.php?id=rules">Rules</a><br>
-<a href="?index.php?id=changelog">Changelog</a><br>
-<a href="?index.php?id=bugtracker">Bug Tracker</a><br>
-<a href="?index.php?id=premium">Premium</a><br>
-</div>
-<div class="menupos" style="width: 132px;" onclick="document.location='/?index.php?id=howtoplay';"><a href="?index.php?id=howtoplay">How to play</a></div>
-<div class="menupos" style="margin-left: 271px; width: 119px;" onclick="document.location='?/armory/';"><a href="?armory/">Armory</a></div>
-<div class="menupos" style="width: 109px;" onclick="document.location='?http://www.sunwell.pl/forum/';"><a href="?http://www.sunwell.pl/forum/">Forum</a></div>
-<div class="menupos" style="width: 146px;" onclick="document.location='/?index.php?id=ranking';"><a href="?index.php?id=ranking">Ranking</a></div>
-</div>-->
 <div id="topnav"></div>
 <div id="wrapper">
     <div id="content-left" style="min-height: 739px;">
@@ -64,15 +48,16 @@ Information
         </div>
         <div class="right-spacer"></div>
         {foreach from=$sideboxes item=sidebox}
+            {if $sidebox.boxVisible}
             <div class="rightcenter">
-                <span class="titleright">{$sidebox.name}</span>
+                {if $sidebox.titleVisible}<span class="titleright">{$sidebox.name}</span>{/if}
                 <div style="padding:5px;">
                     {$sidebox.data}
                 </div>
             </div>
             <div class="right-spacer"></div>
+            {/if}
         {/foreach}
-
     </div>
     <div id="content-right-bottombg"></div>
     <div id="content-left-bottombg"></div>

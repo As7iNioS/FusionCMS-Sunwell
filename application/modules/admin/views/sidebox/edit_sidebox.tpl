@@ -12,6 +12,18 @@
 			{/foreach}
 		</select>
 
+		<label for="boxVisible">Box visibility</label>
+		<select name="boxVisible" id="boxVisible">
+			<option value="0" {if !$sidebox.boxVisible}selected{/if}>Hidden</option>
+			<option value="1" {if $sidebox.boxVisible}selected{/if}>Visible</option>
+		</select>
+
+		<label for="titleVisible">Title visibility</label>
+		<select name="titleVisible" id="titleVisible">
+			<option value="0" {if !$sidebox.titleVisible}selected{/if}>Hidden</option>
+			<option value="1" {if $sidebox.titleVisible}selected{/if}>Visible</option>
+		</select>
+
 		<label for="visibility">Visibility mode</label>
 		<select name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').fadeIn(300); } else { $('#groups').fadeOut(300); }">
 			<option value="everyone" {if !$sidebox.permission}selected{/if}>Visible to everyone</option>

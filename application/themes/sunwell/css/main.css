@@ -863,6 +863,10 @@ body {
     margin: 15px 0;
 }
 
+.right-spacer:last-of-type{
+    display: none;
+}
+
 .field-title-text {
     font-size: 13px;
     color: rgb(229, 195, 79);
