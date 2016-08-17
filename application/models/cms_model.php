@@ -124,11 +124,11 @@ class Cms_model extends CI_Model
 	{
 		if(in_array($side, array("top", "side")))
 		{
-			$query = $this->db->query("SELECT * FROM menu WHERE side = ? ORDER BY `order` ASC", array($side));
+			$query = $this->db->query("SELECT m.*, (SELECT COUNT(1) FROM menu WHERE idParent = m.id) childCount FROM menu m WHERE m.side = ? AND m.idParent = 0 ORDER BY m.`order` ASC", array($side));
 		}
 		else
 		{
-			$query = $this->db->query("SELECT * FROM menu ORDER BY `order` ASC", array($side));
+			$query = $this->db->query("SELECT * FROM menu WHERE idParent = 0 ORDER BY `order` ASC");
 		}
 
 		if($query->num_rows() > 0)
@@ -138,7 +138,24 @@ class Cms_model extends CI_Model
 
 		return null;
 	}
-	
+
+    /**
+     * Get the links of one direction
+     * @param $id
+     * @return array
+     */
+	public function getChildren($id)
+	{
+        $query = $this->db->query("SELECT * FROM menu WHERE idParent = $id ORDER BY `order` ASC");
+
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+
+		return null;
+	}
+
 	/**
 	 * Get the selected page from the database
 	 * @param String $page

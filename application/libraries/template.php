@@ -434,17 +434,19 @@ class Template
 
 			// Xss protect out names
 			$links[$key]['name'] = $this->format(langColumn($links[$key]['name']), false, false);
+            if ($links[$key]['childCount'] && $side == "top"){
+                $links[$key]['children'] = $this->CI->cms_model->getChildren($links[$key]['id']);
+                foreach ($links[$key]['children'] as &$child) {
+                    $child['name'] = $this->format(langColumn($child['name']), false, false);
+                    if(!preg_match("/^\/|[a-z][a-z0-9+\-.]*:/i", $links[$key]['link']))
+                    {
+                        $child['link'] = $this->page_url . $child['link'];
+                    }
 
-			// Hard coded PM count
-			if($links[$key]['link'] == "messages")
-			{
-				$count = $this->CI->cms_model->getMessagesCount();
-
-				if($count > 0)
-				{
-					$links[$key]['name'] .= " <b>(".$count.")</b>";
-				}
-			}
+                    $child['linkon'] = ''.$child['link'].'';
+                    $child['link'] = 'href="'.$child['link'].'" direct="'.$child['direct_link'].'"';
+                }
+            }
 
 			if(!preg_match("/^\/|[a-z][a-z0-9+\-.]*:/i", $links[$key]['link']))
 			{

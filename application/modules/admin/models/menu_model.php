@@ -4,7 +4,7 @@ class Menu_model extends CI_Model
 {
 	public function getMenuLinks()
 	{
-		$query = $this->db->query("SELECT * FROM menu ORDER BY `order` ASC");
+		$query = $this->db->query("SELECT * FROM menu ORDER BY IF(idParent = 0, id, idParent) ASC, IF(idParent = 0, -1, `order`) ASC, `order` ASC");
 		
 		if($query->num_rows() > 0)
 		{
@@ -51,13 +51,15 @@ class Menu_model extends CI_Model
 		$this->db->update('menu', $data);
 	}
 	
-	public function add($name, $link, $side, $direct_link)
+	public function add($name, $link, $side, $direct_link, $order, $parent = 0)
 	{
 		$data = array(
 			"name" => $name,
 			"link" => $link,
 			"side" => $side,
 			"direct_link" => $direct_link,
+			"order" => $order,
+			"idParent" => $parent,
 			"rank" => $this->cms_model->getAnyOldRank()
 		);
 

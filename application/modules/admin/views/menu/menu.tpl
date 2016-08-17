@@ -21,12 +21,12 @@
 				<table width="100%">
 					<tr>
 						<td width="10%">
-							{if hasPermission("editMenuLinks")}
+							{if hasPermission("editMenuLinks") && !$link.idParent}
 							<a href="javascript:void(0)" onClick="Menu.move('up', {$link.id}, this)" data-tip="Move up"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_up.png" /></a>
 							<a href="javascript:void(0)" onClick="Menu.move('down', {$link.id}, this)" data-tip="Move down"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_down.png" /></a>
 							{/if}
 						</td>
-						<td width="30%"><span style="font-size:10px;padding:0px;display:inline;">{$link.side}&nbsp;&nbsp;</span> <b>{langColumn($link.name)}</b></td>
+						<td width="30%"><span style="font-size:10px;padding:0;display:inline;">{if $link.idParent}&nbsp;&nbsp;&nbsp;|&nbsp;---&nbsp;&nbsp;{else}{$link.side}&nbsp;&nbsp;{/if}</span> <b>{langColumn($link.name)}</b></td>
 						<td width="50%"><a href="{$link.link}" target="_blank">{$link.link_short}</a></td>
 						<td style="text-align:right;">
 							{if hasPermission("editMenuLinks")}
@@ -76,7 +76,13 @@
 				<option value="0">No</option>
 				<option value="1">Yes</option>
 		</select>
-	
+
+		<label for="order" data-tip="Position of element">Order <a>(?)</a></label>
+		<input type="text" name="order" id="order" value="{$link.order}"/>
+
+		<label for="idParent" data-tip="ID of parent menu link">Parent ID <a>(?)</a></label>
+		<input type="text" name="idParent" id="idParent" value="{$link.idParent}"/>
+
 		<input type="submit" value="Submit link" />
 	</form>
 </section>

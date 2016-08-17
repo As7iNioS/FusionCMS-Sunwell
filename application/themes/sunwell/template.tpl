@@ -1,14 +1,25 @@
 {$head}
-<body onload="javascript:loaded();">
+<body>
 
 <div id="lang-en" onclick="setLanguage('english', this)">EN</div>
 <div id="lang-pl" onclick="setLanguage('polish', this)">PL</div>
 &nbsp;<br>
 <div id="menu">
     {foreach from=$menu_top item=menu_1}
-        <div class="menupos" onclick="document.location='{$menu_1.linkon}';">
-            <a {$menu_1.link}>{$menu_1.name}</a>
-        </div>
+        {if $menu_1.childCount > 0}
+            <div class="menupos menupos-dropdown">
+                {$menu_1.name}
+                <ul>
+                    {foreach from=$menu_1.children item=menu_1_child}
+                        <li onclick="document.location='{$menu_1_child.linkon}';"><a {$menu_1_child.link}>{$menu_1_child.name}</a></li>
+                    {/foreach}
+                </ul>
+            </div>
+        {else}
+            <div class="menupos" onclick="document.location='{$menu_1.linkon}';">
+                <a {$menu_1.link}>{$menu_1.name}</a>
+            </div>
+        {/if}
     {/foreach}
 </div>
 <!--<div id="menu">

@@ -637,34 +637,62 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#menupos-informacje {
+.menupos-dropdown {
     overflow: hidden;
-    text-decoration: none;
     font-weight: bold;
     color: rgb(229, 195, 79);
     font-size: 13px;
-    margin-left: 1px;
-    float: left;
-    height: 44px;
-    background-color: rgba(0, 0, 0, 0.0);
     line-height: 30px;
-    text-align: center;
     padding-top: 14px;
-    position: relative;
-    z-index: 255;
-    -moz-border-radius: 0 0 0 0;
-    border-radius: 0 0 0 0;
+    cursor: default;
+    height: 44px;
 }
 
-#menupos-informacje:hover {
-    height: 207px;
+.menupos-dropdown:hover {
+    overflow: visible;
+    height: auto;
     background: url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) right top repeat;
     -moz-border-radius: 0 0 8px 8px;
     border-radius: 0 0 8px 8px;
 }
 
-#menupos-informacje a:hover {
+.menupos-dropdown a:hover {
     color: #fff;
+}
+
+.menupos-dropdown ul{
+    display: block;
+    float: left;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #000;
+    border-top: 0;
+    margin-top: 15px;
+    -moz-border-radius: 0 0 8px 8px;
+    border-radius: 0 0 8px 8px;
+    margin-left: -1px;
+    list-style: none;
+}
+
+.menupos-dropdown ul li:first-child{
+    border-top: 1px solid #000;
+}
+
+.menupos-dropdown ul li:last-child{
+    border-bottom: none;
+}
+
+.menupos-dropdown ul li {
+    height: 25px;
+    padding: 5px 0;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+    line-height: 25px;
+}
+
+.menupos-dropdown ul li:hover a, .menupos-dropdown ul li:active a {
+    color: #e0e000 !important;
 }
 
 #lang-en {

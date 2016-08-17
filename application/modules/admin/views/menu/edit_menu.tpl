@@ -30,6 +30,12 @@
 				<option value="1" {if $link.direct_link == "1"}selected{/if}>Yes</option>
 		</select>
 
+		<label for="order" data-tip="Position of element">Order <a>(?)</a></label>
+		<input type="text" name="order" id="order" value="{$link.order}"/>
+
+		<label for="idParent" data-tip="ID of parent menu link">Parent ID <a>(?)</a></label>
+		<input type="text" name="idParent" id="idParent" value="{$link.idParent}"/>
+
 		<input type="submit" value="Save link" />
 	</form>
 </section>

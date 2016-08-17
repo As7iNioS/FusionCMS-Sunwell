@@ -84,9 +84,11 @@ class Menu extends MX_Controller
 		$name = $this->input->post('name');
 		$link = $this->input->post('link');
 		$side = $this->input->post('side');
+        $order = $this->input->post('order');
+        $idParent = $this->input->post('idParent');
 		$direct_link = $this->input->post('direct_link');
 
-		$id = $this->menu_model->add($name, $link, $side, $direct_link);
+		$id = $this->menu_model->add($name, $link, $side, $direct_link, $order, $idParent);
 
 		if($this->input->post('visibility') == "group")
 		{
@@ -200,6 +202,8 @@ class Menu extends MX_Controller
 		$data['name'] = $this->input->post('name');
 		$data['link'] = $this->input->post('link');
 		$data['side'] = $this->input->post('side');
+		$data['order'] = $this->input->post('order');
+		$data['idParent'] = $this->input->post('idParent');
 		$data['direct_link'] = $this->input->post('direct_link');
 
 		$this->menu_model->edit($id, $data);
