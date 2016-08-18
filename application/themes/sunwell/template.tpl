@@ -1,6 +1,16 @@
 {$head}
 <body>
 
+<script type="text/javascript">
+    function setLanguage(language)
+    {
+        $.get(Config.URL + "sidebox_language_picker/language_picker/set/" + language, function()
+        {
+            window.location.reload(true);
+        });
+    }
+</script>
+
 <div id="lang-en" onclick="setLanguage('english', this)">EN</div>
 <div id="lang-pl" onclick="setLanguage('polish', this)">PL</div>
 &nbsp;<br>
@@ -31,7 +41,7 @@
             <div id="features">
                 <div id="slider">
                     {foreach from=$slider item=image}
-                        <a href="{$image.link}"><img src="{$image.image}" title="<a id='features-title' href='{$image.link}'>{$image.title}</a><br><span id='features-text'>{$image.text}</span>"/></a>
+                        <a href="{$image.link}"><img src="{$image.image}" title="<a id='features-title' href='{$image.link}'>{htmlspecialchars($image.title)}</a><br><p id='features-text'>{htmlspecialchars($image.text)}</p>"/></a>
                     {/foreach}
                 </div>
             </div>

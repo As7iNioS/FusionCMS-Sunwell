@@ -175,7 +175,7 @@ footer {
 
 footer .center_1020 {
 	background-color:rgba(0,0,0,0.1);
-	border-left:;
+	border-left: none;
 	height:100px;
 }
 

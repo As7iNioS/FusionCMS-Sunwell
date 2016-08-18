@@ -102,6 +102,8 @@ function MultiLanguageInput(field)
 			text = "";
 		}
 
+		text = text.replace("'", "&apos;");
+		text = text.replace("\"", "&quot;");
 		var newField = $("<input type='text' data-lang='" + language + "' style='padding-left:70px;' value='" + text + "'/>");
 
 		// Assign blur event

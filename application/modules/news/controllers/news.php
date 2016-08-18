@@ -93,7 +93,7 @@ class News extends MX_Controller
 		// Check if cache is valid
 		if($cache !== false)
 		{
-			$this->template->view($cache, "modules/news/css/news.css", "modules/news/js/ajax.js");
+			$this->template->view($cache, "modules/news/css/news.css");
 		}
 		else
 		{
@@ -115,7 +115,7 @@ class News extends MX_Controller
 			$this->cache->save("news_id".$id."_".getLang(), $content);
 
 			// Load the template and pass the page content
-			$this->template->view($content, "modules/news/css/news.css", "modules/news/js/ajax.js");
+			$this->template->view($content, "modules/news/css/news.css");
 		}
 	}
 	
@@ -127,7 +127,7 @@ class News extends MX_Controller
 		// Check if cache is valid
 		if($cache !== false)
 		{
-			$this->template->view($cache, "modules/news/css/news.css", "modules/news/js/ajax.js");
+			$this->template->view($cache, "modules/news/css/news.css");
 		}
 		else
 		{
@@ -141,7 +141,7 @@ class News extends MX_Controller
 			$this->cache->save("news_".$this->startIndex."_".getLang(), $content);
 
 			// Load the template and pass the page content
-			$this->template->view($content, "modules/news/css/news.css", "modules/news/js/ajax.js");
+			$this->template->view($content, "modules/news/css/news.css");
 		}
 	}
 	
