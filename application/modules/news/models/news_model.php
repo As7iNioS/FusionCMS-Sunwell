@@ -34,21 +34,6 @@ class News_model extends CI_Model
 		{
 			return $this->template->format($result);
 		}
-		else
-		{
-			// Instead of showing a blank space, we show a default article
-			return array(
-						array(
-							'id' => 0,
-							'headline' => 'Welcome to FusionCMS V6!',
-							'content' => 'Welcome to your new website! This news article will disappear as soon as you add a new one.',
-							'author_id' => 0,
-							'timestamp' => time(),
-							'avatar' => null,
-							'comments' => -1
-						)
-					);
-		}
 	}
 
 	/**

@@ -166,7 +166,7 @@ class News extends MX_Controller
 		{
 			$this->news_articles[$key]['headline'] = langColumn($article['headline']);
 			$this->news_articles[$key]['content'] = langColumn($article['content']);
-			$this->news_articles[$key]['date'] = date("Y/m/d", $article['timestamp']);
+			$this->news_articles[$key]['date'] = date("d/m/y", $article['timestamp']);
 			$this->news_articles[$key]['author'] = $this->user->getNickname($article['author_id']);
 			$this->news_articles[$key]['tags'] = $this->news_model->getTags($article['id']);
 		}
