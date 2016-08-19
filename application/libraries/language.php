@@ -218,11 +218,12 @@ class Language
 		}
 	}
 
-	/**
-	 * Load a language file
-	 * @param String $file
-	 * @param String $language defaults to the current language
-	 */
+    /**
+     * Load a language file
+     * @param String $file
+     * @param bool|String $language defaults to the current language
+     * @return bool
+     */
 	private function load($file, $language = false)
 	{
 		// Default to the current language
@@ -250,11 +251,11 @@ class Language
 		}
 
 		// Look in the module directory
-		elseif(is_dir("application/modules/".$this->CI->template->module_name."/language/")
-		&& is_dir("application/modules/".$this->CI->template->module_name."/language/".$language)
-		&& file_exists(is_dir("application/modules/".$this->CI->template->module_name."/language/".$file.".php")))
+		elseif(is_dir("application/modules/{$this->CI->template->module_name}/language/")
+		&& is_dir("application/modules/{$this->CI->template->module_name}/language/$language")
+		&& file_exists("application/modules/{$this->CI->template->module_name}/language/$language/$file.php"))
 		{
-			$path = "application/modules/".$this->CI->template->module_name."/language/".$file.".php";
+			$path = "application/modules/{$this->CI->template->module_name}/language/$language/$file.php";
 		}
 
 		// No language file was found, and this is the default language
