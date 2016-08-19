@@ -204,6 +204,21 @@
 	"admin": [
 
 		{
+			"text":"Content",
+			"icon":"file",
+			"links": [
+
+
+              {
+                "text": "Manage slider",
+                "icon": "windows",
+                "controller": "slider",
+                "requirePermission": "viewSlider"
+              }
+			]
+		},
+
+		{
 			"text": "Website",
 			"icon": "cursor",
 			"links": [
@@ -219,34 +234,6 @@
 					"icon": "database",
 					"controller": "sidebox",
 					"requirePermission": "viewSideboxes"
-				},
-
-				{
-					"text": "Global announcement",
-					"icon": "power",
-					"controller": "message",
-					"requirePermission": "viewMessage"
-				},
-
-				{
-					"text": "Website logs",
-					"icon": "cursor",
-					"controller": "logging",
-					"requirePermission": "viewLogs"
-				},
-
-				{
-					"text": "Manage cache",
-					"icon": "database",
-					"controller": "cachemanager",
-					"requirePermission": "viewCache"
-				},
-
-				{
-					"text": "Manage slider",
-					"icon": "windows",
-					"controller": "slider",
-					"requirePermission": "viewSlider"
 				},
 
 				{
@@ -282,6 +269,44 @@
 					"controller": "sessions",
 					"requirePermission": "viewSessions"
 				}
+			]
+		},
+
+		{
+			"text":"Settings",
+			"icon":"settings",
+			"links": [
+
+
+              {
+                "text": "Global announcement",
+                "icon": "power",
+                "controller": "message",
+                "requirePermission": "viewMessage"
+              },
+
+              {
+                "text": "Manage cache",
+                "icon": "database",
+                "controller": "cachemanager",
+                "requirePermission": "viewCache"
+              }
+
+			]
+		},
+
+		{
+			"text":"Logs",
+			"icon":"database",
+			"links": [
+
+              {
+                "text": "Website logs",
+                "icon": "cursor",
+                "controller": "logging",
+                "requirePermission": "viewLogs"
+              }
+
 			]
 		}
 

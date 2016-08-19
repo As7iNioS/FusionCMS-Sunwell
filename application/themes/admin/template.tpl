@@ -179,12 +179,12 @@
 						{/foreach}
 					</nav>
 
-					<article>
-						<h1>Welcome to FusionCMS</h1>
-						<b>Dear customer</b>, We are happy to introduce you to the next major version of our very own FusionCMS. Years have passed since the initial release and the system has grown better and stronger for every version. The core of this beast is powered by clean, object oriented PHP code, kept in shape by the incredibly powerful CodeIgniter framework. On the front we also make sure to amaze your visitors with more Javascript-powered live interactions than ever before.
-						<div class="clear"></div>
-					</article>
-					<div class="spacer"></div>
+					{*<article>*}
+						{*<h1>Welcome to FusionCMS</h1>*}
+						{*<b>Dear customer</b>, We are happy to introduce you to the next major version of our very own FusionCMS. Years have passed since the initial release and the system has grown better and stronger for every version. The core of this beast is powered by clean, object oriented PHP code, kept in shape by the incredibly powerful CodeIgniter framework. On the front we also make sure to amaze your visitors with more Javascript-powered live interactions than ever before.*}
+						{*<div class="clear"></div>*}
+					{*</article>*}
+					{*<div class="spacer"></div>*}
 				</aside>
 
 				<!-- Main right column -->
