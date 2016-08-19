@@ -30,7 +30,7 @@ class Acl
 	{
 		if(!$this->hasPermission($permissionName, $moduleName))
 		{
-			$this->CI->template->showError(lang("permission_denied", "error"));
+			$this->CI->template->showError(lang("permission_denied_title", "error"), lang("permission_denied", "error"));
 		}
 	}
 

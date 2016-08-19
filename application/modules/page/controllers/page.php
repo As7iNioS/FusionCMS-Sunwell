@@ -19,7 +19,7 @@ class Page extends MX_Controller
 
 				if($cache['permission'] && !hasViewPermission($cache['permission'], "--PAGE--"))
 				{
-					$this->template->showError(lang("permission_denied", "error"));
+                    $this->template->showError(lang("permission_denied_title", "error"), lang("permission_denied", "error"));
 				}
 			}
 			else
@@ -50,7 +50,7 @@ class Page extends MX_Controller
 
 					if($page_content['permission'] && !hasViewPermission($page_content['permission'], "--PAGE--"))
 					{
-						$this->template->showError(lang("permission_denied", "error"));
+						$this->template->showError(lang("permission_denied_title", "error"), lang("permission_denied", "error"));
 					}
 				}
 			}

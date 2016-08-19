@@ -341,6 +341,11 @@ a:hover {
 
 .page.page-title{
     padding-left: 90px;
+    padding-top: 15px;
+    min-height: 50px;
+    line-height: 32px;
+    vertical-align: center;
+
 }
 
 .sc-subtitle {

@@ -516,14 +516,19 @@ class Template
 		$this->view($output);
 	}
 
-	/**
-	 * Show an error message
-	 * @param String $error
-	 */
-	public function showError($error = false)
+    /**
+     * Show an error message
+     * @param string $error
+     * @param string $title
+     */
+	public function showError($title = "", $error = "")
 	{
-		$message = $this->loadPage("cms_error.tpl", array('module' => 'cms_error', 'errorMessage' => $error));
-		$output = $this->box($error, $message);
+		$message = $this->loadPage("cms_error.tpl", [
+		    'module' => 'cms_error',
+            'errorTitle' => $title,
+            'errorMessage' => $error
+        ]);
+		$output = $this->box($title, $message);
 
 		$this->view($output);
 	}
