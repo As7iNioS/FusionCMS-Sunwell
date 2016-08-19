@@ -16,7 +16,7 @@
 | Whether or not to show the announcement message
 |
 */
-$config['message_enabled'] = true;
+$config['message_enabled'] = false;
 
 /*
 |--------------------------------------------------------------------------
