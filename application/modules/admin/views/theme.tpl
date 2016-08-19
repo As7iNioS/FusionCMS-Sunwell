@@ -48,8 +48,4 @@
 			</li>
 		{/foreach}
 	</ul>
-
-	<span>
-		<center><b>Want a new look?</b> Get more themes from the <a href="http://fusion-hub.com/themes" target="_blank">FusionHub</a></center>
-	</span>
 </section>
