@@ -51,13 +51,13 @@ function MultiLanguageInput(field)
 		{
 			var options = getLanguageOptions();
 
-			var languages = '<select id="insertLanguage">' + options + '</select>';
-            var lang = $("#insertLanguage").val();
 
             if(options)
 			{
+                var languages = '<select id="insertLanguage">' + options + '</select>';
 				UI.confirm(languages, 'Insert', function()
 				{
+                    var lang = $("#insertLanguage").val();
 					data[lang] = "";
                     area.append(
                         isTextArea ? createTextArea(lang) : createField(lang)
@@ -103,7 +103,7 @@ function MultiLanguageInput(field)
 		}
 
 		text = text.replace("'", "&apos;");
-		text = text.replace("\"", "&quot;");
+		text = text.replace("'", "&apos;");
 		var newField = $("<input type='text' data-lang='" + language + "' style='padding-left:70px;' value='" + text + "'/>");
 
 		// Assign blur event

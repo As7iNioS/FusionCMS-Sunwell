@@ -115,6 +115,7 @@ class Admin extends MX_Controller
 
         $headlineParsed = json_decode($headline);
         foreach ($headlineParsed as $language => $text) {
+            if ($language == "undefined") continue;
             if(strlen($text) > 70 || empty($text))
             {
                 die("The headline must be between 1-70 characters long - language: $language");
@@ -123,6 +124,7 @@ class Admin extends MX_Controller
 
         $contentParsed = json_decode($content);
         foreach ($contentParsed as $language => $text) {
+            if ($language == "undefined") continue;
             if(empty($text))
             {
                 die("Content can't be empty - language: $language");

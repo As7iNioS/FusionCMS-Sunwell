@@ -17,7 +17,7 @@
 
 .clear {
 	clear:both;
-	height:0px;
+	height:0;
 	overflow:hidden;
 }
 
@@ -60,7 +60,7 @@ input[type="radio"] {
 	background-color:rgba(0,0,0,0.6);
 	color:#fff;
 	position:absolute;
-	bottom:0px;
+	bottom:0;
 }
 
 #slider_next,
@@ -106,14 +106,14 @@ input[type="radio"] {
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	box-shadow:0px 0px 35px #000;
-	-webkit-box-shadow:0px 0px 35px #000;
-	-moz-box-shadow:0px 0px 35px #000;
+	box-shadow:0 0 35px #000;
+	-webkit-box-shadow:0 0 35px #000;
+	-moz-box-shadow:0 0 35px #000;
 }
 
 .popup h1 {
-	margin:0px;
-	padding:0px;
+	margin:0;
+	padding:0;
 	text-align:center;
 	font-weight:normal;
 	font-size:18px;
@@ -269,9 +269,9 @@ input[type="radio"] {
 	border-radius: 3px;
 	border:1px solid #777777;
 	border-top:1px solid #cfcfcf;
-	-webkit-box-shadow: 0px 0px 3px #000;
-	-moz-box-shadow: 0px 0px 3px #000;
-	box-shadow: 0px 0px 3px #000;
+	-webkit-box-shadow: 0 0 3px #000;
+	-moz-box-shadow: 0 0 3px #000;
+	box-shadow: 0 0 3px #000;
 	color: #fff;
 	font-size: 12px;
 	line-height:1.5;
@@ -317,7 +317,7 @@ input[type="radio"] {
 
 .realm {
 	font-size:12px;
-	margin:0px auto 0px auto;
+	margin:0 auto 0 auto;
 	margin-bottom:5px;
 	margin-top:5px;
 }
@@ -370,21 +370,22 @@ input[type="radio"] {
 }
 
 .online_realm_button:first-child {
-	margin-top:0px;
+	margin-top:0;
 }
 
 /* Table style, used on vote panel, donate panel, online players etc. */
 .nice_table {
-	width:95%;
+	width:100%;
 	margin-left:auto;
 	margin-right:auto;
-	border-spacing:0px;
+	border-spacing:0;
 }
 
 .nice_table tr:first-child td {
-	font-weight:bold;
-	padding:7px;
-	font-size:14px;
+    font-weight: bold;
+	font-size:12px;
+    height: 35px;
+    vertical-align: middle;
 }
 
 .nice_table tr:not(:first-child) td{
@@ -538,7 +539,7 @@ input[type="radio"] {
 	float:left;
 	margin-left:5px;
 	padding:5px;
-	padding-bottom:0px;
+	padding-bottom:0;
 	padding-top:4px;
 	border-radius:2px;
 	-webkit-border-radius:2px;
@@ -554,9 +555,9 @@ input[type="radio"] {
 .fusioneditor .fusioneditor_tools a:hover {
 	border:1px solid #b7b7b7;
 	background-color:#fff;
-	box-shadow:0px 1px 0px #fff inset;
-	-webkit-box-shadow:0px 1px 0px #fff inset;
-	-moz-box-shadow:0px 1px 0px #fff inset;
+	box-shadow:0 1px 0 #fff inset;
+	-webkit-box-shadow:0 1px 0 #fff inset;
+	-moz-box-shadow:0 1px 0 #fff inset;
 }
 
 .fusioneditor .fusioneditor_tools a:active {

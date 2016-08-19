@@ -445,16 +445,25 @@ img {
 
 table {
     border-collapse: collapse;
-    color: #ffffff;
+    color: #000;
     font-family: Arial, serif;
     font-size: 12px;
 }
 
 body {
     background: #000000 url(../images/lay/bg.jpg) no-repeat center top;
-    color: #ffffff;
+    color: #000000;
     font-family: Arial, serif;
     font-size: 12px;
+}
+
+.nice_table tr:first-child td {
+    background: url(../images/lay/tab-normal-bg-active.jpg) 0 top;
+    color: #fff;
+}
+
+.statistics_arena_head{
+    background: url(../images/lay/tab-normal-bg-active.jpg) 0 top;
 }
 
 #menu {
