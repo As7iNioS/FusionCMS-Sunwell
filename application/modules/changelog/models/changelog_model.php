@@ -138,14 +138,15 @@ class Changelog_model extends CI_Model
                 $lastCommit = end($commits)["hash"];
                 $fetchedCommits += count($commits);
 
+                if (empty($commits)) continue;
+
                 // Insert commits
                 foreach ($commits as $commit) {
                     $this->addChange($commit["message"], $repo["id"], $commit["author"], $commit["date"]);
                 }
 
                 // Update changelog_type
-                $this->db->where('id', $repo["id"]);
-                $this->db->update('changelog_type', ["lastCommit" => $lastCommit]);
+                $this->db->query("UPDATE changelog_type SET `lastCommit` = ? WHERE id = ?", [$lastCommit, $repo["id"]]);
             }
 
             if (!$fetchedCommits){
