@@ -17,27 +17,11 @@ class Settings extends MX_Controller
 	{
 		requirePermission("canUpdateAccountSettings");
 
-		clientLang("nickname_error", "ucp");
-		clientLang("location_error", "ucp");
 		clientLang("pw_doesnt_match", "ucp");
 		clientLang("changes_saved", "ucp");
 		clientLang("invalid_pw", "ucp");
-		clientLang("nickname_taken", "ucp");
-		clientLang("invalid_language", "ucp");
 
 		$this->template->setTitle(lang("settings", "ucp"));
-
-		$settings_data = array(
-			'nickname' => $this->user->getNickname(),
-			'location' => $this->internal_user_model->getLocation(),
-			'show_language_chooser' => $this->config->item('show_language_chooser'),
-			'userLanguage' => $this->language->getLanguage()
-		);
-
-		if($this->config->item('show_language_chooser'))
-		{
-			$settings_data['languages'] = $this->language->getAllLanguages();
-		}
 
 		$data = array(
 			"module" => "default", 
@@ -45,7 +29,7 @@ class Settings extends MX_Controller
 							"ucp" => lang("ucp"),
 							"ucp/settings" => lang("settings", "ucp")
 						)), 
-			"content" => $this->template->loadPage("settings.tpl", $settings_data)
+			"content" => $this->template->loadPage("settings.tpl")
 		);
 
 		$page = $this->template->loadPage("page.tpl", $data);
@@ -83,60 +67,5 @@ class Settings extends MX_Controller
 		}
 
 		die('yes');
-	}
-
-	public function submitInfo()
-	{
-		$this->load->model("settings_model");
-
-		// Gather the values
-		$values = array(
-			'nickname' => htmlspecialchars($this->input->post("nickname")),
-			'location' => htmlspecialchars($this->input->post("location")),
-		);
-
-		// Change language
-		if($this->config->item('show_language_chooser'))
-		{
-			$values['language'] = $this->input->post("language");
-
-			if(!is_dir("application/language/".$values['language']))
-			{
-				die("3");
-			}
-			else
-			{
-				$this->user->setLanguage($values['language']);
-
-				$this->plugins->onSetLanguage($this->user->getId(), $values['language']);
-			}
-		}
-
-		// Remove the nickname field if it wasn't changed
-		if($values['nickname'] == $this->user->getNickname())
-		{
-			$values = array('location' => $this->input->post("location"));
-		}
-		elseif(strlen($values['nickname']) < 4
-		|| strlen($values['nickname']) > 14
-		|| !preg_match("/[A-Za-z0-9]*/", $values['nickname']))
-		{
-			die(lang("nickname_error", "ucp"));
-		}
-		elseif($this->internal_user_model->nicknameExists($values['nickname']))
-		{
-			die("2");
-		}
-		
-		if(strlen($values['location']) > 32 && !ctype_alpha($values['location']))
-		{
-			die(lang("location_error", "ucp"));
-		}
-
-		$this->settings_model->saveSettings($values);
-
-		$this->plugins->onSaveSettings($this->user->getId(), $values);
-
-		die("1");
 	}
 }

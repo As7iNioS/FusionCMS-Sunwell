@@ -6,7 +6,6 @@ class Profile extends MX_Controller
 	private $css;
 	private $id;
 	private $username;
-	private $location;
 	private $register_date;
 	private $rank_name;
 
@@ -84,12 +83,10 @@ class Profile extends MX_Controller
 
 	private function getInfo()
 	{
-		$internal = $this->internal_user_model->getValue("account_data", "id", $this->id, "location");
 		$external = $this->external_account_model->getInfo($this->id, "joindate, username");
 
 		$this->username = $this->user->getNickname($this->id);
 		$this->register_date = preg_replace("/\s.*/", "", $external['joindate']);
-		$this->location = ($internal) ? $internal['location'] : "Unknown";
 		$this->groups = $this->acl_model->getGroupsByUser($this->id);
 	}
 
@@ -119,7 +116,6 @@ class Profile extends MX_Controller
 		$profile_data = array(
 			"characters" => $characters,
 			"username" => $this->username,
-			"location" => $this->location,
 			"status" => $this->user->getAccountStatus($this->id),
 			"register_date" => $this->register_date,
 			"url" => $this->template->page_url,

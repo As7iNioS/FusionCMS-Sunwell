@@ -9,7 +9,7 @@
 		<table width="100%">
 			<tr>
 				<td><input type="text" placeholder="{lang('search_placeholder', 'armory')}" id="search_field" /></td>
-				<td width="70px"><input type="submit" value="{lang('search_button', 'armory')}" /></td>
+				<td width="70px"><button type="submit" class="button-normal">{lang('search_button', 'armory')}</button></td>
 			<tr>
 		</table>
 		<div class="clear"></div>

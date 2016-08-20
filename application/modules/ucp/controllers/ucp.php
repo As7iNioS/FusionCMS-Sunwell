@@ -38,16 +38,20 @@ class Ucp extends MX_Controller
 		}
 
 		$data = array(
-			"username" => $this->user->getNickname(),
 			"vp" => $this->internal_user_model->getVp(),
 			"dp" => $this->internal_user_model->getDp(),
-			"url" => $this->template->page_url,
-			"location" => $this->internal_user_model->getLocation(),
-			"groups" => $this->acl_model->getGroupsByUser($this->user->getId()),
-			"register_date" => $this->user->getRegisterDate(),
 			"status" => $this->user->getAccountStatus(),
 			"characters" => $characters,
 			"id" => $this->user->getId(),
+            // Sunwell ones TODO
+            "last_login" => "2016-01-01",
+            "ip_address" => $_SERVER["REMOTE_ADDR"],
+            "char_count" => $this->realms->getTotalCharacters(),
+            "frozen_status" => true ? "tak" : "nie",
+            "market_pp" => 0,
+            "privileges" => [
+                "brak"
+            ],
 
 			"config" => array(
 				"vote" => $this->config->item('ucp_vote'),
@@ -55,8 +59,6 @@ class Ucp extends MX_Controller
 				"store" => $this->config->item('ucp_store'),
 				"settings" => $this->config->item('ucp_settings'),
 				"teleport" => $this->config->item('ucp_teleport'),
-				"admin" => $this->config->item('ucp_admin'),
-				"gm" => $this->config->item('ucp_gm')
 			)
 		);
 

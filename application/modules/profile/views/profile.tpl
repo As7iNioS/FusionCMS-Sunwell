@@ -7,11 +7,6 @@
 					<td width="40%">{lang("nickname", "profile")}</td>
 					<td width="50%" style="overflow:hidden;">{$username}</td>
 				</tr>
-				<tr>
-					<td width="10%"><img src="{$url}application/images/icons/world.png" /></td>
-					<td width="40%">{lang("location", "profile")}</td>
-					<td width="50%">{$location}</td>
-				</tr>
 			</table>
 		</aside>
 

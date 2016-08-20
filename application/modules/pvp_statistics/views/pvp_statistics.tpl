@@ -130,14 +130,14 @@
 
         <section class="statistics_top_hk" style="display:block;">
 
-            <table class="nice_table" cellspacing="0" cellpadding="0">
+            <table id="rankingtable" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td width="10%" align="center">{lang("rank", "pvp_statistics")}</td>
-                    <td width="15%" align="center">{lang("kills", "pvp_statistics")}</td>
-                    <td width="30%">{lang("character", "pvp_statistics")}</td>
-                    <td width="15%" align="center">{lang("level", "pvp_statistics")}</td>
-                    <td width="15%" align="center">{lang("race", "pvp_statistics")}</td>
-                    <td width="15%" align="center">{lang("class", "pvp_statistics")}</td>
+                    <th width="10%" align="center">{lang("rank", "pvp_statistics")}</th>
+                    <th width="15%" align="center">{lang("kills", "pvp_statistics")}</th>
+                    <th width="30%">{lang("character", "pvp_statistics")}</th>
+                    <th width="15%" align="center">{lang("level", "pvp_statistics")}</th>
+                    <th width="15%" align="center">{lang("race", "pvp_statistics")}</th>
+                    <th width="15%" align="center">{lang("class", "pvp_statistics")}</th>
                 </tr>
 
                 {if $TopHK}

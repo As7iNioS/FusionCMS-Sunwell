@@ -71,6 +71,9 @@ input[type="radio"] {
 	color:#fff;
 	background-color:rgba(0,0,0,0.6);
 	z-index:9999999;
+    width: 13px;
+    height: 13px;
+	text-align: center;
 }
 
 #slider_next:hover,
@@ -643,7 +646,7 @@ input[type="radio"] {
 
 /* User info sidebox */
 .sidebox_info {
-	padding:5px;
+	padding:5px 5px 0;
 }
 
 .sidebox_info td {
@@ -662,10 +665,6 @@ input[type="radio"] {
 .sidebox_info center {
 	padding-top:20px;
 	padding-bottom:10px;
-}
-
-.sidebox_info center a:last-child {
-	margin-left:10px;
 }
 
 /* Poll sidebox */

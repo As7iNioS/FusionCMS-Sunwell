@@ -1,18 +1,19 @@
 <?php
 
+/**
+ * @property Internal_user_model user
+ */
 class Info_login extends MX_Controller
 {
-	public function view()
+    public function view()
 	{
+
 		if($this->user->isOnline())
 		{
 			$data = array(
 					"module" => "sidebox_info_login",
 					"url" => $this->template->page_url,
-					"currentIp" => $this->input->ip_address(),
-					"lastIp" => $this->user->getLastIp(),
-					"vp" => $this->user->getVp(),
-					"dp" => $this->user->getDp()
+                    "login" => $this->user->getNickname()
 				);
 
 			$page = $this->template->loadPage("info.tpl", $data);

@@ -179,7 +179,7 @@
 }
 
 #armory {
-	width:698px;
+	width:100%;
 	margin-left:auto;
 	margin-right:auto;
 	min-height:512px;
@@ -271,12 +271,14 @@
 }
 
 #armory_stats td:nth-child(2) {
-	text-align:right;
+	text-align: right;
+	color: #00FF00;
+	font-weight: bold;
 }
 
 #armory_left {
 	float:left;
-	margin-left:40px;
+	margin-left:10px;
 	margin-top:15px;
 	width:68px;
 }
@@ -284,7 +286,7 @@
 #armory_right {
 	float:left;
 	margin-top:15px;
-	margin-left:65px;
+	margin-left:55px;
 	width:70px;
 }
 

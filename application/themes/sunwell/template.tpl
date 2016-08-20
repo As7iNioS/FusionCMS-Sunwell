@@ -28,9 +28,9 @@
                 </ul>
             </div>
         {else}
-            <div class="menupos" onclick="document.location='{$menu_1.linkon}';">
-                <a {$menu_1.link}>{$menu_1.name}</a>
-            </div>
+            <a class="menupos" {$menu_1.link}>
+                {$menu_1.name}
+            </a>
         {/if}
     {/foreach}
 </div>
@@ -65,7 +65,7 @@
             {if $sidebox.boxVisible}
             <div class="rightcenter">
                 {if $sidebox.titleVisible}<span class="titleright">{$sidebox.name}</span>{/if}
-                <div style="padding:5px;">
+                <div style="padding: 5px 5px 0;">
                     {$sidebox.data}
                 </div>
             </div>

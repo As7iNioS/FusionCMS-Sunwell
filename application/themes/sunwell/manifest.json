@@ -6,8 +6,8 @@
 	"favicon": "favicon.gif",
 
 	"slider_text": {
-		"next": "Next",
-		"previous": "Prev"
+		"next": "»",
+		"previous": "«"
 	},
 
 	"slider_id": "slider_wrapper",

@@ -102,7 +102,6 @@ class Shoutbox extends MX_Controller
 			$data = array(
 				'uniqueId' => uniqid(),
 				'message' => $this->template->format($content, true),
-				'name' => $this->user->getNickname(),
 				'id' => $this->user->getId(),
 				'time' => $this->template->formatTime(1)
 			);

@@ -1,6 +1,6 @@
 <?php
 
-class Changelog_model extends CI_Model 
+class Changelog_model extends CI_Model
 {
 	public function __construct()
 	{

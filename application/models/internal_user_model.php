@@ -32,7 +32,6 @@ class Internal_user_model extends CI_Model
 		{
 			$this->vp = 0;
 			$this->dp = 0;
-			$this->location = "";
 			$this->nickname = "";
 			$this->language = $this->config->item('language');
 		}
@@ -59,7 +58,6 @@ class Internal_user_model extends CI_Model
 			
 			$this->vp = $result[0]['vp'];
 			$this->dp = $result[0]['dp'];
-			$this->location = $result[0]['location'];
 			$this->nickname = $result[0]['nickname'];
 			$this->language = $result[0]['language'];
 		}
@@ -78,7 +76,6 @@ class Internal_user_model extends CI_Model
 			'id' => $this->external_account_model->getId(),
 			'vp' => 0,
 			'dp' => 0,
-			'location' => "Unknown",
 			'nickname' => $this->external_account_model->getUsername(),
 			'language' => $this->config->item('language')
 		);
@@ -87,7 +84,6 @@ class Internal_user_model extends CI_Model
 
 		$this->vp = 0;
 		$this->dp = 0;
-		$this->location = "Unknown";
 		$this->nickname = $this->external_account_model->getUsername();
 	}
 	
@@ -110,13 +106,13 @@ class Internal_user_model extends CI_Model
 	|  Getters
 	| -------------------------------------------------------------------
 	*/
-	
+
 	/**
 	 * Get the nickname
 	 * @param Int $id
 	 * @return String
 	 */
-	public function getNickname($id = false)
+	public function getNickname($id = 0)
 	{
 		if(!$id)
 		{
@@ -126,7 +122,7 @@ class Internal_user_model extends CI_Model
 		{
 			$this->connection->select('nickname')->from('account_data')->where(array('id' => $id));
 			$query = $this->connection->get();
-			
+
 			if($query->num_rows() > 0)
 			{
 				$result = $query->result_array();
@@ -140,7 +136,7 @@ class Internal_user_model extends CI_Model
 			{
 				return $result[0]['nickname'];
 			}
-			else 
+			else
 			{
 				return $this->external_account_model->getUsername($id);
 			}
@@ -184,7 +180,7 @@ class Internal_user_model extends CI_Model
 			return false;
 		}
 	}
-	
+
 	public function getIdByNickname($nickname)
 	{
 		$query = $this->connection->query("SELECT id FROM account_data WHERE nickname = ?", array($nickname));
@@ -192,7 +188,7 @@ class Internal_user_model extends CI_Model
 		if($query->num_rows() > 0)
 		{
 			$result = $query->result_array();
-			
+
 			return $result[0]['id'];
 		}
 		else
@@ -200,7 +196,7 @@ class Internal_user_model extends CI_Model
 			return false;
 		}
 	}
-	
+
 	public function getTotalVotes()
 	{
 		$query = $this->connection->query("SELECT total_votes FROM account_data WHERE nickname = ?", array($this->nickname));
@@ -227,16 +223,11 @@ class Internal_user_model extends CI_Model
 		return $this->dp;
 	}
 
-	public function getLocation()
-	{
-		return $this->location;
-	}
-
 	public function getLanguage()
 	{
 		return $this->language;
 	}
-	
+
 	/*
 	| -------------------------------------------------------------------
 	|  Setters
@@ -255,10 +246,5 @@ class Internal_user_model extends CI_Model
 	public function setDp($userId, $dp)
 	{
 		$this->connection->query("UPDATE account_data SET dp = ? WHERE id = ?", array($dp, $userId));
-	}
-
-	public function setLocation($userId, $location)
-	{
-		$this->connection->query("UPDATE account_data SET location = ? WHERE id = ?", array($location, $userId));
 	}
 }

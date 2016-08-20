@@ -12,15 +12,14 @@
  *	will automatically look in that folder too.
  */
 
-$lang['last_ip'] = "Last IP";
-$lang['current_ip'] = "Current IP";
-$lang['vp'] = "VP";
-$lang['dp'] = "DP";
-$lang['user_panel'] = "User panel";
-$lang['log_out'] = "Log out";
-$lang['username'] = "Username";
-$lang['password'] = "Password";
-$lang['log_in'] = "Log in";
-$lang['register'] = "Register";
-$lang['remember_me'] = "Remember me!";
-$lang['forgot_password_link'] = "Forgot your password? Click here.";
+$lang['welcome'] = "Witaj";
+$lang['user_panel'] = "Panel";
+$lang['gm_panel'] = "Panel GM";
+$lang['admin_panel'] = "Panel Admina";
+$lang['log_out'] = "Wyloguj";
+$lang['username'] = "Nazwa użytkownika";
+$lang['password'] = "Hasło";
+$lang['log_in'] = "Zaloguj się";
+$lang['register'] = "Rejestracja";
+$lang['remember_me'] = "Zapamiętaj mnie!";
+$lang['forgot_password_link'] = "Zapomniałeś hasła? Kliknij tutaj.";
