@@ -205,9 +205,15 @@ class Changelog_model extends CI_Model
 
                 if (substr($commit["message"], 0, 5) === "Merge") continue;
 
+                $author = "---";
+                if (array_key_exists("author", $commit))
+                    if (array_key_exists("user", $commit["author"]))
+                        if (array_key_exists("username", $commit["author"]["user"]))
+                            $author = $commit["author"]["user"]["username"];
+
                 $commits[] = [
                     "hash" => $commit["hash"],
-                    "author" => $commit["author"]["user"]["username"],
+                    "author" => $author,
                     "date" => strtotime(str_replace("T", " ", substr($commit["date"], 0, 19))),
                     "message" => $commit["message"],
                     "type" => $commit["type"],
