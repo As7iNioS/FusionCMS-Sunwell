@@ -126,7 +126,7 @@
             <div class="clear"></div>
         </section>
 
-        <div class="ranking-spacer"></div>
+        <div class="spacer"></div>
 
         <section class="statistics_top_hk" style="display:block;">
 

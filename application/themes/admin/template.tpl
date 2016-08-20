@@ -128,7 +128,7 @@
 		<!-- Top bar -->
 		<header>
 			<div class="center_1020">
-				<a href="{$url}admin/" class="logosun"></a>
+				<a href="{$url}admin/" class="logo"></a>
 
 				<!-- Top menu -->
 				<aside class="right">

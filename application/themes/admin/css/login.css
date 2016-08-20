@@ -63,10 +63,10 @@ header {
 
 header .logo, footer #logo .logo {
 	display:block;
-	width:197px;
+	width:89px;
 	height:28px;
 	float:left;
-	background-image:url(../images/sunwell.png);
+	background-image:url(../images/sunwell-sm.png);
 	margin-top:13px;
 }
 

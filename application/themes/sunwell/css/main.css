@@ -1272,7 +1272,7 @@ select {
     text-shadow: 1px -1px 1px #444;
 }
 
-.ranking-spacer {
+.spacer {
     height: 2px;
     background: url(../images/index/news_line.png) center top no-repeat;
     margin: 24px 0;
