@@ -1976,14 +1976,15 @@ select {
     -moz-border-radius: 0 0 0 0;
     border-radius: 0 0 0 0;
     margin-left: 250px;
+    width: 50px;
     background:
-        url(../images/lay/icon-youtube_20x20.png) 5px 4px no-repeat,
+        url(../images/lay/icon-youtube_20x50.png) 5px 4px no-repeat,
         url(../images/lay/informacje-bg.jpg) left top repeat;
 }
 .rss{
     -moz-border-radius: 0 0 8px 0;
     border-radius: 0 0 8px 0;
-    margin-left: 280px;
+    margin-left: 315px;
     background:
         url(../images/lay/icon-rss_20x20.png) 5px 4px no-repeat,
         url(../images/lay/informacje-bg.jpg) left top repeat;
@@ -1993,7 +1994,7 @@ select {
         url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
 }
 .yt:hover {
-    background: url(../images/lay/icon-youtube_20x20.png) 5px 4px no-repeat,
+    background: url(../images/lay/icon-youtube_20x50.png) 5px 4px no-repeat,
         url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
 }
 .rss:hover {
