@@ -156,7 +156,6 @@ function MultiLanguageInput(field)
                 theme_advanced_resizing : true,
 
                 setup : function(ed) {
-                    console.log("du");
                     ed.onInit.add(function (ed) {
                         /* onBlur */
                         tinymce.dom.Event.add(ed.getBody(), 'blur', function (e) {

@@ -1,0 +1,3 @@
+ALTER TABLE `changelog_type`
+	ADD COLUMN `lastCommit` VARCHAR(50) NULL DEFAULT NULL AFTER `typeName`,
+	ADD COLUMN `repoName` VARCHAR(50) NULL DEFAULT NULL AFTER `lastCommit`;

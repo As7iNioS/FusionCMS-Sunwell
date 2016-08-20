@@ -14,6 +14,7 @@ var Changelog = {
 		create: "changelog/admin/create/",
 		save: "changelog/admin/save/",
 		saveCategory: "changelog/admin/saveCategory/",
+		fetchBitBucket: "changelog/admin/syncBitBucket/",
 	},
 
 	/**
@@ -103,6 +104,33 @@ var Changelog = {
 		$.post(Config.URL + this.Links.save + id, values, function(data)
 		{
 			window.location = Config.URL + "changelog/admin";
+		});
+	},
+
+	/**
+	 * Asks for credentials and gets changes
+	 */
+	syncRepo: function()
+	{
+        var username = prompt("Username");
+        var password = prompt("Password");
+
+		var values = {
+		    username: username,
+		    password: password,
+		    csrf_token_name: Config.CSRF
+		};
+
+		$.post(Config.URL + this.Links.fetchBitBucket, values, function(response)
+		{
+			if(response == "yes")
+			{
+				window.location.reload(true);
+			}
+			else
+			{
+				UI.alert(response)
+			}
 		});
 	},
 

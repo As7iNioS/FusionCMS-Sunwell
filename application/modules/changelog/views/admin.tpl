@@ -7,6 +7,7 @@
 	{if hasPermission("canAddCategory")}
 		<span>
 			<a class="nice_button" href="javascript:void(0)" onClick="Changelog.add()">Create category</a>
+			<a class="nice_button" href="javascript:void(0)" onClick="Changelog.syncRepo()">Sync repo changelog</a>
 		</span>
 	{/if}
 

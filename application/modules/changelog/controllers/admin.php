@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class Admin
+ * $@property Changelog_model changelog_model
+ */
 class Admin extends MX_Controller
 {
 	public function __construct()
@@ -63,6 +67,28 @@ class Admin extends MX_Controller
 
 		$this->plugins->onAddCategory($id, $name);
 	}
+
+	public function syncBitBucket(){
+        requirePermission("canAddChange");
+
+        $username = $this->input->post("username");
+        $password = $this->input->post("password");
+
+        if (!$username){
+            die("Username is empty!");
+        }
+
+        if (!$password){
+            die("Username is empty!");
+        }
+
+        $this->changelog_model->fetchChanges($username, $password);
+
+        // Add log
+        $this->logger->createLog('Synced with bitbucket', date("Y-m-d H:i:s", time()));
+
+        die("yes");
+    }
 
 	public function addChange($id)
 	{
