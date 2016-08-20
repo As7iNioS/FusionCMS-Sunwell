@@ -10,7 +10,9 @@
         });
     }
 </script>
-
+<a href="https://www.facebook.com/SunwellProject/" target="_blank" class="social fb"></a>
+<a href="https://www.youtube.com/channel/UCk6wF4KhrLM24vV1qTXb31Q" target="_blank" class="social yt"></a>
+<a href="http://new.sunwell.pl/news/rss" target="_blank" class="social rss"></a>
 <div id="lang-en" onclick="setLanguage('english', this)">EN</div>
 <div id="lang-pl" onclick="setLanguage('polish', this)">PL</div>
 &nbsp;<br>

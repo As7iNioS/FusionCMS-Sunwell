@@ -2022,3 +2022,53 @@ select {
     font-weight: normal;
     line-height: 0;
 }
+.social {
+    position: absolute;
+    width: 15px;
+    padding-right: 13px;
+    height: 27px;
+    margin-top: 0;
+    border: solid 1px rgb(16, 43, 58);
+    border-top: 0;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 27px;
+    color: #eee;
+    text-align: center;
+}
+.fb{
+    -moz-border-radius: 0 0 0 8px;
+    border-radius: 0 0 0 8px;
+    margin-left: 220px;
+    background: 
+        url(../images/lay/icon-facebook_20x20.png) 5px 4px no-repeat, 
+        url(../images/lay/informacje-bg.jpg) left top repeat;
+}
+.yt{
+    -moz-border-radius: 0 0 0 0;
+    border-radius: 0 0 0 0;
+    margin-left: 250px;
+    background: 
+        url(../images/lay/icon-youtube_20x20.png) 5px 4px no-repeat, 
+        url(../images/lay/informacje-bg.jpg) left top repeat;
+}
+.rss{
+    -moz-border-radius: 0 0 8px 0;
+    border-radius: 0 0 8px 0;
+    margin-left: 280px;
+    background: 
+        url(../images/lay/icon-rss_20x20.png) 5px 4px no-repeat, 
+        url(../images/lay/informacje-bg.jpg) left top repeat;
+}
+.fb:hover {
+    background: url(../images/lay/icon-facebook_20x20.png) 5px 4px no-repeat, 
+        url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
+}
+.yt:hover {
+    background: url(../images/lay/icon-youtube_20x20.png) 5px 4px no-repeat, 
+        url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
+}
+.rss:hover {
+    background: url(../images/lay/icon-rss_20x20.png) 5px 4px no-repeat, 
+        url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
+}
