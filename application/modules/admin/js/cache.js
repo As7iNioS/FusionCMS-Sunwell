@@ -107,13 +107,6 @@ var Cache = {
 					});
 				break;
 
-				case "message":
-					$("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_message").html("0 files (0 B)");
-					});
-				break;
-
 				case "all":
 					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
 					{

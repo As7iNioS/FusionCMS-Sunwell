@@ -13,7 +13,7 @@
 
 				{foreach from=$change_type item=change}
 					<tr>
-						<td>{if hasPermission("canRemoveChange")}<a href="{$url}changelog/remove/{$change.change_id}" style="display:inline !important;margin:0px !important;"><img src="{$url}application/images/icons/delete.png" align="absmiddle" /></a>{/if}{$change.changelog}<br><small>{$change.author}</small></td>
+						<td>{if hasPermission("canRemoveChange")}<a href="{$url}changelog/remove/{$change.change_id}" style="display:inline !important;margin:0px !important;"><img src="{$url}application/images/icons/delete.png" align="absmiddle" /></a>{/if}{$change.changelog}</td>
 					</tr>
 				{/foreach}
 				

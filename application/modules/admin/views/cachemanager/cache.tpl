@@ -31,7 +31,6 @@
 		<span>
 			<a class="nice_button" href="javascript:void(0)" onClick="Cache.clear('all_but_item')"><b>Clear all but the item cache</b></a>&nbsp;
 			<a class="nice_button" href="javascript:void(0)" onClick="Cache.clear('website')">Clear all website cache</a>&nbsp;
-			<a class="nice_button" href="javascript:void(0)" onClick="Cache.clear('message')">Clear all message cache</a>&nbsp;
 			<a class="nice_button" href="javascript:void(0)" onClick="Cache.clear('all')">Clear all cache</a>
 		</span>
 	{/if}
