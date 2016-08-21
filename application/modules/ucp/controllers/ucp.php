@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @property Internal_user_model internal_user_model
+ * @property User user
+ * @property External_account_model external_account_model
+ */
 class Ucp extends MX_Controller
 {
 	public function __construct()
@@ -43,12 +48,11 @@ class Ucp extends MX_Controller
 			"status" => $this->user->getAccountStatus(),
 			"characters" => $characters,
 			"id" => $this->user->getId(),
-            // Sunwell ones TODO
-            "last_login" => "2016-01-01",
+            "last_login" => $this->external_account_model->getLastLogin(),
             "ip_address" => $_SERVER["REMOTE_ADDR"],
             "char_count" => $this->realms->getTotalCharacters(),
-            "frozen_status" => true ? "tak" : "nie",
-            "market_pp" => 0,
+            "frozen_status" => $this->external_account_model->getFrozen() ? "tak" : "nie",
+            "market_pp" => 0, // TODO
             "privileges" => [
                 "brak"
             ],

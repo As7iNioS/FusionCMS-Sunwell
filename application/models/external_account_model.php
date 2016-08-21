@@ -18,6 +18,7 @@ class External_account_model extends CI_Model
 	private $joindate;
 	private $last_ip;
 	private $last_login;
+	private $frozen;
 	private $account_cache;
 
 	public function __construct()
@@ -82,6 +83,7 @@ class External_account_model extends CI_Model
 			$this->joindate = $result["joindate"];
 			$this->last_ip = $result["last_ip"];
 			$this->last_login = $result["last_login"];
+			$this->frozen = $result["frozen"];
 
 			return true;
 		}
@@ -94,6 +96,7 @@ class External_account_model extends CI_Model
 			$this->joindate =  "";
 			$this->last_ip =  "";
 			$this->last_login = "";
+			$this->frozen = true;
 
 			return false;
 		}
@@ -510,4 +513,14 @@ class External_account_model extends CI_Model
 	{
 		return $this->last_ip;
 	}
+
+	public function getLastLogin()
+	{
+		return date("d-m-Y", strtotime($this->last_login));
+	}
+
+    public function getFrozen()
+    {
+        return $this->frozen;
+    }
 }

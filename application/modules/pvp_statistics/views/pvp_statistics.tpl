@@ -133,18 +133,17 @@
             <table id="rankingtable" cellspacing="0" cellpadding="0">
                 <tr>
                     <th width="10%" align="center">{lang("rank", "pvp_statistics")}</th>
-                    <th width="15%" align="center">{lang("kills", "pvp_statistics")}</th>
                     <th width="30%">{lang("character", "pvp_statistics")}</th>
                     <th width="15%" align="center">{lang("level", "pvp_statistics")}</th>
                     <th width="15%" align="center">{lang("race", "pvp_statistics")}</th>
                     <th width="15%" align="center">{lang("class", "pvp_statistics")}</th>
+                    <th width="15%" align="center">{lang("kills", "pvp_statistics")}</th>
                 </tr>
 
                 {if $TopHK}
                     {foreach from=$TopHK item=character}
                         <tr>
                             <td width="10%" align="center">{$character.rank}</td>
-                            <td width="15%" align="center">{$character.kills}</td>
                             <td width="30%"><a data-tip="{lang("view_profile", "pvp_statistics")}"
                                                href="{$url}character/{$selected_realm}/{$character.guid}">{$character.name}</a>
                             </td>
@@ -154,6 +153,7 @@
                             </td>
                             <td width="15%" align="center"><img
                                         src="{$url}application/images/stats/{$character.class}.gif"/></td>
+                            <td width="15%" align="center">{$character.kills}</td>
                         </tr>
                     {/foreach}
                 {else}

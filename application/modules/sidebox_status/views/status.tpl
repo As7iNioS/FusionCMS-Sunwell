@@ -1,9 +1,10 @@
 <center>
+
     <div id="realmstatuscode">
         {foreach from=$realms item=realm}
             <div class="realm-border"
                  onmouseover="tooltip.show(
-                         '<CENTER><B>Typ realmu:</B> PvP<BR><B><FONT COLOR=#7dafff>{$realm->getOnline("alliance")}</FONT></B> vs <B><FONT COLOR=#ff3333>{$realm->getOnline("horde")}</FONT></B><BR><B>Max graczy:</B> {$realm->getMaxPlayerCount()}<BR><B>Rev:</B> {$realm->getRevision()}<BR><BR></CENTER><B>Exp kill rate:</B> 1x<BR><B>Exp quest rate:</B> 1x<BR><B>Exp exploration rate:</B> 1x<BR><B>Drop rate:</B> 1x<BR><B>Gold rate:</B> 1x<BR><B>Reputation rate:</B> 1x<BR><B>Honor rate:</B> 1x<BR><B>Profession rate:</B> 1x'
+                         '<CENTER><B>{lang("realm_type", "sidebox_status")}:</B> PvP<BR><B><FONT COLOR=#7dafff>{$realm->getOnline("alliance")}</FONT></B> vs <B><FONT COLOR=#ff3333>{$realm->getOnline("horde")}</FONT></B><BR><B>{lang("max_players", "sidebox_status")}:</B> {$realm->getMaxPlayerCount()}<BR><B>{lang("revision", "sidebox_status")}:</B> {$realm->getRevision()}<BR><BR></CENTER><B>{lang("rate_xp_kill", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_xp_quest", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_xp_exploration", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_drop", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_gold", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_reputation", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_honor", "sidebox_status")}:</B> 1x<BR><B>{lang("rate_profession", "sidebox_status")}:</B> 1x'
                          );"
                  onmouseout="tooltip.hide();">
                 {if $realm->isOnline()}
@@ -15,8 +16,8 @@
                 {/if}
 
                 <div class="realm-name">{$realm->getName()}</div>
-                <div class="realm-text">Up: {$realm->getUptime()} <span style="color: darkcyan; font-weight: bold;">&nbsp;|&nbsp;</span>
-                    Graczy: {$realm->getOnline()}<span style="color: darkcyan; font-weight: bold;">
+                <div class="realm-text">{lang("uptime", "sidebox_status")}: {$realm->getUptime()} <span style="color: darkcyan; font-weight: bold;">&nbsp;|&nbsp;</span>
+                    {lang("players", "sidebox_status")}: {$realm->getOnline()}<span style="color: darkcyan; font-weight: bold;">
                 </div>
             </div>
         {/foreach}
