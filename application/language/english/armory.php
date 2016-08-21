@@ -31,5 +31,6 @@ $lang['level'] = "Level";
 $lang['required'] = "Required";
 $lang['type'] = "Type";
 $lang['view_character_profile'] = "View character profile";
+$lang['character_profile'] = "Character profile";
 $lang['cant_be_empty'] = "Search field can't be empty!";
 $lang['misc'] = "Miscellaneous";

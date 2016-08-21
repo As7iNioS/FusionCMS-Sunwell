@@ -27,7 +27,7 @@
 					<div class="select_character">
 						<div class="character store_item">
 							<section class="character_buttons">
-								<a href="javascript:void(0)" class="nice_button" onClick="Teleport.selectCharacter(this, {$realm.realmId}, {$character.guid}, '{$character.name}', {$character.money / 10000}, '{$character.race}')">
+								<a href="javascript:void(0)" class="button-normal" onClick="Teleport.selectCharacter(this, {$realm.realmId}, {$character.guid}, '{$character.name}', {$character.money / 10000}, '{$character.race}')">
 									{lang("select", "teleport")}
 								</a>
 							</section>
@@ -51,7 +51,7 @@
 			{foreach from=$locations item=location}
 				<div class="location" data-realm="{$location.realm}" data-faction="{$location.required_faction}">
 					<section class="location_buttons">
-						<a href="javascript:void(0)" onClick="Teleport.buy({$location.id}, this)" class="nice_button">
+						<a href="javascript:void(0)" onClick="Teleport.buy({$location.id}, this)" class="button-normal">
 							{if $location.vpCost}
 								<img src="{$url}application/images/icons/lightning.png" align="absmiddle">
 								{$location.vpCost} {lang("vp", "teleport")}

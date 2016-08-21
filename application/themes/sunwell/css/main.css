@@ -636,8 +636,8 @@ body {
 
 .button-normal {
     border: 0;
-    width: 122px;
-    height: 35px;
+    width: 122px !important;
+    height: 35px !important;
     background: rgba(0, 0, 0, 0) url(../images/forms/button_normal.png) no-repeat left top;
     color: rgb(229, 195, 79) !important;
     text-align: center;
@@ -645,7 +645,8 @@ body {
     font-size: 13px;
     cursor: pointer;
     display: inline-block;
-    line-height: 35px;
+    line-height: 35px !important;
+    padding: 0 !important;
     text-decoration: none;
 }
 
@@ -755,6 +756,7 @@ select {
 
 #slider_previous, #slider_next {
     top: 100px !important;
+    text-decoration: none;
 }
 
 #features-overlay {

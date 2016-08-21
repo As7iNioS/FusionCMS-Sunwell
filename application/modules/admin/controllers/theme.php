@@ -69,7 +69,6 @@ class Theme extends MX_Controller
 		$fusionConfig->save();
 
 		$this->cache->delete('*.cache');
-		$this->cache->delete('messages/*.cache');
 		$this->cache->delete('search/*.cache');
 
 		die('yes');

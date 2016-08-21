@@ -18,7 +18,7 @@
 	<h1 class="popup_message" id="alert_message"></h1>
 
 	<div class="popup_links">
-		<a href="javascript:void(0)" class="popup_button" id="alert_button">Okay</a>
+		<a href="javascript:void(0)" class="button-normal" id="alert_button">Okay</a>
 		<div style="clear:both;"></div>
 	</div>
 </div>

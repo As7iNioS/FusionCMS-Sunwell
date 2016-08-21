@@ -401,59 +401,6 @@ input[type="radio"] {
 	font-weight:bold;
 }
 
-/* Shoutbox sidebox module */
-#shoutbox form {
-	text-align:center;
-	margin-bottom:10px;
-}
-
-#shoutbox form textarea {
-	margin-top:5px;
-	height:16px;
-}
-
-#shoutbox form input[type="submit"] {
-	margin-top:4px;
-}
-
-#shoutbox .shout {
-	padding:10px;
-	font-size:11px;
-	overflow:hidden;
-}
-
-#shoutbox .shout .shout_author {
-	margin-bottom:5px;
-	font-size:12px;
-}
-
-#shoutbox .shout .shout_date {
-	float:right;
-	font-size:10px;
-}
-
-/* "Older messages" button/link */
-#shoutbox #shoutbox_view {
-	font-size:14px;
-	text-align:center;
-	display:block;
-	padding-top:10px;
-	margin-bottom:5px;
-	clear:both;
-}
-
-/* Characters remaining counter */
-.shout_characters_remaining {
-	float:left;
-	margin-top:14px;
-	font-size:10px;
-	width:50px;
-}
-
-#shout {
-	overflow:hidden;
-}
-
 /* PvP ladder sidebox */
 #toppvp {
 	overflow:hidden;
@@ -670,21 +617,24 @@ input[type="radio"] {
 /* Poll sidebox */
 .poll_question {
 	text-align:center;
-	font-size:14px;
-	font-weight:bold;
+	font-size:18px;
 	padding:5px;
 	margin-bottom:5px;
+    color: rgb(229, 195, 79);
+	font-family: serif;
 }
 
 #poll_answers .poll_answer,
 #poll_results .poll_answer {
 	padding:5px;
 	font-size:12px;
+    color: rgb(229, 195, 79);
 }
 
 #poll_answers .poll_answer label {
 	display:block;
 	cursor:pointer;
+    color: rgb(229, 195, 79);
 }
 
 #poll_answers .poll_answer label:hover {

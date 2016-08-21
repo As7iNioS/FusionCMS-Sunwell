@@ -4,8 +4,6 @@
 		{if $stats.maxhealth && $stats.maxhealth != "Unknown"}
 			<div id="armory_health">Health: <b>{$stats.maxhealth}</b></div>
 		{/if}
-
-		
 		{if $secondBarValue && $secondBarValue != "Unknown"}
 			<div id="armory_{$secondBar}">{ucfirst($secondBar)}: <b>{$secondBarValue}</b></div>
 		{/if}
@@ -20,8 +18,6 @@
 
 	<div class="clear"></div>
 </section>
-
-<div class="ucp_divider"></div>
 
 <!-- Main part -->
 <section id="armory" style="background-image:url({$url}application/images/armory/{$bg}.png)">
@@ -104,7 +100,7 @@
 						{/if}
 					</table>
 
-					<center id="armory_stats_next"><a href="javascript:void(0)" onClick="Character.attributes(2)">{lang("next", "character")} &rarr;</a></center>
+					<center id="armory_stats_next"><a class="button-normal" href="javascript:void(0)" onClick="Character.attributes(2)">{lang("next", "character")} &rarr;</a></center>
 				</div>
 
 				<div id="tab_armory_2" style="float:left;">
@@ -135,8 +131,8 @@
 					</table>
 
 					<center id="armory_stats_next">
-						<a href="javascript:void(0)" onClick="Character.attributes(1)">&larr; {lang("previous", "character")}</a>
-						<a href="javascript:void(0)" onClick="Character.attributes(3)">{lang("next", "character")} &rarr;</a>
+						<a class="button-normal" href="javascript:void(0)" onClick="Character.attributes(1)">&larr; {lang("previous", "character")}</a>
+						<a class="button-normal" href="javascript:void(0)" onClick="Character.attributes(3)">{lang("next", "character")} &rarr;</a>
 					</center>
 				</div>
 
@@ -164,7 +160,7 @@
 						</tr>
 					</table>
 
-					<center id="armory_stats_next"><a href="javascript:void(0)" onClick="Character.attributes(2)">&larr; {lang("previous", "character")}</a></center>
+					<center id="armory_stats_next"><a class="button-normal" href="javascript:void(0)" onClick="Character.attributes(2)">&larr; {lang("previous", "character")}</a></center>
 				</div>
 			</div>
 		</section>

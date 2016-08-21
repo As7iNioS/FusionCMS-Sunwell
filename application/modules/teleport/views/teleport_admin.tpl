@@ -6,7 +6,7 @@
 
 	{if hasPermission("canAdd")}
 		<span>
-			<a class="nice_button" href="javascript:void(0)" onClick="Teleport.add()">Create teleport location</a>
+			<a class="button-normal" href="javascript:void(0)" onClick="Teleport.add()">Create teleport location</a>
 		</span>
 	{/if}
 

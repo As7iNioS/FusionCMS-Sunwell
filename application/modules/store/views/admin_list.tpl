@@ -4,9 +4,7 @@
 			<tr>
 				<td width="20%">{date("Y/m/d", $order_log.timestamp)}</td>
 				<td width="16%">
-					<a href="{$url}profile/{$order_log.user_id}" target="_blank">
-						{$order_log.username}
-					</a>
+					{$order_log.username}
 				</td>
 
 				<td width="35%">

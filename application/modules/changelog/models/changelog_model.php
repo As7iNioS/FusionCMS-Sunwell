@@ -132,7 +132,7 @@ class Changelog_model extends CI_Model
 
             $fetchedCommits = 0;
             foreach ($repositories as $repo) {
-                $url = "https://bitbucket.org/api/2.0/repositories/$username/{$repo["repoName"]}/commits";
+                $url = "https://bitbucket.org/api/2.0/repositories/maczuga/{$repo["repoName"]}/commits";
 
                 $commits = $this->GetCommits($url, $repo, $username, $password);
                 $lastCommit = end($commits)["hash"];

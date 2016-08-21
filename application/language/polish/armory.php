@@ -31,5 +31,6 @@ $lang['level'] = "Poziom";
 $lang['required'] = "Wymagane";
 $lang['type'] = "Typ";
 $lang['view_character_profile'] = "Zobacz profil postaci";
+$lang['character_profile'] = "Profil postaci";
 $lang['cant_be_empty'] = "Pole wyszukiwania nie może być puste!";
 $lang['misc'] = "Różne";

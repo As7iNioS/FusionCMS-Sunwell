@@ -49,11 +49,11 @@
 				<input type="text" id="filter_name" placeholder="{lang("filter", "store")}" onKeyUp="Store.Filter.setName(this.value)" />
 			</section>
 			<section class="filter_field">
-				<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button nice_active">
+				<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="button-normal nice_active">
 					<img src="{$url}application/images/icons/lightning.png" align="absmiddle" /> {lang("vp", "store")}
 				</a>
 
-				<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="nice_button nice_active">
+				<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="button-normal nice_active">
 					<img src="{$url}application/images/icons/coins.png" align="absmiddle" /> {lang("dp", "store")}
 				</a>
 			</section>
@@ -71,7 +71,7 @@
 				<div id="cart_price">
 					<div id="cart_price_divider"></div>
 
-					<a href="javascript:void(0)" onClick="Store.Cart.checkout(this)" class="nice_button">{lang("checkout", "store")}</a>
+					<a href="javascript:void(0)" onClick="Store.Cart.checkout(this)" class="button-normal">{lang("checkout", "store")}</a>
 
 					<div id="vp_price_full">
 						<img src="{$url}application/images/icons/lightning.png" align="absmiddle" /> <span id="vp_price">0</span> {lang("vp", "store")}
@@ -104,13 +104,13 @@
 						<div class="store_item" id="item_{$item.id}">
 							<section class="store_buttons">
 								{if $item.vp_price}
-								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button vp_button">
+								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="button-normal vp_button">
 									<img src="{$url}application/images/icons/lightning.png" align="absmiddle" /> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 								</a>
 								{/if}
 
 								{if $item.dp_price}
-								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button dp_button">
+								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="button-normal dp_button">
 									<img src="{$url}application/images/icons/coins.png" align="absmiddle" /> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 								</a>
 								{/if}
@@ -131,13 +131,13 @@
 					<div class="store_item" id="item_{$item.id}">
 						<section class="store_buttons">
 							{if $item.vp_price}
-								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button vp_button">
+								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="button-normal vp_button">
 									<img src="{$url}application/images/icons/lightning.png" align="absmiddle" /> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 								</a>
 								{/if}
 
 								{if $item.dp_price}
-								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button dp_button">
+								<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="button-normal dp_button">
 									<img src="{$url}application/images/icons/coins.png" align="absmiddle" /> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 								</a>
 								{/if}

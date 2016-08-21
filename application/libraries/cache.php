@@ -56,12 +56,6 @@ class Cache
 			fopen("application/cache/data/search/index.html", "w");
 		}
 
-		if(!file_exists("application/cache/data/messages"))
-		{
-			mkdir("application/cache/data/messages");
-			fopen("application/cache/data/messages/index.html", "w");
-		}
-
 		if(!file_exists("application/cache/templates"))
 		{
 			mkdir("application/cache/templates");

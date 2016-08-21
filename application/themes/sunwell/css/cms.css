@@ -68,26 +68,22 @@
     background-color: #000;
 }
 
-/* Comments and shoutbox: characters remaining indicator text */
-.characters_remaining {
-    color: #666;
-}
-
 /* Modal boxes: alert & confirm */
 .popup {
-    background-color: #eee;
-    border: 1px solid #fff;
+    background: url(../images/lay/right-top.jpg) center top no-repeat, url(../images/lay/right-bg.jpg) left top repeat;
+    border: 1px solid #000;
     box-shadow: 0 0 35px #000;
     -webkit-box-shadow: 0 0 35px #000;
     -moz-box-shadow: 0 0 35px #000;
+    -webkit-border-radius:15px;
+    -moz-border-radius:15px;
+    border-radius: 15px;
+    padding: 30px 15px 10px;
 }
 
-.popup a {
-    color: #fff;
-}
-
-.popup a:hover {
-    color: #fff;
+.popup h1 {
+    color: rgb(229, 195, 79);
+    font-family: serif;
 }
 
 .popup_button {
@@ -467,43 +463,6 @@ label {
 
 .nice_table tr:hover {
     background-color: #e4e4e4;
-}
-
-/* Shoutbox sidebox module */
-#shoutbox .shout {
-    border-top: 1px solid #ccc;
-    color: #333;
-}
-
-#shoutbox .shout:hover {
-    background-color: #fff;
-}
-
-#shoutbox .shout .shout_author {
-    color: #000;
-}
-
-#shoutbox .shout .shout_staff a {
-    font-weight: bold;
-}
-
-#shoutbox .shout .shout_date {
-    color: #999;
-}
-
-/* "Older messages" button/link */
-#shoutbox #shoutbox_view {
-    color: #666;
-    border-top: 1px solid #ccc;
-}
-
-#shoutbox #shoutbox_view:hover {
-    color: #000;
-}
-
-/* Characters remaining counter */
-.shout_characters_remaining {
-    color: #666;
 }
 
 /* PvP ladder sidebox */

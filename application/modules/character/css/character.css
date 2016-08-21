@@ -28,17 +28,16 @@
 
 #armory_name {
 	float:left;
-	margin-top:-8px;
 }
 
 #armory_top h1 {
-	margin:0px;
-	padding:0px;
-	font-size:40px;
-	font-weight:normal;
-	overflow:hidden;
-	height:60px;
-	width:400px;
+	margin: 0;
+	padding: 0;
+	font-size: 32px;
+	font-weight: normal;
+	overflow: hidden;
+	height: 45px;
+	width: 300px;
 }
 
 #armory_top h1 a {
@@ -46,8 +45,8 @@
 }
 
 #armory_top h2 {
-	margin:0px;
-	padding:0px;
+	margin:0;
+	padding:0;
 	margin-top:-5px;
 	font-size:16px;
 	font-weight:normal;
@@ -65,16 +64,16 @@
 	height:22px;
 	width:170px;
 	color:#fff;
-	text-shadow:1px 1px 0px #1e1e1e;
+	text-shadow:1px 1px 0 #1e1e1e;
 	text-align:center;
 	padding-top:8px;
 	margin-bottom:10px;
 	border-radius:2px;
 	-moz-border-radius:2px;
 	-webkit-border-radius:2px;
-	box-shadow:0px 1px 0px rgba(255,255,255,0.3) inset;
-	-moz-box-shadow:0px 1px 0px rgba(255,255,255,0.3) inset;
-	-webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.3) inset;
+	box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+	-moz-box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
+	-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.3) inset;
 }
 
 #armory_health {
@@ -193,7 +192,7 @@
 	height:232px;
 	margin-left:58px;
 	margin-top:145px;
-	text-shadow:1px 1px 0px #000;
+	text-shadow:1px 1px 0 #000;
 	overflow:hidden;
 }
 
@@ -227,39 +226,6 @@
 #armory_stats table {
 	margin-left:auto;
 	margin-right:auto;
-}
-
-#armory_stats_next a {
-	border:1px solid #3a3a3a;
-	background-image: linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-	background-image: -o-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-	background-image: -moz-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-	background-image: -webkit-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-	background-image: -ms-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(1, rgba(255,255,255,0.3)),
-		color-stop(0, rgba(200,200,200,0.3))
-	);
-	text-shadow:1px 1px 0px #000;
-	box-shadow:0px 1px 0px #a2a2a2 inset;
-	-webkit-box-shadow:0px 1px 0px #a2a2a2 inset;
-	-moz-box-shadow:0px 1px 0px #a2a2a2 inset;
-	color:#fff;
-
-	width:80px;
-	padding:3px;
-	border-radius:5px;
-	font-size:14px;
-}
-
-#armory_stats_next a:active {
-	box-shadow:0px 0px 5px #151515 inset;
-	-webkit-box-shadow:0px 0px 5px #151515 inset;
-	-moz-box-shadow:0px 0px 5px #151515 inset;
-	color:#c1c1c1;
 }
 
 #armory_stats_next {

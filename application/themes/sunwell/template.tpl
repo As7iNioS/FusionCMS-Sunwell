@@ -36,7 +36,7 @@
 </div>
 <div id="topnav"></div>
 <div id="wrapper">
-    <div id="content-left" style="min-height: 739px;">
+    <div id="content-left" style="min-height: 925px;">
         <div id="content-righttop"></div>
         <div id="wheel"></div>
         <div id="slider_wrapper" {if !$show_slider}style="display:none;"{/if}>

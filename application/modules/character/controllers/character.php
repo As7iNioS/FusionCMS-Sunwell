@@ -180,17 +180,27 @@ class Character extends MX_Controller
 
 				case "Warrior":
 					$this->secondBar = "rage";
-					$this->secondBarValue = $this->stats['maxpower2'];
+					$this->secondBarValue = $this->stats['maxpower2'] / 10;
+				break;
+
+				case "Rogue":
+					$this->secondBar = "energy";
+					$this->secondBarValue = $this->stats['maxpower4'];
 				break;
 
 				case "Hunter":
-					$this->secondBar = "focus";
-					$this->secondBarValue = $this->stats['maxpower3'];
+				    if ($this->stats['maxpower3']){
+                        $this->secondBar = "focus";
+                        $this->secondBarValue = $this->stats['maxpower3'];
+                    } else {
+                        $this->secondBar = "mana";
+                        $this->secondBarValue = $this->stats['maxpower1'];
+                    }
 				break;
 
-				case "Deathknight":
+				case "Death knight":
 					$this->secondBar = "runic";
-					$this->secondBarValue = $this->stats['maxpower7'];
+					$this->secondBarValue = $this->stats['maxpower7'] / 10;
 				break;
 			}
 		}
@@ -296,7 +306,7 @@ class Character extends MX_Controller
 				// Load all items and info
 				$this->getInfo();
 
-				$this->template->setTitle($this->name);
+				$this->template->setTitle(lang("character_profile", "armory") . " - " .$this->name);
 
 				$avatarArray = array(
 					'class' => $this->class,
@@ -333,7 +343,7 @@ class Character extends MX_Controller
 
 				$data = array(
 					"module" => "default", 
-					"headline" => "<span style='cursor:pointer;' data-tip='".lang("view_profile", "character")."' onClick='window.location=\"".$this->template->page_url."profile/".$this->account."\"'>".$this->accountName."</span> &rarr; ".$this->name,
+					"headline" => $this->name,
 					"content" => $character
 				);
 

@@ -13,7 +13,6 @@ class Cachemanager extends MX_Controller
 
 		$this->itemMatches = array("spells/*", "items/*", "search/*");
 		$this->websiteMatches = array("*.cache");
-		$this->messageMatches = array("messages/*");
 
 		parent::__construct();
 

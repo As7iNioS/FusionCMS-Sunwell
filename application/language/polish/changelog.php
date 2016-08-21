@@ -13,7 +13,7 @@
  */
 
 $lang['changelog_title'] = "Lista zmian";
-$lang['changes_made_on'] = "Zmiany dokonane dnia";
+$lang['changes_made_on'] = "Zmiany z dnia";
 $lang['no_changes'] = "Brak zmian do wyświetlenia.";
 $lang['change_info'] = "Czego dokonałeś?";
 $lang['category_name'] = "Nazwa kategorii";

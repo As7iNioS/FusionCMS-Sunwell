@@ -7,11 +7,11 @@
 	{if hasPermission("canAddItems") || hasPermission("canAddGroups")}
 	<span>
 		{if hasPermission("canAddItems")}
-			<a class="nice_button" href="javascript:void(0)" onClick="Items.add()">Create item</a>&nbsp;
+			<a class="button-normal" href="javascript:void(0)" onClick="Items.add()">Create item</a>&nbsp;
 		{/if}
 
 		{if hasPermission("canAddGroups")}
-			<a class="nice_button" href="javascript:void(0)" onClick="Items.addGroup()">Create group</a>
+			<a class="button-normal" href="javascript:void(0)" onClick="Items.addGroup()">Create group</a>
 		{/if}
 	</span>
 	{/if}

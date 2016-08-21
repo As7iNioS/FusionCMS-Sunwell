@@ -16,7 +16,7 @@
 
 							<td width="20%">
 								{if isset($visitor.nickname)}
-									<a href="{$smarty.const.pageURL}profile/{$visitor.user_id}" target="_blank">{$visitor.nickname}</a>
+									{$visitor.nickname}
 								{else}
 									Guest
 								{/if}

@@ -8,7 +8,7 @@
                 {if $log.user == 0}
                     Guest
                     {else}
-                    <a data-tip="View profile" href="../profile/{$log.user}" target="_blank">{$CI->user->getUsername($log.user)}</a>
+                    {$CI->user->getUsername($log.user)}
                 {/if}
             </td>
             <td width="15%" style="font-size:10px;">{$log.ip}</td>

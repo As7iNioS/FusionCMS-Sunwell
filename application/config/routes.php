@@ -50,12 +50,6 @@ $route['page/admin/(:any)'] = "page/admin/$1";
 $route['page/admin'] = "page/admin/index";
 $route['page/(:any)'] = "page/index/$1";
 
-// Profile
-$route['profile/(:any)'] = "profile/index/$1";
-$route['messages/page/(:any)'] = "messages/index/$1";
-$route['messages/read/(:num)'] = "messages/read/index/$1";
-$route['messages/create/(:num)'] = "messages/create/index/$1";
-
 // Armory
 $route['character/(:any)'] = "character/index/$1";
 $route['guild/(:any)'] = "guild/index/$1";

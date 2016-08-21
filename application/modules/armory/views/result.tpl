@@ -28,9 +28,9 @@
 		{/foreach}
 	</div>
 
-	<a href="javascript:void(0)" onClick="Search.showTab(1, this)" class="search_link {if $show.characters == 'block'}nice_active{/if} nice_button">{lang('characters', 'armory')} ({count($characters)})</a>
-	<a href="javascript:void(0)" onClick="Search.showTab(2, this)" class="search_link {if $show.guilds == 'block'}nice_active{/if} nice_button">{lang('guilds', 'armory')} ({count($guilds)})</a>
-	<a href="javascript:void(0)" onClick="Search.showTab(3, this)" class="search_link {if $show.items == 'block'}nice_active{/if} nice_button">{lang('items', 'armory')} ({count($items)})</a>
+	<a href="javascript:void(0)" onClick="Search.showTab(1, this)" class="search_link {if $show.characters == 'block'}nice_active{/if} button-normal">{lang('characters', 'armory')} ({count($characters)})</a>
+	<a href="javascript:void(0)" onClick="Search.showTab(2, this)" class="search_link {if $show.guilds == 'block'}nice_active{/if} button-normal">{lang('guilds', 'armory')} ({count($guilds)})</a>
+	<a href="javascript:void(0)" onClick="Search.showTab(3, this)" class="search_link {if $show.items == 'block'}nice_active{/if} button-normal">{lang('items', 'armory')} ({count($items)})</a>
 </div>
 
 <div class="ucp_divider"></div>

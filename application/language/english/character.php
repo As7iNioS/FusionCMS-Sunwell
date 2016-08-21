@@ -15,7 +15,6 @@
 $lang['unknown'] = "Unknown";
 $lang['doesnt_exist'] = "Character doesn't exist";
 $lang['doesnt_exist_long'] = "The requested character does not exist.";
-$lang['view_profile'] = "View profile";
 $lang['attributes'] = "Attributes";
 $lang['pvp'] = "Player vs Player";
 $lang['str'] = "Strength";
