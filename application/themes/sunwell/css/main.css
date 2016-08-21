@@ -1717,12 +1717,13 @@ select {
     line-height: 27px;
     color: #eee;
     text-align: center;
+    right: 50%;
 }
 
 .fb {
     -moz-border-radius: 0 0 0 8px;
     border-radius: 0 0 0 8px;
-    margin-left: 220px;
+    margin-right: 420px;
     background: url(../images/lay/icon-facebook_20x20.png) 5px 4px no-repeat,
     url(../images/lay/informacje-bg.jpg) left top repeat;
 }
@@ -1730,7 +1731,7 @@ select {
 .yt {
     -moz-border-radius: 0 0 0 0;
     border-radius: 0 0 0 0;
-    margin-left: 250px;
+    margin-right: 355px;
     width: 50px;
     background: url(../images/lay/icon-youtube_20x50.png) 5px 4px no-repeat,
     url(../images/lay/informacje-bg.jpg) left top repeat;
@@ -1739,7 +1740,7 @@ select {
 .rss {
     -moz-border-radius: 0 0 8px 0;
     border-radius: 0 0 8px 0;
-    margin-left: 315px;
+    margin-right: 325px;
     background: url(../images/lay/icon-rss_20x20.png) 5px 4px no-repeat,
     url(../images/lay/informacje-bg.jpg) left top repeat;
 }
