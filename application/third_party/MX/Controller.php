@@ -80,7 +80,7 @@ class MX_Controller
 
         // Is the module enabled?
         if (!isset($module['enabled']) || !$module['enabled']) {
-            redirect('cms_error');
+            redirect('error');
 //			CI::$APP->template->show404();
         }
 

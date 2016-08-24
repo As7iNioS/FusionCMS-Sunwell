@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="2e1e0776-e592-433d-b75b-4b053ac94624" name="Sunwell" url="http://sunwell.pl">
-        <fileTransfer host="51.255.44.167" port="22" rootFolder="/usr/share/nginx/new" accessType="SFTP" password="df9ddf99df99dfe5dfcedff8dfc7dfc0" username="root">
+        <fileTransfer host="51.255.44.167" port="22" rootFolder="/usr/share/nginx/www" accessType="SFTP" password="df9ddf99df99dfe5dfcedff8dfc7dfc0" username="root">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

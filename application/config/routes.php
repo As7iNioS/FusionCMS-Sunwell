@@ -40,7 +40,7 @@
 
 // CodeIgniter
 $route['default_controller'] = "news";
-$route['404_override'] = 'cms_error';
+$route['404_override'] = 'error';
 
 // News
 $route['news/(:num)'] = "news/index/$1";

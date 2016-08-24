@@ -1,6 +1,6 @@
 <?php
 
-class Cms_error extends MX_Controller
+class Error extends MX_Controller
 {
 	public function index()
 	{
