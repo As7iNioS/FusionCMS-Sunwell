@@ -718,18 +718,6 @@ body {
     padding: 6px 6px;
 }
 
-select {
-    border: solid 1px #888;
-    background: url(../images/lay/select_arrow.png) right center no-repeat, rgba(0, 0, 0, 1);
-    color: #ccc;
-    text-align: left;
-    font-weight: bold;
-    font-size: 13px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
 #wheel {
     width: 123px;
     height: 131px;

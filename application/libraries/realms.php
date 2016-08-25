@@ -103,7 +103,7 @@ class Realms
 	
 	/**
 	 * Get the realm objects
-	 * @return Realms
+	 * @return Realms realms
 	 */
 	public function getRealms()
 	{

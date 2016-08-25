@@ -23,6 +23,7 @@
  * @category	Libraries
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/config.html
+ * @property 	Realms realms
  */
 class CI_Model {
 

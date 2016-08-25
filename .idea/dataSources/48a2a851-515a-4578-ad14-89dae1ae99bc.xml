@@ -1,0 +1,4485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - @localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="information_schema"/>
+    <schema id="2" name="mysql"/>
+    <schema id="3" name="performance_schema"/>
+    <schema id="4" name="phpmyadmin"/>
+    <schema id="5" name="proqos_by"/>
+    <schema id="6" name="sunwell_auth">
+      <visible>1</visible>
+    </schema>
+    <schema id="7" name="sunwell_characters">
+      <visible>1</visible>
+    </schema>
+    <schema id="8" name="sunwell_website">
+      <visible>1</visible>
+    </schema>
+    <schema id="9" name="sunwell_world"/>
+    <schema id="10" name="test"/>
+    <table id="11" parent="6" name="account">
+      <comment>Account System</comment>
+    </table>
+    <table id="12" parent="6" name="account_access"/>
+    <table id="13" parent="6" name="account_banned">
+      <comment>Ban List</comment>
+    </table>
+    <table id="14" parent="6" name="account_premium"/>
+    <table id="15" parent="6" name="ip_banned">
+      <comment>Banned IPs</comment>
+    </table>
+    <table id="16" parent="6" name="realmcharacters">
+      <comment>Realm Character Tracker</comment>
+    </table>
+    <table id="17" parent="6" name="realmlist">
+      <comment>Realm System</comment>
+    </table>
+    <table id="18" parent="6" name="uptime">
+      <comment>Uptime system</comment>
+    </table>
+    <table id="19" parent="7" name="account_data"/>
+    <table id="20" parent="7" name="account_instance_times"/>
+    <table id="21" parent="7" name="account_tutorial">
+      <comment>Player System</comment>
+    </table>
+    <table id="22" parent="7" name="addons">
+      <comment>Addons</comment>
+    </table>
+    <table id="23" parent="7" name="arena_team"/>
+    <table id="24" parent="7" name="arena_team_member"/>
+    <table id="25" parent="7" name="auctionhouse"/>
+    <table id="26" parent="7" name="bugreport">
+      <comment>Debug System</comment>
+    </table>
+    <table id="27" parent="7" name="calendar_events"/>
+    <table id="28" parent="7" name="calendar_invites"/>
+    <table id="29" parent="7" name="channels">
+      <comment>Channel System</comment>
+    </table>
+    <table id="30" parent="7" name="channels_bans"/>
+    <table id="31" parent="7" name="channels_rights"/>
+    <table id="32" parent="7" name="character_account_data"/>
+    <table id="33" parent="7" name="character_achievement"/>
+    <table id="34" parent="7" name="character_achievement_progress"/>
+    <table id="35" parent="7" name="character_action"/>
+    <table id="36" parent="7" name="character_arena_stats"/>
+    <table id="37" parent="7" name="character_aura">
+      <comment>Player System</comment>
+    </table>
+    <table id="38" parent="7" name="character_banned">
+      <comment>Ban List</comment>
+    </table>
+    <table id="39" parent="7" name="character_battleground_random"/>
+    <table id="40" parent="7" name="character_brew_of_the_month"/>
+    <table id="41" parent="7" name="character_declinedname"/>
+    <table id="42" parent="7" name="character_entry_point">
+      <comment>Player System</comment>
+    </table>
+    <table id="43" parent="7" name="character_equipmentsets"/>
+    <table id="44" parent="7" name="character_gifts"/>
+    <table id="45" parent="7" name="character_glyphs"/>
+    <table id="46" parent="7" name="character_homebind">
+      <comment>Player System</comment>
+    </table>
+    <table id="47" parent="7" name="character_instance"/>
+    <table id="48" parent="7" name="character_inventory">
+      <comment>Player System</comment>
+    </table>
+    <table id="49" parent="7" name="character_pet">
+      <comment>Pet System</comment>
+    </table>
+    <table id="50" parent="7" name="character_pet_declinedname"/>
+    <table id="51" parent="7" name="character_queststatus">
+      <comment>Player System</comment>
+    </table>
+    <table id="52" parent="7" name="character_queststatus_daily">
+      <comment>Player System</comment>
+    </table>
+    <table id="53" parent="7" name="character_queststatus_monthly">
+      <comment>Player System</comment>
+    </table>
+    <table id="54" parent="7" name="character_queststatus_rewarded">
+      <comment>Player System</comment>
+    </table>
+    <table id="55" parent="7" name="character_queststatus_seasonal">
+      <comment>Player System</comment>
+    </table>
+    <table id="56" parent="7" name="character_queststatus_weekly">
+      <comment>Player System</comment>
+    </table>
+    <table id="57" parent="7" name="character_reputation">
+      <comment>Player System</comment>
+    </table>
+    <table id="58" parent="7" name="character_skills">
+      <comment>Player System</comment>
+    </table>
+    <table id="59" parent="7" name="character_social">
+      <comment>Player System</comment>
+    </table>
+    <table id="60" parent="7" name="character_spell">
+      <comment>Player System</comment>
+    </table>
+    <table id="61" parent="7" name="character_spell_cooldown"/>
+    <table id="62" parent="7" name="character_stats"/>
+    <table id="63" parent="7" name="character_talent"/>
+    <table id="64" parent="7" name="characters">
+      <comment>Player System</comment>
+    </table>
+    <table id="65" parent="7" name="cheaters"/>
+    <table id="66" parent="7" name="corpse">
+      <comment>Death System</comment>
+    </table>
+    <table id="67" parent="7" name="creature_respawn">
+      <comment>Grid Loading System</comment>
+    </table>
+    <table id="68" parent="7" name="game_event_condition_save"/>
+    <table id="69" parent="7" name="game_event_save"/>
+    <table id="70" parent="7" name="gameobject_respawn">
+      <comment>Grid Loading System</comment>
+    </table>
+    <table id="71" parent="7" name="gm_subsurveys">
+      <comment>Player System</comment>
+    </table>
+    <table id="72" parent="7" name="gm_surveys">
+      <comment>Player System</comment>
+    </table>
+    <table id="73" parent="7" name="gm_tickets">
+      <comment>Player System</comment>
+    </table>
+    <table id="74" parent="7" name="group_member">
+      <comment>Groups</comment>
+    </table>
+    <table id="75" parent="7" name="groups">
+      <comment>Groups</comment>
+    </table>
+    <table id="76" parent="7" name="guild">
+      <comment>Guild System</comment>
+    </table>
+    <table id="77" parent="7" name="guild_bank_eventlog"/>
+    <table id="78" parent="7" name="guild_bank_item"/>
+    <table id="79" parent="7" name="guild_bank_right"/>
+    <table id="80" parent="7" name="guild_bank_tab"/>
+    <table id="81" parent="7" name="guild_eventlog">
+      <comment>Guild Eventlog</comment>
+    </table>
+    <table id="82" parent="7" name="guild_member">
+      <comment>Guild System</comment>
+    </table>
+    <table id="83" parent="7" name="guild_member_withdraw">
+      <comment>Guild Member Daily Withdraws</comment>
+    </table>
+    <table id="84" parent="7" name="guild_rank">
+      <comment>Guild System</comment>
+    </table>
+    <table id="85" parent="7" name="instance"/>
+    <table id="86" parent="7" name="instance_reset"/>
+    <table id="87" parent="7" name="item_instance">
+      <comment>Item System</comment>
+    </table>
+    <table id="88" parent="7" name="item_loot_storage"/>
+    <table id="89" parent="7" name="item_refund_instance">
+      <comment>Item Refund System</comment>
+    </table>
+    <table id="90" parent="7" name="item_soulbound_trade_data">
+      <comment>Item Refund System</comment>
+    </table>
+    <table id="91" parent="7" name="lag_reports">
+      <comment>Player System</comment>
+    </table>
+    <table id="92" parent="7" name="lfg_data">
+      <comment>LFG Data</comment>
+    </table>
+    <table id="93" parent="7" name="log_arena_fights"/>
+    <table id="94" parent="7" name="log_arena_memberstats"/>
+    <table id="95" parent="7" name="log_encounter"/>
+    <table id="96" parent="7" name="log_money"/>
+    <table id="97" parent="7" name="mail">
+      <comment>Mail System</comment>
+    </table>
+    <table id="98" parent="7" name="mail_items"/>
+    <table id="99" parent="7" name="pet_aura">
+      <comment>Pet System</comment>
+    </table>
+    <table id="100" parent="7" name="pet_spell">
+      <comment>Pet System</comment>
+    </table>
+    <table id="101" parent="7" name="pet_spell_cooldown"/>
+    <table id="102" parent="7" name="petition">
+      <comment>Guild System</comment>
+    </table>
+    <table id="103" parent="7" name="petition_sign">
+      <comment>Guild System</comment>
+    </table>
+    <table id="104" parent="7" name="pool_quest_save"/>
+    <table id="105" parent="7" name="reserved_name">
+      <comment>Player Reserved Names</comment>
+    </table>
+    <table id="106" parent="7" name="uptime">
+      <comment>Uptime system</comment>
+    </table>
+    <table id="107" parent="7" name="warden_action"/>
+    <table id="108" parent="7" name="worldstates">
+      <comment>Variable Saves</comment>
+    </table>
+    <column id="109" parent="11" name="id">
+      <comment>Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="110" parent="11" name="username">
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="111" parent="11" name="sha_pass_hash">
+      <mandatory>1</mandatory>
+      <data-type>varchar(40)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="112" parent="11" name="sessionkey">
+      <mandatory>1</mandatory>
+      <data-type>varchar(80)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="113" parent="11" name="v">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="114" parent="11" name="s">
+      <mandatory>1</mandatory>
+      <data-type>varchar(64)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="115" parent="11" name="email">
+      <mandatory>1</mandatory>
+      <data-type>varchar(254)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="116" parent="11" name="joindate">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <column id="117" parent="11" name="last_ip">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;127.0.0.1&apos;</default-expression>
+    </column>
+    <column id="118" parent="11" name="failed_logins">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="119" parent="11" name="locked">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="120" parent="11" name="last_login">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+    </column>
+    <column id="121" parent="11" name="online">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="122" parent="11" name="expansion">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="123" parent="11" name="mutetime">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="124" parent="11" name="mutereason">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="125" parent="11" name="muteby">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="126" parent="11" name="locale">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="127" parent="11" name="os">
+      <mandatory>1</mandatory>
+      <data-type>varchar(3)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="128" parent="11" name="recruiter">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="129" parent="11" name="active">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="130" parent="11" name="frozen">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="131" parent="11" name="idx_username">
+      <columns>username</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="132" parent="11" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="133" parent="11" name="idx_username">
+      <columns>username</columns>
+      <underlying-index>idx_username</underlying-index>
+    </key>
+    <column id="134" parent="12" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="135" parent="12" name="gmlevel">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="136" parent="12" name="RealmID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;-1&apos;</default-expression>
+    </column>
+    <key id="137" parent="12" name="PRIMARY">
+      <columns>id
+RealmID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="138" parent="13" name="id">
+      <comment>Account id</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="139" parent="13" name="bandate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="140" parent="13" name="unbandate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="141" parent="13" name="bannedby">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="142" parent="13" name="banreason">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="143" parent="13" name="active">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="144" parent="13" name="PRIMARY">
+      <columns>id
+bandate</columns>
+      <primary>1</primary>
+    </key>
+    <column id="145" parent="14" name="id">
+      <comment>Account id</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="146" parent="14" name="premium_type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(4) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="147" parent="14" name="set_date">
+      <mandatory>1</mandatory>
+      <data-type>int(4)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="148" parent="14" name="unset_date">
+      <mandatory>1</mandatory>
+      <data-type>int(4)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="149" parent="14" name="setdate">
+      <columns>set_date</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="150" parent="14" name="unsetdate">
+      <columns>unset_date</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="151" parent="14" name="PRIMARY">
+      <columns>id
+premium_type</columns>
+      <primary>1</primary>
+    </key>
+    <column id="152" parent="15" name="ip">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;127.0.0.1&apos;</default-expression>
+    </column>
+    <column id="153" parent="15" name="bandate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="154" parent="15" name="unbandate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="155" parent="15" name="bannedby">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+      <default-expression>&apos;[Console]&apos;</default-expression>
+    </column>
+    <column id="156" parent="15" name="banreason">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;no reason&apos;</default-expression>
+    </column>
+    <key id="157" parent="15" name="PRIMARY">
+      <columns>ip
+bandate</columns>
+      <primary>1</primary>
+    </key>
+    <column id="158" parent="16" name="realmid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="159" parent="16" name="acctid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="160" parent="16" name="numchars">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="161" parent="16" name="acctid">
+      <columns>acctid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="162" parent="16" name="PRIMARY">
+      <columns>realmid
+acctid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="163" parent="17" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="164" parent="17" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(32)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="165" parent="17" name="address">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;127.0.0.1&apos;</default-expression>
+    </column>
+    <column id="166" parent="17" name="localAddress">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;127.0.0.1&apos;</default-expression>
+    </column>
+    <column id="167" parent="17" name="localSubnetMask">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;255.255.255.0&apos;</default-expression>
+    </column>
+    <column id="168" parent="17" name="port">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;8085&apos;</default-expression>
+    </column>
+    <column id="169" parent="17" name="icon">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="170" parent="17" name="flag">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;2&apos;</default-expression>
+    </column>
+    <column id="171" parent="17" name="timezone">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="172" parent="17" name="allowedSecurityLevel">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="173" parent="17" name="population">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="174" parent="17" name="gamebuild">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;12340&apos;</default-expression>
+    </column>
+    <index id="175" parent="17" name="idx_name">
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="176" parent="17" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="177" parent="17" name="idx_name">
+      <columns>name</columns>
+      <underlying-index>idx_name</underlying-index>
+    </key>
+    <column id="178" parent="18" name="realmid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="179" parent="18" name="starttime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="180" parent="18" name="uptime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="181" parent="18" name="maxplayers">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="182" parent="18" name="revision">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;Trinitycore&apos;</default-expression>
+    </column>
+    <key id="183" parent="18" name="PRIMARY">
+      <columns>realmid
+starttime</columns>
+      <primary>1</primary>
+    </key>
+    <column id="184" parent="19" name="accountId">
+      <comment>Account Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="185" parent="19" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="186" parent="19" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="187" parent="19" name="data">
+      <mandatory>1</mandatory>
+      <data-type>blob|0</data-type>
+    </column>
+    <key id="188" parent="19" name="PRIMARY">
+      <columns>accountId
+type</columns>
+      <primary>1</primary>
+    </key>
+    <column id="189" parent="20" name="accountId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="190" parent="20" name="instanceId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="191" parent="20" name="releaseTime">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="192" parent="20" name="PRIMARY">
+      <columns>accountId
+instanceId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="193" parent="21" name="accountId">
+      <comment>Account Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="194" parent="21" name="tut0">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="195" parent="21" name="tut1">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="196" parent="21" name="tut2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="197" parent="21" name="tut3">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="198" parent="21" name="tut4">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="199" parent="21" name="tut5">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="200" parent="21" name="tut6">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="201" parent="21" name="tut7">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="202" parent="21" name="PRIMARY">
+      <columns>accountId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="203" parent="22" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(120)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="204" parent="22" name="crc">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="205" parent="22" name="PRIMARY">
+      <columns>name</columns>
+      <primary>1</primary>
+    </key>
+    <column id="206" parent="23" name="arenaTeamId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="207" parent="23" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(24)|0</data-type>
+    </column>
+    <column id="208" parent="23" name="captainGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="209" parent="23" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="210" parent="23" name="rating">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="211" parent="23" name="seasonGames">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="212" parent="23" name="seasonWins">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="213" parent="23" name="weekGames">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="214" parent="23" name="weekWins">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="215" parent="23" name="rank">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="216" parent="23" name="backgroundColor">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="217" parent="23" name="emblemStyle">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="218" parent="23" name="emblemColor">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="219" parent="23" name="borderStyle">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="220" parent="23" name="borderColor">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="221" parent="23" name="PRIMARY">
+      <columns>arenaTeamId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="222" parent="24" name="arenaTeamId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="223" parent="24" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="224" parent="24" name="personalRating">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="225" parent="24" name="weekGames">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="226" parent="24" name="weekWins">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="227" parent="24" name="seasonGames">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="228" parent="24" name="seasonWins">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="229" parent="24" name="personal_rating">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="230" parent="24" name="PRIMARY">
+      <columns>arenaTeamId
+guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="231" parent="25" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="232" parent="25" name="auctioneerguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="233" parent="25" name="itemguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="234" parent="25" name="itemowner">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="235" parent="25" name="buyoutprice">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="236" parent="25" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="237" parent="25" name="buyguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="238" parent="25" name="lastbid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="239" parent="25" name="startbid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="240" parent="25" name="deposit">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="241" parent="25" name="item_guid">
+      <columns>itemguid</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="242" parent="25" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <key id="243" parent="25" name="item_guid">
+      <columns>itemguid</columns>
+      <underlying-index>item_guid</underlying-index>
+    </key>
+    <column id="244" parent="26" name="id">
+      <comment>Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="245" parent="26" name="type">
+      <mandatory>1</mandatory>
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="246" parent="26" name="content">
+      <mandatory>1</mandatory>
+      <data-type>longtext|0</data-type>
+    </column>
+    <key id="247" parent="26" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="248" parent="27" name="id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="249" parent="27" name="creator">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="250" parent="27" name="title">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="251" parent="27" name="description">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="252" parent="27" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1) unsigned|0</data-type>
+      <default-expression>&apos;4&apos;</default-expression>
+    </column>
+    <column id="253" parent="27" name="dungeon">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+      <default-expression>&apos;-1&apos;</default-expression>
+    </column>
+    <column id="254" parent="27" name="eventtime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="255" parent="27" name="flags">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="256" parent="27" name="time2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="257" parent="27" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="258" parent="28" name="id">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="259" parent="28" name="event">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="260" parent="28" name="invitee">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="261" parent="28" name="sender">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="262" parent="28" name="status">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="263" parent="28" name="statustime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="264" parent="28" name="rank">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="265" parent="28" name="text">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <key id="266" parent="28" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="267" parent="29" name="channelId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="268" parent="29" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(128)|0</data-type>
+    </column>
+    <column id="269" parent="29" name="team">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="270" parent="29" name="announce">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="271" parent="29" name="password">
+      <data-type>varchar(32)|0</data-type>
+    </column>
+    <column id="272" parent="29" name="lastUsed">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <key id="273" parent="29" name="PRIMARY">
+      <columns>channelId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="274" parent="30" name="channelId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="275" parent="30" name="playerGUID">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="276" parent="30" name="banTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <key id="277" parent="30" name="PRIMARY">
+      <columns>channelId
+playerGUID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="278" parent="31" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(128)|0</data-type>
+    </column>
+    <column id="279" parent="31" name="flags">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="280" parent="31" name="speakdelay">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="281" parent="31" name="joinmessage">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="282" parent="31" name="delaymessage">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="283" parent="31" name="moderators">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="284" parent="31" name="PRIMARY">
+      <columns>name</columns>
+      <primary>1</primary>
+    </key>
+    <column id="285" parent="32" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="286" parent="32" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="287" parent="32" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="288" parent="32" name="data">
+      <mandatory>1</mandatory>
+      <data-type>blob|0</data-type>
+    </column>
+    <key id="289" parent="32" name="PRIMARY">
+      <columns>guid
+type</columns>
+      <primary>1</primary>
+    </key>
+    <column id="290" parent="33" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="291" parent="33" name="achievement">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="292" parent="33" name="date">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="293" parent="33" name="PRIMARY">
+      <columns>guid
+achievement</columns>
+      <primary>1</primary>
+    </key>
+    <column id="294" parent="34" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="295" parent="34" name="criteria">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="296" parent="34" name="counter">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="297" parent="34" name="date">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="298" parent="34" name="PRIMARY">
+      <columns>guid
+criteria</columns>
+      <primary>1</primary>
+    </key>
+    <column id="299" parent="35" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="300" parent="35" name="spec">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="301" parent="35" name="button">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="302" parent="35" name="action">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="303" parent="35" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="304" parent="35" name="PRIMARY">
+      <columns>guid
+spec
+button</columns>
+      <primary>1</primary>
+    </key>
+    <column id="305" parent="36" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="306" parent="36" name="slot">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3)|0</data-type>
+    </column>
+    <column id="307" parent="36" name="matchMakerRating">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5)|0</data-type>
+    </column>
+    <column id="308" parent="36" name="maxMMR">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5)|0</data-type>
+    </column>
+    <key id="309" parent="36" name="PRIMARY">
+      <columns>guid
+slot</columns>
+      <primary>1</primary>
+    </key>
+    <column id="310" parent="37" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="311" parent="37" name="caster_guid">
+      <comment>Full Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="312" parent="37" name="item_guid">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="313" parent="37" name="spell">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="314" parent="37" name="effect_mask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="315" parent="37" name="recalculate_mask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="316" parent="37" name="stackcount">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="317" parent="37" name="amount0">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="318" parent="37" name="amount1">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="319" parent="37" name="amount2">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="320" parent="37" name="base_amount0">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="321" parent="37" name="base_amount1">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="322" parent="37" name="base_amount2">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="323" parent="37" name="maxduration">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="324" parent="37" name="remaintime">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="325" parent="37" name="remaincharges">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="326" parent="37" name="PRIMARY">
+      <columns>guid
+caster_guid
+item_guid
+spell
+effect_mask</columns>
+      <primary>1</primary>
+    </key>
+    <column id="327" parent="38" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="328" parent="38" name="bandate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="329" parent="38" name="unbandate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="330" parent="38" name="bannedby">
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="331" parent="38" name="banreason">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="332" parent="38" name="active">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="333" parent="38" name="PRIMARY">
+      <columns>guid
+bandate</columns>
+      <primary>1</primary>
+    </key>
+    <column id="334" parent="39" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="335" parent="39" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="336" parent="40" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="337" parent="40" name="lastEventId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="338" parent="40" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="339" parent="41" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="340" parent="41" name="genitive">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="341" parent="41" name="dative">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="342" parent="41" name="accusative">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="343" parent="41" name="instrumental">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="344" parent="41" name="prepositional">
+      <mandatory>1</mandatory>
+      <data-type>varchar(15)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <key id="345" parent="41" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="346" parent="42" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="347" parent="42" name="joinX">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="348" parent="42" name="joinY">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="349" parent="42" name="joinZ">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="350" parent="42" name="joinO">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="351" parent="42" name="joinMapId">
+      <comment>Map Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="352" parent="42" name="taxiPath">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="353" parent="42" name="mountSpell">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="354" parent="42" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="355" parent="43" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="356" parent="43" name="setguid">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="357" parent="43" name="setindex">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="358" parent="43" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(31)|0</data-type>
+    </column>
+    <column id="359" parent="43" name="iconname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="360" parent="43" name="ignore_mask">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="361" parent="43" name="item0">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="362" parent="43" name="item1">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="363" parent="43" name="item2">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="364" parent="43" name="item3">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="365" parent="43" name="item4">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="366" parent="43" name="item5">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="367" parent="43" name="item6">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="368" parent="43" name="item7">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="369" parent="43" name="item8">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="370" parent="43" name="item9">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="371" parent="43" name="item10">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="372" parent="43" name="item11">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="373" parent="43" name="item12">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="374" parent="43" name="item13">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="375" parent="43" name="item14">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="376" parent="43" name="item15">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="377" parent="43" name="item16">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="378" parent="43" name="item17">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="379" parent="43" name="item18">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="380" parent="43" name="idx_set">
+      <columns>guid
+setguid
+setindex</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="381" parent="43" name="Idx_setindex">
+      <columns>setindex</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="382" parent="43" name="PRIMARY">
+      <columns>setguid</columns>
+      <primary>1</primary>
+    </key>
+    <key id="383" parent="43" name="idx_set">
+      <columns>guid
+setguid
+setindex</columns>
+      <underlying-index>idx_set</underlying-index>
+    </key>
+    <column id="384" parent="44" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="385" parent="44" name="item_guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="386" parent="44" name="entry">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="387" parent="44" name="flags">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="388" parent="44" name="idx_guid">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="389" parent="44" name="PRIMARY">
+      <columns>item_guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="390" parent="45" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="391" parent="45" name="spec">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="392" parent="45" name="glyph1">
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="393" parent="45" name="glyph2">
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="394" parent="45" name="glyph3">
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="395" parent="45" name="glyph4">
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="396" parent="45" name="glyph5">
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="397" parent="45" name="glyph6">
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="398" parent="45" name="PRIMARY">
+      <columns>guid
+spec</columns>
+      <primary>1</primary>
+    </key>
+    <column id="399" parent="46" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="400" parent="46" name="mapId">
+      <comment>Map Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="401" parent="46" name="zoneId">
+      <comment>Zone Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="402" parent="46" name="posX">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="403" parent="46" name="posY">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="404" parent="46" name="posZ">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="405" parent="46" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="406" parent="47" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="407" parent="47" name="instance">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="408" parent="47" name="permanent">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="409" parent="47" name="extended">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <index id="410" parent="47" name="instance">
+      <columns>instance</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="411" parent="47" name="PRIMARY">
+      <columns>guid
+instance</columns>
+      <primary>1</primary>
+    </key>
+    <column id="412" parent="48" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="413" parent="48" name="bag">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="414" parent="48" name="slot">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="415" parent="48" name="item">
+      <comment>Item Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="416" parent="48" name="guid">
+      <columns>guid
+bag
+slot</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="417" parent="48" name="idx_guid">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="418" parent="48" name="PRIMARY">
+      <columns>item</columns>
+      <primary>1</primary>
+    </key>
+    <key id="419" parent="48" name="guid">
+      <columns>guid
+bag
+slot</columns>
+      <underlying-index>guid</underlying-index>
+    </key>
+    <column id="420" parent="49" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="421" parent="49" name="entry">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="422" parent="49" name="owner">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="423" parent="49" name="modelid">
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="424" parent="49" name="CreatedBySpell">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="425" parent="49" name="PetType">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="426" parent="49" name="level">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="427" parent="49" name="exp">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="428" parent="49" name="Reactstate">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="429" parent="49" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(21)|0</data-type>
+      <default-expression>&apos;Pet&apos;</default-expression>
+    </column>
+    <column id="430" parent="49" name="renamed">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="431" parent="49" name="slot">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="432" parent="49" name="curhealth">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="433" parent="49" name="curmana">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="434" parent="49" name="curhappiness">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="435" parent="49" name="savetime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="436" parent="49" name="abdata">
+      <data-type>text|0</data-type>
+    </column>
+    <index id="437" parent="49" name="idx_slot">
+      <columns>slot</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="438" parent="49" name="owner">
+      <columns>owner</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="439" parent="49" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="440" parent="50" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="441" parent="50" name="owner">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="442" parent="50" name="genitive">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="443" parent="50" name="dative">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="444" parent="50" name="accusative">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="445" parent="50" name="instrumental">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="446" parent="50" name="prepositional">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <index id="447" parent="50" name="owner_key">
+      <columns>owner</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="448" parent="50" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="449" parent="51" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="450" parent="51" name="quest">
+      <comment>Quest Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="451" parent="51" name="status">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="452" parent="51" name="explored">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="453" parent="51" name="timer">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="454" parent="51" name="mobcount1">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="455" parent="51" name="mobcount2">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="456" parent="51" name="mobcount3">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="457" parent="51" name="mobcount4">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="458" parent="51" name="itemcount1">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="459" parent="51" name="itemcount2">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="460" parent="51" name="itemcount3">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="461" parent="51" name="itemcount4">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="462" parent="51" name="playercount">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="463" parent="51" name="PRIMARY">
+      <columns>guid
+quest</columns>
+      <primary>1</primary>
+    </key>
+    <column id="464" parent="52" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="465" parent="52" name="quest">
+      <comment>Quest Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="466" parent="52" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="467" parent="52" name="idx_guid">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="468" parent="52" name="PRIMARY">
+      <columns>guid
+quest</columns>
+      <primary>1</primary>
+    </key>
+    <column id="469" parent="53" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="470" parent="53" name="quest">
+      <comment>Quest Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="471" parent="53" name="idx_guid">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="472" parent="53" name="PRIMARY">
+      <columns>guid
+quest</columns>
+      <primary>1</primary>
+    </key>
+    <column id="473" parent="54" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="474" parent="54" name="quest">
+      <comment>Quest Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="475" parent="54" name="active">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="476" parent="54" name="PRIMARY">
+      <columns>guid
+quest</columns>
+      <primary>1</primary>
+    </key>
+    <column id="477" parent="55" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="478" parent="55" name="quest">
+      <comment>Quest Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="479" parent="55" name="event">
+      <comment>Event Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="480" parent="55" name="idx_guid">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="481" parent="55" name="PRIMARY">
+      <columns>guid
+quest</columns>
+      <primary>1</primary>
+    </key>
+    <column id="482" parent="56" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="483" parent="56" name="quest">
+      <comment>Quest Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="484" parent="56" name="idx_guid">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="485" parent="56" name="PRIMARY">
+      <columns>guid
+quest</columns>
+      <primary>1</primary>
+    </key>
+    <column id="486" parent="57" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="487" parent="57" name="faction">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="488" parent="57" name="standing">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="489" parent="57" name="flags">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="490" parent="57" name="PRIMARY">
+      <columns>guid
+faction</columns>
+      <primary>1</primary>
+    </key>
+    <column id="491" parent="58" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="492" parent="58" name="skill">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="493" parent="58" name="value">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="494" parent="58" name="max">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <key id="495" parent="58" name="PRIMARY">
+      <columns>guid
+skill</columns>
+      <primary>1</primary>
+    </key>
+    <column id="496" parent="59" name="guid">
+      <comment>Character Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="497" parent="59" name="friend">
+      <comment>Friend Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="498" parent="59" name="flags">
+      <comment>Friend Flags</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="499" parent="59" name="note">
+      <comment>Friend Note</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(48)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <index id="500" parent="59" name="friend">
+      <columns>friend</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="501" parent="59" name="PRIMARY">
+      <columns>guid
+friend
+flags</columns>
+      <primary>1</primary>
+    </key>
+    <column id="502" parent="60" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="503" parent="60" name="spell">
+      <comment>Spell Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="504" parent="60" name="specMask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="505" parent="60" name="PRIMARY">
+      <columns>guid
+spell</columns>
+      <primary>1</primary>
+    </key>
+    <column id="506" parent="61" name="guid">
+      <comment>Global Unique Identifier, Low part</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="507" parent="61" name="spell">
+      <comment>Spell Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="508" parent="61" name="item">
+      <comment>Item Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="509" parent="61" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="510" parent="61" name="needSend">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <key id="511" parent="61" name="PRIMARY">
+      <columns>guid
+spell</columns>
+      <primary>1</primary>
+    </key>
+    <column id="512" parent="62" name="guid">
+      <comment>Global Unique Identifier, Low part</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="513" parent="62" name="maxhealth">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="514" parent="62" name="maxpower1">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="515" parent="62" name="maxpower2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="516" parent="62" name="maxpower3">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="517" parent="62" name="maxpower4">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="518" parent="62" name="maxpower5">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="519" parent="62" name="maxpower6">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="520" parent="62" name="maxpower7">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="521" parent="62" name="strength">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="522" parent="62" name="agility">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="523" parent="62" name="stamina">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="524" parent="62" name="intellect">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="525" parent="62" name="spirit">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="526" parent="62" name="armor">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="527" parent="62" name="resHoly">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="528" parent="62" name="resFire">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="529" parent="62" name="resNature">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="530" parent="62" name="resFrost">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="531" parent="62" name="resShadow">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="532" parent="62" name="resArcane">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="533" parent="62" name="blockPct">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="534" parent="62" name="dodgePct">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="535" parent="62" name="parryPct">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="536" parent="62" name="critPct">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="537" parent="62" name="rangedCritPct">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="538" parent="62" name="spellCritPct">
+      <mandatory>1</mandatory>
+      <data-type>float unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="539" parent="62" name="attackPower">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="540" parent="62" name="rangedAttackPower">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="541" parent="62" name="spellPower">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="542" parent="62" name="resilience">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="543" parent="62" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="544" parent="63" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="545" parent="63" name="spell">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+    </column>
+    <column id="546" parent="63" name="specMask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="547" parent="63" name="PRIMARY">
+      <columns>guid
+spell</columns>
+      <primary>1</primary>
+    </key>
+    <column id="548" parent="64" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="549" parent="64" name="account">
+      <comment>Account Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="550" parent="64" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="551" parent="64" name="race">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="552" parent="64" name="class">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="553" parent="64" name="gender">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="554" parent="64" name="level">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="555" parent="64" name="xp">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="556" parent="64" name="money">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="557" parent="64" name="playerBytes">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="558" parent="64" name="playerBytes2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="559" parent="64" name="playerFlags">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="560" parent="64" name="position_x">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="561" parent="64" name="position_y">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="562" parent="64" name="position_z">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="563" parent="64" name="map">
+      <comment>Map Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="564" parent="64" name="instance_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="565" parent="64" name="instance_mode_mask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="566" parent="64" name="orientation">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="567" parent="64" name="taximask">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="568" parent="64" name="online">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="569" parent="64" name="cinematic">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="570" parent="64" name="totaltime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="571" parent="64" name="leveltime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="572" parent="64" name="logout_time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="573" parent="64" name="is_logout_resting">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="574" parent="64" name="rest_bonus">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="575" parent="64" name="resettalents_cost">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="576" parent="64" name="resettalents_time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="577" parent="64" name="trans_x">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="578" parent="64" name="trans_y">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="579" parent="64" name="trans_z">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="580" parent="64" name="trans_o">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="581" parent="64" name="transguid">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="582" parent="64" name="extra_flags">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="583" parent="64" name="stable_slots">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="584" parent="64" name="at_login">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="585" parent="64" name="zone">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="586" parent="64" name="death_expire_time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="587" parent="64" name="taxi_path">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="588" parent="64" name="arenaPoints">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="589" parent="64" name="totalHonorPoints">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="590" parent="64" name="todayHonorPoints">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="591" parent="64" name="yesterdayHonorPoints">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="592" parent="64" name="totalKills">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="593" parent="64" name="todayKills">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="594" parent="64" name="yesterdayKills">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="595" parent="64" name="chosenTitle">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="596" parent="64" name="knownCurrencies">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="597" parent="64" name="watchedFaction">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="598" parent="64" name="drunk">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="599" parent="64" name="health">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="600" parent="64" name="power1">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="601" parent="64" name="power2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="602" parent="64" name="power3">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="603" parent="64" name="power4">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="604" parent="64" name="power5">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="605" parent="64" name="power6">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="606" parent="64" name="power7">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="607" parent="64" name="latency">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="608" parent="64" name="speccount">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="609" parent="64" name="activespec">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="610" parent="64" name="exploredZones">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="611" parent="64" name="equipmentCache">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="612" parent="64" name="ammoId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="613" parent="64" name="knownTitles">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="614" parent="64" name="actionBars">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="615" parent="64" name="grantableLevels">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="616" parent="64" name="deleteInfos_Account">
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="617" parent="64" name="deleteInfos_Name">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="618" parent="64" name="deleteDate">
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <index id="619" parent="64" name="idx_account">
+      <columns>account</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="620" parent="64" name="idx_name">
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="621" parent="64" name="idx_online">
+      <columns>online</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="622" parent="64" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="623" parent="65" name="entry">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="624" parent="65" name="player">
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="625" parent="65" name="acctid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="626" parent="65" name="reason">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;unknown&apos;</default-expression>
+    </column>
+    <column id="627" parent="65" name="speed">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="628" parent="65" name="Val1">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="629" parent="65" name="Val2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="630" parent="65" name="count">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="631" parent="65" name="Map">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5)|0</data-type>
+      <default-expression>&apos;-1&apos;</default-expression>
+    </column>
+    <column id="632" parent="65" name="Pos">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="633" parent="65" name="Level">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(9)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="634" parent="65" name="first_date">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="635" parent="65" name="last_date">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="636" parent="65" name="Op">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;unknown&apos;</default-expression>
+    </column>
+    <index id="637" parent="65" name="idx_Count">
+      <columns>count</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="638" parent="65" name="idx_Player">
+      <columns>player</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="639" parent="65" name="PRIMARY">
+      <columns>entry</columns>
+      <primary>1</primary>
+    </key>
+    <column id="640" parent="66" name="corpseGuid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="641" parent="66" name="guid">
+      <comment>Character Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="642" parent="66" name="posX">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="643" parent="66" name="posY">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="644" parent="66" name="posZ">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="645" parent="66" name="orientation">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="646" parent="66" name="mapId">
+      <comment>Map Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="647" parent="66" name="phaseMask">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="648" parent="66" name="displayId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="649" parent="66" name="itemCache">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="650" parent="66" name="bytes1">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="651" parent="66" name="bytes2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="652" parent="66" name="guildId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="653" parent="66" name="flags">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="654" parent="66" name="dynFlags">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="655" parent="66" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="656" parent="66" name="corpseType">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="657" parent="66" name="instanceId">
+      <comment>Instance Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="658" parent="66" name="idx_instance">
+      <columns>instanceId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="659" parent="66" name="idx_player">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="660" parent="66" name="idx_time">
+      <columns>time</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="661" parent="66" name="idx_type">
+      <columns>corpseType</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="662" parent="66" name="PRIMARY">
+      <columns>corpseGuid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="663" parent="67" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="664" parent="67" name="respawnTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="665" parent="67" name="mapId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="666" parent="67" name="instanceId">
+      <comment>Instance Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="667" parent="67" name="idx_instance">
+      <columns>instanceId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="668" parent="67" name="PRIMARY">
+      <columns>guid
+instanceId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="669" parent="68" name="eventEntry">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="670" parent="68" name="condition_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="671" parent="68" name="done">
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="672" parent="68" name="PRIMARY">
+      <columns>eventEntry
+condition_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="673" parent="69" name="eventEntry">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="674" parent="69" name="state">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="675" parent="69" name="next_start">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="676" parent="69" name="PRIMARY">
+      <columns>eventEntry</columns>
+      <primary>1</primary>
+    </key>
+    <column id="677" parent="70" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="678" parent="70" name="respawnTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="679" parent="70" name="mapId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="680" parent="70" name="instanceId">
+      <comment>Instance Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="681" parent="70" name="idx_instance">
+      <columns>instanceId</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="682" parent="70" name="PRIMARY">
+      <columns>guid
+instanceId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="683" parent="71" name="surveyId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="684" parent="71" name="subsurveyId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="685" parent="71" name="rank">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="686" parent="71" name="comment">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <key id="687" parent="71" name="PRIMARY">
+      <columns>surveyId
+subsurveyId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="688" parent="72" name="surveyId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="689" parent="72" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="690" parent="72" name="mainSurvey">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="691" parent="72" name="overallComment">
+      <mandatory>1</mandatory>
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="692" parent="72" name="createTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="693" parent="72" name="maxMMR">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5)|0</data-type>
+    </column>
+    <key id="694" parent="72" name="PRIMARY">
+      <columns>surveyId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="695" parent="73" name="ticketId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="696" parent="73" name="guid">
+      <comment>Global Unique Identifier of ticket creator</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="697" parent="73" name="name">
+      <comment>Name of ticket creator</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="698" parent="73" name="message">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="699" parent="73" name="createTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="700" parent="73" name="mapId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="701" parent="73" name="posX">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="702" parent="73" name="posY">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="703" parent="73" name="posZ">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="704" parent="73" name="lastModifiedTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="705" parent="73" name="closedBy">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="706" parent="73" name="assignedTo">
+      <comment>GUID of admin to whom ticket is assigned</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="707" parent="73" name="comment">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="708" parent="73" name="response">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="709" parent="73" name="completed">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="710" parent="73" name="escalated">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="711" parent="73" name="viewed">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="712" parent="73" name="haveTicket">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="713" parent="73" name="PRIMARY">
+      <columns>ticketId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="714" parent="74" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="715" parent="74" name="memberGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="716" parent="74" name="memberFlags">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="717" parent="74" name="subgroup">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="718" parent="74" name="roles">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="719" parent="74" name="PRIMARY">
+      <columns>memberGuid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="720" parent="75" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="721" parent="75" name="leaderGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="722" parent="75" name="lootMethod">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="723" parent="75" name="looterGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="724" parent="75" name="lootThreshold">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="725" parent="75" name="icon1">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="726" parent="75" name="icon2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="727" parent="75" name="icon3">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="728" parent="75" name="icon4">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="729" parent="75" name="icon5">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="730" parent="75" name="icon6">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="731" parent="75" name="icon7">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="732" parent="75" name="icon8">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="733" parent="75" name="groupType">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="734" parent="75" name="difficulty">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="735" parent="75" name="raiddifficulty">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="736" parent="75" name="masterLooterGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <index id="737" parent="75" name="leaderGuid">
+      <columns>leaderGuid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="738" parent="75" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="739" parent="76" name="guildid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="740" parent="76" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(24)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="741" parent="76" name="leaderguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="742" parent="76" name="EmblemStyle">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="743" parent="76" name="EmblemColor">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="744" parent="76" name="BorderStyle">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="745" parent="76" name="BorderColor">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="746" parent="76" name="BackgroundColor">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="747" parent="76" name="info">
+      <mandatory>1</mandatory>
+      <data-type>varchar(500)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="748" parent="76" name="motd">
+      <mandatory>1</mandatory>
+      <data-type>varchar(128)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="749" parent="76" name="createdate">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="750" parent="76" name="BankMoney">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="751" parent="76" name="PRIMARY">
+      <columns>guildid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="752" parent="77" name="guildid">
+      <comment>Guild Identificator</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="753" parent="77" name="LogGuid">
+      <comment>Log record identificator - auxiliary column</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="754" parent="77" name="TabId">
+      <comment>Guild bank TabId</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="755" parent="77" name="EventType">
+      <comment>Event type</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="756" parent="77" name="PlayerGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="757" parent="77" name="ItemOrMoney">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="758" parent="77" name="ItemStackCount">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="759" parent="77" name="DestTabId">
+      <comment>Destination Tab Id</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="760" parent="77" name="TimeStamp">
+      <comment>Event UNIX time</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="761" parent="77" name="guildid_key">
+      <columns>guildid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="762" parent="77" name="Idx_LogGuid">
+      <columns>LogGuid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="763" parent="77" name="Idx_PlayerGuid">
+      <columns>PlayerGuid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="764" parent="77" name="PRIMARY">
+      <columns>guildid
+LogGuid
+TabId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="765" parent="78" name="guildid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="766" parent="78" name="TabId">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="767" parent="78" name="SlotId">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="768" parent="78" name="item_guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="769" parent="78" name="guildid_key">
+      <columns>guildid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="770" parent="78" name="Idx_item_guid">
+      <columns>item_guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="771" parent="78" name="PRIMARY">
+      <columns>guildid
+TabId
+SlotId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="772" parent="79" name="guildid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="773" parent="79" name="TabId">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="774" parent="79" name="rid">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="775" parent="79" name="gbright">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="776" parent="79" name="SlotPerDay">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="777" parent="79" name="guildid_key">
+      <columns>guildid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="778" parent="79" name="PRIMARY">
+      <columns>guildid
+TabId
+rid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="779" parent="80" name="guildid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="780" parent="80" name="TabId">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="781" parent="80" name="TabName">
+      <mandatory>1</mandatory>
+      <data-type>varchar(16)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="782" parent="80" name="TabIcon">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="783" parent="80" name="TabText">
+      <data-type>varchar(500)|0</data-type>
+    </column>
+    <index id="784" parent="80" name="guildid_key">
+      <columns>guildid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="785" parent="80" name="PRIMARY">
+      <columns>guildid
+TabId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="786" parent="81" name="guildid">
+      <comment>Guild Identificator</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="787" parent="81" name="LogGuid">
+      <comment>Log record identificator - auxiliary column</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="788" parent="81" name="EventType">
+      <comment>Event type</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="789" parent="81" name="PlayerGuid1">
+      <comment>Player 1</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="790" parent="81" name="PlayerGuid2">
+      <comment>Player 2</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="791" parent="81" name="NewRank">
+      <comment>New rank(in case promotion/demotion)</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="792" parent="81" name="TimeStamp">
+      <comment>Event UNIX time</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <index id="793" parent="81" name="Idx_LogGuid">
+      <columns>LogGuid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="794" parent="81" name="Idx_PlayerGuid1">
+      <columns>PlayerGuid1</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="795" parent="81" name="Idx_PlayerGuid2">
+      <columns>PlayerGuid2</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="796" parent="81" name="PRIMARY">
+      <columns>guildid
+LogGuid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="797" parent="82" name="guildid">
+      <comment>Guild Identificator</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="798" parent="82" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="799" parent="82" name="rank">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="800" parent="82" name="pnote">
+      <mandatory>1</mandatory>
+      <data-type>varchar(31)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="801" parent="82" name="offnote">
+      <mandatory>1</mandatory>
+      <data-type>varchar(31)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <index id="802" parent="82" name="guid_key">
+      <columns>guid</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="803" parent="82" name="guildid_key">
+      <columns>guildid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="804" parent="82" name="guildid_rank_key">
+      <columns>guildid
+rank</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="805" parent="82" name="guid_key">
+      <columns>guid</columns>
+      <underlying-index>guid_key</underlying-index>
+    </key>
+    <column id="806" parent="83" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="807" parent="83" name="tab0">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="808" parent="83" name="tab1">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="809" parent="83" name="tab2">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="810" parent="83" name="tab3">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="811" parent="83" name="tab4">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="812" parent="83" name="tab5">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="813" parent="83" name="money">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="814" parent="83" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="815" parent="84" name="guildid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="816" parent="84" name="rid">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="817" parent="84" name="rname">
+      <mandatory>1</mandatory>
+      <data-type>varchar(20)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="818" parent="84" name="rights">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="819" parent="84" name="BankMoneyPerDay">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="820" parent="84" name="Idx_rid">
+      <columns>rid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="821" parent="84" name="PRIMARY">
+      <columns>guildid
+rid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="822" parent="85" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="823" parent="85" name="map">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="824" parent="85" name="resettime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="825" parent="85" name="difficulty">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="826" parent="85" name="completedEncounters">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="827" parent="85" name="data">
+      <mandatory>1</mandatory>
+      <data-type>tinytext|0</data-type>
+    </column>
+    <index id="828" parent="85" name="difficulty">
+      <columns>difficulty</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="829" parent="85" name="map">
+      <columns>map</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="830" parent="85" name="resettime">
+      <columns>resettime</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="831" parent="85" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="832" parent="86" name="mapid">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="833" parent="86" name="difficulty">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="834" parent="86" name="resettime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="835" parent="86" name="difficulty">
+      <columns>difficulty</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="836" parent="86" name="PRIMARY">
+      <columns>mapid
+difficulty</columns>
+      <primary>1</primary>
+    </key>
+    <column id="837" parent="87" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="838" parent="87" name="itemEntry">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="839" parent="87" name="owner_guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="840" parent="87" name="creatorGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="841" parent="87" name="giftCreatorGuid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="842" parent="87" name="count">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="843" parent="87" name="duration">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="844" parent="87" name="charges">
+      <data-type>tinytext|0</data-type>
+    </column>
+    <column id="845" parent="87" name="flags">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="846" parent="87" name="enchantments">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="847" parent="87" name="randomPropertyId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="848" parent="87" name="durability">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="849" parent="87" name="playedTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="850" parent="87" name="text">
+      <data-type>text|0</data-type>
+    </column>
+    <index id="851" parent="87" name="idx_owner_guid">
+      <columns>owner_guid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="852" parent="87" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="853" parent="88" name="containerGUID">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="854" parent="88" name="itemid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="855" parent="88" name="count">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="856" parent="88" name="randomPropertyId">
+      <mandatory>1</mandatory>
+      <data-type>int(10)|0</data-type>
+    </column>
+    <column id="857" parent="88" name="randomSuffix">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="858" parent="89" name="item_guid">
+      <comment>Item GUID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="859" parent="89" name="player_guid">
+      <comment>Player GUID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="860" parent="89" name="paidMoney">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="861" parent="89" name="paidExtendedCost">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="862" parent="89" name="PRIMARY">
+      <columns>item_guid
+player_guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="863" parent="90" name="itemGuid">
+      <comment>Item GUID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="864" parent="90" name="allowedPlayers">
+      <comment>Space separated GUID list of players who can receive this item in trade</comment>
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <key id="865" parent="90" name="PRIMARY">
+      <columns>itemGuid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="866" parent="91" name="reportId">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="867" parent="91" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="868" parent="91" name="lagType">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="869" parent="91" name="mapId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="870" parent="91" name="posX">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="871" parent="91" name="posY">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="872" parent="91" name="posZ">
+      <mandatory>1</mandatory>
+      <data-type>float|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="873" parent="91" name="latency">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="874" parent="91" name="createTime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="875" parent="91" name="PRIMARY">
+      <columns>reportId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="876" parent="92" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="877" parent="92" name="dungeon">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="878" parent="92" name="state">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="879" parent="92" name="PRIMARY">
+      <columns>guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="880" parent="93" name="fight_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="881" parent="93" name="time">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="882" parent="93" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="883" parent="93" name="duration">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="884" parent="93" name="winner">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="885" parent="93" name="loser">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="886" parent="93" name="winner_tr">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="887" parent="93" name="winner_mmr">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="888" parent="93" name="winner_tr_change">
+      <mandatory>1</mandatory>
+      <data-type>smallint(6)|0</data-type>
+    </column>
+    <column id="889" parent="93" name="loser_tr">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="890" parent="93" name="loser_mmr">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="891" parent="93" name="loser_tr_change">
+      <mandatory>1</mandatory>
+      <data-type>smallint(6)|0</data-type>
+    </column>
+    <column id="892" parent="93" name="currOnline">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <key id="893" parent="93" name="PRIMARY">
+      <columns>fight_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="894" parent="94" name="fight_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="895" parent="94" name="member_id">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="896" parent="94" name="name">
+      <mandatory>1</mandatory>
+      <data-type>char(20)|0</data-type>
+    </column>
+    <column id="897" parent="94" name="guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="898" parent="94" name="team">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="899" parent="94" name="account">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="900" parent="94" name="ip">
+      <mandatory>1</mandatory>
+      <data-type>char(15)|0</data-type>
+    </column>
+    <column id="901" parent="94" name="damage">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="902" parent="94" name="heal">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="903" parent="94" name="kblows">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <key id="904" parent="94" name="PRIMARY">
+      <columns>fight_id
+member_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="905" parent="95" name="time">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="906" parent="95" name="map">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="907" parent="95" name="difficulty">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="908" parent="95" name="creditType">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <column id="909" parent="95" name="creditEntry">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="910" parent="95" name="playersInfo">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="911" parent="96" name="sender_acc">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+    </column>
+    <column id="912" parent="96" name="sender_guid">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+    </column>
+    <column id="913" parent="96" name="sender_name">
+      <mandatory>1</mandatory>
+      <data-type>char(32)|0</data-type>
+    </column>
+    <column id="914" parent="96" name="sender_ip">
+      <mandatory>1</mandatory>
+      <data-type>char(32)|0</data-type>
+    </column>
+    <column id="915" parent="96" name="receiver_acc">
+      <mandatory>1</mandatory>
+      <data-type>int(11) unsigned|0</data-type>
+    </column>
+    <column id="916" parent="96" name="receiver_name">
+      <mandatory>1</mandatory>
+      <data-type>char(32)|0</data-type>
+    </column>
+    <column id="917" parent="96" name="money">
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+    </column>
+    <column id="918" parent="96" name="topic">
+      <mandatory>1</mandatory>
+      <data-type>char(255)|0</data-type>
+    </column>
+    <column id="919" parent="96" name="date">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="920" parent="97" name="id">
+      <comment>Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="921" parent="97" name="messageType">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="922" parent="97" name="stationery">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3)|0</data-type>
+      <default-expression>&apos;41&apos;</default-expression>
+    </column>
+    <column id="923" parent="97" name="mailTemplateId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="924" parent="97" name="sender">
+      <comment>Character Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="925" parent="97" name="receiver">
+      <comment>Character Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="926" parent="97" name="subject">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="927" parent="97" name="body">
+      <data-type>longtext|0</data-type>
+    </column>
+    <column id="928" parent="97" name="has_items">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="929" parent="97" name="expire_time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="930" parent="97" name="deliver_time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="931" parent="97" name="money">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="932" parent="97" name="cod">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="933" parent="97" name="checked">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="934" parent="97" name="idx_receiver">
+      <columns>receiver</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="935" parent="97" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="936" parent="98" name="mail_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="937" parent="98" name="item_guid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="938" parent="98" name="receiver">
+      <comment>Character Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="939" parent="98" name="idx_mail_id">
+      <columns>mail_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="940" parent="98" name="idx_receiver">
+      <columns>receiver</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="941" parent="98" name="PRIMARY">
+      <columns>item_guid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="942" parent="99" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="943" parent="99" name="caster_guid">
+      <comment>Full Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>bigint(20) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="944" parent="99" name="spell">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="945" parent="99" name="effect_mask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="946" parent="99" name="recalculate_mask">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="947" parent="99" name="stackcount">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;1&apos;</default-expression>
+    </column>
+    <column id="948" parent="99" name="amount0">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8)|0</data-type>
+    </column>
+    <column id="949" parent="99" name="amount1">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8)|0</data-type>
+    </column>
+    <column id="950" parent="99" name="amount2">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8)|0</data-type>
+    </column>
+    <column id="951" parent="99" name="base_amount0">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8)|0</data-type>
+    </column>
+    <column id="952" parent="99" name="base_amount1">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8)|0</data-type>
+    </column>
+    <column id="953" parent="99" name="base_amount2">
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8)|0</data-type>
+    </column>
+    <column id="954" parent="99" name="maxduration">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="955" parent="99" name="remaintime">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="956" parent="99" name="remaincharges">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="957" parent="99" name="PRIMARY">
+      <columns>guid
+spell
+effect_mask</columns>
+      <primary>1</primary>
+    </key>
+    <column id="958" parent="100" name="guid">
+      <comment>Global Unique Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="959" parent="100" name="spell">
+      <comment>Spell Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="960" parent="100" name="active">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="961" parent="100" name="PRIMARY">
+      <columns>guid
+spell</columns>
+      <primary>1</primary>
+    </key>
+    <column id="962" parent="101" name="guid">
+      <comment>Global Unique Identifier, Low part</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="963" parent="101" name="spell">
+      <comment>Spell Identifier</comment>
+      <mandatory>1</mandatory>
+      <data-type>mediumint(8) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="964" parent="101" name="time">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="965" parent="101" name="PRIMARY">
+      <columns>guid
+spell</columns>
+      <primary>1</primary>
+    </key>
+    <column id="966" parent="102" name="ownerguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="967" parent="102" name="petitionguid">
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="968" parent="102" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(24)|0</data-type>
+    </column>
+    <column id="969" parent="102" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="970" parent="102" name="index_ownerguid_petitionguid">
+      <columns>ownerguid
+petitionguid</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="971" parent="102" name="PRIMARY">
+      <columns>ownerguid
+type</columns>
+      <primary>1</primary>
+    </key>
+    <key id="972" parent="102" name="index_ownerguid_petitionguid">
+      <columns>ownerguid
+petitionguid</columns>
+      <underlying-index>index_ownerguid_petitionguid</underlying-index>
+    </key>
+    <column id="973" parent="103" name="ownerguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="974" parent="103" name="petitionguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="975" parent="103" name="playerguid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="976" parent="103" name="player_account">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="977" parent="103" name="type">
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="978" parent="103" name="Idx_ownerguid">
+      <columns>ownerguid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="979" parent="103" name="Idx_playerguid">
+      <columns>playerguid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="980" parent="103" name="PRIMARY">
+      <columns>petitionguid
+playerguid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="981" parent="104" name="pool_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="982" parent="104" name="quest_id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="983" parent="104" name="PRIMARY">
+      <columns>pool_id
+quest_id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="984" parent="105" name="name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(12)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <key id="985" parent="105" name="PRIMARY">
+      <columns>name</columns>
+      <primary>1</primary>
+    </key>
+    <column id="986" parent="106" name="realmid">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+    </column>
+    <column id="987" parent="106" name="starttime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="988" parent="106" name="uptime">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="989" parent="106" name="maxplayers">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="990" parent="106" name="revision">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>&apos;Trinitycore&apos;</default-expression>
+    </column>
+    <key id="991" parent="106" name="PRIMARY">
+      <columns>realmid
+starttime</columns>
+      <primary>1</primary>
+    </key>
+    <column id="992" parent="107" name="wardenId">
+      <mandatory>1</mandatory>
+      <data-type>smallint(5) unsigned|0</data-type>
+    </column>
+    <column id="993" parent="107" name="action">
+      <data-type>tinyint(3) unsigned|0</data-type>
+    </column>
+    <key id="994" parent="107" name="PRIMARY">
+      <columns>wardenId</columns>
+      <primary>1</primary>
+    </key>
+    <column id="995" parent="108" name="entry">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="996" parent="108" name="value">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="997" parent="108" name="comment">
+      <data-type>tinytext|0</data-type>
+    </column>
+    <key id="998" parent="108" name="PRIMARY">
+      <columns>entry</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

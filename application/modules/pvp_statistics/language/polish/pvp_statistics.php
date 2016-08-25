@@ -1,4 +1,4 @@
-<?
+<?php
 
 $lang['statistics_title'] = "Statystyki PvP";
 $lang['no_2v2_teams'] = "Brak drużyn 2v2.";

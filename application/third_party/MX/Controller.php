@@ -35,6 +35,8 @@ require dirname(__FILE__).'/Base.php';
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ * @property Realms realms
+ * @property Template template
  **/
 class MX_Controller 
 {
