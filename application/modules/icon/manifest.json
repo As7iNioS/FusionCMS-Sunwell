@@ -1,9 +1,14 @@
 {
-	"name": "Icon provider",
-	"description": "Required by the armory to display icons",
+	"name": "Gm Application",
+	"description": "Automated system",
 	"author": {
-		"name": "FusionCMS",
-		"website": "http:\/\/fusion-hub.com"
+		"name": "Dawnbrightsu",
+		"website": ""
 	},
-	"enabled": true
+
+	"admin": {
+		
+	},
+
+	"enabled":true
 }

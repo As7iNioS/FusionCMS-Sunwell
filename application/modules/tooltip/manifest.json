@@ -1,10 +1,14 @@
 {
-	"name": "Item tooltip",
-	"description": "Required by the armory and character viewer to display item stats",
+	"name": "Gm Application",
+	"description": "Automated system",
 	"author": {
-		"name": "FusionCMS",
-		"website": "http:\/\/fusion-hub.com"
+		"name": "Dawnbrightsu",
+		"website": ""
 	},
-	
-	"enabled": true
+
+	"admin": {
+		
+	},
+
+	"enabled":true
 }

@@ -73,7 +73,9 @@ function UI()
 
 	/**
 	 * Shows an alert box
-	 * @param String message
+	 * @param time
+	 * @param question
+	 * @param time
 	 */
 	this.alert = function(question, time)
 	{		
@@ -125,10 +127,15 @@ function UI()
 
 	/**
 	 * Shows a confirm box
-	 * @param String question
-	 * @param String button
-	 * @param Function callback
-	 * @param Int width
+	 * @param button
+	 * @param callback
+	 * @param callback_cancel
+	 * @param width
+	 * @param question
+	 * @param button
+	 * @param callback
+	 * @param callback_cancel
+	 * @param width
 	 */
 	this.confirm = function(question, button, callback, callback_cancel, width)
 	{
@@ -201,8 +208,8 @@ function UI()
 
 	/**
 	 * Display the amount of remaining characters
-	 * @param Object field
-	 * @param Object indicator
+	 * @param field
+	 * @param indicator
 	 */
 	this.limitCharacters = function(field, indicator)
 	{
@@ -288,14 +295,15 @@ function Tooltip()
 		
 		// Add mouse-over event listeners
 		$("[data-tip]").hover(
-			function()
+			function(e)
 			{
 				$(document).bind('mousemove', Tooltip.addEvents.handleMouseMove);
 				Tooltip.show($(this).attr("data-tip"));
+				Tooltip.move(e.pageX, e.pageY);
 			},
 			function()
 			{
-				$("#tooltip").hide();
+                $("#tooltip").hide();
 				$(document).unbind('mousemove', Tooltip.addEvents.handleMouseMove);
 			}
 		);
@@ -303,7 +311,7 @@ function Tooltip()
 		if(Config.UseFusionTooltip)
 		{
 			$("[rel]").hover(
-				function()
+				function(e)
 				{
 					$(document).bind('mousemove', Tooltip.addEvents.handleMouseMove);
 					if(/^item=[0-9]*$/.test($(this).attr("rel")))
@@ -311,6 +319,7 @@ function Tooltip()
 						Tooltip.Item.get(this, function(data)
 						{
 							Tooltip.show(data);
+							Tooltip.move(e.pageX, e.pageY);
 						});
 					}
 				},
@@ -325,8 +334,8 @@ function Tooltip()
 
 	/**
 	 * Moves tooltip
-	 * @param Int x
-	 * @param Int y
+	 * @param x
+	 * @param y
 	 */
 	this.move = function(x, y)
 	{
@@ -339,7 +348,8 @@ function Tooltip()
 
 	/**
 	 * Displays the tooltip
-	 * @param Object element
+	 * @param data
+	 * @param e
 	 */
 	this.show = function(data)
 	{
@@ -366,11 +376,11 @@ function Tooltip()
 	 	 */
 	 	this.currentId = false;
 
-	 	/**
-	 	 * Load an item and display it in the tooltip
-	 	 * @param Object element
-	 	 * @param Function callback
-	 	 */
+		 /**
+		  * Load an item and display it in the tooltip
+		  * @param element
+		  * @param callback
+		  */
 	 	this.get = function(element, callback)
 	 	{
 	 		var obj = $(element);
@@ -412,11 +422,11 @@ function Tooltip()
 
 	 	this.CacheObj = new function()
 	 	{
-	 		/**
-	 		 * Get cache from localStorage
-	 		 * @param String name
-	 		 * @return Mixed
-	 		 */
+			/**
+			 * Get cache from localStorage
+			 * @return Mixed
+			 * @param name
+			 */
 	 		this.get = function(name)
 	 		{
 	 			if(typeof localStorage != "undefined")
@@ -448,12 +458,11 @@ function Tooltip()
 		 		}
 	 		};
 
-	 		/**
-	 		 * Save data to localStorage
-	 		 * @param String name
-	 		 * @param String data
-	 		 * @param Int expiration
-	 		 */
+			/**
+			 * Save data to localStorage
+			 * @param name
+			 * @param data
+			 */
 	 		this.save = function(name, data)
 	 		{
 	 			if(typeof localStorage != "undefined")

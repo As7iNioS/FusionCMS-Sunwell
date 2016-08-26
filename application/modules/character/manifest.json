@@ -1,24 +1,14 @@
 {
-	"name": "Character viewer",
-	"description": "Displays the character stats and items",
+	"name": "Gm Application",
+	"description": "Automated system",
 	"author": {
-		"name": "FusionCMS",
-		"website": "http:\/\/fusion-hub.com"
+		"name": "Dawnbrightsu",
+		"website": ""
 	},
 
-	"permissions": {
-		"view": { "default": true, "description": "View the characters" }
+	"admin": {
+		
 	},
 
-	"roles": {
-		"view": {
-			"description": "View the characters",
-
-			"permissions": {
-				"view": true
-			}
-		}
-	},
-
-	"enabled": true
+	"enabled":true
 }

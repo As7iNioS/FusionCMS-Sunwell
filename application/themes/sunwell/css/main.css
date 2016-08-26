@@ -140,7 +140,7 @@ body {
 /*}*/
 
 #content_ajax ul, #content_ajax ol {
-    margin: 0 40px;
+    margin: 0;
 }
 
 #content_ajax {
