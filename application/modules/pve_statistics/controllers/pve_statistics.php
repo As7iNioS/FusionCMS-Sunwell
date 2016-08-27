@@ -64,6 +64,6 @@ class PVE_Statistics extends MX_Controller
 
         $output = $this->template->loadPage("index.tpl", $data);
 
-        $this->template->box(lang("statistics_title", "pve_statistics"), $output, true, "modules/pve_statistics/css/style.css", "modules/pve_statistics/js/scripts.js");
+        $this->template->box(lang("statistics_title", "pve_statistics"), $output, true, "", "modules/pve_statistics/js/scripts.js");
     }
 }

@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="{$style_path}main.css" type="text/css" />
 		<script type="text/javascript" src="{$path}themes/sunwell/js/frameprotection.js"></script>
 		<script type="text/javascript" src="{$path}themes/sunwell/js/sha1.js"></script>
+		<script type="text/javascript" src="{$path}themes/sunwell/js/script.js"></script>
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}" type="text/css" />{/if}
 		
 		<link rel="shortcut icon" href="{$path}themes/sunwell/images/favicon.ico" />

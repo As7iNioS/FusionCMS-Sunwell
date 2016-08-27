@@ -46,7 +46,7 @@
                             </td>
                             <td width="15%" align="center"><img
                                         src="{$url}application/images/stats/{$character.class}.gif"/></td>
-                            <td width="15%" align="center">{$character.achiPoints}&nbsp;<img
+                            <td width="15%" align="center">{$character.achievementPoints}&nbsp;<img
                                         src="{$url}application/images/armory/icons/achievement.png" style="max-height: 16px; margin-bottom: -3px;"/></td>
                         </tr>
                     {/foreach}

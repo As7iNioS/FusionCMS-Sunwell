@@ -30,17 +30,17 @@ function InstanceChange() {
     if (typeof sel != 'undefined' && sel.value != "" && realmId > 0) {
         //need to add the index crap
         if (document.location.pathname.indexOf('/index') == -1) {
-            document.location.pathname += '/index/' + sel.value;
+            document.location.pathname += '/index/' + realmId + '/' + sel.value;
         }
         //need to add slash
         else if (document.location.pathname.indexOf('/index/') == -1) {
-            document.location.pathname += '/' + sel.value;
+            document.location.pathname += '/' + realmId + '/' + sel.value;
         }
         //need to replace the current realm id
         else {
             var pathstr = document.location.pathname;
-            console.log(pathstr.substr(0, pathstr.indexOf('index/') + 6) + realmId + '/' + sel.value);
-            document.location.pathname = pathstr.substr(0, pathstr.indexOf('index/') + 6) + realmId + '/' + sel.value;
+            var url = pathstr.substr(0, pathstr.indexOf('index/') + 6) + realmId + '/' + sel.value;
+            document.location.pathname = url;
         }
     }
 

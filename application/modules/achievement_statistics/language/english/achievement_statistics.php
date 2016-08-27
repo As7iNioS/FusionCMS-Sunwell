@@ -9,4 +9,4 @@ $lang['level'] = "Level";
 $lang['race'] = "Race";
 $lang['class'] = "Class";
 $lang['view_profile'] = "View character profile";
-$lang['no_players_with_pve_kills'] = "Nocne have obtained any achievements.";
+$lang['no_players_with_pve_kills'] = "No one have obtained any achievements.";
