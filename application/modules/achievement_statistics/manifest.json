@@ -1,0 +1,10 @@
+{
+	"name":"PvE Statistics",
+	"description":"Statistics about the top players in PvE kills on realms.",
+	"author":
+	{
+		"name":"Maczuga",
+		"website":""
+	},
+	"enabled":true
+}
