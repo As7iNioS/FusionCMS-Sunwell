@@ -10,10 +10,14 @@
 	</section>
 
 	<img class="avatar" src="{$url}application/images/avatars/{$avatar}.gif"/>
-	
+
 	<section id="armory_name">
 		<h1>{$name} <a class="color-tooltip-{$faction}" href="{$url}guild/{$realmId}/{$guild}">{$guildName}</a></h1>
 		<h2 class="color-c{$class}"><b>{$level}</b> {$raceName} {$className}, <i>{$realmName}</i></h2>
+		<h2 style="margin: 3px 0;">
+            <b style="float: left; margin-top: 4px; font-size: 16px; color: black;">{if strlen($stats.achievementPoints)}{$stats.achievementPoints}{else}0{/if}</b>
+            &nbsp;<img src="{$url}application/images/armory/icons/achievement.png" style="height: 22px; width: 25px; margin-bottom: -3px; float: left;"/>
+        </h2>
 	</section>
 
 	<div class="clear"></div>
@@ -67,7 +71,7 @@
 				</a>
 			{/if}
 		</center>
-		
+
 		{if $has_stats}
 		<section id="tab_stats" style="display:block;">
 			<div style="width:1200px;height:194px;" id="attributes_wrapper">
@@ -91,7 +95,7 @@
 								<td>{if strlen($stats.spellPower)}{$stats.spellPower}{else}{lang("unknown", "character")}{/if}</td>
 							</tr>
 						{/if}
-						
+
 						{if $stats && array_key_exists("attackPower", $stats)}
 							<tr>
 								<td width="50%">{lang("ap", "character")}</td>
@@ -213,13 +217,13 @@
 <br />
 <br />
 <section id="armory_mid_info">
-	
+
     <div class="recent-activity">
     	<h3>Recent Achievements</h3>
-        
+
         <ul class="achievements">
         {if $recent_achievements}
-        
+
         	{foreach from=$recent_achievements key=key item=achiev}
                 <li class="achievement">
                 	<div id="icon">
@@ -241,7 +245,7 @@
         {/if}
         </ul>
     </div>
-    
+
 	<div class="professions">
     	<h3>Main Professions</h3>
 		<ul>
@@ -292,7 +296,7 @@
             </ul>
         {/if}
     </div>
-    
+
 	<div class="clear"></div>
 </section>
 
@@ -307,7 +311,7 @@
                 <div>
                     <div class="talents-spec-icon">
                         {if $spec.icon}
-                            <img src="http://wow.zamimg.com/images/wow/icons/medium/{$spec.icon}.jpg" style="vertical-align:middle"> 
+                            <img src="http://wow.zamimg.com/images/wow/icons/medium/{$spec.icon}.jpg" style="vertical-align:middle">
                         {else}
                             <img src="http://wow.zamimg.com/images/wow/icons/medium/inv_misc_questionmark.jpg" style="vertical-align:middle"> <br />
                         {/if}
@@ -327,24 +331,24 @@
             <div class="clear"></div>
         {/if}
     </div>
-	
+
     {if $talent_tables}
         {foreach from=$talent_tables key=key item=table}
-            <div class="talents" specId="{$key}" style="{if $key != $talent_active_spec}display: none;{/if}"> 
-               	
+            <div class="talents" specId="{$key}" style="{if $key != $talent_active_spec}display: none;{/if}">
+
                	<h3>Talents</h3>
                 <div class="talents-body">
-                    
+
                     {foreach from=$table key=tab_key item=tab}
                         <div class="talents-tree" id="tree-{$tab.order + 1}" style="float: left;">
-                            
+
                             <div class="talents-tree-bg {$className_clean}-{$tab.order + 1}"></div>
-                            
+
                             <div class="talents-tree-title">
-                                <img src="http://wow.zamimg.com/images/wow/icons/small/{$tab.icon}.jpg" height="21px" style="vertical-align:middle"> 
+                                <img src="http://wow.zamimg.com/images/wow/icons/small/{$tab.icon}.jpg" height="21px" style="vertical-align:middle">
                                 {$tab.name}
                             </div>
-                            
+
                             <table cellpadding="0" cellspacing="0" border="0">
                                 {foreach from=$tab.table key=row_key item=row}
                                     <tr>
@@ -377,21 +381,21 @@
                                     </tr>
                                 {/foreach}
                             </table>
-                            
+
                         </div>
                     {/foreach}
-                        
+
                     <div class="clear"></div>
                 </div>
-                
+
                 <h3>Glyphs</h3>
                 <div class="talents-glyphs">
-                	
+
                     {if $glyph_tables[$key]["hasPrime"]}
                         <!-- Prime Glyphs -->
                         <div class="talents-glyphs-column">
                             <div class="talents-glyphs-list">
-                                
+
                                 {for $glyph=0 to 2}
                                     <div class="talents-glyphs-glyph">
                                         <div class="iconsmall">
@@ -403,16 +407,16 @@
                                         <div class="clear"></div>
                                     </div>
                                 {/for}
-                                
+
                                 <div class="clear"></div>
-                            </div> 
+                            </div>
                         </div>
                     {/if}
-                    
+
                     <!-- Major Glyphs -->
                     <div class="talents-glyphs-column">
                         <div class="talents-glyphs-list">
-                            
+
                             {for $glyph=0 to 2}
                                 <div class="talents-glyphs-glyph">
                                     <div class="iconsmall">
@@ -424,15 +428,15 @@
                                     <div class="clear"></div>
                                 </div>
                             {/for}
-                            
+
                             <div class="clear"></div>
-                        </div> 
+                        </div>
                     </div>
-                    
+
                     <!-- Minor Glyphs -->
                     <div class="talents-glyphs-column">
                         <div class="talents-glyphs-list">
-                            
+
                             {for $glyph=0 to 2}
                                 <div class="talents-glyphs-glyph">
                                     <div class="iconsmall">
@@ -444,17 +448,17 @@
                                     <div class="clear"></div>
                                 </div>
                             {/for}
-                            
+
                             <div class="clear"></div>
-                        </div> 
+                        </div>
                     </div>
-                    
+
                     <div class="clear"></div>
                 </div>
             </div>
     	{/foreach}
     {/if}
-    
+
 </section>
 
 <br />
@@ -463,7 +467,7 @@
 </section>
 
 <section id="armory_arena_teams">
-	
+
     {foreach from=$arena_teams_table key=key item=team}
         <div class="armory_arena_box" {if not $team}id="inactive"{/if}>
             <div class="arena_box_head">
@@ -471,7 +475,7 @@
                 {if $team}
                     <p id="player-rating"><a href="javascript: void(0);" data-tip="Personal Rating">{$team.player.rating}</a></p>
                     <p id="player-games">
-                        <span id="player-wins">{$team.player.wins}</span> - <span id="player-loses">{$team.player.games - $team.player.wins}</span> 
+                        <span id="player-wins">{$team.player.wins}</span> - <span id="player-loses">{$team.player.games - $team.player.wins}</span>
                         {if $team.player.games > 0}
                             <span id="player-win-ratio">({round(($team.player.wins / $team.player.games) * 100)}%)</span>
                         {/if}
@@ -498,7 +502,7 @@
             </div>
         </div>
     {/foreach}
-    
+
     <div class="clear"></div>
 </section>
 
@@ -517,7 +521,7 @@
 {if $equippedItems}
 <script>
 	var TooltipEquippedItems = new Array();
-	
+
 	{foreach from=$equippedItems key=key item=entry}
 	TooltipEquippedItems[{$key}] = {$entry};
 	{/foreach}

@@ -127,7 +127,8 @@ class Trinity_soap implements IEmulator
 			"spellCritPct" => "spellCritPct",
 			"attackPower" => "attackPower",
 			"spellPower" => "spellPower",
-			"resilience" => "resilience"
+			"resilience" => "resilience",
+            "achievementPoints" => "achievementPoints"
 		),
 
 		"guild" => array(

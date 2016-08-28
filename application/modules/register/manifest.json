@@ -8,7 +8,7 @@
 	},
 	
 	"permissions": {
-		"view": { "default": false, "description": "View the register page" }
+		"view": { "default": true, "description": "View the register page" }
 	},
 
 	"roles": {

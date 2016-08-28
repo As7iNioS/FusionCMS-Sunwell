@@ -39,8 +39,7 @@ function InstanceChange() {
         //need to replace the current realm id
         else {
             var pathstr = document.location.pathname;
-            var url = pathstr.substr(0, pathstr.indexOf('index/') + 6) + realmId + '/' + sel.value;
-            document.location.pathname = url;
+            document.location.pathname = pathstr.substr(0, pathstr.indexOf('index/') + 6) + realmId + '/' + sel.value;
         }
     }
 

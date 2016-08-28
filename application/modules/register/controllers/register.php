@@ -156,7 +156,7 @@ class Register extends MX_Controller
 			{
 				//Register our user.
 				$this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
-				
+
 				// Log in
 				$sha_pass_hash = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));
 				$check = $this->user->setUserDetails($this->input->post('register_username'), $sha_pass_hash);
@@ -221,7 +221,7 @@ class Register extends MX_Controller
 		$this->activation_model->remove($account['id'], $account['username'], $account['email']);
 
 		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], true);
-		
+
 		// Log in
 		$this->user->setUserDetails($account['username'], $account['password']);
 

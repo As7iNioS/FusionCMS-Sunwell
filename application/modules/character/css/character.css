@@ -51,10 +51,10 @@
 #armory_top h1 {
     margin: 0;
     padding: 0;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: normal;
     overflow: hidden;
-    height: 45px;
+    height: 32px;
     width: 300px;
 }
 
@@ -247,25 +247,6 @@
 }
 
 #armory_stats_next a {
-    border: 1px solid #3a3a3a;
-    background-image: linear-gradient(bottom, rgba(200, 200, 200, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background-image: -o-linear-gradient(bottom, rgba(200, 200, 200, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background-image: -moz-linear-gradient(bottom, rgba(200, 200, 200, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgba(200, 200, 200, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background-image: -ms-linear-gradient(bottom, rgba(200, 200, 200, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-    background-image: -webkit-gradient(
-            linear,
-            left bottom,
-            left top,
-            color-stop(1, rgba(255, 255, 255, 0.3)),
-            color-stop(0, rgba(200, 200, 200, 0.3))
-    );
-    text-shadow: 1px 1px 0px #000;
-    box-shadow: 0px 1px 0px #a2a2a2 inset;
-    -webkit-box-shadow: 0px 1px 0px #a2a2a2 inset;
-    -moz-box-shadow: 0px 1px 0px #a2a2a2 inset;
-    color: #fff;
-
     width: 80px;
     padding: 3px;
     border-radius: 5px;
@@ -328,13 +309,13 @@
 #armory_mid_info {
     font-size: 16px;
     display: block;
-    color: #b38e3f;
+    color: #333;
 }
 
 #armory_mid_info h3 {
     font-size: 16px;
-    color: #B38E3F;
-    margin: 10px 0 0 0;
+    color: #333;
+    margin: 5px 0 5px 0;
 }
 
 #armory_mid_info .professions {
@@ -544,15 +525,16 @@
 
 #armory_mid_info .recent-activity {
     float: left;
-    width: 310px;
+    width: 312px;
     margin-left: 10px;
 }
 
 .recent-activity .achievements {
     list-style: none;
     margin-top: 5px;
-    background: rgba(153, 153, 153, 0.07);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 3px;
+    border: 1px solid #333;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .02), 0 0 4px rgba(0, 0, 0, .6);
     padding: 10px;
 }
@@ -581,15 +563,14 @@
 
 .achievement #info {
     float: left;
-    color: #434749;
+    color: #fff;
     font-size: 12px;
     margin-left: 5px;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 1);
     width: 263px;
 }
 
 .achievement #date {
-    color: #333;
+    color: #000;
     font-size: 11px;
 }
 
@@ -618,10 +599,12 @@
     float: left;
     padding: 10px;
     margin: 0 16px 0 0;
-    height: 40px;
-    background: rgba(153, 153, 153, 0.05);
+    height: 39px;
+    background: rgba(0, 0, 0, .5);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    border: 1px solid #333;
+    border-bottom: none;
     /*box-shadow: inset 0 0 0 1px rgba(255,255,255,.02), 0 0 4px rgba(0,0,0,.6);*/
 }
 
@@ -630,15 +613,15 @@
 }
 
 .talents-spec:hover div .talents-spec-info span#title {
-    color: #B38E3F;
+    color: #AD0000;
 }
 
 .talents-spec:hover div .talents-spec-info span#points {
-    color: #3D4346;
+    color: #AD0000;
 }
 
 .talents-spec-active {
-    background: rgba(153, 153, 153, 0.07);
+    background: rgba(0, 0, 0, .3)
 }
 
 .talents-spec-active div .talents-spec-info span#title {
@@ -686,8 +669,9 @@
     border-top-left-radius: 0;
     overflow: hidden;
     z-index: 2;
-    background: rgba(153, 153, 153, 0.07);
+    background: rgba(0, 0, 0, 0.5);
     padding: 0 0 23px 0;
+    border: 1px solid #333;
 }
 
 .talents h3 {
@@ -725,7 +709,9 @@
     display: block;
     float: left;
     font-size: 12px;
-    padding: 4px 0 0 3px;
+    padding: 6px 0 0 3px;
+    color: rgb(229, 195, 79);
+    text-decoration: none;
 }
 
 .talents-body {
@@ -738,10 +724,10 @@
 
 .talents-tree {
     position: relative;
-    width: 204px;
+    width: 200px;
     height: 583px;
     border-radius: 3px;
-    margin-left: 5px;
+    margin: 0 3px;
 }
 
 .talents-expansion-cata .talents-tree {
@@ -751,11 +737,11 @@
 .talents-tree-bg {
     display: block;
     position: absolute;
-    width: 204px;
+    width: 100%;
     height: 554px;
     border-radius: 3px;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 0.7;
     top: 29px;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 0 4px rgba(0, 0, 0, .6);
 }
@@ -776,6 +762,8 @@
     display: block;
     border-radius: 3px;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06), 0 0 4px rgba(0, 0, 0, .6);
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .talents-tree-title img {
@@ -791,11 +779,11 @@
 .talents-tree-bg {
     display: block;
     position: absolute;
-    width: 204px;
+    width: 100%;
     height: 554px;
     border-radius: 3px;
     background-repeat: no-repeat;
-    opacity: 0.4;
+    opacity: 1;
 }
 
 .deathknight-1 {
@@ -1173,7 +1161,7 @@
     display: block;
     padding: 0 0 10px 10px;
     box-shadow: 0 2px 0 rgba(255, 255, 255, .12);
-    color: #b38e3f;
+    color: #333;
 }
 
 #armory_arena_teams {
@@ -1189,29 +1177,22 @@
 }
 
 .arena_box_head {
-    padding: 10px 20px 10px 20px;
-    background: rgba(153, 153, 153, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, .3), inset 0 -1px 0 rgba(255, 255, 255, .01);
-}
-
-.armory_arena_box#inactive .arena_box_head {
-    background: rgba(153, 153, 153, 0.06);
-}
-
-.armory_arena_box#inactive .arena_box_head #team-type {
-    color: #403c35;
+    border: 1px solid #000;
 }
 
 .arena_box_head #team-type {
-    font-size: 40px;
+    font-size: 15px;
+    font-weight: bold;
     margin: 0;
     line-height: normal;
-    font-family: "Arial Black", Arial, sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.1em;
-    color: #c3b6a1;
+    font-family: Arial, sans-serif;
+    color: rgb(229,195,79);
 }
 
 .arena_box_head #player-rating {
@@ -1247,13 +1228,13 @@
 }
 
 .arena_box_body {
-    background: rgba(153, 153, 153, 0.05);
     padding: 10px 20px 10px 20px;
     text-align: center;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     text-align: left;
     height: 70px;
+    border: 1px solid #333;
 }
 
 .armory_arena_box#inactive .arena_box_body {
@@ -1371,4 +1352,8 @@
 
 .spell-tooltip-main td, .spell-tooltip-main td *{
     color: white !important;
+}
+
+#armory_talents{
+    padding: 0 5px;
 }

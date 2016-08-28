@@ -325,7 +325,7 @@ body {
     background-color: rgb(224, 189, 97)
 }
 
-.statistics_arena_head {
+.statistics_arena_head, .arena_box_head {
     background: url(../images/lay/tab-normal-bg-active.jpg) 0 top;
 }
 

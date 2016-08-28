@@ -33,8 +33,9 @@ class Phpbb extends Plugin
 	private function process()
 	{
 		$password = $this->encryptPassword();
+        $cleanUsername = $this->db->escape_like_str(utf8_clean_string($this->username));
 
-		$this->db->query("INSERT INTO ".$this->CI->config->item('forum_table_prefix')."users(`username`, `user_password`, `user_email`, `username_clean`, `user_regdate`, `user_new`, `group_id`) VALUES(?, ?, ?, ?, ?, '1','2')", array($this->username, $password, $this->email, $this->username, time()));
+		$this->db->query("INSERT INTO ".$this->CI->config->item('forum_table_prefix')."users(`username`, `user_password`, `user_email`, `username_clean`, `user_regdate`, `user_new`, `group_id`) VALUES(?, ?, ?, ?, ?, '1','2')", array($this->username, $password, $this->email, $cleanUsername, time()));
 
 		$this->db->select('user_id');
 		$this->db->where('username', $this->username);
@@ -228,4 +229,17 @@ function _hash_encode64($input, $count, &$itoa64)
 	while ($i < $count);
 
 	return $output;
+}
+
+function utf8_clean_string($text)
+{
+    // Other control characters
+    $text = preg_replace('#(?:[\x00-\x1F\x7F]+|(?:\xC2[\x80-\x9F])+)#', '', $text);
+
+    // we need to reduce multiple spaces to a single one
+    $text = preg_replace('# {2,}#', ' ', $text);
+
+    // we can use trim here as all the other space characters should have been turned
+    // into normal ASCII spaces by now
+    return strtolower(trim($text));
 }

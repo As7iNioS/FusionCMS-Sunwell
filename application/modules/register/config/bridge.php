@@ -1,18 +1,18 @@
 <?php
 
-$config['use_forum_bridge'] = false;
+$config['use_forum_bridge'] = true;
 
 /**
  * Default support:
  * phpbb, ipb, smf, mybb
  */
-$config['forum_bridge'] = "phpbb, ipb, smf or mybb";
+$config['forum_bridge'] = "phpbb";
 $config['forum_table_prefix'] = "phpbb_";
 
 $config['bridge']['hostname'] = "127.0.0.1";
 $config['bridge']['username'] = "root";
 $config['bridge']['password'] = "";
-$config['bridge']['database'] = "phpbb";
+$config['bridge']['database'] = "sunwell_forum";
 $config['bridge']['dbdriver'] = "mysqli";
 $config['bridge']['dbprefix'] = "";
 $config['bridge']['pconnect'] = TRUE;
