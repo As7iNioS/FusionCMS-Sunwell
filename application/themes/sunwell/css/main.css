@@ -202,6 +202,10 @@ a:hover {
 
 }
 
+.page.page-container li{
+    margin: 5px 20px;
+}
+
 .sc-subtitle {
     text-align: left;
     font-size: 16px;
