@@ -202,7 +202,7 @@ a:hover {
 
 }
 
-.page.page-container li{
+.page.page-container > ul > li, .page.page-container > ol > li{
     margin: 5px 20px;
 }
 
@@ -1114,7 +1114,7 @@ body {
     border: 0;
     vertical-align: middle;
     padding-left: 12px;
-    color: #fff;
+    color: rgb(229, 195, 79);
     background: url(../images/lay/table-head-limiter.jpg) 0 top no-repeat;
 }
 
@@ -1761,4 +1761,14 @@ body {
 .rss:hover {
     background: url(../images/lay/icon-rss_20x20.png) 5px 4px no-repeat,
     url(../images/lay/white20.png) center top repeat, url(../images/lay/informacje-bg.jpg) left top repeat;
+}
+
+.achievements .achievement{
+    margin: 10px 0 !important;
+}
+.achievements .achievement:first-of-type{
+    margin-top: 0 !important;
+}
+.achievements .achievement:last-of-type{
+    margin-bottom: 0 !important;
 }

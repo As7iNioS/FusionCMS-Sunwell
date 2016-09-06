@@ -1077,12 +1077,12 @@ class Character extends MX_Controller
 		$this->talentSpecsInfo = $this->armory_model->getTalentSpecsInfo();
 		
 		//loop the specs 
-		for ($spec = 0; $spec < $this->talentSpecsInfo['speccount']; $spec++)
+		for ($spec = 0; $spec < $this->talentSpecsInfo['talentGroupsCount']; $spec++)
 		{
 			//Get the character talents for the spec
-			$this->talents[$spec] = $this->armory_model->getTalents($spec);
+			$this->talents[$spec] = $this->armory_model->getTalents($spec+1);
 			//Get the glyphs for the spec
-			$this->glyphs[$spec] = $this->getCharGlyphsTable($spec);
+			$this->glyphs[$spec] = $this->getCharGlyphsTable($spec+1);
 		}
 		
 		//Get the talent tree info
@@ -1096,56 +1096,15 @@ class Character extends MX_Controller
 				$this->talentTabs[$key]['talents'] = $this->getDbcModel()->getTalentsForTab($tab['id']);
 			}
 		}
-		
-		//Mangos and ArcEmu store the talents by talent_id unlike trinity which stores by spell
-		//Convert to spell
-		if ($this->getEmulatorString() == 'mangos' || $this->getEmulatorString() == 'mangosr2' || $this->getEmulatorString() == 'arcemu')
-		{
-			for ($spec = 0; $spec < $this->talentSpecsInfo['speccount']; $spec++)
-			{
-				if (isset($this->talents[$spec]) && $this->talents[$spec])
-				{
-					//loop the talents
-					foreach ($this->talents[$spec] as $key => $row)
-					{
-						$this->talents[$spec][$key] = $this->getTalentSpellByIdRank($row['talent_id'], $row['current_rank']);
-					}
-				}
-			}
-		}
-		
+
 		$this->getSpecsTable();
 		
 		unset($tClass);
 	}
-	
-	//required for mangos and arcemu
-	private function getTalentSpellByIdRank($id, $rank)
-	{
-		//increase the rank number for the column name
-		$rank = $rank + 1;
-		
-		if (!empty($this->talentTabs))
-		{
-			foreach ($this->talentTabs as $key => $tab)
-			{
-				foreach ($this->talentTabs[$key]['talents'] as $k => $talent)
-				{
-					//if found
-					if ($talent['id'] == $id)
-					{
-						return $talent['rank'.$rank];
-					}
-				}
-			}
-		}
-		
-		return false;
-	}
-	
+
 	private function getActiveSpec()
 	{
-		return $this->talentSpecsInfo['activespec'];
+		return $this->talentSpecsInfo['activeTalentGroup'];
 	}
 	
 	private function getSpecsTable()
@@ -1153,14 +1112,14 @@ class Character extends MX_Controller
 		$table = false;
 		
 		//loop the specs 
-		for ($spec = 0; $spec < $this->talentSpecsInfo['speccount']; $spec++)
+		for ($spec = 0; $spec < $this->talentSpecsInfo['talentGroupsCount']; $spec++)
 		{
 			//defaults
 			$table[$spec] = array(
 				'title'		=> 'Undetermined',
 				'icon'		=> false,
 				'points'	=> '0/0/0',
-				'active'	=> ($spec == $this->talentSpecsInfo['activespec'] ? true : false),
+				'active'	=> ($spec == $this->talentSpecsInfo['activeTalentGroup'] ? true : false),
 				'mainTree'	=> false
 			);
 			$tabPoints = array();
@@ -1360,7 +1319,7 @@ class Character extends MX_Controller
 		$table = false;
 		
 		//loop the specs 
-		for ($spec = 0; $spec < $this->talentSpecsInfo['speccount']; $spec++)
+		for ($spec = 0; $spec < $this->talentSpecsInfo['talentGroupsCount']; $spec++)
 		{
 			$table[$spec] = $this->getTalentTable($spec);
 		}
@@ -1371,20 +1330,14 @@ class Character extends MX_Controller
 	private function getCharGlyphsTable($spec)
 	{
 		//Get some info about the glyphs and convert to table
-		$charGlyphsData = $this->armory_model->getGlyphs($spec);
+		$charGlyphsData = $this->armory_model->getGlyphs($spec - 1);
 		
 		//handle glyph records for diferrent emulators
 		switch ($this->getEmulatorString())
 		{
 			case 'trinity':
-			case 'skyfire':
-			case 'arkcore':
 			case 'trinity_cata':
 				return $this->getGlyphsTableTrinity($charGlyphsData[0]);
-			case 'mangos':
-			case 'mangosr2':
-			case 'arcemu':
-				return $this->getGlyphsTableMangos($charGlyphsData);
 			default:
 				return false;
 		}
@@ -1492,7 +1445,7 @@ class Character extends MX_Controller
 		$table = false;
 		
 		//loop the specs 
-		for ($spec = 0; $spec < $this->talentSpecsInfo['speccount']; $spec++)
+		for ($spec = 0; $spec < $this->talentSpecsInfo['talentGroupsCount']; $spec++)
 		{
 			$table[$spec] = $this->getGlyphTable($spec);
 		}

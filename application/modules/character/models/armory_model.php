@@ -299,53 +299,10 @@ class Armory_model extends CI_Model
 	public function getTalents($spec)
 	{
 		$this->connect();
-		
-		//Handle arcemu
-		if ($this->getEmulatorString() == 'arcemu')
-		{
-			$this->getArcemuCharacterDataIfNeeded();
-			
-			if ($this->storedData)
-			{
-				//increase spec number
-				$spec = $spec + 1;
-				//get the talents string
-				$talentList = $this->storedData['talents'.$spec];
-				//check for empty talent list
-				if ($talentList != '')
-				{
-					//strip the last ,
-					$talentList = rtrim($talentList, ',');
-					//convert to array
-					$talents = explode(',', $talentList);
-					//each second record in the array is the rank of the previous record, we need to merge them
-					$new = array();
-					foreach ($talents as $key => $value)
-					{
-						if (($key % 2) == 0) 	//push the talent id
-							$new[] = array('talent_id' => $value);
-						else 					//push the rank
-							$new[count($new) - 1]['current_rank'] = $value;
-					}
-					unset($talents, $talentList);
-					
-					return $new;
-				}
-				else
-					return false;
-			}
-			else
-				return false;
-		}
-		
+
 		$statements['trinity'] 		=
-		$statements['trinity_cata'] =
-		$statements['arkcore'] 		=
-		$statements['skyfire'] 		= "SELECT `spell` FROM `character_talent` WHERE `guid` = ? AND `spec` = ? ORDER BY `spell` DESC;";
-		
-		$statements['mangos'] 		=
-		$statements['mangosr2'] 	= "SELECT `talent_id`, `current_rank` FROM `character_talent` WHERE `guid` = ? AND `spec` = ? ORDER BY `talent_id` DESC;";
-		
+		$statements['trinity_cata'] = "SELECT `spell` FROM `character_talent` WHERE `guid` = ? AND `talentGroup` = ? ORDER BY `spell` DESC;";
+
 		$query = $this->connection->query($statements[$this->getEmulatorString()], array($this->id, $spec));
 		
 		if($query && $query->num_rows() > 0)
@@ -374,43 +331,10 @@ class Armory_model extends CI_Model
 	public function getGlyphs($spec)
 	{
 		$this->connect();
-		
-		//Handle arcemu
-		if ($this->getEmulatorString() == 'arcemu')
-		{
-			$this->getArcemuCharacterDataIfNeeded();
-			
-			if ($this->storedData)
-			{
-				//increase spec number
-				$spec = $spec + 1;
-				//get the talents string
-				$glyphList = $this->storedData['glyphs'.$spec];
-				//strip the last ,
-				$glyphList = rtrim($glyphList, ',');
-				//convert to array
-				$glyphs = explode(',', $glyphList);
-				//make it suitable to use the mangos function
-				foreach ($glyphs as $key => $id)
-				{
-					$glyphs[$key] = array('glyph' => $id);
-				}
-				unset($glyphList, $key, $id);
-				
-				return $glyphs;
-			}
-			else
-				return false;
-		}
-		
+
 		$statements['trinity'] 		=
-		$statements['trinity_cata'] =
-		$statements['arkcore'] 		=
-		$statements['skyfire'] 		= "SELECT * FROM `character_glyphs` WHERE `guid` = ? AND `spec` = ? LIMIT 1;";
-		
-		$statements['mangos'] 		=
-		$statements['mangosr2'] 	= "SELECT `slot`, `glyph` FROM `character_glyphs` WHERE `guid` = ? AND `spec` = ?;";
-		
+		$statements['trinity_cata'] = "SELECT * FROM `character_glyphs` WHERE `guid` = ? AND `talentGroup` = ? LIMIT 1;";
+
 		$query = $this->connection->query($statements[$this->getEmulatorString()], array($this->id, $spec));
 
 		if($query && $query->num_rows() > 0)
@@ -428,28 +352,10 @@ class Armory_model extends CI_Model
 	public function getTalentSpecsInfo()
 	{
 		$this->connect();
-		
-		//Handle arcemu
-		if ($this->getEmulatorString() == 'arcemu')
-		{
-			$this->getArcemuCharacterDataIfNeeded();
-			
-			if ($this->storedData)
-			{
-				return array('speccount' => $this->storedData['speccount'], 'activespec' => $this->storedData['activespec']);
-			}
-			else
-				return false;
-		}
-		
+
 		$statements['trinity'] 		=
-		$statements['trinity_cata'] =
-		$statements['arkcore'] 		=
-		$statements['skyfire'] 		= "SELECT `speccount`, `activespec` FROM `characters` WHERE `guid` = ? LIMIT 1;";
-		
-		$statements['mangos'] 		=
-		$statements['mangosr2'] 	= "SELECT `specCount` AS speccount, `activeSpec` AS activespec FROM `characters` WHERE `guid` = ? LIMIT 1;";
-		
+		$statements['trinity_cata'] = "SELECT `talentGroupsCount`, `activeTalentGroup` FROM `characters` WHERE `guid` = ? LIMIT 1;";
+
 		$query = $this->connection->query($statements[$this->getEmulatorString()], array($this->id));
 
 		if($query && $query->num_rows() > 0)

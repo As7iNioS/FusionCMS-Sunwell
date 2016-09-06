@@ -286,6 +286,10 @@ input[type="radio"] {
 	z-index: 99999;
 }
 
+#tooltip b{
+	color: #fff;
+}
+
 .nice_button img {
 	margin-right:5px;
 }
