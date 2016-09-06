@@ -658,9 +658,7 @@
     float: left;
     width: 20px;
     height: 40px;
-    background-image: url(../css/images/talents-check.gif);
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url(../css/images/talents-check.gif) no-repeat center;
 }
 
 .talents {
