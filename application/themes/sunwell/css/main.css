@@ -322,7 +322,8 @@ body {
 
 .nice_table tr:first-child td {
     background: url(../images/lay/table-head-bg.jpg) 0 top;
-    color: #fff;
+    color: rgb(229, 195, 79);
+    padding-left: 5px;
 }
 
 .nice_table tr:hover {
@@ -639,33 +640,41 @@ body {
 }
 
 .button-normal {
-    border: 0;
+    border: 0 !important;
     width: 122px !important;
     height: 35px !important;
-    background: rgba(0, 0, 0, 0) url(../images/forms/button_normal.png) no-repeat left top;
+    background: rgba(0, 0, 0, 0) url(../images/forms/button_normal.png) no-repeat left top !important;
     color: rgb(229, 195, 79) !important;
-    text-align: center;
+    text-align: center !important;
     font-weight: normal !important;
-    font-size: 13px;
-    cursor: pointer;
-    display: inline-block;
+    font-size: 13px !important;
+    cursor: pointer !important;
+    display: inline-block !important;
     line-height: 35px !important;
     padding: 0 !important;
-    text-decoration: none;
+    text-decoration: none !important;
+    margin: inherit !important;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    text-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 .button-normal:hover {
-    background: url(../images/forms/button_normal_hover.png) left top no-repeat;
-    color: rgb(229, 195, 79);
-    text-decoration: none;
-    font-weight: normal;
+    background: url(../images/forms/button_normal_hover.png) left top no-repeat !important;
+    color: rgb(229, 195, 79) !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
 }
 
 .button-normal:active {
-    background: url(../images/forms/button_normal_push.png) left top no-repeat;
-    color: rgb(229, 195, 79);
-    text-decoration: none;
-    font-weight: normal;
+    background: url(../images/forms/button_normal_push.png) left top no-repeat !important;
+    color: rgb(229, 195, 79) !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
 }
 
 .zalogowany-jako {

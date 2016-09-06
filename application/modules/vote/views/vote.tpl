@@ -20,7 +20,7 @@
 				{if $vote_site.canVote}
 					{form_open("vote/site/", $formAttributes)}
 						<input type="hidden" name="id" value="{$vote_site.id}" />
-						<input type="submit" onClick="Vote.open({$vote_site.id}, {$vote_site.hour_interval});" value="{lang("vote_now", "vote")}"/>
+						<input class="button-normal" type="submit" onClick="Vote.open({$vote_site.id}, {$vote_site.hour_interval});" value="{lang("vote_now", "vote")}"/>
 					</form>
 				{else}
 					{$vote_site.nextVote} {lang("remaining", "vote")}
