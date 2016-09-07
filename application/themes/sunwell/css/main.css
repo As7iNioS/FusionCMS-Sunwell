@@ -932,7 +932,18 @@ body {
     color: rgb(229, 195, 79);
     font-family: "Myriad Pro", serif;
 }
-
+.jz-textalert {
+    margin-left: 20px;
+    width: 490px;
+    padding: 10px 13px;
+    padding: 10px 13px;
+    background-color: rgba(238, 179, 179, 0.59);
+    border: solid 1px rgb(255, 0, 0);
+    text-align: left;
+    font-size: 13px;
+    line-height: 20px;
+    color: #000;
+}
 .jz-text {
     float: left;
     margin-left: 20px;

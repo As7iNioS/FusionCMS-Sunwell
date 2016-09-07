@@ -1,4 +1,8 @@
 {form_open('register', 'class="page_form"')}
+<br />
+<div class="jz-textalert">
+    {lang("activation_info", "register")}
+ </div> <br /><br />
 	<table style="width:80%">
 		<tr>
 			<td><label for="register_username">{lang("username", "register")}</label></td>

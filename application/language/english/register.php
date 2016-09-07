@@ -34,3 +34,4 @@ $lang['email'] = "Email";
 $lang['password'] = "Password";
 $lang['confirm'] = "Confirm password";
 $lang['submit'] = "Create account!";
+$lang['activation_info'] = "The activation e-mail will be sent after you are done filling out the form. Sometimes it can take up to 30 minutes.<br /><strong>(Please check your spam folder too.)</strong>";

@@ -34,3 +34,4 @@ $lang['email'] = "Email";
 $lang['password'] = "Hasło";
 $lang['confirm'] = "Potwierdź hasło";
 $lang['submit'] = "Utwórz konto!";
+$lang['activation_info'] = "Panel użytkownika";
