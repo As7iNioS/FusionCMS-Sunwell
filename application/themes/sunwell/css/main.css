@@ -936,10 +936,9 @@ body {
     margin-left: 20px;
     width: 490px;
     padding: 10px 13px;
-    padding: 10px 13px;
     background-color: rgba(238, 179, 179, 0.59);
     border: solid 1px rgb(255, 0, 0);
-    text-align: left;
+    text-align: center;
     font-size: 13px;
     line-height: 20px;
     color: #000;

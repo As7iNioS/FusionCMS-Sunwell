@@ -135,7 +135,7 @@ class Register extends MX_Controller
 			{
 				if(file_exists('application/modules/register/plugins/'.$this->config->item('forum_bridge').".php"))
 				{
-					$this->plugins->{$this->config->item('forum_bridge')}->register($data['username'], $data['password'], $data['email']);
+					//$this->plugins->{$this->config->item('forum_bridge')}->register($data['username'], $data['password'], $data['email']);
 				}
 				else
 				{

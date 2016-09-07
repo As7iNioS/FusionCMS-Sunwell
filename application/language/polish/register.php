@@ -34,4 +34,4 @@ $lang['email'] = "Email";
 $lang['password'] = "Hasło";
 $lang['confirm'] = "Potwierdź hasło";
 $lang['submit'] = "Utwórz konto!";
-$lang['activation_info'] = "Panel użytkownika";
+$lang['activation_info'] = "E-mail aktywacyjny zostanie wysłany po wysłaniu formularza. Czasem może to potrwać nawet do 30 minut. <br /><strong>(Sprawdź również folder spam.)</strong>";
