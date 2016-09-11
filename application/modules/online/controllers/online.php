@@ -2,51 +2,51 @@
 
 class Online extends MX_Controller
 {
-	private $js;
-	private $css;
+    private $js;
+    private $css;
 
-	function __construct()
-	{
-		parent::__construct();
-		
-		$this->css = "modules/online/css/online.css";
-		$this->js = "modules/online/js/sort.js";
+    function __construct()
+    {
+        parent::__construct();
 
-		requirePermission("view");
-	}
-	
-	public function index()
-	{
-		$this->template->setTitle(lang("online_players", "online"));
+        $this->css = "modules/online/css/online.css";
+        $this->js = "modules/online/js/sort.js";
 
-		// Perform ajax call to refresh if expired
-		if($this->cache->hasExpired("online_module"))
-		{
-			// Prepare data
-			$data = array(
-						"module" => "online",
-						"image_path" => $this->template->image_path
-					);
+        requirePermission("view");
+    }
 
-			// Load the template file and format
-			$ajax = $this->template->loadPage("ajax.tpl", $data);
+    public function index()
+    {
+        $this->template->setTitle(lang("online_players", "online"));
 
-			// Load the topsite page and format the page contents
-			$data2 = array(
-				"module" => "default", 
-				"headline" => lang("online_players", "online"), 
-				"content" => $ajax
-			);
+        // Perform ajax call to refresh if expired
+        if($this->cache->hasExpired("online_module"))
+        {
+            // Prepare data
+            $data = array(
+                        "module" => "online",
+                        "image_path" => $this->template->image_path
+                    );
 
-			$page = $this->template->loadPage("page.tpl", $data2);
-		}
-		else
-		{
-			$cache = $this->cache->get("online_module");
-			$page = $cache;
-		}
+            // Load the template file and format
+            $ajax = $this->template->loadPage("ajax.tpl", $data);
 
-		//Load the template form
-		$this->template->view($page, $this->css, $this->js);
-	}
+            // Load the topsite page and format the page contents
+            $data2 = array(
+                "module" => "default",
+                "headline" => lang("online_players", "online"),
+                "content" => $ajax
+            );
+
+            $page = $this->template->loadPage("page.tpl", $data2);
+        }
+        else
+        {
+            $cache = $this->cache->get("online_module");
+            $page = $cache;
+        }
+
+        //Load the template form
+        $this->template->view($page, $this->css, $this->js);
+    }
 }

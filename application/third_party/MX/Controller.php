@@ -7,7 +7,7 @@ require dirname(__FILE__).'/Base.php';
  * Modular Extensions - HMVC
  *
  * Adapted from the CodeIgniter Core Classes
- * @link	http://codeigniter.com
+ * @link    http://codeigniter.com
  *
  * Description:
  * This library replaces the CodeIgniter Controller class
@@ -15,8 +15,8 @@ require dirname(__FILE__).'/Base.php';
  *
  * Install this file as application/third_party/MX/Controller.php
  *
- * @copyright	Copyright (c) 2011 Wiredesignz
- * @version 	5.4
+ * @copyright    Copyright (c) 2011 Wiredesignz
+ * @version     5.4
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -83,7 +83,7 @@ class MX_Controller
         // Is the module enabled?
         if (!isset($module['enabled']) || !$module['enabled']) {
             redirect('error');
-//			CI::$APP->template->show404();
+//            CI::$APP->template->show404();
         }
 
         // Default to current version

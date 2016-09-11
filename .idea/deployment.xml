@@ -9,6 +9,10 @@
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/install" />
+            <excludedPath local="true" path="$PROJECT_DIR$/application/config" />
+            <excludedPath local="true" path="$PROJECT_DIR$/application/cache" />
+            <excludedPath path="/application/cache" />
+            <excludedPath path="/application/config" />
           </excludedPaths>
         </serverdata>
       </paths>

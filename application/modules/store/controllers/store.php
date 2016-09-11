@@ -2,132 +2,132 @@
 
 class Store extends MX_Controller
 {
-	public function __construct()
-	{
-		parent::__construct();
-		
-		$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
-		$this->output->set_header("Cache-Control: post-check=0, pre-check=0");
-		$this->output->set_header("Pragma: no-cache");
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->user->userArea();
+        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
+        $this->output->set_header("Cache-Control: post-check=0, pre-check=0");
+        $this->output->set_header("Pragma: no-cache");
 
-		$this->load->model("store_model");
+        $this->user->userArea();
 
-		$this->load->config('store');
+        $this->load->model("store_model");
 
-		requirePermission("view");
-	}
+        $this->load->config('store');
 
-	public function index()
-	{
-		requirePermission("view");
+        requirePermission("view");
+    }
 
-		clientLang("cant_afford", "store");
-		clientLang("hide", "store");
-		clientLang("show", "store");
-		clientLang("loading", "store");
-		clientLang("want_to_buy", "store");
-		clientLang("yes", "store");
-		clientLang("checkout", "store");
-		clientLang("vp", "store");
-		clientLang("dp", "store");
+    public function index()
+    {
+        requirePermission("view");
 
-		// Gather the template data
-		$data = array(
-			'url' => $this->template->page_url,
-			'image_path' => $this->template->image_path,
-			'vp' => $this->user->getVp(),
-			'dp' => $this->user->getDp(),
-			'data' => $this->getData(),
-			'minimize' => $this->config->item('minimize_groups_by_default')
-		);
+        clientLang("cant_afford", "store");
+        clientLang("hide", "store");
+        clientLang("show", "store");
+        clientLang("loading", "store");
+        clientLang("want_to_buy", "store");
+        clientLang("yes", "store");
+        clientLang("checkout", "store");
+        clientLang("vp", "store");
+        clientLang("dp", "store");
 
-		// Load the content
-		$content = $this->template->loadPage("store.tpl", $data);
+        // Gather the template data
+        $data = array(
+            'url' => $this->template->page_url,
+            'image_path' => $this->template->image_path,
+            'vp' => $this->user->getVp(),
+            'dp' => $this->user->getDp(),
+            'data' => $this->getData(),
+            'minimize' => $this->config->item('minimize_groups_by_default')
+        );
 
-		// Put the content in a box
-		$page = $this->template->box("<span style='cursor:pointer;' onClick='window.location=\"".$this->template->page_url."ucp\"'>".lang("ucp")."</span> &rarr; ".lang("item_store", "store"), $content);
+        // Load the content
+        $content = $this->template->loadPage("store.tpl", $data);
 
-		// Output the content
-		$this->template->view($page, "modules/store/css/store.css", "modules/store/js/store.js");
-	}
+        // Put the content in a box
+        $page = $this->template->box("<span style='cursor:pointer;' onClick='window.location=\"".$this->template->page_url."ucp\"'>".lang("ucp")."</span> &rarr; ".lang("item_store", "store"), $content);
 
-	/**
-	 * Get all realms, item groups and items and format them nicely in an array
-	 * @return Array
-	 */
-	private function getData()
-	{
-		$cache = $this->cache->get("store_items");
+        // Output the content
+        $this->template->view($page, "modules/store/css/store.css", "modules/store/js/store.js");
+    }
 
-		if($cache !== false)
-		{
-			return $cache;
-		}
-		else
-		{
-			$data = array();
+    /**
+     * Get all realms, item groups and items and format them nicely in an array
+     * @return Array
+     */
+    private function getData()
+    {
+        $cache = $this->cache->get("store_items");
 
-			foreach($this->realms->getRealms() as $realm)
-			{
-				// Load all items that belongs to this realm
-				$items = $this->store_model->getItems($realm->getId());
+        if($cache !== false)
+        {
+            return $cache;
+        }
+        else
+        {
+            $data = array();
 
-				// Assign the realm name
-				$data[$realm->getId()]['name'] = $realm->getName();
+            foreach($this->realms->getRealms() as $realm)
+            {
+                // Load all items that belongs to this realm
+                $items = $this->store_model->getItems($realm->getId());
 
-				// Assign and format the items by their groups
-				$data[$realm->getId()]['items'] = $this->formatItems($items);
-			}
+                // Assign the realm name
+                $data[$realm->getId()]['name'] = $realm->getName();
 
-			$this->cache->save("store_items", $data, 60*60);
+                // Assign and format the items by their groups
+                $data[$realm->getId()]['items'] = $this->formatItems($items);
+            }
 
-			return $data;
-		}
-	}
+            $this->cache->save("store_items", $data, 60*60);
 
-	/**
-	 * Put items in their groups and put un-assigned items in a separate list
-	 * @param Array $items
-	 * @return Array
-	 */
-	private function formatItems($items)
-	{
-		if($items != false)
-		{
-			$data = array(
-				'groups' => array(), // Holds group titles and their items
-				'items' => array() // Holds items without a group
-			);
+            return $data;
+        }
+    }
 
-			$currentGroup = null;
+    /**
+     * Put items in their groups and put un-assigned items in a separate list
+     * @param Array $items
+     * @return Array
+     */
+    private function formatItems($items)
+    {
+        if($items != false)
+        {
+            $data = array(
+                'groups' => array(), // Holds group titles and their items
+                'items' => array() // Holds items without a group
+            );
 
-			// Loop through all items
-			foreach($items as $item)
-			{
-				if(empty($item['group']))
-				{
-					array_push($data['items'], $item);
-				}
-				else
-				{
-					if($currentGroup != $item['group'])
-					{
-						$currentGroup = $item['group'];
+            $currentGroup = null;
 
-						// Assign the name to a group
-						$data['groups'][$item['group']]['title'] = $this->store_model->getGroupTitle($item['group']);
+            // Loop through all items
+            foreach($items as $item)
+            {
+                if(empty($item['group']))
+                {
+                    array_push($data['items'], $item);
+                }
+                else
+                {
+                    if($currentGroup != $item['group'])
+                    {
+                        $currentGroup = $item['group'];
 
-						// Create the item array
-						$data['groups'][$item['group']]['items'] = array();
-					}
+                        // Assign the name to a group
+                        $data['groups'][$item['group']]['title'] = $this->store_model->getGroupTitle($item['group']);
 
-					array_push($data['groups'][$item['group']]['items'], $item);
-				}
-			}
+                        // Create the item array
+                        $data['groups'][$item['group']]['items'] = array();
+                    }
 
-			return $data;
-		}
-	}
+                    array_push($data['groups'][$item['group']]['items'], $item);
+                }
+            }
+
+            return $data;
+        }
+    }
 }

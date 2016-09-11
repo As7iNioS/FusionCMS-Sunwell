@@ -1,173 +1,173 @@
 var Sidebox = {
-	
-	/**
-	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
-	 */
-	identifier: "sidebox",
 
-	/**
-	 * The ID of the fusionEditor (like "#news_content"), if any, otherwise put false
-	 */
-	fusionEditor: "#text",
+    /**
+     * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
+     */
+    identifier: "sidebox",
 
-	/**
-	 * Links for the ajax requests
-	 */
-	Links: {
-		remove: "admin/sidebox/delete/",
-		create: "admin/sidebox/create/",
-		save: "admin/sidebox/save/",
-		move: "admin/sidebox/move/"
-	},
+    /**
+     * The ID of the fusionEditor (like "#news_content"), if any, otherwise put false
+     */
+    fusionEditor: "#text",
 
-	/**
-	 * Removes an entry from the list
-	 * @param  Int id
-	 * @param  Object element
-	 */
-	remove: function(id, element)
-	{
-		var identifier = this.identifier,
-			removeLink = this.Links.remove;
+    /**
+     * Links for the ajax requests
+     */
+    Links: {
+        remove: "admin/sidebox/delete/",
+        create: "admin/sidebox/create/",
+        save: "admin/sidebox/save/",
+        move: "admin/sidebox/move/"
+    },
 
-		UI.confirm("Do you really want to delete this " + identifier + "?", "Yes", function()
-		{
-			$("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - 1);
+    /**
+     * Removes an entry from the list
+     * @param  Int id
+     * @param  Object element
+     */
+    remove: function(id, element)
+    {
+        var identifier = this.identifier,
+            removeLink = this.Links.remove;
 
-			$(element).parents("li").slideUp(300, function()
-			{
-				$(this).remove();
-			});
+        UI.confirm("Do you really want to delete this " + identifier + "?", "Yes", function()
+        {
+            $("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - 1);
 
-			$.get(Config.URL + removeLink + id);
-		});
-	},
+            $(element).parents("li").slideUp(300, function()
+            {
+                $(this).remove();
+            });
 
-	/**
-	 * Toggle between the "add" form and the list
-	 */
-	add: function()
-	{
-		var id = this.identifier;
+            $.get(Config.URL + removeLink + id);
+        });
+    },
 
-		if($("#add_" + id).is(":visible"))
-		{
-			$("#add_" + id).fadeOut(150, function()
-			{
-				$("#main_" + id).fadeIn(150);
-			});
-		}
-		else
-		{
-			$("#main_" + id).fadeOut(150, function()
-			{
-				$("#add_" + id).fadeIn(150);
-			});
-		}
-	},
+    /**
+     * Toggle between the "add" form and the list
+     */
+    add: function()
+    {
+        var id = this.identifier;
 
-	/**
-	 * Submit the form contents to the create link
-	 * @param Object form
-	 */
-	create: function(form)
-	{
-		var values = {csrf_token_name: Config.CSRF};
+        if($("#add_" + id).is(":visible"))
+        {
+            $("#add_" + id).fadeOut(150, function()
+            {
+                $("#main_" + id).fadeIn(150);
+            });
+        }
+        else
+        {
+            $("#main_" + id).fadeOut(150, function()
+            {
+                $("#add_" + id).fadeIn(150);
+            });
+        }
+    },
 
-		$(form).find("input, select").each(function()
-		{
-			if($(this).attr("type") != "submit")
-			{
-				values[$(this).attr("name")] = $(this).val();
-			}
-		});
+    /**
+     * Submit the form contents to the create link
+     * @param Object form
+     */
+    create: function(form)
+    {
+        var values = {csrf_token_name: Config.CSRF};
 
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
+        $(form).find("input, select").each(function()
+        {
+            if($(this).attr("type") != "submit")
+            {
+                values[$(this).attr("name")] = $(this).val();
+            }
+        });
 
-		$.post(Config.URL + this.Links.create, values, function(data)
-		{
-			console.log(data);
-			eval(data);
-		});
-	},
+        if(this.fusionEditor != false)
+        {
+            values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
+        }
 
-	/**
-	 * Submit the form contents to the save link
-	 * @param Object form
-	 */
-	save: function(form, id)
-	{
-		var values = {csrf_token_name: Config.CSRF};
+        $.post(Config.URL + this.Links.create, values, function(data)
+        {
+            console.log(data);
+            eval(data);
+        });
+    },
 
-		$(form).find("input, select").each(function()
-		{
-			if($(this).attr("type") != "submit")
-			{
-				values[$(this).attr("name")] = $(this).val();
-			}
-		});
+    /**
+     * Submit the form contents to the save link
+     * @param Object form
+     */
+    save: function(form, id)
+    {
+        var values = {csrf_token_name: Config.CSRF};
 
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
+        $(form).find("input, select").each(function()
+        {
+            if($(this).attr("type") != "submit")
+            {
+                values[$(this).attr("name")] = $(this).val();
+            }
+        });
 
-		$.post(Config.URL + this.Links.save + id, values, function(data)
-		{
-			console.log(data);
-			eval(data);
-		});
-	},
+        if(this.fusionEditor != false)
+        {
+            values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
+        }
 
-	/**
-	 * Move up/down
-	 * @param String direction
-	 * @param Int id
-	 * @param Object element
-	 */
-	move: function(direction, id, element)
-	{
-		var row = $(element).parents("li");
-		var targetRow = (direction == "up") ? row.prev("li") : row.next("li");
+        $.post(Config.URL + this.Links.save + id, values, function(data)
+        {
+            console.log(data);
+            eval(data);
+        });
+    },
 
-		if(targetRow.length)
-		{
-			$.get(Config.URL + this.Links.move + id + "/" + direction, function(data)
-			{
-				console.log(data);
-			});
+    /**
+     * Move up/down
+     * @param String direction
+     * @param Int id
+     * @param Object element
+     */
+    move: function(direction, id, element)
+    {
+        var row = $(element).parents("li");
+        var targetRow = (direction == "up") ? row.prev("li") : row.next("li");
 
-			row.hide(300, function()
-			{
-				if(direction == "down")
-				{
-					targetRow.after(row);
-				}
-				else
-				{
-					targetRow.before(row);
-				}
+        if(targetRow.length)
+        {
+            $.get(Config.URL + this.Links.move + id + "/" + direction, function(data)
+            {
+                console.log(data);
+            });
 
-				row.slideDown(300);
-			});
-		}
-	},
+            row.hide(300, function()
+            {
+                if(direction == "down")
+                {
+                    targetRow.after(row);
+                }
+                else
+                {
+                    targetRow.before(row);
+                }
 
-	/**
-	 * ----------- Module specific code -----------
-	 */
-	toggleCustom: function(select)
-	{
-		if(select.value == "sidebox_custom")
-		{
-			$("#custom_field").fadeIn(150);
-		}
-		else
-		{
-			$("#custom_field").fadeOut(150);
-		}
-	}
+                row.slideDown(300);
+            });
+        }
+    },
+
+    /**
+     * ----------- Module specific code -----------
+     */
+    toggleCustom: function(select)
+    {
+        if(select.value == "sidebox_custom")
+        {
+            $("#custom_field").fadeIn(150);
+        }
+        else
+        {
+            $("#custom_field").fadeOut(150);
+        }
+    }
 };

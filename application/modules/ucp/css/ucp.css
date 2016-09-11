@@ -1,20 +1,20 @@
 #ucp_characters {
-	margin-top:-20px;
-	padding-left:10px;
-	padding-right:10px;
+    margin-top:-20px;
+    padding-left:10px;
+    padding-right:10px;
 }
 
 /* UCP: character list, character */
 #ucp_characters a {
-	float:left;
-	display:block;
-	width:64px;
-	height:64px;
-	margin-right:15px;
-	margin-bottom:15px;
+    float:left;
+    display:block;
+    width:64px;
+    height:64px;
+    margin-right:15px;
+    margin-bottom:15px;
 }
 
 /* UCP: character list, realm headline */
 #ucp_characters h1 {
-	clear:both;
+    clear:both;
 }

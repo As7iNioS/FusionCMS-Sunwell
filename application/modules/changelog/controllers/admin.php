@@ -6,69 +6,69 @@
  */
 class Admin extends MX_Controller
 {
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
-		$this->load->library('fusioneditor');
-		$this->load->model('changelog_model');
-		
-		parent::__construct();
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
+        $this->load->library('fusioneditor');
+        $this->load->model('changelog_model');
 
-		requirePermission("canViewAdmin");
-	}
+        parent::__construct();
 
-	public function index()
-	{
-		// Change the title
-		$this->administrator->setTitle("Changelog");
-		
-		$changes = $this->changelog_model->getChangelog();
+        requirePermission("canViewAdmin");
+    }
 
-		if($changes)
-		{
-			foreach($changes as $key => $value)
-			{
-				if(strlen($changes[$key]['changelog']) > 30)
-				{
-					$changes[$key]['changelog'] = mb_substr($changes[$key]['changelog'], 0, 30) . '...';
-				}
-			}
-		}
+    public function index()
+    {
+        // Change the title
+        $this->administrator->setTitle("Changelog");
 
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'changes' => $changes,
-			'fusionEditor' => $this->fusioneditor->create("text"),
-			'categories' => $this->changelog_model->getCategories()
-		);
+        $changes = $this->changelog_model->getChangelog();
 
-		// Load my view
-		$output = $this->template->loadPage("admin.tpl", $data);
+        if($changes)
+        {
+            foreach($changes as $key => $value)
+            {
+                if(strlen($changes[$key]['changelog']) > 30)
+                {
+                    $changes[$key]['changelog'] = mb_substr($changes[$key]['changelog'], 0, 30) . '...';
+                }
+            }
+        }
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('Changelog', $output);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'changes' => $changes,
+            'fusionEditor' => $this->fusioneditor->create("text"),
+            'categories' => $this->changelog_model->getCategories()
+        );
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/changelog/js/admin_changelog.js");
-	}
-	
-	public function create()
-	{
-		requirePermission("canAddChange");
+        // Load my view
+        $output = $this->template->loadPage("admin.tpl", $data);
 
-		$name = $this->input->post("typeName");
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('Changelog', $output);
 
-		$id = $this->changelog_model->addCategory($name);
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/changelog/js/admin_changelog.js");
+    }
 
-		// Add log
-		$this->logger->createLog('Created category', $name);
+    public function create()
+    {
+        requirePermission("canAddChange");
 
-		$this->plugins->onAddCategory($id, $name);
-	}
+        $name = $this->input->post("typeName");
 
-	public function syncBitBucket(){
+        $id = $this->changelog_model->addCategory($name);
+
+        // Add log
+        $this->logger->createLog('Created category', $name);
+
+        $this->plugins->onAddCategory($id, $name);
+    }
+
+    public function syncBitBucket(){
         requirePermission("canAddChange");
 
         $username = $this->input->post("username");
@@ -90,137 +90,137 @@ class Admin extends MX_Controller
         die("yes");
     }
 
-	public function addChange($id)
-	{
-		requirePermission("canAddChange");
+    public function addChange($id)
+    {
+        requirePermission("canAddChange");
 
-		$data['changelog'] = $this->input->post("change_message");
-		$data['author'] = $this->user->getNickname();
-		$data['type'] = $id;
-		$data['time'] = time();
+        $data['changelog'] = $this->input->post("change_message");
+        $data['author'] = $this->user->getNickname();
+        $data['type'] = $id;
+        $data['time'] = time();
 
-		$data['id'] = $this->changelog_model->add($data);
+        $data['id'] = $this->changelog_model->add($data);
 
-		$data['date'] = date("Y/m/d");
+        $data['date'] = date("Y/m/d");
 
-		// Add log
-		$this->logger->createLog('Created change', $data['changelog'].' ('.$id.')');
-		
-		$this->plugins->onAddChange($data['id'], $data['changelog'], $data['type']);
+        // Add log
+        $this->logger->createLog('Created change', $data['changelog'].' ('.$id.')');
 
-		die(json_encode($data));
-	}
-	
-	public function edit($id = false)
-	{
-		requirePermission("canEditChange");
+        $this->plugins->onAddChange($data['id'], $data['changelog'], $data['type']);
 
-		if(!is_numeric($id) || !$id)
-		{
-			die();
-		}
+        die(json_encode($data));
+    }
 
-		$change = $this->changelog_model->getChange($id);
+    public function edit($id = false)
+    {
+        requirePermission("canEditChange");
 
-		if(!$change)
-		{
-			show_error("There is no change with ID ".$id);
+        if(!is_numeric($id) || !$id)
+        {
+            die();
+        }
 
-			die();
-		}
+        $change = $this->changelog_model->getChange($id);
 
-		// Change the title
-		$this->administrator->setTitle("Change #".$id);
+        if(!$change)
+        {
+            show_error("There is no change with ID ".$id);
 
-		$fusionEditor = $this->fusioneditor->create("text", false, 250, $change['changelog']);
+            die();
+        }
 
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'fusionEditor' => $fusionEditor,
-			'changelog' => $change
-		);
+        // Change the title
+        $this->administrator->setTitle("Change #".$id);
 
-		// Load my view
-		$output = $this->template->loadPage("admin_edit_changelog.tpl", $data);
+        $fusionEditor = $this->fusioneditor->create("text", false, 250, $change['changelog']);
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('<a href="'.$this->template->page_url.'changelog/admin">Changelog</a> &rarr; Change #'.$id, $output);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'fusionEditor' => $fusionEditor,
+            'changelog' => $change
+        );
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/changelog/js/admin_changelog.js");
-	}
-	
-	public function delete($id = false)
-	{
-		requirePermission("canRemoveChange");
+        // Load my view
+        $output = $this->template->loadPage("admin_edit_changelog.tpl", $data);
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('<a href="'.$this->template->page_url.'changelog/admin">Changelog</a> &rarr; Change #'.$id, $output);
 
-		$this->changelog_model->deleteChange($id);
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/changelog/js/admin_changelog.js");
+    }
 
-		// Add log
-		$this->logger->createLog('Deleted change', $id);
+    public function delete($id = false)
+    {
+        requirePermission("canRemoveChange");
 
-		$this->plugins->onDeleteChange($id);
-	}
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
 
-	public function deleteCategory($id = false)
-	{
-		// Check for the permission
-		requirePermission("canRemoveCategory");
+        $this->changelog_model->deleteChange($id);
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+        // Add log
+        $this->logger->createLog('Deleted change', $id);
 
-		$this->changelog_model->deleteCategory($id);
+        $this->plugins->onDeleteChange($id);
+    }
 
-		// Add log
-		$this->logger->createLog('Deleted category', $id);
+    public function deleteCategory($id = false)
+    {
+        // Check for the permission
+        requirePermission("canRemoveCategory");
 
-		$this->plugins->onDeleteCategory($id);
-	}
-	
-	public function save($id = false)
-	{
-		requirePermission("canEditChange");
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+        $this->changelog_model->deleteCategory($id);
 
-		$data["changelog"] = $this->input->post("text");
+        // Add log
+        $this->logger->createLog('Deleted category', $id);
 
-		$this->changelog_model->edit($id, $data);
+        $this->plugins->onDeleteCategory($id);
+    }
 
-		// Add log
-		$this->logger->createLog('Edited change', $id);
+    public function save($id = false)
+    {
+        requirePermission("canEditChange");
 
-		$this->plugins->onEditChange($id, $data['changelog']);
-	}
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
 
-	public function saveCategory($id = false)
-	{
-		requirePermission("canEditCategory");
+        $data["changelog"] = $this->input->post("text");
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+        $this->changelog_model->edit($id, $data);
 
-		$data['typeName'] = $this->input->post('typeName');
+        // Add log
+        $this->logger->createLog('Edited change', $id);
 
-		$this->changelog_model->saveCategory($id, $data);
+        $this->plugins->onEditChange($id, $data['changelog']);
+    }
 
-		// Add log
-		$this->logger->createLog('Edited category', $id);
+    public function saveCategory($id = false)
+    {
+        requirePermission("canEditCategory");
 
-		$this->plugins->onSaveCategory($id, $data['typeName']);
-	}
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
+
+        $data['typeName'] = $this->input->post('typeName');
+
+        $this->changelog_model->saveCategory($id, $data);
+
+        // Add log
+        $this->logger->createLog('Edited category', $id);
+
+        $this->plugins->onSaveCategory($id, $data['typeName']);
+    }
 }

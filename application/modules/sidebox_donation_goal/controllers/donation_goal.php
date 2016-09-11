@@ -2,70 +2,70 @@
 
 class Donation_goal extends MX_Controller
 {
-	private $db;
-	
-	public function __construct()
-	{
-		parent::__construct();
+    private $db;
 
-		$this->load->config('sidebox_donation_goal/donation_goal');
-	}
+    public function __construct()
+    {
+        parent::__construct();
 
-	public function view()
-	{
-		$goal = $this->config->item('donation_goal');
-		$currency_sign = $this->config->item('donation_goal_currency_sign');
+        $this->load->config('sidebox_donation_goal/donation_goal');
+    }
 
-		$current = $this->getCurrent();
+    public function view()
+    {
+        $goal = $this->config->item('donation_goal');
+        $currency_sign = $this->config->item('donation_goal_currency_sign');
 
-		// Prepare data
-		$data = array(
-					"module" => "sidebox_donation_goal", 
-					"current" => $current,
-					"goal" => $goal,
-					"currency_sign" => $currency_sign,
-					"percentage" => $this->getPercentage($current, $goal)
-				);
+        $current = $this->getCurrent();
 
-		// Load the template file and format
-		$out = $this->template->loadPage("goal.tpl", $data);
+        // Prepare data
+        $data = array(
+                    "module" => "sidebox_donation_goal",
+                    "current" => $current,
+                    "goal" => $goal,
+                    "currency_sign" => $currency_sign,
+                    "percentage" => $this->getPercentage($current, $goal)
+                );
 
-		return $out;
-	}
+        // Load the template file and format
+        $out = $this->template->loadPage("goal.tpl", $data);
 
-	private function getPercentage($part, $whole)
-	{
-		if($part >= $whole)
-		{
-			return 100;
-		}
+        return $out;
+    }
 
-		if(!$part || !$whole)
-		{
-			return 0;
-		}
+    private function getPercentage($part, $whole)
+    {
+        if($part >= $whole)
+        {
+            return 100;
+        }
 
-		return round(($part / $whole) * 100);
-	}
+        if(!$part || !$whole)
+        {
+            return 0;
+        }
 
-	/**
-	 * Sorry for not having it in a model, but it simply didn't let me :(
-	 */
-	private function getCurrent()
-	{
-		$this->db = $this->load->database("cms", true);
+        return round(($part / $whole) * 100);
+    }
 
-		$query = $this->db->query("SELECT amount from monthly_income WHERE month=?", array(date("Y-m")));
+    /**
+     * Sorry for not having it in a model, but it simply didn't let me :(
+     */
+    private function getCurrent()
+    {
+        $this->db = $this->load->database("cms", true);
 
-		if($query->num_rows())
-		{
-			$row = $query->result_array();
+        $query = $this->db->query("SELECT amount from monthly_income WHERE month=?", array(date("Y-m")));
 
-			return $row[0]['amount'];
-		}
-		else
-		{
-			return 0;
-		}
-	}
+        if($query->num_rows())
+        {
+            $row = $query->result_array();
+
+            return $row[0]['amount'];
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

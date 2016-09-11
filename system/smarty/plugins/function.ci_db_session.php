@@ -36,19 +36,19 @@ function smarty_function_ci_db_session($params, &$smarty)
 
         if ($_name != '')
         {
-		    // get a Code Igniter instance
-		    $CI = &get_instance();
-		    $value = '';
+            // get a Code Igniter instance
+            $CI = &get_instance();
+            $value = '';
             if ($_type == 'user')
             {
-		        $value = $CI->db_session->userdata($_name);
+                $value = $CI->db_session->userdata($_name);
             }
             else // flash
             {
-		        $value = $CI->db_session->flashdata($_name);
+                $value = $CI->db_session->flashdata($_name);
             }
-		    $smarty->assign( $_assign, $value );
-		}
+            $smarty->assign( $_assign, $value );
+        }
 
         if ($smarty->debugging) {
             $_params = array();

@@ -34,11 +34,11 @@ function smarty_function_ci_config($params, &$smarty)
 
         if ($_name != '')
         {
-		    // get a Code Igniter instance
-		    $CI = &get_instance();
-	        $value = $CI->config->item($_name);
-		    $smarty->assign( $_assign, $value );
-		}
+            // get a Code Igniter instance
+            $CI = &get_instance();
+            $value = $CI->config->item($_name);
+            $smarty->assign( $_assign, $value );
+        }
 
         if ($smarty->debugging) {
             $_params = array();

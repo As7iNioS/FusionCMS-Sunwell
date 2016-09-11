@@ -89,22 +89,22 @@ $config['header_url'] = false;
 | ['slider_intveral'] How long the delay should be between the images (in milliseconds, default is 3000 (3 seconds))
 | ['slider_style'] Animation style (leave blank for "random"):
 |
-|	2D:
-|		bars
-|		blinds
-|		blocks
-|		blocks2
-|		concentric
-|		dissolve requires mask support
-|		slide
-|		warp
-|		zip
-|	3D:
-|		bars3d
-|		blinds3d
-|		cube
-|		tiles3d
-|		turn
+|    2D:
+|        bars
+|        blinds
+|        blocks
+|        blocks2
+|        concentric
+|        dissolve requires mask support
+|        slide
+|        warp
+|        zip
+|    3D:
+|        bars3d
+|        blinds3d
+|        cube
+|        tiles3d
+|        turn
 |
 |--------------------------------------------------------------------------
 */

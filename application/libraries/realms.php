@@ -11,369 +11,369 @@
 
 class Realms
 {
-	// Objects
-	private $realms;
-	private $CI;
+    // Objects
+    private $realms;
+    private $CI;
 
-	// Runtime values
-	private $races;
-	private $classes;
-	private $races_en;
-	private $classes_en;
-	private $zones;
-	private $hordeRaces;
-	private $allianceRaces;
+    // Runtime values
+    private $races;
+    private $classes;
+    private $races_en;
+    private $classes_en;
+    private $zones;
+    private $hordeRaces;
+    private $allianceRaces;
 
-	private $defaultEmulator = "trinity_soap";
+    private $defaultEmulator = "trinity_soap";
 
-	public function __construct()
-	{
-		$this->CI = &get_instance();
-		
-		$this->races = array();
-		$this->classes = array();
-		$this->zones = array();
-		$this->realms = array();
+    public function __construct()
+    {
+        $this->CI = &get_instance();
 
-		// Load the realm object
-		require_once('application/libraries/realm.php');
-		
-		// Load the emulator interface
-		require_once('application/interfaces/IEmulator.php');
-		
-		// Get the realms
-		$this->CI->load->model('cms_model');
-		
-		$realms = $this->CI->cms_model->getRealms();
+        $this->races = array();
+        $this->classes = array();
+        $this->zones = array();
+        $this->realms = array();
 
-		if($realms != false)
-		{
-			foreach($realms as $realm)
-			{
-				// Prepare the database Config
-				$config = array(
+        // Load the realm object
+        require_once('application/libraries/realm.php');
 
-					// Console settings
-					"console_username" => $realm['console_username'],
-					"console_password" => $realm['console_password'],
-					"console_port" => $realm['console_port'],
+        // Load the emulator interface
+        require_once('application/interfaces/IEmulator.php');
 
-					"hostname" => $realm['hostname'],
-					"realm_port" => $realm['realm_port'],
+        // Get the realms
+        $this->CI->load->model('cms_model');
 
-					"gameBuild" => $realm['gameBuild'],
+        $realms = $this->CI->cms_model->getRealms();
 
-					// Database settings
-					"world" => array(
-						"hostname" => (array_key_exists("override_hostname_world", $realm) && !empty($realm['override_hostname_world'])) ? $realm['override_hostname_world'] : $realm['hostname'],
-						"username" => (array_key_exists("override_username_world", $realm) && !empty($realm['override_username_world'])) ? $realm['override_username_world'] : $realm['username'],
-						"password" => (array_key_exists("override_password_world", $realm) && !empty($realm['override_password_world'])) ? $realm['override_password_world'] : $realm['password'],
-						"database" => $realm['world_database'],
-						"dbdriver" => "mysqli",
-						"port" => (array_key_exists("override_port_world", $realm) && !empty($realm['override_port_world'])) ? $realm['override_port_world'] : 3306,
-						"pconnect" => false,
-					),
+        if($realms != false)
+        {
+            foreach($realms as $realm)
+            {
+                // Prepare the database Config
+                $config = array(
 
-					"characters" => array(
-						"hostname" => (array_key_exists("override_hostname_char", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
-						"username" => (array_key_exists("override_username_char", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
-						"password" => (array_key_exists("override_password_char", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
-						"database" => $realm['char_database'],
-						"dbdriver" => "mysqli",
-						"port" => (array_key_exists("override_port_char", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
-						"pconnect" => false,
-					),
+                    // Console settings
+                    "console_username" => $realm['console_username'],
+                    "console_password" => $realm['console_password'],
+                    "console_port" => $realm['console_port'],
 
-					"auth" => array(
-						"hostname" => (array_key_exists("override_hostname_auth", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
-						"username" => (array_key_exists("override_username_auth", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
-						"password" => (array_key_exists("override_password_auth", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
-						"database" => $realm['auth_database'],
-						"dbdriver" => "mysqli",
-						"port" => (array_key_exists("override_port_auth", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
-						"pconnect" => false,
-					)
-				);
+                    "hostname" => $realm['hostname'],
+                    "realm_port" => $realm['realm_port'],
 
-				// Initialize the realm object
-				array_push($this->realms, new Realm($realm['id'], $realm['realmName'], $realm['cap'], $config, $realm['emulator']));
-			}
-		}
-	}
-	
-	/**
-	 * Get the realm objects
-	 * @return Realms realms
-	 */
-	public function getRealms()
-	{
-		return $this->realms;
-	}
-	
-	/**
-	 * Get one specific realm object
-	 * @return Realm
-	 */
-	public function getRealm($id)
-	{
-		foreach($this->realms as $key => $realm)
-		{
-			if($realm->getId() == $id)
-			{
-				return $this->realms[$key];
-			}
-		}
+                    "gameBuild" => $realm['gameBuild'],
 
-		show_error("There is no realm with ID ".$id);
-	}
+                    // Database settings
+                    "world" => array(
+                        "hostname" => (array_key_exists("override_hostname_world", $realm) && !empty($realm['override_hostname_world'])) ? $realm['override_hostname_world'] : $realm['hostname'],
+                        "username" => (array_key_exists("override_username_world", $realm) && !empty($realm['override_username_world'])) ? $realm['override_username_world'] : $realm['username'],
+                        "password" => (array_key_exists("override_password_world", $realm) && !empty($realm['override_password_world'])) ? $realm['override_password_world'] : $realm['password'],
+                        "database" => $realm['world_database'],
+                        "dbdriver" => "mysqli",
+                        "port" => (array_key_exists("override_port_world", $realm) && !empty($realm['override_port_world'])) ? $realm['override_port_world'] : 3306,
+                        "pconnect" => false,
+                    ),
 
-	/**
-	 * Check if there's a realm with the specified ID
-	 * @return Boolean
-	 */
-	public function realmExists($id)
-	{
-		foreach($this->realms as $key => $realm)
-		{
-			if($realm->getId() == $id)
-			{
-				return true;
-			}
-		}
+                    "characters" => array(
+                        "hostname" => (array_key_exists("override_hostname_char", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
+                        "username" => (array_key_exists("override_username_char", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
+                        "password" => (array_key_exists("override_password_char", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
+                        "database" => $realm['char_database'],
+                        "dbdriver" => "mysqli",
+                        "port" => (array_key_exists("override_port_char", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
+                        "pconnect" => false,
+                    ),
 
-		return false;
-	}
-	
-	/**
-	 * Get the total amount of characters owned by one account
-	 */
-	public function getTotalCharacters($account = false)
-	{
-		if(!$account)
-		{
-			$account = $this->CI->user->getId();
-		}
+                    "auth" => array(
+                        "hostname" => (array_key_exists("override_hostname_auth", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
+                        "username" => (array_key_exists("override_username_auth", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
+                        "password" => (array_key_exists("override_password_auth", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
+                        "database" => $realm['auth_database'],
+                        "dbdriver" => "mysqli",
+                        "port" => (array_key_exists("override_port_auth", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
+                        "pconnect" => false,
+                    )
+                );
 
-		$count = 0;
+                // Initialize the realm object
+                array_push($this->realms, new Realm($realm['id'], $realm['realmName'], $realm['cap'], $config, $realm['emulator']));
+            }
+        }
+    }
 
-		foreach($this->getRealms() as $realm)
-		{
-			$count += $realm->getCharacters()->getCharacterCount($account);
-		}
+    /**
+     * Get the realm objects
+     * @return Realms realms
+     */
+    public function getRealms()
+    {
+        return $this->realms;
+    }
 
-		return $count;
-	}
+    /**
+     * Get one specific realm object
+     * @return Realm
+     */
+    public function getRealm($id)
+    {
+        foreach($this->realms as $key => $realm)
+        {
+            if($realm->getId() == $id)
+            {
+                return $this->realms[$key];
+            }
+        }
 
-	/**
-	 * Load the wow_constants config and populate the arrays
-	 */
-	private function loadConstants()
-	{
-		$this->CI->config->load('wow_constants');
+        show_error("There is no realm with ID ".$id);
+    }
 
-		$this->races = $this->CI->config->item('races');
-		$this->hordeRaces = $this->CI->config->item('horde_races');
-		$this->allianceRaces = $this->CI->config->item('alliance_races');
-		$this->classes = $this->CI->config->item('classes');
+    /**
+     * Check if there's a realm with the specified ID
+     * @return Boolean
+     */
+    public function realmExists($id)
+    {
+        foreach($this->realms as $key => $realm)
+        {
+            if($realm->getId() == $id)
+            {
+                return true;
+            }
+        }
 
-		$this->races_en = $this->CI->config->item('races_en');
-		$this->classes_en = $this->CI->config->item('classes_en');
-	}
+        return false;
+    }
 
-	/**
-	 * Load the wow_zones config and populate the zones array
-	 */
-	private function loadZones()
-	{
-		$this->CI->config->load('wow_zones');
+    /**
+     * Get the total amount of characters owned by one account
+     */
+    public function getTotalCharacters($account = false)
+    {
+        if(!$account)
+        {
+            $account = $this->CI->user->getId();
+        }
 
-		$this->zones = $this->CI->config->item('zones');
-	}
+        $count = 0;
 
-	/**
-	 * Get the alliance race IDs
-	 * @return Array
-	 */
-	public function getAllianceRaces()
-	{
-		if(!count($this->allianceRaces))
-		{
-			$this->loadConstants();
-		}
+        foreach($this->getRealms() as $realm)
+        {
+            $count += $realm->getCharacters()->getCharacterCount($account);
+        }
 
-		return $this->allianceRaces;
-	}
+        return $count;
+    }
 
-	/**
-	 * Get the horde race IDs
-	 * @return Array
-	 */
-	public function getHordeRaces()
-	{
-		if(!count($this->hordeRaces))
-		{
-			$this->loadConstants();
-		}
+    /**
+     * Load the wow_constants config and populate the arrays
+     */
+    private function loadConstants()
+    {
+        $this->CI->config->load('wow_constants');
 
-		return $this->hordeRaces;
-	}
+        $this->races = $this->CI->config->item('races');
+        $this->hordeRaces = $this->CI->config->item('horde_races');
+        $this->allianceRaces = $this->CI->config->item('alliance_races');
+        $this->classes = $this->CI->config->item('classes');
 
-	/**
-	 * Get the name of a race
-	 * @param Int $id
-	 * @return String
-	 */
-	public function getRace($id)
-	{
-		if(!count($this->races))
-		{
-			$this->loadConstants();
-		}
+        $this->races_en = $this->CI->config->item('races_en');
+        $this->classes_en = $this->CI->config->item('classes_en');
+    }
 
-		if(array_key_exists($id, $this->races))
-		{
-			return $this->races[$id];
-		}
-		else
-		{
-			return "Unknown";
-		}
-	}
+    /**
+     * Load the wow_zones config and populate the zones array
+     */
+    private function loadZones()
+    {
+        $this->CI->config->load('wow_zones');
 
-	/**
-	 * Get the name of a class
-	 * @param Int $id
-	 * @return String
-	 */
-	public function getClass($id)
-	{
-		if(!count($this->classes))
-		{
-			$this->loadConstants();
-		}
+        $this->zones = $this->CI->config->item('zones');
+    }
 
-		if(array_key_exists($id, $this->classes))
-		{
-			return $this->classes[$id];
-		}
-		else
-		{
-			return "Unknown";
-		}
-	}
+    /**
+     * Get the alliance race IDs
+     * @return Array
+     */
+    public function getAllianceRaces()
+    {
+        if(!count($this->allianceRaces))
+        {
+            $this->loadConstants();
+        }
 
-	/**
-	 * Get the zone name by zone ID
-	 * @param Int $zoneId
-	 * @return String
-	 */
-	public function getZone($zoneId)
-	{
-		if(!count($this->zones))
-		{
-			$this->loadZones();
-		}
+        return $this->allianceRaces;
+    }
 
-		if(array_key_exists($zoneId, $this->zones))
-		{
-			return $this->zones[$zoneId];
-		}
-		else
-		{
-			return "Unknown location";
-		}
-	}
+    /**
+     * Get the horde race IDs
+     * @return Array
+     */
+    public function getHordeRaces()
+    {
+        if(!count($this->hordeRaces))
+        {
+            $this->loadConstants();
+        }
+
+        return $this->hordeRaces;
+    }
+
+    /**
+     * Get the name of a race
+     * @param Int $id
+     * @return String
+     */
+    public function getRace($id)
+    {
+        if(!count($this->races))
+        {
+            $this->loadConstants();
+        }
+
+        if(array_key_exists($id, $this->races))
+        {
+            return $this->races[$id];
+        }
+        else
+        {
+            return "Unknown";
+        }
+    }
+
+    /**
+     * Get the name of a class
+     * @param Int $id
+     * @return String
+     */
+    public function getClass($id)
+    {
+        if(!count($this->classes))
+        {
+            $this->loadConstants();
+        }
+
+        if(array_key_exists($id, $this->classes))
+        {
+            return $this->classes[$id];
+        }
+        else
+        {
+            return "Unknown";
+        }
+    }
+
+    /**
+     * Get the zone name by zone ID
+     * @param Int $zoneId
+     * @return String
+     */
+    public function getZone($zoneId)
+    {
+        if(!count($this->zones))
+        {
+            $this->loadZones();
+        }
+
+        if(array_key_exists($zoneId, $this->zones))
+        {
+            return $this->zones[$zoneId];
+        }
+        else
+        {
+            return "Unknown location";
+        }
+    }
 
     /**
      * Load the general emulator, from the first realm
      * @return IEmulator mixed
      */
     public function getEmulator()
-	{
-		if ($this->realms)
-		{
-			return $this->realms[0]->getEmulator();
-		}
+    {
+        if ($this->realms)
+        {
+            return $this->realms[0]->getEmulator();
+        }
 
-		// Make sure the emulator is installed
-		if(file_exists('application/emulators/'.$this->defaultEmulator.'.php'))
-		{
-			require_once('application/emulators/'.$this->defaultEmulator.'.php');
-		}
-		else
-		{
-			show_error("The entered emulator (".$this->defaultEmulator.") doesn't exist in application/emulators/");
-		}
+        // Make sure the emulator is installed
+        if(file_exists('application/emulators/'.$this->defaultEmulator.'.php'))
+        {
+            require_once('application/emulators/'.$this->defaultEmulator.'.php');
+        }
+        else
+        {
+            show_error("The entered emulator (".$this->defaultEmulator.") doesn't exist in application/emulators/");
+        }
 
-		$config = array();
-		$config['id'] = 1;
+        $config = array();
+        $config['id'] = 1;
 
-		// Initialize the objects
-		$emulator = new $this->defaultEmulator($config);
+        // Initialize the objects
+        $emulator = new $this->defaultEmulator($config);
 
-		return $emulator;
-	}
+        return $emulator;
+    }
 
-	/**
-	* Format an avatar path as in Class-Race-Gender-Level
-	* @return String
-	*/
-	public function formatAvatarPath($character)
-	{
-		if(!count($this->races_en))
-		{
-			$this->loadConstants();
-		}
+    /**
+    * Format an avatar path as in Class-Race-Gender-Level
+    * @return String
+    */
+    public function formatAvatarPath($character)
+    {
+        if(!count($this->races_en))
+        {
+            $this->loadConstants();
+        }
 
-		$classes = $this->classes_en;
-		$races = $this->races_en;
+        $classes = $this->classes_en;
+        $races = $this->races_en;
 
-		// Prevent errors
-		$class = (array_key_exists($character['class'], $classes)) ? $classes[$character['class']] : null;
-		$race = (array_key_exists($character['race'], $races)) ? $races[$character['race']] : null;
+        // Prevent errors
+        $class = (array_key_exists($character['class'], $classes)) ? $classes[$character['class']] : null;
+        $race = (array_key_exists($character['race'], $races)) ? $races[$character['race']] : null;
 
-		$gender = ($character['gender']) ? "f" : "m";
+        $gender = ($character['gender']) ? "f" : "m";
 
-		if($class == "Death knight")
-		{
-			$level = 70;
-			$class = "Deathknight";
-		}
-		else
-		{
-			// If character is below 30, use lv 1 image
-			if($character['level'] < 30)
-			{
-				$level = 1;
-			}
+        if($class == "Death knight")
+        {
+            $level = 70;
+            $class = "Deathknight";
+        }
+        else
+        {
+            // If character is below 30, use lv 1 image
+            if($character['level'] < 30)
+            {
+                $level = 1;
+            }
 
-			// If character is below 65, use lv 60 image
-			elseif($character['level'] < 65)
-			{
-				$level = 60;
-			}
+            // If character is below 65, use lv 60 image
+            elseif($character['level'] < 65)
+            {
+                $level = 60;
+            }
 
-			// 65+, use lvl70 image
-			else
-			{
-				$level = 70;
-			}
-		}
+            // 65+, use lvl70 image
+            else
+            {
+                $level = 70;
+            }
+        }
 
-		if(in_array($race, array("Blood elf", "Night elf")))
-		{
-			$race = preg_replace("/ /", "", $race);
-		}
+        if(in_array($race, array("Blood elf", "Night elf")))
+        {
+            $race = preg_replace("/ /", "", $race);
+        }
 
-		$file = $class."-".strtolower($race)."-".$gender."-".$level;
+        $file = $class."-".strtolower($race)."-".$gender."-".$level;
 
-		if(!file_exists("application/images/avatars/".$file.".gif"))
-		{
-			return "default";
-		}
-		else
-		{
-			return $file;
-		}
-	}
+        if(!file_exists("application/images/avatars/".$file.".gif"))
+        {
+            return "default";
+        }
+        else
+        {
+            return $file;
+        }
+    }
 }

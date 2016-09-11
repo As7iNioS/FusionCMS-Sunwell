@@ -2,264 +2,264 @@
 
 class Armory extends MX_Controller
 {
-	private $weapon_sub;
-	private $armor_sub;
-	private $slots;
+    private $weapon_sub;
+    private $armor_sub;
+    private $slots;
 
-	public function __construct()
-	{
-		parent::__construct();
-	
-		requirePermission("view");
+    public function __construct()
+    {
+        parent::__construct();
 
-		$this->load->model('armory_model');
+        requirePermission("view");
 
-		$this->load->config('tooltip/tooltip_constants');
+        $this->load->model('armory_model');
 
-		$this->weapon_sub = $this->config->item("weapon_sub");
-		$this->armor_sub = $this->config->item("armor_sub");
-		$this->slots = $this->config->item("slots");
-	}
+        $this->load->config('tooltip/tooltip_constants');
 
-	public function index()
-	{
-		// Pass "cant_be_empty" string to the client side language system
-		clientLang("cant_be_empty", "armory");
+        $this->weapon_sub = $this->config->item("weapon_sub");
+        $this->armor_sub = $this->config->item("armor_sub");
+        $this->slots = $this->config->item("slots");
+    }
 
-		$this->template->setTitle(lang("search_title", "armory"));
+    public function index()
+    {
+        // Pass "cant_be_empty" string to the client side language system
+        clientLang("cant_be_empty", "armory");
 
-		$page = $this->template->loadPage("search.tpl");
+        $this->template->setTitle(lang("search_title", "armory"));
 
-		$data = array(
-				"module" => "default",
-				"headline" => lang("search_headline", "armory"),
-				"content" => $page
-			);
+        $page = $this->template->loadPage("search.tpl");
 
-		$page = $this->template->loadPage("page.tpl", $data);
+        $data = array(
+                "module" => "default",
+                "headline" => lang("search_headline", "armory"),
+                "content" => $page
+            );
 
-		$this->template->view($page, "modules/armory/css/search.css", "modules/armory/js/search.js");
-	}
+        $page = $this->template->loadPage("page.tpl", $data);
 
-	public function search()
-	{
-		$string = $this->input->post("search");
+        $this->template->view($page, "modules/armory/css/search.css", "modules/armory/js/search.js");
+    }
 
-		if(!$string || strlen($string) <= 2)
-		{
-			die(lang("search_too_short", "armory"));
-		}
-		else
-		{
-			$string = preg_replace('/%/', '\%', $string);
+    public function search()
+    {
+        $string = $this->input->post("search");
 
-			$search_id = sha1($string);
+        if(!$string || strlen($string) <= 2)
+        {
+            die(lang("search_too_short", "armory"));
+        }
+        else
+        {
+            $string = preg_replace('/%/', '\%', $string);
 
-			$cache = $this->cache->get("search/".$search_id."_".getLang());
+            $search_id = sha1($string);
 
-			if($cache === false)
-			{
-				// Is there item cache available?
-				$items = $this->cache->get("search/items_".$search_id);
+            $cache = $this->cache->get("search/".$search_id."_".getLang());
 
-				$characters = array();
-				$guilds = array();
+            if($cache === false)
+            {
+                // Is there item cache available?
+                $items = $this->cache->get("search/items_".$search_id);
 
-				if($items === false)
-				{
-					$items = array();
-					$cache_items = true;
-				}
-				else
-				{
-					$cache_items = false;
-				}
+                $characters = array();
+                $guilds = array();
 
-				$realms = $this->realms->getRealms();
-				
-				//Get characters, guilds, items for each realm
-				foreach($realms as $realm)
-				{
-					// Assign the realm ID
-					$i = $realm->getId();
+                if($items === false)
+                {
+                    $items = array();
+                    $cache_items = true;
+                }
+                else
+                {
+                    $cache_items = false;
+                }
+
+                $realms = $this->realms->getRealms();
+
+                //Get characters, guilds, items for each realm
+                foreach($realms as $realm)
+                {
+                    // Assign the realm ID
+                    $i = $realm->getId();
 
 
-					$found_characters = $this->armory_model->findCharacter($string, $i);
+                    $found_characters = $this->armory_model->findCharacter($string, $i);
 
-					if($found_characters)
-					{
-						foreach($found_characters as $found_character)
-						{
-							array_push($characters, array(
-													'guid' => $found_character['guid'],
-													'name' => $found_character['name'],
-													'race' => $found_character['race'],
-													'gender' => $found_character['gender'],
-													'class' => $found_character['class'],
-													'level' => $found_character['level'],
-													'className' => $this->realms->getClass($found_character['class']),
-													'raceName' => $this->realms->getRace($found_character['race']),
-													'avatar' => $this->realms->formatAvatarPath($found_character),
-													'realm' => $i,
-													'realmName' => $realm->getName()
-												)
-										);
-						}
-					}
+                    if($found_characters)
+                    {
+                        foreach($found_characters as $found_character)
+                        {
+                            array_push($characters, array(
+                                                    'guid' => $found_character['guid'],
+                                                    'name' => $found_character['name'],
+                                                    'race' => $found_character['race'],
+                                                    'gender' => $found_character['gender'],
+                                                    'class' => $found_character['class'],
+                                                    'level' => $found_character['level'],
+                                                    'className' => $this->realms->getClass($found_character['class']),
+                                                    'raceName' => $this->realms->getRace($found_character['race']),
+                                                    'avatar' => $this->realms->formatAvatarPath($found_character),
+                                                    'realm' => $i,
+                                                    'realmName' => $realm->getName()
+                                                )
+                                        );
+                        }
+                    }
 
-					if($cache_items)
-					{
-						//Search for a item
-						$found_items = $this->armory_model->findItem($string, $i);
-						
-						if($found_items)
-						{
-							foreach($found_items as $found_item)
-							{
-								array_push($items, array(
-														'id' => $found_item['entry'],
-														'name' => $found_item['name'],
-														'level' => $found_item['ItemLevel'],
-														'required' => $found_item['RequiredLevel'],
-														'type' => $this->getItemType($found_item['InventoryType'], $found_item['class'], $found_item['subclass']),
-														'quality' => $found_item['Quality'],
-														'realm' => $i,
-														'realmName' =>$realm->getName(),
-														'icon' => $this->getIcon($found_item['entry'], $i)
-													)
-											);
-							}
-						}
-					}
+                    if($cache_items)
+                    {
+                        //Search for a item
+                        $found_items = $this->armory_model->findItem($string, $i);
 
-					//Search for a guild
-					$found_guilds = $this->armory_model->findGuild($string, $i);
+                        if($found_items)
+                        {
+                            foreach($found_items as $found_item)
+                            {
+                                array_push($items, array(
+                                                        'id' => $found_item['entry'],
+                                                        'name' => $found_item['name'],
+                                                        'level' => $found_item['ItemLevel'],
+                                                        'required' => $found_item['RequiredLevel'],
+                                                        'type' => $this->getItemType($found_item['InventoryType'], $found_item['class'], $found_item['subclass']),
+                                                        'quality' => $found_item['Quality'],
+                                                        'realm' => $i,
+                                                        'realmName' =>$realm->getName(),
+                                                        'icon' => $this->getIcon($found_item['entry'], $i)
+                                                    )
+                                            );
+                            }
+                        }
+                    }
 
-					if($found_guilds)
-					{
-						foreach($found_guilds as $found_guild)
-						{
-							array_push($guilds, array(
-													'id' => $found_guild['guildid'],
-													'name' => $found_guild['name'],
-													'members' => $found_guild['GuildMemberCount'],
-													'realm' => $i,
-													'realmName' =>$realm->getName(),
-													'ownerGuid' => $found_guild['leaderguid'],
-													'ownerName' => $found_guild['leaderName']
-												)
-										);
-						}
-					}
-				}
+                    //Search for a guild
+                    $found_guilds = $this->armory_model->findGuild($string, $i);
 
-				$show = array(
-							'characters' => 'none',
-							'guilds' => 'none',
-							'items' => 'none'
-						);
+                    if($found_guilds)
+                    {
+                        foreach($found_guilds as $found_guild)
+                        {
+                            array_push($guilds, array(
+                                                    'id' => $found_guild['guildid'],
+                                                    'name' => $found_guild['name'],
+                                                    'members' => $found_guild['GuildMemberCount'],
+                                                    'realm' => $i,
+                                                    'realmName' =>$realm->getName(),
+                                                    'ownerGuid' => $found_guild['leaderguid'],
+                                                    'ownerName' => $found_guild['leaderName']
+                                                )
+                                        );
+                        }
+                    }
+                }
 
-				if(count($characters) > count($guilds) && count($characters) > count($items))
-				{
-					$show['characters'] = "block";
-				}
-				elseif(count($guilds) > count($characters) && count($guilds) > count($items))
-				{
-					$show['guilds'] = "block";
-				}
-				elseif(count($items) > count($guilds) && count($items) > count($characters))
-				{
-					$show['items'] = "block";
-				}
-				else
-				{
-					// Default to characters
-					$show['characters'] = "block";
-				}
-				
+                $show = array(
+                            'characters' => 'none',
+                            'guilds' => 'none',
+                            'items' => 'none'
+                        );
 
-				$data = array(
-					'url' => $this->template->page_url,
-					'characters' => $characters,
-					'guilds' => $guilds,
-					'items' => $items,
-					'show' => $show,
-					'realms' => $realms
-				);
+                if(count($characters) > count($guilds) && count($characters) > count($items))
+                {
+                    $show['characters'] = "block";
+                }
+                elseif(count($guilds) > count($characters) && count($guilds) > count($items))
+                {
+                    $show['guilds'] = "block";
+                }
+                elseif(count($items) > count($guilds) && count($items) > count($characters))
+                {
+                    $show['items'] = "block";
+                }
+                else
+                {
+                    // Default to characters
+                    $show['characters'] = "block";
+                }
 
-				if($cache_items)
-				{
-					// Cache items for a week
-					$this->cache->save("search/items_".$search_id, $items, 60*60*24*7);
-				}
 
-				$page = $this->template->loadPage("result.tpl", $data);
+                $data = array(
+                    'url' => $this->template->page_url,
+                    'characters' => $characters,
+                    'guilds' => $guilds,
+                    'items' => $items,
+                    'show' => $show,
+                    'realms' => $realms
+                );
 
-				// Cache full output
-				$this->cache->save("search/".$search_id."_".getLang(), $page, 60*60*24);		
-			}
-			else
-			{
-				$page = $cache;
-			}
+                if($cache_items)
+                {
+                    // Cache items for a week
+                    $this->cache->save("search/items_".$search_id, $items, 60*60*24*7);
+                }
 
-			die($page);
-		}
-	}
+                $page = $this->template->loadPage("result.tpl", $data);
 
-	private function getIcon($id, $realm)
-	{
-		$cache = $this->cache->get("items/item_".$realm."_".$id);
+                // Cache full output
+                $this->cache->save("search/".$search_id."_".getLang(), $page, 60*60*24);
+            }
+            else
+            {
+                $page = $cache;
+            }
 
-		if($cache !== false)
-		{
-			$cache2 = $this->cache->get("items/display_".$cache['displayid']);
+            die($page);
+        }
+    }
 
-			if($cache2 != false)
-			{
-				return '<img src="https://wow.zamimg.com/images/wow/icons/small/'.$cache2.'.jpg" align="absmiddle" />';
-			}
-			else
-			{
-				return '<img src="https://wow.zamimg.com/images/wow/icons/small/inv_misc_questionmark.jpg" align="absmiddle" />';
-			}
-		}
-		else
-		{
-			return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $realm, 'url' => $this->template->page_url));
-		}
-	}
+    private function getIcon($id, $realm)
+    {
+        $cache = $this->cache->get("items/item_".$realm."_".$id);
 
-	private function getItemType($slot, $class, $subclass)
-	{
-		// Weapons
-		if($class == 2)
-		{
-			$type = (array_key_exists($subclass, $this->weapon_sub)) ? $this->weapon_sub[$subclass] : "Unknown";
-		}
+        if($cache !== false)
+        {
+            $cache2 = $this->cache->get("items/display_".$cache['displayid']);
 
-		// Armor
-		elseif($class == 4)
-		{
-			$type = (array_key_exists($subclass, $this->armor_sub)) ? $this->armor_sub[$subclass] : "Unknown";
-		}
+            if($cache2 != false)
+            {
+                return '<img src="https://wow.zamimg.com/images/wow/icons/small/'.$cache2.'.jpg" align="absmiddle" />';
+            }
+            else
+            {
+                return '<img src="https://wow.zamimg.com/images/wow/icons/small/inv_misc_questionmark.jpg" align="absmiddle" />';
+            }
+        }
+        else
+        {
+            return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $realm, 'url' => $this->template->page_url));
+        }
+    }
 
-		// Anything else
-		else
-		{
-			$type = null;
-		}
+    private function getItemType($slot, $class, $subclass)
+    {
+        // Weapons
+        if($class == 2)
+        {
+            $type = (array_key_exists($subclass, $this->weapon_sub)) ? $this->weapon_sub[$subclass] : "Unknown";
+        }
 
-		$slot = $this->slots[$slot];
+        // Armor
+        elseif($class == 4)
+        {
+            $type = (array_key_exists($subclass, $this->armor_sub)) ? $this->armor_sub[$subclass] : "Unknown";
+        }
 
-		if(strlen($slot)
-		&& strlen($type))
-		{
-			return $slot." (".$type.")";
-		}
-		else
-		{
-			return lang("misc", "armory");
-		}
-	}
+        // Anything else
+        else
+        {
+            $type = null;
+        }
+
+        $slot = $this->slots[$slot];
+
+        if(strlen($slot)
+        && strlen($type))
+        {
+            return $slot." (".$type.")";
+        }
+        else
+        {
+            return lang("misc", "armory");
+        }
+    }
 }

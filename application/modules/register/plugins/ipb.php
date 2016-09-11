@@ -2,79 +2,79 @@
 
 class Ipb extends Plugin
 {
-	/**
-	 * Runtime values
-	 */
-	private $username;
-	private $password;
-	private $email;
-	private $db;
+    /**
+     * Runtime values
+     */
+    private $username;
+    private $password;
+    private $email;
+    private $db;
 
-	/**
-	 * Receive the user information
-	 * @param String $username
-	 * @param String $password
-	 * @param String email
-	 */	
-	public function register($username, $password, $email)
-	{
-		$this->username = $username;
-		$this->password = $password;
-		$this->email = $email;
-		
-		$this->db = $this->CI->load->database($this->CI->config->item('bridge'), TRUE);
+    /**
+     * Receive the user information
+     * @param String $username
+     * @param String $password
+     * @param String email
+     */
+    public function register($username, $password, $email)
+    {
+        $this->username = $username;
+        $this->password = $password;
+        $this->email = $email;
 
-		$this->process();
-	}
+        $this->db = $this->CI->load->database($this->CI->config->item('bridge'), TRUE);
 
-	/**
-	 * Add the account
-	 */
-	private function process()
-	{
-		$salt = $this->generatePasswordSalt(5);
-		$salt = str_replace( '\\', "\\\\", $salt );
+        $this->process();
+    }
 
-		$password = $this->encryptPassword($salt);
+    /**
+     * Add the account
+     */
+    private function process()
+    {
+        $salt = $this->generatePasswordSalt(5);
+        $salt = str_replace( '\\', "\\\\", $salt );
 
-		$key = $this->generateAutoLoginKey();
-		$expire = time() + 86400;
+        $password = $this->encryptPassword($salt);
 
-		$this->db->query("INSERT INTO ".$this->CI->config->item('forum_table_prefix')."members(`name`, `members_pass_hash`, `email`, `members_display_name`, `joined`, `members_pass_salt`, `member_login_key`, `member_login_key_expire`, `members_l_display_name`, `members_l_username`, `members_seo_name`, `member_group_id`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '3')", array($this->username, $password, $this->email, $this->username, time(), $salt, $key, $expire, $this->username, $this->username, $this->username));
-	}
+        $key = $this->generateAutoLoginKey();
+        $expire = time() + 86400;
 
-	/**
-	 * Encrypt the password with a specific algorithm
-	 * @return String
-	 */
-	private function encryptPassword($salt)
-	{
-		return md5( md5($salt) . md5( $this->password ) );
-	}
+        $this->db->query("INSERT INTO ".$this->CI->config->item('forum_table_prefix')."members(`name`, `members_pass_hash`, `email`, `members_display_name`, `joined`, `members_pass_salt`, `member_login_key`, `member_login_key_expire`, `members_l_display_name`, `members_l_username`, `members_seo_name`, `member_group_id`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '3')", array($this->username, $password, $this->email, $this->username, time(), $salt, $key, $expire, $this->username, $this->username, $this->username));
+    }
 
-	private function generateAutoLoginKey( $len=60 )
-	{
-		$pass = $this->generatePasswordSalt( $len );
+    /**
+     * Encrypt the password with a specific algorithm
+     * @return String
+     */
+    private function encryptPassword($salt)
+    {
+        return md5( md5($salt) . md5( $this->password ) );
+    }
 
-		return md5($pass);
-	}
+    private function generateAutoLoginKey( $len=60 )
+    {
+        $pass = $this->generatePasswordSalt( $len );
 
-	private function generatePasswordSalt($len=5)
-	{
-		$salt = '';
+        return md5($pass);
+    }
 
-		for ( $i = 0; $i < $len; $i++ )
-		{
-			$num   = mt_rand(33, 126);
+    private function generatePasswordSalt($len=5)
+    {
+        $salt = '';
 
-			if ( $num == '92' )
-			{
-				$num = 93;
-			}
+        for ( $i = 0; $i < $len; $i++ )
+        {
+            $num   = mt_rand(33, 126);
 
-			$salt .= chr( $num );
-		}
+            if ( $num == '92' )
+            {
+                $num = 93;
+            }
 
-		return $salt;
-	}
+            $salt .= chr( $num );
+        }
+
+        return $salt;
+    }
 }

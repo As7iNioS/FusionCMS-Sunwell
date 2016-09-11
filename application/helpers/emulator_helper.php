@@ -7,16 +7,16 @@
  */
 function table($name, $realm = false)
 {
-	$CI = &get_instance();
+    $CI = &get_instance();
 
-	if($realm)
-	{
-		return $CI->realms->getRealm($realm)->getEmulator()->getTable($name);
-	}
-	else
-	{
-		return $CI->realms->getEmulator()->getTable($name);
-	}
+    if($realm)
+    {
+        return $CI->realms->getRealm($realm)->getEmulator()->getTable($name);
+    }
+    else
+    {
+        return $CI->realms->getEmulator()->getTable($name);
+    }
 }
 
 /**
@@ -28,23 +28,23 @@ function table($name, $realm = false)
  */
 function column($table, $name, $as = false, $realm = false)
 {
-	$CI = &get_instance();
+    $CI = &get_instance();
 
-	if($realm)
-	{
-		$column = $CI->realms->getRealm($realm)->getEmulator()->getColumn($table, $name);
-	}
-	else
-	{
-		$column = $CI->realms->getEmulator()->getColumn($table, $name);
-	}
+    if($realm)
+    {
+        $column = $CI->realms->getRealm($realm)->getEmulator()->getColumn($table, $name);
+    }
+    else
+    {
+        $column = $CI->realms->getEmulator()->getColumn($table, $name);
+    }
 
-	if(!$column)
-	{
-		return false;
-	}
+    if(!$column)
+    {
+        return false;
+    }
 
-	return $column . (($as) ? " AS " . $name : "");
+    return $column . (($as) ? " AS " . $name : "");
 }
 
 /**
@@ -54,16 +54,16 @@ function column($table, $name, $as = false, $realm = false)
  */
 function query($name, $realm = false)
 {
-	$CI = &get_instance();
+    $CI = &get_instance();
 
-	if($realm)
-	{
-		return $CI->realms->getRealm($realm)->getEmulator()->getQuery($name);
-	}
-	else
-	{
-		return $CI->realms->getEmulator()->getQuery($name);
-	}
+    if($realm)
+    {
+        return $CI->realms->getRealm($realm)->getEmulator()->getQuery($name);
+    }
+    else
+    {
+        return $CI->realms->getEmulator()->getQuery($name);
+    }
 }
 
 /**
@@ -74,19 +74,19 @@ function query($name, $realm = false)
  */
 function columns($table, $columns, $realm = false)
 {
-	foreach($columns as $column)
-	{
-		if(!isset($out))
-		{
-			$out = column($table, $column, false, $realm)." AS ".$column;
-		}
-		else
-		{
-			$out .= ",".column($table, $column, false, $realm)." AS ".$column;
-		}
-	}
+    foreach($columns as $column)
+    {
+        if(!isset($out))
+        {
+            $out = column($table, $column, false, $realm)." AS ".$column;
+        }
+        else
+        {
+            $out .= ",".column($table, $column, false, $realm)." AS ".$column;
+        }
+    }
 
-	return $out;
+    return $out;
 }
 
 /**
@@ -97,28 +97,28 @@ function columns($table, $columns, $realm = false)
  */
 function allColumns($table, $realm = false)
 {
-	global $CI;
-	
-	if($realm)
-	{
-		$columns = $CI->realms->getRealm($realm)->getEmulator()->getAllColumns($table);
-	}
-	else
-	{
-		$columns = $CI->realms->getEmulator()->getAllColumns($table);
-	}
+    global $CI;
 
-	foreach($columns as $name => $column)
-	{
-		if(!isset($out))
-		{
-			$out = $column." AS ".$name;
-		}
-		else
-		{
-			$out .= ",".$column." AS ".$name;
-		}
-	}
+    if($realm)
+    {
+        $columns = $CI->realms->getRealm($realm)->getEmulator()->getAllColumns($table);
+    }
+    else
+    {
+        $columns = $CI->realms->getEmulator()->getAllColumns($table);
+    }
 
-	return $out;
+    foreach($columns as $name => $column)
+    {
+        if(!isset($out))
+        {
+            $out = $column." AS ".$name;
+        }
+        else
+        {
+            $out .= ",".$column." AS ".$name;
+        }
+    }
+
+    return $out;
 }

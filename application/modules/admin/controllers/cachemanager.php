@@ -2,243 +2,243 @@
 
 class Cachemanager extends MX_Controller
 {
-	private $itemMatches;
-	private $websiteMatches;
-	private $messageMatches;
+    private $itemMatches;
+    private $websiteMatches;
+    private $messageMatches;
 
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
 
-		$this->itemMatches = array("spells/*", "items/*", "search/*");
-		$this->websiteMatches = array("*.cache");
+        $this->itemMatches = array("spells/*", "items/*", "search/*");
+        $this->websiteMatches = array("*.cache");
 
-		parent::__construct();
+        parent::__construct();
 
-		requirePermission("viewCache");
-	}
+        requirePermission("viewCache");
+    }
 
-	public function index()
-	{
-		// Change the title
-		$this->administrator->setTitle("Manage cache");
+    public function index()
+    {
+        // Change the title
+        $this->administrator->setTitle("Manage cache");
 
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url
-		);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url
+        );
 
-		// Load my view
-		$output = $this->template->loadPage("cachemanager/cache.tpl", $data);
+        // Load my view
+        $output = $this->template->loadPage("cachemanager/cache.tpl", $data);
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('Manage cache', $output);
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('Manage cache', $output);
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/admin/js/cache.js");
-	}
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/admin/js/cache.js");
+    }
 
-	public function get()
-	{
-		$item = $this->countItemCache();
-		$website = $this->countWebsiteCache();
-		$message = $this->countMessageCache();
+    public function get()
+    {
+        $item = $this->countItemCache();
+        $website = $this->countWebsiteCache();
+        $message = $this->countMessageCache();
 
-		$total['files'] = $item['files'] + $website['files'] + $message['files'];
-		$total['size'] = $this->formatSize($item['size'] + $website['size'] + $message['size']);
+        $total['files'] = $item['files'] + $website['files'] + $message['files'];
+        $total['size'] = $this->formatSize($item['size'] + $website['size'] + $message['size']);
 
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'item' => $item,
-			'website' => $website,
-			'message' => $message,
-			'total' => $total
-		);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'item' => $item,
+            'website' => $website,
+            'message' => $message,
+            'total' => $total
+        );
 
-		// Load my view
-		$output = $this->template->loadPage("cachemanager/cache_data.tpl", $data);
+        // Load my view
+        $output = $this->template->loadPage("cachemanager/cache_data.tpl", $data);
 
-		die($output);
-	}
+        die($output);
+    }
 
-	private function countItemCache()
-	{
-		// Define our result
-		$result = array(
-			"files" => 0,
-			"size" => 0
-		);
+    private function countItemCache()
+    {
+        // Define our result
+        $result = array(
+            "files" => 0,
+            "size" => 0
+        );
 
-		// Define what to search for
-		$matches = $this->itemMatches;
-		
-		// Loop through all searches
-		foreach($matches as $search)
-		{
-			// Search for matches
-			$matches = glob("application/cache/data/".$search);
+        // Define what to search for
+        $matches = $this->itemMatches;
 
-			if($matches)
-			{
-				// Loop through all matches
-				foreach($matches as $file)
-				{
-					if(!preg_match("/index\.html/", $file))
-					{
-						// Count and add their size to the result
-						$result['files']++;
-						$result['size'] += filesize($file);
-					}
-				}
-			}
-		}
+        // Loop through all searches
+        foreach($matches as $search)
+        {
+            // Search for matches
+            $matches = glob("application/cache/data/".$search);
 
-		$result['sizeString'] = $this->formatSize($result['size']);
+            if($matches)
+            {
+                // Loop through all matches
+                foreach($matches as $file)
+                {
+                    if(!preg_match("/index\.html/", $file))
+                    {
+                        // Count and add their size to the result
+                        $result['files']++;
+                        $result['size'] += filesize($file);
+                    }
+                }
+            }
+        }
 
-		return $result;
-	}
+        $result['sizeString'] = $this->formatSize($result['size']);
 
-	private function countWebsiteCache()
-	{
-		// Define our result
-		$result = array(
-			"files" => 0,
-			"size" => 0
-		);
+        return $result;
+    }
 
-		// Define what to search for
-		$matches = $this->websiteMatches;
+    private function countWebsiteCache()
+    {
+        // Define our result
+        $result = array(
+            "files" => 0,
+            "size" => 0
+        );
 
-		// Loop through all searches
-		foreach($matches as $search)
-		{
-			// Search for matches
-			$matches = glob("application/cache/data/".$search);
+        // Define what to search for
+        $matches = $this->websiteMatches;
 
-			if($matches)
-			{
-				// Loop through all matches
-				foreach($matches as $file)
-				{
-					if(!preg_match("/index\.html/", $file))
-					{
-						// Count and add their size to the result
-						$result['files']++;
-						$result['size'] += filesize($file);
-					}
-				}
-			}
-		}
+        // Loop through all searches
+        foreach($matches as $search)
+        {
+            // Search for matches
+            $matches = glob("application/cache/data/".$search);
 
-		$result['sizeString'] = $this->formatSize($result['size']);
+            if($matches)
+            {
+                // Loop through all matches
+                foreach($matches as $file)
+                {
+                    if(!preg_match("/index\.html/", $file))
+                    {
+                        // Count and add their size to the result
+                        $result['files']++;
+                        $result['size'] += filesize($file);
+                    }
+                }
+            }
+        }
 
-		return $result;
-	}
+        $result['sizeString'] = $this->formatSize($result['size']);
 
-	private function countMessageCache()
-	{
-		// Define our result
-		$result = array(
-			"files" => 0,
-			"size" => 0
-		);
+        return $result;
+    }
 
-		// Define what to search for
-		$matches = $this->messageMatches;
+    private function countMessageCache()
+    {
+        // Define our result
+        $result = array(
+            "files" => 0,
+            "size" => 0
+        );
 
-		// Loop through all searches
-		foreach($matches as $search)
-		{
-			// Search for matches
-			$matches = glob("application/cache/data/".$search);
+        // Define what to search for
+        $matches = $this->messageMatches;
 
-			if($matches)
-			{
-				// Loop through all matches
-				foreach($matches as $file)
-				{
-					if(!preg_match("/index\.html/", $file))
-					{
-						// Count and add their size to the result
-						$result['files']++;
-						$result['size'] += filesize($file);
-					}
-				}
-			}
-		}
+        // Loop through all searches
+        foreach($matches as $search)
+        {
+            // Search for matches
+            $matches = glob("application/cache/data/".$search);
 
-		$result['sizeString'] = $this->formatSize($result['size']);
+            if($matches)
+            {
+                // Loop through all matches
+                foreach($matches as $file)
+                {
+                    if(!preg_match("/index\.html/", $file))
+                    {
+                        // Count and add their size to the result
+                        $result['files']++;
+                        $result['size'] += filesize($file);
+                    }
+                }
+            }
+        }
 
-		return $result;
-	}
+        $result['sizeString'] = $this->formatSize($result['size']);
+
+        return $result;
+    }
 
 
-	private function formatSize($size)
-	{
-		if($size < 1024)
-		{
-			return $size." B";
-		}
-		elseif($size < 1024 * 1024)
-		{
-			return round($size / 1024)." KB";
-		}
-		elseif($size < 1024 * 1024 * 1024)
-		{
-			return round($size / (1024 * 1024))." MB";
-		}
-		else
-		{
-			return round($size / (1024 * 1024 * 1024))." GB";
-		}
-	}
+    private function formatSize($size)
+    {
+        if($size < 1024)
+        {
+            return $size." B";
+        }
+        elseif($size < 1024 * 1024)
+        {
+            return round($size / 1024)." KB";
+        }
+        elseif($size < 1024 * 1024 * 1024)
+        {
+            return round($size / (1024 * 1024))." MB";
+        }
+        else
+        {
+            return round($size / (1024 * 1024 * 1024))." GB";
+        }
+    }
 
-	public function delete($type = false)
-	{
-		requirePermission("emptyCache");
-		
-		if(!$type || !in_array($type, array('all_but_item', 'website', 'message', 'all')))
-		{
-			die();
-		}
-		else
-		{
-			switch($type)
-			{
-				case "all_but_item":
-					foreach($this->messageMatches as $match)
-					{
-						$this->cache->delete($match);
-					}
+    public function delete($type = false)
+    {
+        requirePermission("emptyCache");
 
-					foreach($this->websiteMatches as $match)
-					{
-						$this->cache->delete($match);
-					}
-				break;
+        if(!$type || !in_array($type, array('all_but_item', 'website', 'message', 'all')))
+        {
+            die();
+        }
+        else
+        {
+            switch($type)
+            {
+                case "all_but_item":
+                    foreach($this->messageMatches as $match)
+                    {
+                        $this->cache->delete($match);
+                    }
 
-				case "website":
-					foreach($this->websiteMatches as $match)
-					{
-						$this->cache->delete($match);
-					}
-				break;
+                    foreach($this->websiteMatches as $match)
+                    {
+                        $this->cache->delete($match);
+                    }
+                break;
 
-				case "message":
-					foreach($this->messageMatches as $match)
-					{
-						$this->cache->delete($match);
-					}
-				break;
+                case "website":
+                    foreach($this->websiteMatches as $match)
+                    {
+                        $this->cache->delete($match);
+                    }
+                break;
 
-				case "all":
-					$this->cache->deleteAll();
-				break;
-			}
+                case "message":
+                    foreach($this->messageMatches as $match)
+                    {
+                        $this->cache->delete($match);
+                    }
+                break;
 
-			die("success");
-		}
-	}
+                case "all":
+                    $this->cache->deleteAll();
+                break;
+            }
+
+            die("success");
+        }
+    }
 }

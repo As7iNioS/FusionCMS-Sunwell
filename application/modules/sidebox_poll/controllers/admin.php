@@ -2,107 +2,107 @@
 
 class Admin extends MX_Controller
 {
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
-		$this->load->model('poll_model');
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
+        $this->load->model('poll_model');
 
-		parent::__construct();
+        parent::__construct();
 
-		requirePermission("canViewAdmin", "sidebox_poll");
-	}
+        requirePermission("canViewAdmin", "sidebox_poll");
+    }
 
-	public function index()
-	{
-		// Change the title
-		$this->administrator->setTitle("Manage polls");
-		
-		$polls = $this->poll_model->getPolls();
-		
-		if($polls)
-		{
-			$polls[0]['active'] = true;
-			
-			foreach($polls as $key => $value)
-			{
-				$polls[$key]['answers'] = $this->poll_model->getAnswers($value['questionid']);
+    public function index()
+    {
+        // Change the title
+        $this->administrator->setTitle("Manage polls");
 
-				if($polls[$key]['answers'])
-				{
-					$polls[$key]['total'] = 0;
-					foreach($polls[$key]['answers'] as $k => $v)
-					{
-						$polls[$key]['answers'][$k]['votes'] = $this->poll_model->getVoteCount($value['questionid'], $v['answerid']);
-						$polls[$key]['total'] += $polls[$key]['answers'][$k]['votes'];
-					}
-				}
-			}
-		}
-			
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'polls' => $polls
-		);
+        $polls = $this->poll_model->getPolls();
 
-		// Load my view
-		$output = $this->template->loadPage("admin.tpl", $data);
+        if($polls)
+        {
+            $polls[0]['active'] = true;
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('Polls', $output);
+            foreach($polls as $key => $value)
+            {
+                $polls[$key]['answers'] = $this->poll_model->getAnswers($value['questionid']);
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/sidebox_poll/js/admin.js");
-	}
+                if($polls[$key]['answers'])
+                {
+                    $polls[$key]['total'] = 0;
+                    foreach($polls[$key]['answers'] as $k => $v)
+                    {
+                        $polls[$key]['answers'][$k]['votes'] = $this->poll_model->getVoteCount($value['questionid'], $v['answerid']);
+                        $polls[$key]['total'] += $polls[$key]['answers'][$k]['votes'];
+                    }
+                }
+            }
+        }
 
-	public function create()
-	{
-		// Check for the permission
-		requirePermission("createPoll", "sidebox_poll");
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'polls' => $polls
+        );
 
-		$data["question"] = $this->input->post("question");
-		
-		$answers = array();
+        // Load my view
+        $output = $this->template->loadPage("admin.tpl", $data);
 
-		$id = 1;
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('Polls', $output);
 
-		while($this->input->post('answer_'.$id) != false)
-		{
-			$answers[$id]['answer'] = $this->input->post('answer_'.$id);
-			$id++;
-		}
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/sidebox_poll/js/admin.js");
+    }
 
-		if(count($answers) < 2)
-		{
-			die("You must have at least two options");
-		}
+    public function create()
+    {
+        // Check for the permission
+        requirePermission("createPoll", "sidebox_poll");
 
-		$this->poll_model->add($data, $answers);
+        $data["question"] = $this->input->post("question");
 
-		// Add log
-		$this->logger->createLog('Created poll', $data["question"]);
+        $answers = array();
 
-		$this->plugins->onCreatePoll($id, $data['question'], $answers);
+        $id = 1;
 
-		die('window.location.reload(true)');
-	}
+        while($this->input->post('answer_'.$id) != false)
+        {
+            $answers[$id]['answer'] = $this->input->post('answer_'.$id);
+            $id++;
+        }
 
-	public function delete($id = false)
-	{
-		// Check for the permission
-		requirePermission("removePoll", "sidebox_poll");
+        if(count($answers) < 2)
+        {
+            die("You must have at least two options");
+        }
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+        $this->poll_model->add($data, $answers);
 
-		$this->poll_model->delete($id);
+        // Add log
+        $this->logger->createLog('Created poll', $data["question"]);
 
-		// Add log
-		$this->logger->createLog('Removed poll', $id);
+        $this->plugins->onCreatePoll($id, $data['question'], $answers);
 
-		$this->plugins->onDeletePoll($id);
-	}
+        die('window.location.reload(true)');
+    }
+
+    public function delete($id = false)
+    {
+        // Check for the permission
+        requirePermission("removePoll", "sidebox_poll");
+
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
+
+        $this->poll_model->delete($id);
+
+        // Add log
+        $this->logger->createLog('Removed poll', $id);
+
+        $this->plugins->onDeletePoll($id);
+    }
 }

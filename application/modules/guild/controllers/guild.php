@@ -2,91 +2,91 @@
 
 class Guild extends MX_Controller
 {
-	private $realm;
-	private $guild;
-	private $members;
-	private $guildLeader;
-	
-	public function __construct()
-	{
-		$this->load->model('guild_model');
-	}
+    private $realm;
+    private $guild;
+    private $members;
+    private $guildLeader;
 
-	public function index($realm = false, $id = false)
-	{
-		// Make sure item and realm are set
-		if(!$id || !$realm)
-		{
-			die(lang("invalid", "guild"));
-		}
+    public function __construct()
+    {
+        $this->load->model('guild_model');
+    }
 
-		$cache = $this->cache->get('guild_'.$realm.'_'.$id."_".getLang());
+    public function index($realm = false, $id = false)
+    {
+        // Make sure item and realm are set
+        if(!$id || !$realm)
+        {
+            die(lang("invalid", "guild"));
+        }
 
-		if($cache !== false)
-		{
-			$page = $cache;
-		}
-		else
-		{
-			$this->realm = $realm;
-			$this->loadGuild($realm, $id);
+        $cache = $this->cache->get('guild_'.$realm.'_'.$id."_".getLang());
 
-			if(!$this->guild)
-			{
-				$this->template->setTitle(lang("invalid_guild", "guild"));
-			}
-			else
-			{
-				$this->template->setTitle($this->guild['guildName']);
-			}
+        if($cache !== false)
+        {
+            $page = $cache;
+        }
+        else
+        {
+            $this->realm = $realm;
+            $this->loadGuild($realm, $id);
 
-			$guild_data = array(
-				'module' => 'guild',
-				'guild' => $this->guild,
-				'members' => $this->members,
-				'leader' => $this->guildLeader,
-				'realmId' => $realm,
-				'realmName' => $this->realms->getRealm($realm)->getName(),
-				'url' => $this->template->page_url
-			);
+            if(!$this->guild)
+            {
+                $this->template->setTitle(lang("invalid_guild", "guild"));
+            }
+            else
+            {
+                $this->template->setTitle($this->guild['guildName']);
+            }
 
-			$content = $this->template->loadPage("guild.tpl", $guild_data);
+            $guild_data = array(
+                'module' => 'guild',
+                'guild' => $this->guild,
+                'members' => $this->members,
+                'leader' => $this->guildLeader,
+                'realmId' => $realm,
+                'realmName' => $this->realms->getRealm($realm)->getName(),
+                'url' => $this->template->page_url
+            );
 
-			$data = array(
-				"module" => "default",
-				"headline" => "<span style='cursor:pointer;' onClick='window.location=\"".$this->template->page_url."armory\"'>".lang("armory", "guild")."</span> &rarr; ".((!$this->guild) ? lang("invalid_guild", "guild") : $this->guild['guildName']),
-				"content" => $content
-			);
+            $content = $this->template->loadPage("guild.tpl", $guild_data);
 
-			$page = $this->template->loadPage("page.tpl", $data);
+            $data = array(
+                "module" => "default",
+                "headline" => "<span style='cursor:pointer;' onClick='window.location=\"".$this->template->page_url."armory\"'>".lang("armory", "guild")."</span> &rarr; ".((!$this->guild) ? lang("invalid_guild", "guild") : $this->guild['guildName']),
+                "content" => $content
+            );
 
-			$this->cache->save('guild_'.$realm.'_'.$id."_".getLang(), $page, 60*60);
-		}
+            $page = $this->template->loadPage("page.tpl", $data);
 
-		$this->template->view($page, "modules/guild/css/guild.css");
-	}
-	
-	public function loadGuild($realm, $id)
-	{
-		$this->guild = $this->guild_model->getGuild($realm, $id);
-		$this->guildLeader = $this->guild_model->loadMember($realm, $this->guild['leaderguid']);
-		$this->members = $this->guild_model->getGuildMembers($realm, $id);
+            $this->cache->save('guild_'.$realm.'_'.$id."_".getLang(), $page, 60*60);
+        }
 
-		if($this->guild)
-		{
-			$this->guildLeader['className'] = $this->realms->getClass($this->guildLeader['class']);
-			$this->guildLeader['raceName'] = $this->realms->getRace($this->guildLeader['race']);
-			$this->guildLeader['avatar'] = $this->realms->formatAvatarPath($this->guildLeader);
+        $this->template->view($page, "modules/guild/css/guild.css");
+    }
 
-			if($this->members)
-			{
-				foreach($this->members as $key => $value)
-				{
-					$this->members[$key]['className'] = $this->realms->getClass($this->members[$key]['class']);
-					$this->members[$key]['raceName'] = $this->realms->getRace($this->members[$key]['race']);
-					$this->members[$key]['avatar'] = $this->realms->formatAvatarPath($this->members[$key]);
-				}
-			}
-		}
-	}
+    public function loadGuild($realm, $id)
+    {
+        $this->guild = $this->guild_model->getGuild($realm, $id);
+        $this->guildLeader = $this->guild_model->loadMember($realm, $this->guild['leaderguid']);
+        $this->members = $this->guild_model->getGuildMembers($realm, $id);
+
+        if($this->guild)
+        {
+            $this->guildLeader['className'] = $this->realms->getClass($this->guildLeader['class']);
+            $this->guildLeader['raceName'] = $this->realms->getRace($this->guildLeader['race']);
+            $this->guildLeader['avatar'] = $this->realms->formatAvatarPath($this->guildLeader);
+
+            if($this->members)
+            {
+                foreach($this->members as $key => $value)
+                {
+                    $this->members[$key]['className'] = $this->realms->getClass($this->members[$key]['class']);
+                    $this->members[$key]['raceName'] = $this->realms->getRace($this->members[$key]['race']);
+                    $this->members[$key]['avatar'] = $this->realms->formatAvatarPath($this->members[$key]);
+                }
+            }
+        }
+    }
 }

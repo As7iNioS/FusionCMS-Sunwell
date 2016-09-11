@@ -1,26 +1,26 @@
 #gm .nice_button {
-	margin-right:5px;
+    margin-right:5px;
 }
 
 #gm .gm_ticket {
-	margin-bottom:20px;
+    margin-bottom:20px;
 }
 
 #gm .gm_ticket_text {
-	padding:20px;
-	padding-top:5px;
+    padding:20px;
+    padding-top:5px;
 }
 
 #gm .gm_ticket_info_full {
-	display:none;
+    display:none;
 }
 
 .gm_tools {
-	display:none;
-	margin:20px;
-	margin-top:5px;
+    display:none;
+    margin:20px;
+    margin-top:5px;
 }
 
 #gm #top_tools {
-	padding:5px;
+    padding:5px;
 }

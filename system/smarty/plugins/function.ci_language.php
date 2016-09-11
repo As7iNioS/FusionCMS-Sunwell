@@ -50,8 +50,8 @@ function smarty_function_ci_language($params, &$smarty)
             $_template = $smarty->get_template_vars( substr($_template, 1) );
         }
          */
-		$CI = &get_instance();
-		if ($_file != '') $CI->lang->load($_file, $_lang);
+        $CI = &get_instance();
+        if ($_file != '') $CI->lang->load($_file, $_lang);
 
         if ($_line != '')
         {
@@ -67,31 +67,31 @@ function smarty_function_ci_language($params, &$smarty)
             }
 // echo "LINE ->".$line."<-";
 
-	        $val = $CI->lang->line($line);
+            $val = $CI->lang->line($line);
             if ( $val == '' )
             {
-	            $val = $line;
+                $val = $line;
             }
 
             if ($_assign != '')
             {
-	            $smarty->assign( $_assign, $val );
+                $smarty->assign( $_assign, $val );
             }
             else
             {
-	            echo $val;
+                echo $val;
             }
         }
         /*
         else
         {
-		    $arr = $CI->lang->fetch($_lang);
+            $arr = $CI->lang->fetch($_lang);
             if (isset($arr) && is_array($arr))
             {
-		        foreach( $arr as $name => $value )
-		        {
-			        $smarty->assign( $name, $value );
-		        }
+                foreach( $arr as $name => $value )
+                {
+                    $smarty->assign( $name, $value );
+                }
             }
         }
          */

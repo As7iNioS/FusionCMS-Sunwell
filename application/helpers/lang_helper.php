@@ -6,14 +6,14 @@
  */
 function getLang()
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->getLanguage();
+    return $CI->language->getLanguage();
 }
 
 /**
@@ -24,14 +24,14 @@ function getLang()
  */
 function lang($id, $file = 'main')
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->get($id, $file);
+    return $CI->language->get($id, $file);
 }
 
 /**
@@ -42,14 +42,14 @@ function lang($id, $file = 'main')
  */
 function clientLang($id, $file = 'main')
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->setClientData($id, $file);
+    return $CI->language->setClientData($id, $file);
 }
 
 /**
@@ -59,14 +59,14 @@ function clientLang($id, $file = 'main')
  */
 function langColumn($json)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->translateLanguageColumn($json);
+    return $CI->language->translateLanguageColumn($json);
 }
 
 /**
@@ -76,12 +76,12 @@ function langColumn($json)
  */
 function getColumnLang($json)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->getColumnLanguage($json);
+    return $CI->language->getColumnLanguage($json);
 }

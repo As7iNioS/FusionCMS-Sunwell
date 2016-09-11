@@ -8,248 +8,248 @@
 
 function UI()
 {
-	/**
-	 * Initializing actions
-	 */
-	this.initialize = function()
-	{
-		// Is the image slider enabled?
-		if($("#slider").length > 0)
-		{
-			UI.slider();
-		}
+    /**
+     * Initializing actions
+     */
+    this.initialize = function()
+    {
+        // Is the image slider enabled?
+        if($("#slider").length > 0)
+        {
+            UI.slider();
+        }
 
-		// Is the vote reminder enabled?
-		if(Config.voteReminder)
-		{
-			UI.voteReminder();
-		}
+        // Is the vote reminder enabled?
+        if(Config.voteReminder)
+        {
+            UI.voteReminder();
+        }
 
-		// Give older browsers some html5-placeholder love!
-		$('input[placeholder], textarea[placeholder]').placeholder();
-		
-		// Initialize dropdown panels
-		UI.dropdown.initialize();
+        // Give older browsers some html5-placeholder love!
+        $('input[placeholder], textarea[placeholder]').placeholder();
 
-		// Enable tooltip
-		Tooltip.initialize();
-	};
+        // Initialize dropdown panels
+        UI.dropdown.initialize();
 
-	/**
-	 * Display the vote reminder popup
-	 */
-	this.voteReminder = function()
-	{
-		// Show box
-		$("#popup_bg").fadeTo(200, 0.5);
-		$("#vote_reminder").fadeTo(200, 1);
+        // Enable tooltip
+        Tooltip.initialize();
+    };
 
-		// Assign hide-function to background
-		$("#popup_bg").bind('click', function()
-		{
-			UI.hidePopup();
-		});
-	};
+    /**
+     * Display the vote reminder popup
+     */
+    this.voteReminder = function()
+    {
+        // Show box
+        $("#popup_bg").fadeTo(200, 0.5);
+        $("#vote_reminder").fadeTo(200, 1);
 
-	/**
-	 * Initialize the image slider
-	 */
-	this.slider = function()
-	{
-		var config = {
-			autoplay: true,
-			controls: true,
-			captions: true,
-			delay: Config.Slider.interval
-		};
+        // Assign hide-function to background
+        $("#popup_bg").bind('click', function()
+        {
+            UI.hidePopup();
+        });
+    };
 
-		if(Config.Slider.effect.length > 0)
-		{
-			config.transitions = new Array(Config.Slider.effect);
-		}
+    /**
+     * Initialize the image slider
+     */
+    this.slider = function()
+    {
+        var config = {
+            autoplay: true,
+            controls: true,
+            captions: true,
+            delay: Config.Slider.interval
+        };
 
-		window.myFlux = new flux.slider('#slider', config);
-	};
+        if(Config.Slider.effect.length > 0)
+        {
+            config.transitions = new Array(Config.Slider.effect);
+        }
 
-	/**
-	 * Shows an alert box
-	 * @param time
-	 * @param question
-	 * @param time
-	 */
-	this.alert = function(question, time)
-	{		
-		// Put question and button text
-		$("#alert_message").html(question);
+        window.myFlux = new flux.slider('#slider', config);
+    };
 
-		// Show box
-		$("#popup_bg").fadeTo(200, 0.5);
-		$("#alert").fadeTo(200, 1);
+    /**
+     * Shows an alert box
+     * @param time
+     * @param question
+     * @param time
+     */
+    this.alert = function(question, time)
+    {
+        // Put question and button text
+        $("#alert_message").html(question);
 
-		if(typeof time == "undefined")
-		{
-			$("#alert_message").css({marginBottom:"10px"});
-			$(".popup_links").show();
+        // Show box
+        $("#popup_bg").fadeTo(200, 0.5);
+        $("#alert").fadeTo(200, 1);
 
-			// Assign click event
-			$("#alert_button").bind('click', function()
-			{
-				UI.hidePopup();	
-			});
-		}
-		else
-		{
-			$("#alert_message").css({marginBottom:"0px"});
-			$(".popup_links").hide();
+        if(typeof time == "undefined")
+        {
+            $("#alert_message").css({marginBottom:"10px"});
+            $(".popup_links").show();
 
-			setTimeout(function()
-			{
-				UI.hidePopup();
-			}, time);
-		}
+            // Assign click event
+            $("#alert_button").bind('click', function()
+            {
+                UI.hidePopup();
+            });
+        }
+        else
+        {
+            $("#alert_message").css({marginBottom:"0px"});
+            $(".popup_links").hide();
 
-		// Assign hide-function to background
-		$("#popup_bg").bind('click', function()
-		{
-			UI.hidePopup();
-		});
+            setTimeout(function()
+            {
+                UI.hidePopup();
+            }, time);
+        }
 
-		// Assign key events
-		$(document).keypress(function(event)
-		{
-			// If "enter"
-			if(event.which == 13)
-			{
-				UI.hidePopup();
-			}
-		});
-	};
+        // Assign hide-function to background
+        $("#popup_bg").bind('click', function()
+        {
+            UI.hidePopup();
+        });
 
-	/**
-	 * Shows a confirm box
-	 * @param button
-	 * @param callback
-	 * @param callback_cancel
-	 * @param width
-	 * @param question
-	 * @param button
-	 * @param callback
-	 * @param callback_cancel
-	 * @param width
-	 */
-	this.confirm = function(question, button, callback, callback_cancel, width)
-	{
-		var normalWidth = $("#confirm").css("width");
-		var normalMargin = $("#confirm").css("margin-left");
+        // Assign key events
+        $(document).keypress(function(event)
+        {
+            // If "enter"
+            if(event.which == 13)
+            {
+                UI.hidePopup();
+            }
+        });
+    };
 
-		if(width)
-		{
-			$("#confirm").css({width: width+"px"});
-			$("#confirm").css({marginLeft: "-"+(width/2)+"px"});
-		}
+    /**
+     * Shows a confirm box
+     * @param button
+     * @param callback
+     * @param callback_cancel
+     * @param width
+     * @param question
+     * @param button
+     * @param callback
+     * @param callback_cancel
+     * @param width
+     */
+    this.confirm = function(question, button, callback, callback_cancel, width)
+    {
+        var normalWidth = $("#confirm").css("width");
+        var normalMargin = $("#confirm").css("margin-left");
 
-		$(".popup_links").show();
-		
-		// Put question and button text
-		$("#confirm_question").html(question);
-		$("#confirm_button").html(button);
+        if(width)
+        {
+            $("#confirm").css({width: width+"px"});
+            $("#confirm").css({marginLeft: "-"+(width/2)+"px"});
+        }
 
-		// Show box
-		$("#popup_bg").fadeTo(200, 0.5);
-		$("#confirm").fadeTo(200, 1);
+        $(".popup_links").show();
 
-		// Assign click event
-		$("#confirm_button").bind('click', function()
-		{
-			$("#confirm").css({width:normalWidth});
-			$("#confirm").css({marginLeft:normalMargin});
-			callback();
-			UI.hidePopup();	
-		});
+        // Put question and button text
+        $("#confirm_question").html(question);
+        $("#confirm_button").html(button);
 
-		// Assign hide-function to background
-		$("#popup_bg").bind('click', function()
-		{
-			$("#confirm").css({width:normalWidth});
-			$("#confirm").css({marginLeft:normalMargin});
-			UI.hidePopup();
-		});
+        // Show box
+        $("#popup_bg").fadeTo(200, 0.5);
+        $("#confirm").fadeTo(200, 1);
 
-		// Assign key events
-		$(document).keypress(function(event)
-		{
-			// If "enter"
-			if(event.which == 13)
-			{
-				$("#confirm").css({width:normalWidth});
-				$("#confirm").css({marginLeft:normalMargin});
-				callback();
-				UI.hidePopup();
-			}
-		});
-	};
+        // Assign click event
+        $("#confirm_button").bind('click', function()
+        {
+            $("#confirm").css({width:normalWidth});
+            $("#confirm").css({marginLeft:normalMargin});
+            callback();
+            UI.hidePopup();
+        });
 
-	/**
-	 * Hides the current popup box
-	 */
-	this.hidePopup = function()
-	{
-		// Hide box
-		$("#popup_bg").hide();
-		$("#confirm").hide();
-		$("#alert").hide();
-		$("#vote_reminder").hide();
+        // Assign hide-function to background
+        $("#popup_bg").bind('click', function()
+        {
+            $("#confirm").css({width:normalWidth});
+            $("#confirm").css({marginLeft:normalMargin});
+            UI.hidePopup();
+        });
 
-		// Remove events
-		$("#confirm_button").unbind('click');
-		$("#alert_button").unbind('click');
-		$(document).unbind('keypress');
-	};
+        // Assign key events
+        $(document).keypress(function(event)
+        {
+            // If "enter"
+            if(event.which == 13)
+            {
+                $("#confirm").css({width:normalWidth});
+                $("#confirm").css({marginLeft:normalMargin});
+                callback();
+                UI.hidePopup();
+            }
+        });
+    };
 
-	/**
-	 * Display the amount of remaining characters
-	 * @param field
-	 * @param indicator
-	 */
-	this.limitCharacters = function(field, indicator)
-	{
-		// Get the values
-		var max = field.maxLength;
-		var length = field.value.length;
+    /**
+     * Hides the current popup box
+     */
+    this.hidePopup = function()
+    {
+        // Hide box
+        $("#popup_bg").hide();
+        $("#confirm").hide();
+        $("#alert").hide();
+        $("#vote_reminder").hide();
 
-		// Change the indicator
-		document.getElementById(indicator).innerHTML = length + " / " + max;
-	};
-	
-	/**
-	 * Creates a expandable box
-	 */
-	this.dropdown = {
-		initialize: function()
-		{
-			$(document).ready(function() {
-				UI.dropdown.create('.dropdown');
-			});
-		},
-		
-		create: function(element)
-		{
-			$(element)
-				.not('[data-dropdown-initialized]')
-				.attr('data-dropdown-initialized', 'true')
-				.children('h3')
-				.bind('click', function() 
-				{
-					$(this).next('div').slideToggle(200, function() {
+        // Remove events
+        $("#confirm_button").unbind('click');
+        $("#alert_button").unbind('click');
+        $(document).unbind('keypress');
+    };
 
-						if ($(this).is(':visible'))
-							$(this).parent('.dropdown').addClass('active');
-						else
-							$(this).parent('.dropdown').removeClass('active');
-					});
-				});
-		}
-	}
+    /**
+     * Display the amount of remaining characters
+     * @param field
+     * @param indicator
+     */
+    this.limitCharacters = function(field, indicator)
+    {
+        // Get the values
+        var max = field.maxLength;
+        var length = field.value.length;
+
+        // Change the indicator
+        document.getElementById(indicator).innerHTML = length + " / " + max;
+    };
+
+    /**
+     * Creates a expandable box
+     */
+    this.dropdown = {
+        initialize: function()
+        {
+            $(document).ready(function() {
+                UI.dropdown.create('.dropdown');
+            });
+        },
+
+        create: function(element)
+        {
+            $(element)
+                .not('[data-dropdown-initialized]')
+                .attr('data-dropdown-initialized', 'true')
+                .children('h3')
+                .bind('click', function()
+                {
+                    $(this).next('div').slideToggle(200, function() {
+
+                        if ($(this).is(':visible'))
+                            $(this).parent('.dropdown').addClass('active');
+                        else
+                            $(this).parent('.dropdown').removeClass('active');
+                    });
+                });
+        }
+    }
 }
 
 /**
@@ -257,224 +257,224 @@ function UI()
  */
 function Tooltip()
 {
-	/**
-	 * Add event-listeners
-	 */
-	this.initialize = function()
-	{
-		// Add the tooltip element
-		$("body").prepend('<div id="tooltip"></div>');
+    /**
+     * Add event-listeners
+     */
+    this.initialize = function()
+    {
+        // Add the tooltip element
+        $("body").prepend('<div id="tooltip"></div>');
 
-		// Add mouse-over event listeners
-		this.addEvents();
-	};
+        // Add mouse-over event listeners
+        this.addEvents();
+    };
 
-	/**
-	 * Used to support Ajax content
-	 * Reloads the tooltip elements
-	 */
-	this.refresh = function()
-	{
-		// Remove all
-		$("[data-tip]").unbind('hover');
+    /**
+     * Used to support Ajax content
+     * Reloads the tooltip elements
+     */
+    this.refresh = function()
+    {
+        // Remove all
+        $("[data-tip]").unbind('hover');
 
-		// Re-add
-		this.addEvents();
-	};
-	
-	/**
-	 * Adds mouseover events to all elements
-	 * that should show a tooltip.
-	 */
-	this.addEvents = function()
-	{
-		Tooltip.addEvents.handleMouseMove = function(e)
-		{
-			Tooltip.move(e.pageX, e.pageY);
-		};
-		
-		// Add mouse-over event listeners
-		$("[data-tip]").hover(
-			function(e)
-			{
-				$(document).bind('mousemove', Tooltip.addEvents.handleMouseMove);
-				Tooltip.show($(this).attr("data-tip"));
-				Tooltip.move(e.pageX, e.pageY);
-			},
-			function()
-			{
+        // Re-add
+        this.addEvents();
+    };
+
+    /**
+     * Adds mouseover events to all elements
+     * that should show a tooltip.
+     */
+    this.addEvents = function()
+    {
+        Tooltip.addEvents.handleMouseMove = function(e)
+        {
+            Tooltip.move(e.pageX, e.pageY);
+        };
+
+        // Add mouse-over event listeners
+        $("[data-tip]").hover(
+            function(e)
+            {
+                $(document).bind('mousemove', Tooltip.addEvents.handleMouseMove);
+                Tooltip.show($(this).attr("data-tip"));
+                Tooltip.move(e.pageX, e.pageY);
+            },
+            function()
+            {
                 $("#tooltip").hide();
-				$(document).unbind('mousemove', Tooltip.addEvents.handleMouseMove);
-			}
-		);
+                $(document).unbind('mousemove', Tooltip.addEvents.handleMouseMove);
+            }
+        );
 
-		if(Config.UseFusionTooltip)
-		{
-			$("[rel]").hover(
-				function(e)
-				{
-					$(document).bind('mousemove', Tooltip.addEvents.handleMouseMove);
-					if(/^item=[0-9]*$/.test($(this).attr("rel")))
-					{
-						Tooltip.Item.get(this, function(data)
-						{
-							Tooltip.show(data);
-							Tooltip.move(e.pageX, e.pageY);
-						});
-					}
-				},
-				function()
-				{
-					$(document).unbind('mousemove', Tooltip.addEvents.handleMouseMove);
-					$("#tooltip").hide();
-				}
-			);
-		}
-	};
+        if(Config.UseFusionTooltip)
+        {
+            $("[rel]").hover(
+                function(e)
+                {
+                    $(document).bind('mousemove', Tooltip.addEvents.handleMouseMove);
+                    if(/^item=[0-9]*$/.test($(this).attr("rel")))
+                    {
+                        Tooltip.Item.get(this, function(data)
+                        {
+                            Tooltip.show(data);
+                            Tooltip.move(e.pageX, e.pageY);
+                        });
+                    }
+                },
+                function()
+                {
+                    $(document).unbind('mousemove', Tooltip.addEvents.handleMouseMove);
+                    $("#tooltip").hide();
+                }
+            );
+        }
+    };
 
-	/**
-	 * Moves tooltip
-	 * @param x
-	 * @param y
-	 */
-	this.move = function(x, y)
-	{
-		// Get half of the width
-		var width = ($("#tooltip").css("width").replace("px", "") / 2);
+    /**
+     * Moves tooltip
+     * @param x
+     * @param y
+     */
+    this.move = function(x, y)
+    {
+        // Get half of the width
+        var width = ($("#tooltip").css("width").replace("px", "") / 2);
 
-		// Position it at the mouse, and center
-		$("#tooltip").css("left", x - width).css("top", y + 25);
-	};
+        // Position it at the mouse, and center
+        $("#tooltip").css("left", x - width).css("top", y + 25);
+    };
 
-	/**
-	 * Displays the tooltip
-	 * @param data
-	 * @param e
-	 */
-	this.show = function(data)
-	{
-		$("#tooltip").html(data).show();
-	};
+    /**
+     * Displays the tooltip
+     * @param data
+     * @param e
+     */
+    this.show = function(data)
+    {
+        $("#tooltip").html(data).show();
+    };
 
-	/**
-	 * Item tooltip object
-	 */
-	 this.Item = new function()
-	 {
-	 	/**
-	 	 * Loading HTML
-	 	 */
-	 	this.loading = "Loading...";
+    /**
+     * Item tooltip object
+     */
+     this.Item = new function()
+     {
+         /**
+          * Loading HTML
+          */
+         this.loading = "Loading...";
 
-	 	/**
-	 	 * Runtime cache
-	 	 */
-	 	this.cache = [];
+         /**
+          * Runtime cache
+          */
+         this.cache = [];
 
-	 	/**
-	 	 * The currently displayed item ID
-	 	 */
-	 	this.currentId = false;
+         /**
+          * The currently displayed item ID
+          */
+         this.currentId = false;
 
-		 /**
-		  * Load an item and display it in the tooltip
-		  * @param element
-		  * @param callback
-		  */
-	 	this.get = function(element, callback)
-	 	{
-	 		var obj = $(element);
-	 		var realm = obj.attr("data-realm");
-	 		var id = obj.attr("rel").replace("item=", "");
-	 		Tooltip.Item.currentId = id;
+         /**
+          * Load an item and display it in the tooltip
+          * @param element
+          * @param callback
+          */
+         this.get = function(element, callback)
+         {
+             var obj = $(element);
+             var realm = obj.attr("data-realm");
+             var id = obj.attr("rel").replace("item=", "");
+             Tooltip.Item.currentId = id;
 
-	 		if(id in this.cache)
-	 		{
-	 			callback(this.cache[id])
-	 		}
-	 		else
-	 		{
-	 			var cache = Tooltip.Item.CacheObj.get("item_" + realm + "_" + id + "_" + Config.language);
+             if(id in this.cache)
+             {
+                 callback(this.cache[id])
+             }
+             else
+             {
+                 var cache = Tooltip.Item.CacheObj.get("item_" + realm + "_" + id + "_" + Config.language);
 
-		 		if(cache !== false)
-		 		{
-		 			callback(cache);
-		 		}
-		 		else
-		 		{
-		 			callback(this.loading);
+                 if(cache !== false)
+                 {
+                     callback(cache);
+                 }
+                 else
+                 {
+                     callback(this.loading);
 
-			 		$.get(Config.URL + "tooltip/" + realm + "/" + id, function(data)
-			 		{
-			 			// Cache it this visit
-			 			Tooltip.Item.cache[id] = data;
-			 			Tooltip.Item.CacheObj.save("item_" + realm + "_" + id  + "_" + Config.language, data);
+                     $.get(Config.URL + "tooltip/" + realm + "/" + id, function(data)
+                     {
+                         // Cache it this visit
+                         Tooltip.Item.cache[id] = data;
+                         Tooltip.Item.CacheObj.save("item_" + realm + "_" + id  + "_" + Config.language, data);
 
-			 			// Make sure it's still visible
-			 			if($("#tooltip").is(":visible") && Tooltip.Item.currentId == id)
-			 			{
-			 				callback(data);
-			 			}
-			 		});
-			 	}
-		 	}
-	 	};
+                         // Make sure it's still visible
+                         if($("#tooltip").is(":visible") && Tooltip.Item.currentId == id)
+                         {
+                             callback(data);
+                         }
+                     });
+                 }
+             }
+         };
 
-	 	this.CacheObj = new function()
-	 	{
-			/**
-			 * Get cache from localStorage
-			 * @return Mixed
-			 * @param name
-			 */
-	 		this.get = function(name)
-	 		{
-	 			if(typeof localStorage != "undefined")
-	 			{
-	 				var cache = localStorage.getItem(name);
-	 				
-		 			if(cache)
-		 			{
-		 				cache = JSON.parse(cache);
+         this.CacheObj = new function()
+         {
+            /**
+             * Get cache from localStorage
+             * @return Mixed
+             * @param name
+             */
+             this.get = function(name)
+             {
+                 if(typeof localStorage != "undefined")
+                 {
+                     var cache = localStorage.getItem(name);
 
-		 				// If it hasn't expired
-		 				if(cache.expiration > Math.round((new Date()).getTime() / 1000))
-		 				{
-		 					return cache.data;
-		 				}
-		 				else
-		 				{
-		 					return false;
-		 				}
-		 			}
-		 			else
-		 			{
-		 				return false;
-		 			}
-		 		}
-		 		else
-		 		{
-		 			return false;
-		 		}
-	 		};
+                     if(cache)
+                     {
+                         cache = JSON.parse(cache);
 
-			/**
-			 * Save data to localStorage
-			 * @param name
-			 * @param data
-			 */
-	 		this.save = function(name, data)
-	 		{
-	 			if(typeof localStorage != "undefined")
-	 			{
-	 				var time = Math.round((new Date()).getTime() / 1000);
-	 				var expiration = time + 60*60*24;
+                         // If it hasn't expired
+                         if(cache.expiration > Math.round((new Date()).getTime() / 1000))
+                         {
+                             return cache.data;
+                         }
+                         else
+                         {
+                             return false;
+                         }
+                     }
+                     else
+                     {
+                         return false;
+                     }
+                 }
+                 else
+                 {
+                     return false;
+                 }
+             };
 
-		 			localStorage.setItem(name, JSON.stringify({"data": data, "expiration": expiration}));
-	 			}
-	 		}
-	 	}
-	 }
+            /**
+             * Save data to localStorage
+             * @param name
+             * @param data
+             */
+             this.save = function(name, data)
+             {
+                 if(typeof localStorage != "undefined")
+                 {
+                     var time = Math.round((new Date()).getTime() / 1000);
+                     var expiration = time + 60*60*24;
+
+                     localStorage.setItem(name, JSON.stringify({"data": data, "expiration": expiration}));
+                 }
+             }
+         }
+     }
 }
 
 var UI = new UI();

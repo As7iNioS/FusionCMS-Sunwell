@@ -2,120 +2,120 @@
 
 class Admin extends MX_Controller
 {
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
-		$this->load->model('news_model');
-		$this->load->helper('tinymce_helper');
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
+        $this->load->model('news_model');
+        $this->load->helper('tinymce_helper');
 
-		parent::__construct();
+        parent::__construct();
 
-		requirePermission("canViewAdmin");
-	}
+        requirePermission("canViewAdmin");
+    }
 
-	public function index()
-	{
-		// Change the title
-		$this->administrator->setTitle("News");
+    public function index()
+    {
+        // Change the title
+        $this->administrator->setTitle("News");
 
-		$articles = $this->news_model->getArticles(true);
+        $articles = $this->news_model->getArticles(true);
 
-		if($articles)
-		{
-			foreach($articles as $key => $value)
-			{
-				$articles[$key]['headline'] = langColumn($articles[$key]['headline']);
-					
-				if(strlen($articles[$key]['headline']) > 20)
-				{
-					$articles[$key]['headline'] = mb_substr($articles[$key]['headline'], 0, 20) . '...';
-				}	
+        if($articles)
+        {
+            foreach($articles as $key => $value)
+            {
+                $articles[$key]['headline'] = langColumn($articles[$key]['headline']);
 
-				$articles[$key]['nickname'] = $this->user->getNickname($value['author_id']);
-			}
-		}
+                if(strlen($articles[$key]['headline']) > 20)
+                {
+                    $articles[$key]['headline'] = mb_substr($articles[$key]['headline'], 0, 20) . '...';
+                }
 
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'news' => $articles
-		);
+                $articles[$key]['nickname'] = $this->user->getNickname($value['author_id']);
+            }
+        }
 
-		// Load my view
-		$output = $this->template->loadPage("admin.tpl", $data);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'news' => $articles
+        );
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('News articles', $output);
+        // Load my view
+        $output = $this->template->loadPage("admin.tpl", $data);
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/news/js/admin.js");
-	}
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('News articles', $output);
 
-	/**
-	 * Edit a news post with the given id.
-	 * @param bool $id
-	 */
-	public function edit($id = false)
-	{
-		requirePermission("canEditArticle");
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/news/js/admin.js");
+    }
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+    /**
+     * Edit a news post with the given id.
+     * @param bool $id
+     */
+    public function edit($id = false)
+    {
+        requirePermission("canEditArticle");
 
-		$article = $this->news_model->getArticle($id);
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
 
-		if($article == false)
-		{
-			show_error("There is no article with ID ".$id);
-			die();
-		}
+        $article = $this->news_model->getArticle($id);
 
-		// Change the title
-		$this->administrator->setTitle(langColumn($article['headline']));
+        if($article == false)
+        {
+            show_error("There is no article with ID ".$id);
+            die();
+        }
 
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'article' => $article
-		);
+        // Change the title
+        $this->administrator->setTitle(langColumn($article['headline']));
 
-		// Load my view
-		$output = $this->template->loadPage("admin_edit.tpl", $data);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'article' => $article
+        );
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('<a href="'.$this->template->page_url.'news/admin">News articles</a> &rarr; '.langColumn($article['headline']), $output);
+        // Load my view
+        $output = $this->template->loadPage("admin_edit.tpl", $data);
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/news/js/admin.js");
-	}
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('<a href="'.$this->template->page_url.'news/admin">News articles</a> &rarr; '.langColumn($article['headline']), $output);
 
-	public function delete($id = false)
-	{
-		requirePermission("canRemoveArticle");
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/news/js/admin.js");
+    }
 
-		if(!$id)
-		{
-			die();
-		}
-		
-		$this->cache->delete('news_*.cache');
-		$this->news_model->delete($id);
+    public function delete($id = false)
+    {
+        requirePermission("canRemoveArticle");
 
-		// Add log
-		$this->logger->createLog('Deleted article', $id);
+        if(!$id)
+        {
+            die();
+        }
 
-		$this->plugins->onDelete($id);
-	}
+        $this->cache->delete('news_*.cache');
+        $this->news_model->delete($id);
 
-	public function create($id = false)
-	{
-		requirePermission("canAddArticle");
+        // Add log
+        $this->logger->createLog('Deleted article', $id);
 
-		$headline = $this->input->post('headline');
-		$content = $this->input->post('content');
+        $this->plugins->onDelete($id);
+    }
+
+    public function create($id = false)
+    {
+        requirePermission("canAddArticle");
+
+        $headline = $this->input->post('headline');
+        $content = $this->input->post('content');
 
         $headlineParsed = json_decode($headline);
         foreach ($headlineParsed as $language => $text) {
@@ -133,27 +133,27 @@ class Admin extends MX_Controller
             }
         }
 
-		if($id)
-		{
-			$this->news_model->update($id, $headline, $content);
+        if($id)
+        {
+            $this->news_model->update($id, $headline, $content);
 
-			// Add log
-			$this->logger->createLog('Edited article', $headline);
+            // Add log
+            $this->logger->createLog('Edited article', $headline);
 
-			$this->plugins->onUpdate($id, $headline, $content);
-		}
-		else
-		{
-			$this->news_model->create($headline, $content);
+            $this->plugins->onUpdate($id, $headline, $content);
+        }
+        else
+        {
+            $this->news_model->create($headline, $content);
 
-			// Add log
-			$this->logger->createLog('Created article', $headline);
+            // Add log
+            $this->logger->createLog('Created article', $headline);
 
-			$this->plugins->onCreate($headline, $content);
-		}
+            $this->plugins->onCreate($headline, $content);
+        }
 
-		$this->cache->delete('news_*.cache');
+        $this->cache->delete('news_*.cache');
 
-		die("yes");
-	}
+        die("yes");
+    }
 }

@@ -2,295 +2,295 @@
 
 class Admin extends MX_Controller
 {
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
-		$this->load->model('donate_model');
-		$this->load->config('donate');
-		
-		parent::__construct();
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
+        $this->load->model('donate_model');
+        $this->load->config('donate');
 
-		requirePermission("viewAdmin");
-	}
+        parent::__construct();
 
-	public function index()
-	{
-		// Change the title
-		$this->administrator->setTitle("Donation log");
-		
-		//get the config items.
-		$paypal_enabled = $this->config->item('donate_paypal');
-		$paygol_enabled = $this->config->item('donate_paygol');
-		
-		$paypal = $this->donate_model->getDonationLog('paypal');
-		$paygol = $this->donate_model->getDonationLog('paygol');
+        requirePermission("viewAdmin");
+    }
 
-		if($paypal)
-		{
-			foreach($paypal as $k => $v)
-			{
-				$paypal[$k]["nickname"] = $this->user->getUsername($v['user_id']);
-			}
-		}
+    public function index()
+    {
+        // Change the title
+        $this->administrator->setTitle("Donation log");
 
-		if($paygol)
-		{
-			foreach($paygol as $k => $v)
-			{
-				$paygol[$k]["nickname"] = $this->user->getUsername($v['custom']);
-			}
-		}
+        //get the config items.
+        $paypal_enabled = $this->config->item('donate_paypal');
+        $paygol_enabled = $this->config->item('donate_paygol');
 
-		$monthlyIncome = $this->donate_model->getMonthlyIncome();
+        $paypal = $this->donate_model->getDonationLog('paypal');
+        $paygol = $this->donate_model->getDonationLog('paygol');
 
-		// Prepare my data
-		$data = array(
-			'paypal_enabled' => $paypal_enabled['use'],
-			'paygol_enabled' => $paygol_enabled['use'],
-			'paypal_logs' => $paypal,
-			'paygol_logs' => $paygol,
-			'url' => $this->template->page_url,
-			'currency' => $this->config->item('donation_currency'),
-			'monthly_income_stack' => $this->arrayFormat($monthlyIncome),
-			'top' => $this->getHighestValue($monthlyIncome),
-			'first_date' => $this->getFirstDate($monthlyIncome),
-			'last_date' => $this->getLastDate($monthlyIncome)
-		);
+        if($paypal)
+        {
+            foreach($paypal as $k => $v)
+            {
+                $paypal[$k]["nickname"] = $this->user->getUsername($v['user_id']);
+            }
+        }
 
-		// Load my view
-		$output = $this->template->loadPage("admin.tpl", $data);
+        if($paygol)
+        {
+            foreach($paygol as $k => $v)
+            {
+                $paygol[$k]["nickname"] = $this->user->getUsername($v['custom']);
+            }
+        }
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('Donation log', $output);
+        $monthlyIncome = $this->donate_model->getMonthlyIncome();
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/donate/js/admin.js");
-	}
+        // Prepare my data
+        $data = array(
+            'paypal_enabled' => $paypal_enabled['use'],
+            'paygol_enabled' => $paygol_enabled['use'],
+            'paypal_logs' => $paypal,
+            'paygol_logs' => $paygol,
+            'url' => $this->template->page_url,
+            'currency' => $this->config->item('donation_currency'),
+            'monthly_income_stack' => $this->arrayFormat($monthlyIncome),
+            'top' => $this->getHighestValue($monthlyIncome),
+            'first_date' => $this->getFirstDate($monthlyIncome),
+            'last_date' => $this->getLastDate($monthlyIncome)
+        );
 
-	private function getHighestValue($array)
-	{
-		if($array)
-		{
-			$highest = 0;
+        // Load my view
+        $output = $this->template->loadPage("admin.tpl", $data);
 
-			foreach($array as $value)
-			{
-				if($value['amount'] > $highest)
-				{
-					$highest = $value['amount'];
-				}
-			}
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('Donation log', $output);
 
-			return $highest;
-		}
-		else
-		{
-			return false;
-		}
-	}
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/donate/js/admin.js");
+    }
 
-	private function arrayFormat($array)
-	{
-		if($array)
-		{
-			$output = "";
-			$first = true;
+    private function getHighestValue($array)
+    {
+        if($array)
+        {
+            $highest = 0;
 
-			foreach($array as $month)
-			{
-				if($first)
-				{
-					$first = false;
-					$output .= $month['amount'];
-				}
-				else
-				{
-					$output .= ",".$month['amount'];
-				}
-			}
+            foreach($array as $value)
+            {
+                if($value['amount'] > $highest)
+                {
+                    $highest = $value['amount'];
+                }
+            }
 
-			return $output;
-		}
-		else
-		{
-			return false;
-		}
-	}
+            return $highest;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-	private function getLastDate($array)
-	{
-		if($array)
-		{
-			return preg_replace("/-/", " / ", $array[count($array)-1]['month']);
-		}
-		else
-		{
-			return false;
-		}
-	}
+    private function arrayFormat($array)
+    {
+        if($array)
+        {
+            $output = "";
+            $first = true;
 
-	private function getFirstDate($array)
-	{
-		if($array)
-		{
-			return preg_replace("/-/", " / ", $array[0]['month']);
-		}
-		else
-		{
-			return false;
-		}
-	}
+            foreach($array as $month)
+            {
+                if($first)
+                {
+                    $first = false;
+                    $output .= $month['amount'];
+                }
+                else
+                {
+                    $output .= ",".$month['amount'];
+                }
+            }
 
-	public function search($type = false)
-	{
-		$string = $this->input->post('string');
-		
-		if(!$string || !$type || !in_array($type, array('paypal', 'paygol')))
-		{
-			die();
-		}
-		else
-		{
-			if($type == "paypal")
-			{
-				if(filter_var($string, FILTER_VALIDATE_EMAIL))
-				{
-					// Email
-					$results = $this->donate_model->findByEmail($type, $string);
-				}
-				elseif(preg_match("/^[A-Z0-9]{17}$/", $string))
-				{
-					// TXN-ID
-					$results = $this->donate_model->findByTxn($type, $string);
-				}
-				elseif(preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 15)
-				{
-					// Username
-					$user_id = $this->user->getId($string);
-					
-					if(!$user_id)
-					{
-						die("<span>Unknown account</span>");
-					}
+            return $output;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-					$results = $this->donate_model->findById($type, $user_id);
-				}
-				else
-				{
-					$results = $this->donate_model->getDonationLog($type);
-				}
+    private function getLastDate($array)
+    {
+        if($array)
+        {
+            return preg_replace("/-/", " / ", $array[count($array)-1]['month']);
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-				if(!$results)
-				{
-					die("<span>No matches</span>");
-				}
-			}
-			elseif($type == "paygol")
-			{
-				if($string != "@" && preg_match("/^[0-9]{10}/", $string))
-				{
-					// Phone number
-					$results = $this->donate_model->findByNumber($type, $string);
-				}
-				elseif(preg_match("/^[0-9]{6}$/", $string))
-				{
-					// Message ID
-					$results = $this->donate_model->findByMessageId($type, $string);
-				}
-				elseif(preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 15)
-				{
-					// Username
-					$user_id = $this->user->getId($string);
-					
-					if(!$user_id)
-					{
-						die("<span>Unknown account</span>");
-					}
+    private function getFirstDate($array)
+    {
+        if($array)
+        {
+            return preg_replace("/-/", " / ", $array[0]['month']);
+        }
+        else
+        {
+            return false;
+        }
+    }
 
-					$results = $this->donate_model->findById($type, $user_id);
-				}
-				else
-				{
-					$results = $this->donate_model->getDonationLog($type);
-				}
+    public function search($type = false)
+    {
+        $string = $this->input->post('string');
 
-				if(!$results)
-				{
-					die("<span>No matches</span>");
-				}
-			}
+        if(!$string || !$type || !in_array($type, array('paypal', 'paygol')))
+        {
+            die();
+        }
+        else
+        {
+            if($type == "paypal")
+            {
+                if(filter_var($string, FILTER_VALIDATE_EMAIL))
+                {
+                    // Email
+                    $results = $this->donate_model->findByEmail($type, $string);
+                }
+                elseif(preg_match("/^[A-Z0-9]{17}$/", $string))
+                {
+                    // TXN-ID
+                    $results = $this->donate_model->findByTxn($type, $string);
+                }
+                elseif(preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 15)
+                {
+                    // Username
+                    $user_id = $this->user->getId($string);
 
-			foreach($results as $k => $v)
-			{
-				if($type == "paypal")
-				{
-					$results[$k]["nickname"] = $this->user->getUsername($v['user_id']);
-				}
-				else
-				{
-					$results[$k]["nickname"] = $this->user->getUsername($v['custom']);
-				}
-			}
+                    if(!$user_id)
+                    {
+                        die("<span>Unknown account</span>");
+                    }
 
-			$data = array(
-				'url' => $this->template->page_url,
-				'results' => $results,
-				'type' => $type
-			);
+                    $results = $this->donate_model->findById($type, $user_id);
+                }
+                else
+                {
+                    $results = $this->donate_model->getDonationLog($type);
+                }
 
-			$output = $this->template->loadPage("admin_list.tpl", $data);
+                if(!$results)
+                {
+                    die("<span>No matches</span>");
+                }
+            }
+            elseif($type == "paygol")
+            {
+                if($string != "@" && preg_match("/^[0-9]{10}/", $string))
+                {
+                    // Phone number
+                    $results = $this->donate_model->findByNumber($type, $string);
+                }
+                elseif(preg_match("/^[0-9]{6}$/", $string))
+                {
+                    // Message ID
+                    $results = $this->donate_model->findByMessageId($type, $string);
+                }
+                elseif(preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 15)
+                {
+                    // Username
+                    $user_id = $this->user->getId($string);
 
-			die($output);
-		}
-	}
+                    if(!$user_id)
+                    {
+                        die("<span>Unknown account</span>");
+                    }
 
-	public function give($id = false)
-	{
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+                    $results = $this->donate_model->findById($type, $user_id);
+                }
+                else
+                {
+                    $results = $this->donate_model->getDonationLog($type);
+                }
 
-		$log = $this->donate_model->getPayPalLog($id);
+                if(!$results)
+                {
+                    die("<span>No matches</span>");
+                }
+            }
 
-		if(!$log)
-		{
-			die();
-		}
+            foreach($results as $k => $v)
+            {
+                if($type == "paypal")
+                {
+                    $results[$k]["nickname"] = $this->user->getUsername($v['user_id']);
+                }
+                else
+                {
+                    $results[$k]["nickname"] = $this->user->getUsername($v['custom']);
+                }
+            }
 
-		$dp = $this->getDpAmount($log['payment_amount']);
+            $data = array(
+                'url' => $this->template->page_url,
+                'results' => $results,
+                'type' => $type
+            );
 
-		$this->donate_model->giveDp($log['user_id'], $dp);
+            $output = $this->template->loadPage("admin_list.tpl", $data);
 
-		$data["payment_status"] = "Manually compl.";
-		$data["validated"] = 1;
+            die($output);
+        }
+    }
 
-		$this->donate_model->updateMonthlyIncome($log['payment_amount']);
-		$this->donate_model->updatePayPal($id, $data);
+    public function give($id = false)
+    {
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
 
-		// Add log
-		$this->logger->createLog('Manually completed transaction', $id);
-	}
+        $log = $this->donate_model->getPayPalLog($id);
 
-	/**
-	 * Get the amount of DP
-	 * @param Int $payment_amount
-	 */
-	private function getDpAmount($payment_amount)
-	{
-		$config = $this->config->item('donate_paypal');
+        if(!$log)
+        {
+            die();
+        }
 
-		$points = 0;
-		
-		foreach($config['values'] as $price => $reward)
-		{
-			if($price == round($payment_amount))
-			{
-				$points = $reward;
-			}
-		}
+        $dp = $this->getDpAmount($log['payment_amount']);
 
-		return $points;
-	}
+        $this->donate_model->giveDp($log['user_id'], $dp);
+
+        $data["payment_status"] = "Manually compl.";
+        $data["validated"] = 1;
+
+        $this->donate_model->updateMonthlyIncome($log['payment_amount']);
+        $this->donate_model->updatePayPal($id, $data);
+
+        // Add log
+        $this->logger->createLog('Manually completed transaction', $id);
+    }
+
+    /**
+     * Get the amount of DP
+     * @param Int $payment_amount
+     */
+    private function getDpAmount($payment_amount)
+    {
+        $config = $this->config->item('donate_paypal');
+
+        $points = 0;
+
+        foreach($config['values'] as $price => $reward)
+        {
+            if($price == round($payment_amount))
+            {
+                $points = $reward;
+            }
+        }
+
+        return $points;
+    }
 }

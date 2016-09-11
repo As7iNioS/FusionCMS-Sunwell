@@ -2,184 +2,184 @@
 
 class Edit extends MX_Controller
 {
-	private $module;
-	private $manifest;
-	private $configs;
+    private $module;
+    private $manifest;
+    private $configs;
 
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
 
-		parent::__construct();
+        parent::__construct();
 
-		requirePermission("editModuleConfigs");
+        requirePermission("editModuleConfigs");
 
-		require_once('application/libraries/configeditor.php');
-	}
+        require_once('application/libraries/configeditor.php');
+    }
 
-	/**
-	 * Output the configs
-	 * @param String $module
-	 */
-	public function index($module = false)
-	{
-		// Make sure the module exists and has configs
-		if(!$module
-		|| !file_exists("application/modules/".$module."/")
-		|| !$this->administrator->hasConfigs($module))
-		{
-			die();
-		}
-		
-		$this->module = $module;
+    /**
+     * Output the configs
+     * @param String $module
+     */
+    public function index($module = false)
+    {
+        // Make sure the module exists and has configs
+        if(!$module
+        || !file_exists("application/modules/".$module."/")
+        || !$this->administrator->hasConfigs($module))
+        {
+            die();
+        }
 
-		$this->loadModule();
-		$this->loadConfigs();
+        $this->module = $module;
 
-		// Change the title
-		$this->administrator->setTitle($this->manifest['name']);
+        $this->loadModule();
+        $this->loadConfigs();
 
-		$data = array(
-			"configs" => $this->configs,
-			"moduleName" => $module,
-			"url" => $this->template->page_url
-		);
+        // Change the title
+        $this->administrator->setTitle($this->manifest['name']);
 
-		// Load my view
-		$output = $this->template->loadPage("config.tpl", $data);
+        $data = array(
+            "configs" => $this->configs,
+            "moduleName" => $module,
+            "url" => $this->template->page_url
+        );
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('<a href="'.$this->template->page_url.'admin">Dashboard</a> &rarr; '.$this->manifest['name'], $output);
+        // Load my view
+        $output = $this->template->loadPage("config.tpl", $data);
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/admin/js/settings.js");
-	}
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('<a href="'.$this->template->page_url.'admin">Dashboard</a> &rarr; '.$this->manifest['name'], $output);
 
-	/**
-	 * Load the module manifest
-	 */
-	private function loadModule()
-	{
-		$this->manifest = @file_get_contents("application/modules/".$this->module."/manifest.json");
-			
-		if(!$this->manifest)
-		{
-			die("The module <b>".$this->module."</b> is missing manifest.json");
-		}
-		else
-		{
-			$this->manifest = json_decode($this->manifest, true);
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/admin/js/settings.js");
+    }
 
-			// Add the module folder name as name if none was specified
-			if(!array_key_exists("name", $this->manifest))
-			{
-				$this->manifest['name'] = ucfirst($this->module);
-			}
-		}
-	}
+    /**
+     * Load the module manifest
+     */
+    private function loadModule()
+    {
+        $this->manifest = @file_get_contents("application/modules/".$this->module."/manifest.json");
 
-	/**
-	 * Load the module configs
-	 */
-	private function loadConfigs()
-	{
-		foreach(glob("application/modules/".$this->module."/config/*") as $file)
-		{
-			$this->getConfig($file);
-		}
-	}
+        if(!$this->manifest)
+        {
+            die("The module <b>".$this->module."</b> is missing manifest.json");
+        }
+        else
+        {
+            $this->manifest = json_decode($this->manifest, true);
 
-	/**
-	 * Load the config into the function variable scope and assign it to the configs array
-	 */
-	private function getConfig($file)
-	{
-		include($file);
+            // Add the module folder name as name if none was specified
+            if(!array_key_exists("name", $this->manifest))
+            {
+                $this->manifest['name'] = ucfirst($this->module);
+            }
+        }
+    }
 
-		$this->configs[$this->getConfigName($file)] = $config;
-		$this->configs[$this->getConfigName($file)]['source'] = $this->getConfigSource($file);
-	}
+    /**
+     * Load the module configs
+     */
+    private function loadConfigs()
+    {
+        foreach(glob("application/modules/".$this->module."/config/*") as $file)
+        {
+            $this->getConfig($file);
+        }
+    }
 
-	private function getConfigSource($file)
-	{
-		$handle = fopen($file, "r");
-		$data = fread($handle, filesize($file));
-		fclose($handle);
+    /**
+     * Load the config into the function variable scope and assign it to the configs array
+     */
+    private function getConfig($file)
+    {
+        include($file);
 
-		return $data;
-	}
+        $this->configs[$this->getConfigName($file)] = $config;
+        $this->configs[$this->getConfigName($file)]['source'] = $this->getConfigSource($file);
+    }
 
-	/**
-	 * Get the config name out of the path
-	 * @param String $path
-	 * @return String
-	 */
-	private function getConfigName($path = "")
-	{
-		return preg_replace("/application\/modules\/".$this->module."\/config\/([A-Za-z0-9_-]*)\.php/", "$1", $path);
-	}
+    private function getConfigSource($file)
+    {
+        $handle = fopen($file, "r");
+        $data = fread($handle, filesize($file));
+        fclose($handle);
 
-	public function save($module = false, $name = false)
-	{
-		if(!$name || !$module || !$this->configExists($module, $name))
-		{
-			die("Invalid module or config name");
-		}
-		else
-		{
-			if($this->input->post())
-			{
-				$fusionConfig = new ConfigEditor("application/modules/".$module."/config/".$name.".php");
+        return $data;
+    }
 
-				foreach($this->input->post() as $key => $value)
-				{
-					$fusionConfig->set($key, $value);
-				}
-				
-				$fusionConfig->save();
+    /**
+     * Get the config name out of the path
+     * @param String $path
+     * @return String
+     */
+    private function getConfigName($path = "")
+    {
+        return preg_replace("/application\/modules\/".$this->module."\/config\/([A-Za-z0-9_-]*)\.php/", "$1", $path);
+    }
 
-				die("The settings have been saved!");
-			}
-			else
-			{
-				die("No data to set");
-			}
-		}
-	}
+    public function save($module = false, $name = false)
+    {
+        if(!$name || !$module || !$this->configExists($module, $name))
+        {
+            die("Invalid module or config name");
+        }
+        else
+        {
+            if($this->input->post())
+            {
+                $fusionConfig = new ConfigEditor("application/modules/".$module."/config/".$name.".php");
 
-	public function saveSource($module = false, $name = false)
-	{
-		if(!$name || !$module || !$this->configExists($module, $name))
-		{
-			die("Invalid module or config name");
-		}
-		else
-		{
-			if($this->input->post("source"))
-			{
-				$file = fopen("application/modules/".$module."/config/".$name.".php", "w");
-				fwrite($file, $this->input->post("source"));
-				fclose($file);
+                foreach($this->input->post() as $key => $value)
+                {
+                    $fusionConfig->set($key, $value);
+                }
 
-				die("The settings have been saved!");
-			}
-			else
-			{
-				die("No data to set");
-			}
-		}
-	}
+                $fusionConfig->save();
 
-	private function configExists($module, $file)
-	{
-		if(file_exists("application/modules/".$module."/config/".$file.".php"))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
+                die("The settings have been saved!");
+            }
+            else
+            {
+                die("No data to set");
+            }
+        }
+    }
+
+    public function saveSource($module = false, $name = false)
+    {
+        if(!$name || !$module || !$this->configExists($module, $name))
+        {
+            die("Invalid module or config name");
+        }
+        else
+        {
+            if($this->input->post("source"))
+            {
+                $file = fopen("application/modules/".$module."/config/".$name.".php", "w");
+                fwrite($file, $this->input->post("source"));
+                fclose($file);
+
+                die("The settings have been saved!");
+            }
+            else
+            {
+                die("No data to set");
+            }
+        }
+    }
+
+    private function configExists($module, $file)
+    {
+        if(file_exists("application/modules/".$module."/config/".$file.".php"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

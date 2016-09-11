@@ -2,137 +2,137 @@
 
 class Changelog extends MX_Controller
 {
-	private $changelog_days;
-	
-	public function __construct()
-	{
-		parent::__construct();
+    private $changelog_days;
 
-		$this->load->model('changelog_model');
-		$this->load->config('changelog');
+    public function __construct()
+    {
+        parent::__construct();
 
-		requirePermission("view");
-	}
-	
-	public function index()
-	{
-		clientLang("changes_made_on", "changelog");
+        $this->load->model('changelog_model');
+        $this->load->config('changelog');
 
-		$this->template->setTitle(lang("changelog_title", "changelog"));
-		
-		$changelog_items = $this->changelog_model->getChangelog($this->config->item('changelog_limit'));
-		
-		if($changelog_items)
-		{
-			// Sort by time, this will move every single item to an array with as key the time.
-			$changelog_items = $this->sortByTime($changelog_items);
-		}
-		
-		$data = array(
-			"changes" => $changelog_items,
-			"url" => $this->template->page_url,
-			"categories" => $this->changelog_model->getCategories(),
-			'attributes' => array("id" => "category_form", "style" => "display:none;")
-		);
+        requirePermission("view");
+    }
 
-		$content =  $this->template->loadPage("changelog.tpl", $data);
-		
-		$this->template->box(lang("changelog_title", "changelog"), $content, true, "modules/changelog/css/changelog.css", "modules/changelog/js/changelog.js");
-	}
+    public function index()
+    {
+        clientLang("changes_made_on", "changelog");
 
-	/**
-	 * Sort by time and get the new array
-	 * @param $changelog_items
-	 * @return array
-	 */
-	public function sortByTime($changelog_items)
-	{
-		$new_array = array();
-		
-		foreach($changelog_items as $item)
-		{
-			// If we dont got the time yet add it to the new array
-			if(!array_key_exists(date("Y/m/d", $item['time']), $new_array))
-			{
-				//Assign an array to that key
-				$new_array[date("Y/m/d", $item['time'])] = array();
-			}
-			
-			// Do the same but then for the typeName
-			if(!array_key_exists($item['typeName'], $new_array[date("Y/m/d", $item['time'])]))
-			{
-				//Assign an array to that key
-				$new_array[date("Y/m/d", $item['time'])][$item['typeName']] = array();
-			}
-			
-			array_push($new_array[date("Y/m/d", $item['time'])][$item['typeName']], $item);
-		}
+        $this->template->setTitle(lang("changelog_title", "changelog"));
 
-		return $new_array;
-	}
+        $changelog_items = $this->changelog_model->getChangelog($this->config->item('changelog_limit'));
 
-	/**
-	 * Add a category
-	 */
-	public function addCategory()
-	{
-		// Check for the permission
-		requirePermission("canAddCategory");
+        if($changelog_items)
+        {
+            // Sort by time, this will move every single item to an array with as key the time.
+            $changelog_items = $this->sortByTime($changelog_items);
+        }
 
-		$name = $this->input->post('category');
+        $data = array(
+            "changes" => $changelog_items,
+            "url" => $this->template->page_url,
+            "categories" => $this->changelog_model->getCategories(),
+            'attributes' => array("id" => "category_form", "style" => "display:none;")
+        );
 
-		$id = $this->changelog_model->addCategory($name);
+        $content =  $this->template->loadPage("changelog.tpl", $data);
 
-		$this->logger->createLog('Created category', $name);
+        $this->template->box(lang("changelog_title", "changelog"), $content, true, "modules/changelog/css/changelog.css", "modules/changelog/js/changelog.js");
+    }
 
-		$this->plugins->onAddCategory($id, $name);
+    /**
+     * Sort by time and get the new array
+     * @param $changelog_items
+     * @return array
+     */
+    public function sortByTime($changelog_items)
+    {
+        $new_array = array();
 
-		redirect('changelog');
-	}
+        foreach($changelog_items as $item)
+        {
+            // If we dont got the time yet add it to the new array
+            if(!array_key_exists(date("Y/m/d", $item['time']), $new_array))
+            {
+                //Assign an array to that key
+                $new_array[date("Y/m/d", $item['time'])] = array();
+            }
 
-	/**
-	 * Add a change with the given change and category in post.
-	 */
-	public function addChange()
-	{
-		// Check for the permission
-		requirePermission("canAddChange");
+            // Do the same but then for the typeName
+            if(!array_key_exists($item['typeName'], $new_array[date("Y/m/d", $item['time'])]))
+            {
+                //Assign an array to that key
+                $new_array[date("Y/m/d", $item['time'])][$item['typeName']] = array();
+            }
 
-		$change = $this->input->post('change');
-		$category = $this->input->post('category');
+            array_push($new_array[date("Y/m/d", $item['time'])][$item['typeName']], $item);
+        }
 
-		if(empty($category) || empty($change))
-			redirect('changelog');
+        return $new_array;
+    }
 
-		$id = $this->changelog_model->addChange($change, $category);
+    /**
+     * Add a category
+     */
+    public function addCategory()
+    {
+        // Check for the permission
+        requirePermission("canAddCategory");
 
-		$this->logger->createLog('Created change', $change.' ('.$id.')');
+        $name = $this->input->post('category');
 
-		$this->plugins->onAddChange($id, $change, $category);
+        $id = $this->changelog_model->addCategory($name);
 
-		die($id."");
+        $this->logger->createLog('Created category', $name);
 
-		$this->index();
-	}
+        $this->plugins->onAddCategory($id, $name);
 
-	/**
-	 * Remove change from the changelog with the given id
-	 * @param bool $id
-	 */
-	public function remove($id = false)
-	{
-		// Check for the permission
-		requirePermission("canRemoveChange");
+        redirect('changelog');
+    }
 
-		if(!($id && is_numeric($id)))
-			redirect('changelog');
+    /**
+     * Add a change with the given change and category in post.
+     */
+    public function addChange()
+    {
+        // Check for the permission
+        requirePermission("canAddChange");
 
-		$this->changelog_model->deleteChange($id);
+        $change = $this->input->post('change');
+        $category = $this->input->post('category');
 
-		$this->logger->createLog('Deleted change', $id);
+        if(empty($category) || empty($change))
+            redirect('changelog');
 
-		$this->plugins->onDeleteChange($id);
+        $id = $this->changelog_model->addChange($change, $category);
 
-		$this->index();
-	}
+        $this->logger->createLog('Created change', $change.' ('.$id.')');
+
+        $this->plugins->onAddChange($id, $change, $category);
+
+        die($id."");
+
+        $this->index();
+    }
+
+    /**
+     * Remove change from the changelog with the given id
+     * @param bool $id
+     */
+    public function remove($id = false)
+    {
+        // Check for the permission
+        requirePermission("canRemoveChange");
+
+        if(!($id && is_numeric($id)))
+            redirect('changelog');
+
+        $this->changelog_model->deleteChange($id);
+
+        $this->logger->createLog('Deleted change', $id);
+
+        $this->plugins->onDeleteChange($id);
+
+        $this->index();
+    }
 }

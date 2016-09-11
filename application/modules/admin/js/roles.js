@@ -1,129 +1,129 @@
 var Roles = {
-	
-	/**
-	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
-	 */
-	identifier: "roles",
 
-	/**
-	 * The ID of the fusionEditor (like "#news_content"), if any, otherwise put false
-	 */
-	fusionEditor: false,
+    /**
+     * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
+     */
+    identifier: "roles",
 
-	/**
-	 * Links for the ajax requests
-	 */
-	Links: {
-		remove: "admin/aclmanager/roleDelete/",
-		create: "admin/aclmanager/roleCreate/",
-		save: "admin/aclmanager/roleSave/",
-	},
+    /**
+     * The ID of the fusionEditor (like "#news_content"), if any, otherwise put false
+     */
+    fusionEditor: false,
 
-	/**
-	 * Removes an entry from the list
-	 * @param  Int id
-	 * @param  Object element
-	 */
-	remove: function(id, element)
-	{
-		var identifier = this.identifier,
-			removeLink = this.Links.remove;
+    /**
+     * Links for the ajax requests
+     */
+    Links: {
+        remove: "admin/aclmanager/roleDelete/",
+        create: "admin/aclmanager/roleCreate/",
+        save: "admin/aclmanager/roleSave/",
+    },
 
-		UI.confirm("Do you really want to delete this role?", "Yes", function()
-		{
-			$(element).parents("li").slideUp(300, function()
-			{
-				$(this).remove();
-			});
+    /**
+     * Removes an entry from the list
+     * @param  Int id
+     * @param  Object element
+     */
+    remove: function(id, element)
+    {
+        var identifier = this.identifier,
+            removeLink = this.Links.remove;
 
-			$.get(Config.URL + removeLink + id);
-		});
-	},
+        UI.confirm("Do you really want to delete this role?", "Yes", function()
+        {
+            $(element).parents("li").slideUp(300, function()
+            {
+                $(this).remove();
+            });
 
-	/**
-	 * Toggle between the "add" form and the list
-	 */
-	add: function()
-	{
-		var id = this.identifier;
+            $.get(Config.URL + removeLink + id);
+        });
+    },
 
-		if($("#add_" + id).is(":visible"))
-		{
-			$("#add_" + id).fadeOut(150, function()
-			{
-				$("#main_" + id).fadeIn(150);
-			});
-		}
-		else
-		{
-			$("#main_" + id).fadeOut(150, function()
-			{
-				$("#add_" + id).fadeIn(150);
-			});
-		}
-	},
+    /**
+     * Toggle between the "add" form and the list
+     */
+    add: function()
+    {
+        var id = this.identifier;
 
-	/**
-	 * Submit the form contents to the create link
-	 * @param Object form
-	 */
-	create: function(form)
-	{
-		var values = {csrf_token_name: Config.CSRF};
+        if($("#add_" + id).is(":visible"))
+        {
+            $("#add_" + id).fadeOut(150, function()
+            {
+                $("#main_" + id).fadeIn(150);
+            });
+        }
+        else
+        {
+            $("#main_" + id).fadeOut(150, function()
+            {
+                $("#add_" + id).fadeIn(150);
+            });
+        }
+    },
 
-		$(form).find("input, select").each(function()
-		{
-			if($(this).attr("type") != "submit" && $(this).attr("type") != "checkbox")
-			{
-				values[$(this).attr("name")] = $(this).val();
-			}
-			else if($(this).attr("type") == "checkbox")
-			{
-				values[$(this).attr("name")] = this.checked;
-			}
-		});
+    /**
+     * Submit the form contents to the create link
+     * @param Object form
+     */
+    create: function(form)
+    {
+        var values = {csrf_token_name: Config.CSRF};
 
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
+        $(form).find("input, select").each(function()
+        {
+            if($(this).attr("type") != "submit" && $(this).attr("type") != "checkbox")
+            {
+                values[$(this).attr("name")] = $(this).val();
+            }
+            else if($(this).attr("type") == "checkbox")
+            {
+                values[$(this).attr("name")] = this.checked;
+            }
+        });
 
-		$.post(Config.URL + this.Links.create, values, function(data)
-		{
-			console.log(data);
-			eval(data);
-		});
-	},
+        if(this.fusionEditor != false)
+        {
+            values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
+        }
 
-	/**
-	 * Submit the form contents to the save link
-	 * @param Object form
-	 */
-	save: function(form, id)
-	{
-		var values = {csrf_token_name: Config.CSRF};
+        $.post(Config.URL + this.Links.create, values, function(data)
+        {
+            console.log(data);
+            eval(data);
+        });
+    },
 
-		$(form).find("input, select").each(function()
-		{
-			if($(this).attr("type") != "submit" && $(this).attr("type") != "checkbox")
-			{
-				values[$(this).attr("name")] = $(this).val();
-			}
-			else if($(this).attr("type") == "checkbox")
-			{
-				values[$(this).attr("name")] = this.checked;
-			}
-		});
+    /**
+     * Submit the form contents to the save link
+     * @param Object form
+     */
+    save: function(form, id)
+    {
+        var values = {csrf_token_name: Config.CSRF};
 
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
+        $(form).find("input, select").each(function()
+        {
+            if($(this).attr("type") != "submit" && $(this).attr("type") != "checkbox")
+            {
+                values[$(this).attr("name")] = $(this).val();
+            }
+            else if($(this).attr("type") == "checkbox")
+            {
+                values[$(this).attr("name")] = this.checked;
+            }
+        });
 
-		$.post(Config.URL + this.Links.save + id, values, function(data)
-		{
-			console.log(data);
-			eval(data);
-		});
-	}
+        if(this.fusionEditor != false)
+        {
+            values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
+        }
+
+        $.post(Config.URL + this.Links.save + id, values, function(data)
+        {
+            console.log(data);
+            eval(data);
+        });
+    }
 };

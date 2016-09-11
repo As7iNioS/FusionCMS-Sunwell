@@ -80,17 +80,17 @@ class Data_model extends CI_Model
         $this->connect();
 
         $result = $this->connection->query("SELECT 
-									`arena_team_member`.`arenaTeamId` AS arenateamid, 
-									`arena_team_member`.`guid` AS guid, 
-									`arena_team_member`.`personalRating` AS rating,
-									`arena_team_member`.`seasonGames` AS games,
-									`arena_team_member`.`seasonWins` AS wins,
-									`characters`.`name` AS name,
-									`characters`.`class` AS class,
-									`characters`.`level` AS level
-								FROM `arena_team_member` 
-								RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
-								WHERE `arena_team_member`.`arenaTeamId` = ? ORDER BY guid ASC;", array($team));
+                                    `arena_team_member`.`arenaTeamId` AS arenateamid, 
+                                    `arena_team_member`.`guid` AS guid, 
+                                    `arena_team_member`.`personalRating` AS rating,
+                                    `arena_team_member`.`seasonGames` AS games,
+                                    `arena_team_member`.`seasonWins` AS wins,
+                                    `characters`.`name` AS name,
+                                    `characters`.`class` AS class,
+                                    `characters`.`level` AS level
+                                FROM `arena_team_member` 
+                                RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
+                                WHERE `arena_team_member`.`arenaTeamId` = ? ORDER BY guid ASC;", array($team));
 
         if ($result && $result->num_rows() > 0) {
             return $result->result_array();

@@ -8,7 +8,7 @@
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|	http://example.com/
+|    http://example.com/
 |
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
@@ -37,14 +37,14 @@ $config['index_page'] = '';
 | URI string.  The default setting of 'AUTO' works for most servers.
 | If your links do not seem to work, try one of the other delicious flavors:
 |
-| 'AUTO'			Default - auto detects
-| 'PATH_INFO'		Uses the PATH_INFO
-| 'QUERY_STRING'	Uses the QUERY_STRING
-| 'REQUEST_URI'		Uses the REQUEST_URI
-| 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
+| 'AUTO'            Default - auto detects
+| 'PATH_INFO'        Uses the PATH_INFO
+| 'QUERY_STRING'    Uses the QUERY_STRING
+| 'REQUEST_URI'        Uses the REQUEST_URI
+| 'ORIG_PATH_INFO'    Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol']    = 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
@@ -142,11 +142,11 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_-';
 | use segment based URLs.
 |
 */
-$config['allow_get_array']		= TRUE;
+$config['allow_get_array']        = TRUE;
 $config['enable_query_strings'] = FALSE;
-$config['controller_trigger']	= 'c';
-$config['function_trigger']		= 'm';
-$config['directory_trigger']	= 'd'; // experimental not currently in use
+$config['controller_trigger']    = 'c';
+$config['function_trigger']        = 'm';
+$config['directory_trigger']    = 'd'; // experimental not currently in use
 
 /*
 |--------------------------------------------------------------------------
@@ -158,11 +158,11 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | You can enable error logging by setting a threshold over zero. The
 | threshold determines what gets logged. Threshold options are:
 |
-|	0 = Disables logging, Error logging TURNED OFF
-|	1 = Error Messages (including PHP errors)
-|	2 = Debug Messages
-|	3 = Informational Messages
-|	4 = All Messages
+|    0 = Disables logging, Error logging TURNED OFF
+|    1 = Error Messages (including PHP errors)
+|    2 = Debug Messages
+|    3 = Informational Messages
+|    4 = All Messages
 |
 | For a live site you'll usually only enable Errors (1) to be logged otherwise
 | your log files will fill up very fast.
@@ -215,21 +215,21 @@ $config['cache_path'] = '';
 
 if(file_exists("application/config/encryption_key.php"))
 {
-	require_once("application/config/encryption_key.php");
+    require_once("application/config/encryption_key.php");
 }
 else
 {
-	if(!is_writable("application/config/"))
-	{
-		die('The application/config/ folder is not writable. Please see <a href="https://raxezdev.zendesk.com/entries/22839206-File-permissions-Installation-problems-fopen-permission-denied-" target="_blank">the FAQ</a> for more information.');
-	}
+    if(!is_writable("application/config/"))
+    {
+        die('The application/config/ folder is not writable. Please see <a href="https://raxezdev.zendesk.com/entries/22839206-File-permissions-Installation-problems-fopen-permission-denied-" target="_blank">the FAQ</a> for more information.');
+    }
 
-	$file = fopen("application/config/encryption_key.php", "w");
+    $file = fopen("application/config/encryption_key.php", "w");
 
-	$encryptionKey = uniqid().uniqid().uniqid().uniqid();
+    $encryptionKey = uniqid().uniqid().uniqid().uniqid();
 
-	fwrite($file, '<?php $encryptionKey = "'.$encryptionKey.'";');
-	fclose($file);
+    fwrite($file, '<?php $encryptionKey = "'.$encryptionKey.'";');
+    fclose($file);
 }
 
 $config['encryption_key'] = $encryptionKey;
@@ -239,28 +239,28 @@ $config['encryption_key'] = $encryptionKey;
 | Session Variables
 |--------------------------------------------------------------------------
 |
-| 'sess_cookie_name'		= the name you want for the cookie
-| 'sess_expiration'			= the number of SECONDS you want the session to last.
+| 'sess_cookie_name'        = the name you want for the cookie
+| 'sess_expiration'            = the number of SECONDS you want the session to last.
 |   by default sessions last 7200 seconds (two hours).  Set to zero for no expiration.
-| 'sess_expire_on_close'	= Whether to cause the session to expire automatically
+| 'sess_expire_on_close'    = Whether to cause the session to expire automatically
 |   when the browser window is closed
-| 'sess_encrypt_cookie'		= Whether to encrypt the cookie
-| 'sess_use_database'		= Whether to save the session data to a database
-| 'sess_table_name'			= The name of the session database table
-| 'sess_match_ip'			= Whether to match the user's IP address when reading the session data
-| 'sess_match_useragent'	= Whether to match the User Agent when reading the session data
-| 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
+| 'sess_encrypt_cookie'        = Whether to encrypt the cookie
+| 'sess_use_database'        = Whether to save the session data to a database
+| 'sess_table_name'            = The name of the session database table
+| 'sess_match_ip'            = Whether to match the user's IP address when reading the session data
+| 'sess_match_useragent'    = Whether to match the User Agent when reading the session data
+| 'sess_time_to_update'        = how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'cisession';
-$config['sess_expiration']		= 18000;
-$config['sess_expire_on_close']	= FALSE;
-$config['sess_encrypt_cookie']	= TRUE;
-$config['sess_use_database']	= FALSE;
-$config['sess_table_name']		= 'ci_sessions';
-$config['sess_match_ip']		= TRUE;
-$config['sess_match_useragent']	= FALSE;
-$config['sess_time_to_update']	= 18000;
+$config['sess_cookie_name']        = 'cisession';
+$config['sess_expiration']        = 18000;
+$config['sess_expire_on_close']    = FALSE;
+$config['sess_encrypt_cookie']    = TRUE;
+$config['sess_use_database']    = FALSE;
+$config['sess_table_name']        = 'ci_sessions';
+$config['sess_match_ip']        = TRUE;
+$config['sess_match_useragent']    = FALSE;
+$config['sess_time_to_update']    = 18000;
 
 /*
 |--------------------------------------------------------------------------
@@ -273,10 +273,10 @@ $config['sess_time_to_update']	= 18000;
 | 'cookie_secure' =  Cookies will only be set if a secure HTTPS connection exists.
 |
 */
-$config['cookie_prefix']	= "";
-$config['cookie_domain']	= "";
-$config['cookie_path']		= "/";
-$config['cookie_secure']	= FALSE;
+$config['cookie_prefix']    = "";
+$config['cookie_domain']    = "";
+$config['cookie_path']        = "/";
+$config['cookie_secure']    = FALSE;
 
 /*
 |--------------------------------------------------------------------------

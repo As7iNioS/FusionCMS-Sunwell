@@ -41,8 +41,8 @@ function smarty_function_ci_validation($params, &$smarty)
             {
                 $_field = $smarty->get_template_vars( substr($_field, 1) );
             }
-		    // get a Code Igniter instance
-		    $CI = &get_instance();
+            // get a Code Igniter instance
+            $CI = &get_instance();
             $_validation = $CI->validation;
             if ($_type == 'auth')
             {
@@ -57,13 +57,13 @@ function smarty_function_ci_validation($params, &$smarty)
 
             if ( isset( $_assign ) )
             {
-		        $smarty->assign( $_assign, $value );
+                $smarty->assign( $_assign, $value );
             }
             else
             {
-		        echo $value;
+                echo $value;
             }
-		}
+        }
 
         if ($smarty->debugging) {
             $_params = array();

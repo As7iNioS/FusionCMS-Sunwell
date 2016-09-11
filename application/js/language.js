@@ -7,64 +7,64 @@
 
 var Language = (function()
 {
-	var self = {},
-		items = {};
+    var self = {},
+        items = {};
 
-	/** 
-	 * Add a language string
-	 * @param String key
-	 * @param String file
-	 * @param String value
-	 */
-	self.add = function(key, file, value)
-	{
-		if(typeof items[file] == "undefined")
-		{
-			items[file] = [];
-		}
+    /**
+     * Add a language string
+     * @param String key
+     * @param String file
+     * @param String value
+     */
+    self.add = function(key, file, value)
+    {
+        if(typeof items[file] == "undefined")
+        {
+            items[file] = [];
+        }
 
-		items[file][key] = value;
-	};
+        items[file][key] = value;
+    };
 
-	/**
-	 * Set the language items
-	 * @param String data
-	 */
-	self.set = function(data)
-	{
-		data = data.replace(/\//, "");
-		items = {};
-		items = JSON.parse(data);
-	};
+    /**
+     * Set the language items
+     * @param String data
+     */
+    self.set = function(data)
+    {
+        data = data.replace(/\//, "");
+        items = {};
+        items = JSON.parse(data);
+    };
 
-	/**
-	 * Get a language string
-	 * @param String id
-	 * @param String file
-	 * @return String
-	 */
-	self.get = function(id, file)
-	{
-		// Default to "main"
-		if(!file)
-		{
-			var file = "main";
-		}
+    /**
+     * Get a language string
+     * @param String id
+     * @param String file
+     * @return String
+     */
+    self.get = function(id, file)
+    {
+        // Default to "main"
+        if(!file)
+        {
+            var file = "main";
+        }
 
-		// Make sure it exists
-		if(typeof items[file] != "undefined" && typeof items[file][id] != "undefined")
-		{
-			return items[file][id];
-		}
-		else
-		{
-			console.log("Language string " + id + " in " + file + " was not found");
+        // Make sure it exists
+        if(typeof items[file] != "undefined" && typeof items[file][id] != "undefined")
+        {
+            return items[file][id];
+        }
+        else
+        {
+            console.log("Language string " + id + " in " + file + " was not found");
 
-			return false;
-		}
-	};
+            return false;
+        }
+    };
 
-	return self;
+    return self;
 }());
 
 /**
@@ -75,5 +75,5 @@ var Language = (function()
  */
 function lang(id, file)
 {
-	return Language.get(id, file);
+    return Language.get(id, file);
 }

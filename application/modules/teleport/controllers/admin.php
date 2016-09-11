@@ -2,169 +2,169 @@
 
 class Admin extends MX_Controller
 {
-	public function __construct()
-	{
-		// Make sure to load the administrator library!
-		$this->load->library('administrator');
-		$this->load->model('teleport_model');
+    public function __construct()
+    {
+        // Make sure to load the administrator library!
+        $this->load->library('administrator');
+        $this->load->model('teleport_model');
 
-		parent::__construct();
+        parent::__construct();
 
-		requirePermission("canViewAdmin");
-	}
+        requirePermission("canViewAdmin");
+    }
 
-	public function index()
-	{
-		// Change the title
-		$this->administrator->setTitle("Teleport locations");
-		
-		$teleport_locations = $this->teleport_model->getTeleportLocations();
-		
-		if($teleport_locations)
-		{
-			foreach($teleport_locations as $key => $value)
-			{
-				if(strlen($value['description']) > 15)
-				{
-					$teleport_locations[$key]['description'] = mb_substr($value['description'], 0, 15) . '...';
-				}
+    public function index()
+    {
+        // Change the title
+        $this->administrator->setTitle("Teleport locations");
 
-				$teleport_locations[$key]['realmName'] = $this->realms->getRealm($value['realm'])->getName();
-			}
-		}
-			
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'teleport_locations' => $teleport_locations,
-			'realms' => $this->realms->getRealms()
-		);
+        $teleport_locations = $this->teleport_model->getTeleportLocations();
 
-		// Load my view
-		$output = $this->template->loadPage("teleport_admin.tpl", $data);
+        if($teleport_locations)
+        {
+            foreach($teleport_locations as $key => $value)
+            {
+                if(strlen($value['description']) > 15)
+                {
+                    $teleport_locations[$key]['description'] = mb_substr($value['description'], 0, 15) . '...';
+                }
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('Teleport locations', $output);
+                $teleport_locations[$key]['realmName'] = $this->realms->getRealm($value['realm'])->getName();
+            }
+        }
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/teleport/js/teleport_admin.js");
-	}
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'teleport_locations' => $teleport_locations,
+            'realms' => $this->realms->getRealms()
+        );
 
-	public function create()
-	{
-		// Check for the permission
-		requirePermission("canAdd");
+        // Load my view
+        $output = $this->template->loadPage("teleport_admin.tpl", $data);
 
-		$data["name"] = $this->input->post("name");
-		$data["description"] = $this->input->post("description");
-		$data["x"] = $this->input->post("x");
-		$data["y"] = $this->input->post("y");
-		$data["z"] = $this->input->post("z");
-		$data["orientation"] = $this->input->post("orientation");
-		$data["mapId"] = $this->input->post("mapId");
-		$data["vpCost"] = $this->input->post("vpCost");
-		$data["dpCost"] = $this->input->post("dpCost");
-		$data["goldCost"] = $this->input->post("goldCost");
-		$data["realm"] = $this->input->post("realm");
-		$data["required_faction"] = $this->input->post("required_faction");
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('Teleport locations', $output);
 
-		$this->teleport_model->add($data);
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/teleport/js/teleport_admin.js");
+    }
 
-		// Add log
-		$this->logger->createLog('Added teleport location', $data['name']);
+    public function create()
+    {
+        // Check for the permission
+        requirePermission("canAdd");
 
-		$this->plugins->onAddTeleport($data);
+        $data["name"] = $this->input->post("name");
+        $data["description"] = $this->input->post("description");
+        $data["x"] = $this->input->post("x");
+        $data["y"] = $this->input->post("y");
+        $data["z"] = $this->input->post("z");
+        $data["orientation"] = $this->input->post("orientation");
+        $data["mapId"] = $this->input->post("mapId");
+        $data["vpCost"] = $this->input->post("vpCost");
+        $data["dpCost"] = $this->input->post("dpCost");
+        $data["goldCost"] = $this->input->post("goldCost");
+        $data["realm"] = $this->input->post("realm");
+        $data["required_faction"] = $this->input->post("required_faction");
 
-		die('window.location.reload(true)');
-	}
+        $this->teleport_model->add($data);
 
-	public function edit($id = false)
-	{
-		// Check for the permission
-		requirePermission("canEdit");
+        // Add log
+        $this->logger->createLog('Added teleport location', $data['name']);
 
-		if(!is_numeric($id) || !$id)
-		{
-			die();
-		}
-		
-		$teleport_location = $this->teleport_model->teleportLocationExists($id);
-		
-		if(!$teleport_location)
-		{
-			show_error("There is no teleport location with ID ".$id);
+        $this->plugins->onAddTeleport($data);
 
-			die();
-		}
-		
-		// Change the title
-		$this->administrator->setTitle($teleport_location['name']);
-			
-		// Prepare my data
-		$data = array(
-			'url' => $this->template->page_url,
-			'teleport_location' => $teleport_location,
-			'realms' => $this->realms->getRealms()
-		);
+        die('window.location.reload(true)');
+    }
 
-		// Load my view
-		$output = $this->template->loadPage("teleport_admin_edit.tpl", $data);
+    public function edit($id = false)
+    {
+        // Check for the permission
+        requirePermission("canEdit");
 
-		// Put my view in the main box with a headline
-		$content = $this->administrator->box('<a href="'.$this->template->page_url.'teleport/admin">Teleport locations</a> &rarr; '.$teleport_location['name'], $output);
+        if(!is_numeric($id) || !$id)
+        {
+            die();
+        }
 
-		// Output my content. The method accepts the same arguments as template->view
-		$this->administrator->view($content, false, "modules/teleport/js/teleport_admin.js");
-	}
+        $teleport_location = $this->teleport_model->teleportLocationExists($id);
 
-	public function save($id = false)
-	{
-		// Check for the permission
-		requirePermission("canEdit");
+        if(!$teleport_location)
+        {
+            show_error("There is no teleport location with ID ".$id);
 
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+            die();
+        }
 
-		$data["name"] = $this->input->post("name");
-		$data["description"] = $this->input->post("description");
-		$data["x"] = $this->input->post("x");
-		$data["y"] = $this->input->post("y");
-		$data["z"] = $this->input->post("z");
-		$data["orientation"] = $this->input->post("orientation");
-		$data["mapId"] = $this->input->post("mapId");
-		$data["vpCost"] = $this->input->post("vpCost");
-		$data["dpCost"] = $this->input->post("dpCost");
-		$data["goldCost"] = $this->input->post("goldCost");
-		$data["realm"] = $this->input->post("realm");
-		$data["required_faction"] = $this->input->post("required_faction");
+        // Change the title
+        $this->administrator->setTitle($teleport_location['name']);
 
-		$this->teleport_model->edit($id, $data);
+        // Prepare my data
+        $data = array(
+            'url' => $this->template->page_url,
+            'teleport_location' => $teleport_location,
+            'realms' => $this->realms->getRealms()
+        );
 
-		// Add log
-		$this->logger->createLog('Edited teleport location', $data['name']);
+        // Load my view
+        $output = $this->template->loadPage("teleport_admin_edit.tpl", $data);
 
-		$this->plugins->onEditTeleport($id, $data);
+        // Put my view in the main box with a headline
+        $content = $this->administrator->box('<a href="'.$this->template->page_url.'teleport/admin">Teleport locations</a> &rarr; '.$teleport_location['name'], $output);
 
-		die('window.location="'.$this->template->page_url.'teleport/admin"');
-	}
+        // Output my content. The method accepts the same arguments as template->view
+        $this->administrator->view($content, false, "modules/teleport/js/teleport_admin.js");
+    }
 
-	public function delete($id = false)
-	{
-		// Check for the permission
-		requirePermission("canRemove");
-		
-		if(!$id || !is_numeric($id))
-		{
-			die();
-		}
+    public function save($id = false)
+    {
+        // Check for the permission
+        requirePermission("canEdit");
 
-		$this->teleport_model->delete($id);
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
 
-		// Add log
-		$this->logger->createLog('Deleted teleport location', $id);
+        $data["name"] = $this->input->post("name");
+        $data["description"] = $this->input->post("description");
+        $data["x"] = $this->input->post("x");
+        $data["y"] = $this->input->post("y");
+        $data["z"] = $this->input->post("z");
+        $data["orientation"] = $this->input->post("orientation");
+        $data["mapId"] = $this->input->post("mapId");
+        $data["vpCost"] = $this->input->post("vpCost");
+        $data["dpCost"] = $this->input->post("dpCost");
+        $data["goldCost"] = $this->input->post("goldCost");
+        $data["realm"] = $this->input->post("realm");
+        $data["required_faction"] = $this->input->post("required_faction");
 
-		$this->plugins->onDeleteTeleport($id);
-	}
+        $this->teleport_model->edit($id, $data);
+
+        // Add log
+        $this->logger->createLog('Edited teleport location', $data['name']);
+
+        $this->plugins->onEditTeleport($id, $data);
+
+        die('window.location="'.$this->template->page_url.'teleport/admin"');
+    }
+
+    public function delete($id = false)
+    {
+        // Check for the permission
+        requirePermission("canRemove");
+
+        if(!$id || !is_numeric($id))
+        {
+            die();
+        }
+
+        $this->teleport_model->delete($id);
+
+        // Add log
+        $this->logger->createLog('Deleted teleport location', $id);
+
+        $this->plugins->onDeleteTeleport($id);
+    }
 }

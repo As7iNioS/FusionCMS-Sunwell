@@ -7,489 +7,489 @@
  */
 
 var FusionEditor = {
-	
-	Tools: {
 
-		bold: function(id)
-		{
-			FusionEditor.wrapSelection(id, document.createElement('b'));
-			FusionEditor.addEvents(id);
-		},
+    Tools: {
 
-		italic: function(id)
-		{
-			FusionEditor.wrapSelection(id, document.createElement('i'));
-			FusionEditor.addEvents(id);
-		},
+        bold: function(id)
+        {
+            FusionEditor.wrapSelection(id, document.createElement('b'));
+            FusionEditor.addEvents(id);
+        },
 
-		underline: function(id)
-		{
-			FusionEditor.wrapSelection(id, document.createElement('u'));
-			FusionEditor.addEvents(id);
-		},
+        italic: function(id)
+        {
+            FusionEditor.wrapSelection(id, document.createElement('i'));
+            FusionEditor.addEvents(id);
+        },
 
-		left: function(id)
-		{
-			var element = document.createElement('div');
-			element.style.textAlign = "left";
-			FusionEditor.wrapSelection(id, element);
-		},
+        underline: function(id)
+        {
+            FusionEditor.wrapSelection(id, document.createElement('u'));
+            FusionEditor.addEvents(id);
+        },
 
-		center: function(id)
-		{
-			var element = document.createElement('div');
-			element.style.textAlign = "center";
-			FusionEditor.wrapSelection(id, element);
-		},
+        left: function(id)
+        {
+            var element = document.createElement('div');
+            element.style.textAlign = "left";
+            FusionEditor.wrapSelection(id, element);
+        },
 
-		right: function(id)
-		{
-			var element = document.createElement('div');
-			element.style.textAlign = "right";
-			FusionEditor.wrapSelection(id, element);
-		},
+        center: function(id)
+        {
+            var element = document.createElement('div');
+            element.style.textAlign = "center";
+            FusionEditor.wrapSelection(id, element);
+        },
 
-		image: function(id)
-		{
-			var editor = '<form onSubmit="FusionEditor.Tools.addImage(\'' + id + '\'); return false">'
-						+ '<input type="text" placeholder="http://path.to/my/image.jpg" id="editor_image_' + id + '" />'
-						+ '<input type="submit" value="Add" />'
-						+ '</form>';
-			
-			FusionEditor.open(id, editor);
-		},
+        right: function(id)
+        {
+            var element = document.createElement('div');
+            element.style.textAlign = "right";
+            FusionEditor.wrapSelection(id, element);
+        },
 
-		addImage: function(id)
-		{
-			var field = $("#editor_image_" + id);
+        image: function(id)
+        {
+            var editor = '<form onSubmit="FusionEditor.Tools.addImage(\'' + id + '\'); return false">'
+                        + '<input type="text" placeholder="http://path.to/my/image.jpg" id="editor_image_' + id + '" />'
+                        + '<input type="submit" value="Add" />'
+                        + '</form>';
 
-			if(field.val().length > 0
-			&& /^https?:\/\/.*$/.test(field.val()))
-			{
-				var element = document.createElement('img');
-				element.src = field.val();
-				FusionEditor.wrapSelection(id, element);
-				FusionEditor.close(id);
-				field.val("");
-				FusionEditor.addEvents(id);	
-			}
-			else
-			{
-				UI.alert("Image must be a valid link");
-			}
-		},
+            FusionEditor.open(id, editor);
+        },
 
-		color: function(id)
-		{
-			var colors = "",
-				colorArr = [
-				"cc0000",
-				"cc006e",
-				"c500cc",
-				"4d00cc",
-				"000acc",
-				"0043cc",
-				"008bcc",
-				"00ccc5",
-				"00cc48",
-				"13cc00",
-				"73cc00",
-				"c0cc00",
-				"cc9e00",
-				"cc7300",
-				"333333",
-				"666666"
-			];
+        addImage: function(id)
+        {
+            var field = $("#editor_image_" + id);
 
-			for(i in colorArr)
-			{
-				colors += '<a class="fusioneditor_color" href="javascript:void(0)" onClick="FusionEditor.Tools.addColor(\'' + id + '\', \'#' + colorArr[i] + '\')" data-tip="#' + colorArr[i] + '" style="background-color:#' + colorArr[i] + '"></a>';
-			}
+            if(field.val().length > 0
+            && /^https?:\/\/.*$/.test(field.val()))
+            {
+                var element = document.createElement('img');
+                element.src = field.val();
+                FusionEditor.wrapSelection(id, element);
+                FusionEditor.close(id);
+                field.val("");
+                FusionEditor.addEvents(id);
+            }
+            else
+            {
+                UI.alert("Image must be a valid link");
+            }
+        },
 
-			FusionEditor.open(id, colors, 32);
-			Tooltip.refresh();
-		},
+        color: function(id)
+        {
+            var colors = "",
+                colorArr = [
+                "cc0000",
+                "cc006e",
+                "c500cc",
+                "4d00cc",
+                "000acc",
+                "0043cc",
+                "008bcc",
+                "00ccc5",
+                "00cc48",
+                "13cc00",
+                "73cc00",
+                "c0cc00",
+                "cc9e00",
+                "cc7300",
+                "333333",
+                "666666"
+            ];
 
-		addColor: function(id, color)
-		{
-			var span = document.createElement("span");
-			span.style.color = color;
-			FusionEditor.wrapSelection(id, span);
-			FusionEditor.close(id);
-		},
+            for(i in colorArr)
+            {
+                colors += '<a class="fusioneditor_color" href="javascript:void(0)" onClick="FusionEditor.Tools.addColor(\'' + id + '\', \'#' + colorArr[i] + '\')" data-tip="#' + colorArr[i] + '" style="background-color:#' + colorArr[i] + '"></a>';
+            }
 
-		size: function(id)
-		{
-			var sizes = "",
-				sizeArr = [
-				"8",
-				"10",
-				"12",
-				"14",
-				"16",
-				"18",
-				"20",
-				"22",
-				"24",
-				"32",
-				"42",
-				"52",
-				"62",
-				"72",
-			];
+            FusionEditor.open(id, colors, 32);
+            Tooltip.refresh();
+        },
 
-			for(i in sizeArr)
-			{
-				sizes += '<a class="fusioneditor_size" href="javascript:void(0)" onClick="FusionEditor.Tools.addSize(\'' + id + '\', \'' + sizeArr[i] + '\')">' + sizeArr[i] + '</a>';
-			}
+        addColor: function(id, color)
+        {
+            var span = document.createElement("span");
+            span.style.color = color;
+            FusionEditor.wrapSelection(id, span);
+            FusionEditor.close(id);
+        },
 
-			FusionEditor.open(id, sizes, 32);
-		},
+        size: function(id)
+        {
+            var sizes = "",
+                sizeArr = [
+                "8",
+                "10",
+                "12",
+                "14",
+                "16",
+                "18",
+                "20",
+                "22",
+                "24",
+                "32",
+                "42",
+                "52",
+                "62",
+                "72",
+            ];
 
-		addSize: function(id, size)
-		{
-			var span = document.createElement("span");
-			span.style.fontSize = size + "px";
+            for(i in sizeArr)
+            {
+                sizes += '<a class="fusioneditor_size" href="javascript:void(0)" onClick="FusionEditor.Tools.addSize(\'' + id + '\', \'' + sizeArr[i] + '\')">' + sizeArr[i] + '</a>';
+            }
 
-			FusionEditor.wrapSelection(id, span);
-			FusionEditor.close(id);
-		},
+            FusionEditor.open(id, sizes, 32);
+        },
 
-		link: function(id)
-		{
-			var editor = '<form onSubmit="FusionEditor.Tools.addLink(\'' + id + '\'); return false">'
-						+ '<input type="text" placeholder="http://domain.com" id="editor_link_' + id + '" />'
-						+ '<input type="submit" value="Add" />'
-						+ '</form>';
-			
-			FusionEditor.open(id, editor);
-		},
+        addSize: function(id, size)
+        {
+            var span = document.createElement("span");
+            span.style.fontSize = size + "px";
 
-		addLink: function(id)
-		{
-			var field = $("#editor_link_" + id);
+            FusionEditor.wrapSelection(id, span);
+            FusionEditor.close(id);
+        },
 
-			if(field.val().length > 0
-			&& /^http:\/\/.*$/.test(field.val()))
-			{
-				var element = document.createElement('a');
-				element.href = field.val();
-				element.target = "_blank";
-				FusionEditor.wrapSelection(id, element, field.val());
-				FusionEditor.close(id);
-				field.val("");
-				FusionEditor.addEvents(id);	
-			}
-			else
-			{
-				UI.alert("Link must be valid");
-			}
-		},
+        link: function(id)
+        {
+            var editor = '<form onSubmit="FusionEditor.Tools.addLink(\'' + id + '\'); return false">'
+                        + '<input type="text" placeholder="http://domain.com" id="editor_link_' + id + '" />'
+                        + '<input type="submit" value="Add" />'
+                        + '</form>';
 
-		html: function(id)
-		{
-			// Prepare the HTML
-			var field = '<textarea id="html_field_' + id + '" style="width:95%;height:300px;font-family:Courier" spellcheck="false">' + $("#" + id).html() + '</textarea>';
+            FusionEditor.open(id, editor);
+        },
 
-			// Get the original confirm box sizes
-			var originalWidth = $("#confirm").css("width"),
-				originalMargin = $("#confirm").css("margin-left");
+        addLink: function(id)
+        {
+            var field = $("#editor_link_" + id);
 
-			// Make the box bigger
-			$("#confirm").css({width:"600px",marginLeft:"-300px"});
+            if(field.val().length > 0
+            && /^http:\/\/.*$/.test(field.val()))
+            {
+                var element = document.createElement('a');
+                element.href = field.val();
+                element.target = "_blank";
+                FusionEditor.wrapSelection(id, element, field.val());
+                FusionEditor.close(id);
+                field.val("");
+                FusionEditor.addEvents(id);
+            }
+            else
+            {
+                UI.alert("Link must be valid");
+            }
+        },
 
-			// Show the box
-			UI.confirm(field, "Save", function()
-			{
-				// Save and return the box to normal size
-				$("#" + id).html($("#html_field_" + id).val());
-				FusionEditor.addEvents(id);
-				$("#confirm").css({width:originalWidth,marginLeft:originalMargin});
-			});
-		},
+        html: function(id)
+        {
+            // Prepare the HTML
+            var field = '<textarea id="html_field_' + id + '" style="width:95%;height:300px;font-family:Courier" spellcheck="false">' + $("#" + id).html() + '</textarea>';
 
-		tidy: function(id)
-		{
-			var regex = /\<(\/)?(b|span|i|u|div)\b([A-Za-z0-9 :;,#-="']*)?\>/g,
-				field = $("#" + id),
-				html = field.html();
+            // Get the original confirm box sizes
+            var originalWidth = $("#confirm").css("width"),
+                originalMargin = $("#confirm").css("margin-left");
 
-			field.html(html.replace(regex, ""));
-		}
-	},
+            // Make the box bigger
+            $("#confirm").css({width:"600px",marginLeft:"-300px"});
 
-	create: function(id)
-	{
-		$("#" + id).attr("contenteditable", "true");
+            // Show the box
+            UI.confirm(field, "Save", function()
+            {
+                // Save and return the box to normal size
+                $("#" + id).html($("#html_field_" + id).val());
+                FusionEditor.addEvents(id);
+                $("#confirm").css({width:originalWidth,marginLeft:originalMargin});
+            });
+        },
 
-		FusionEditor.addEvents(id);
+        tidy: function(id)
+        {
+            var regex = /\<(\/)?(b|span|i|u|div)\b([A-Za-z0-9 :;,#-="']*)?\>/g,
+                field = $("#" + id),
+                html = field.html();
 
-		// Prevent all other click events when clicked on the toolbox
-		$("#fusioneditor_" + id + "_toolbox").bind('click', function(e)
-		{
-			e.stopPropagation();
-		});
-	},
+            field.html(html.replace(regex, ""));
+        }
+    },
 
-	/**
-	 * Toggle the toolbox and add content
-	 * @param String id
-	 * @param String content
-	 */
-	open: function(id, content, size)
-	{
-		if(size)
-		{
-			$("#fusioneditor_" + id + "_toolbox").css({height:size});
-		}
-		else
-		{
-			// I'm sorry for this cheap fix // Jesper
-			if(Config.isACP)
-			{
-				$("#fusioneditor_" + id + "_toolbox").css({height:"40"});
-			}
-			else
-			{
-				$("#fusioneditor_" + id + "_toolbox").css({height:"50"});
-			}
-		}
+    create: function(id)
+    {
+        $("#" + id).attr("contenteditable", "true");
 
-		if($("#fusioneditor_" + id + "_toolbox").is(":visible"))
-		{
-			$("#fusioneditor_" + id + "_toolbox").transition({rotateX: '90deg', opacity: 0}, 200, function()
-			{
-				$(this).html(content).transition({rotateX: '0deg', opacity:1}, 200);
-			});
-		}
-		else
-		{
-			$("#fusioneditor_" + id + "_toolbox").transition({rotateX: '90deg', opacity:0}, 0);
+        FusionEditor.addEvents(id);
 
-			$("#fusioneditor_" + id + "_toolbox").html(content).slideDown(100, function()
-			{
-				$(this).transition({rotateX: '0deg', opacity:1}, 200);
-			});
+        // Prevent all other click events when clicked on the toolbox
+        $("#fusioneditor_" + id + "_toolbox").bind('click', function(e)
+        {
+            e.stopPropagation();
+        });
+    },
 
-			//$("#fusioneditor_" + id + "_toolbox").html(content).slideToggle(200);
-			$("#fusioneditor_" + id + "_close").fadeToggle(200);
-		}
-	},
+    /**
+     * Toggle the toolbox and add content
+     * @param String id
+     * @param String content
+     */
+    open: function(id, content, size)
+    {
+        if(size)
+        {
+            $("#fusioneditor_" + id + "_toolbox").css({height:size});
+        }
+        else
+        {
+            // I'm sorry for this cheap fix // Jesper
+            if(Config.isACP)
+            {
+                $("#fusioneditor_" + id + "_toolbox").css({height:"40"});
+            }
+            else
+            {
+                $("#fusioneditor_" + id + "_toolbox").css({height:"50"});
+            }
+        }
 
-	/**
-	 * Close the toolbox
-	 * @param String id
-	 */
-	close: function(id)
-	{
-		$("#fusioneditor_" + id + "_toolbox").transition({rotateX: '90deg', opacity: 0}, 200, function()
-		{
-			$(this).slideUp(50);
-			$("#fusioneditor_" + id + "_toolbox").transition({rotateX: '0deg'});
-		});
+        if($("#fusioneditor_" + id + "_toolbox").is(":visible"))
+        {
+            $("#fusioneditor_" + id + "_toolbox").transition({rotateX: '90deg', opacity: 0}, 200, function()
+            {
+                $(this).html(content).transition({rotateX: '0deg', opacity:1}, 200);
+            });
+        }
+        else
+        {
+            $("#fusioneditor_" + id + "_toolbox").transition({rotateX: '90deg', opacity:0}, 0);
 
-		//$("#fusioneditor_" + id + "_toolbox").slideUp(200);
-		$("#fusioneditor_" + id + "_close").fadeOut(200);
-	},
+            $("#fusioneditor_" + id + "_toolbox").html(content).slideDown(100, function()
+            {
+                $(this).transition({rotateX: '0deg', opacity:1}, 200);
+            });
 
-	/**
-	 * Make images and links editable via tooltip
-	 * @param String id
-	 */
-	addEvents: function(id, element)
-	{
-		var object;
+            //$("#fusioneditor_" + id + "_toolbox").html(content).slideToggle(200);
+            $("#fusioneditor_" + id + "_close").fadeToggle(200);
+        }
+    },
 
-		if(element)
-		{
-			object = $(element);
-		}
-		else
-		{
-			object = $("#" + id);
-		}
-		
-		object.children().each(function()
-		{
-			// Add the event
-			FusionEditor.addEvent(id, this);
+    /**
+     * Close the toolbox
+     * @param String id
+     */
+    close: function(id)
+    {
+        $("#fusioneditor_" + id + "_toolbox").transition({rotateX: '90deg', opacity: 0}, 200, function()
+        {
+            $(this).slideUp(50);
+            $("#fusioneditor_" + id + "_toolbox").transition({rotateX: '0deg'});
+        });
 
-			// If it has children
-			if($(this).children().length > 0)
-			{
-				// Loop through this element
-				FusionEditor.addEvents(id, this);
-			}
-		});
-		
-	},
+        //$("#fusioneditor_" + id + "_toolbox").slideUp(200);
+        $("#fusioneditor_" + id + "_close").fadeOut(200);
+    },
 
-	addEvent: function(id, element)
-	{
-		if(typeof $(element).data('events') == "undefined")
-		{
-			// Add event
-			switch(element.nodeName.toLowerCase())
-			{
-				case "img":
-					$(element).bind('click', function(e)
-					{
-						FusionEditor.imageMenu(e, element, id);
-					});
-				break;
-				
-				case "a":
-					$(element).bind('click', function(e)
-					{
-						FusionEditor.linkMenu(e, element, id);
-					});
-				break;
-			}
-		}
-	},
+    /**
+     * Make images and links editable via tooltip
+     * @param String id
+     */
+    addEvents: function(id, element)
+    {
+        var object;
 
-	currentImage: false,
+        if(element)
+        {
+            object = $(element);
+        }
+        else
+        {
+            object = $("#" + id);
+        }
 
-	saveImage: function(id)
-	{
-		FusionEditor.currentImage.src = $("#editor_edit_image_" + id).val();
-		FusionEditor.close(id);
-	},
+        object.children().each(function()
+        {
+            // Add the event
+            FusionEditor.addEvent(id, this);
 
-	/**
-	 * Link popup helper menu
-	 */
-	imageMenu: function(e, element, id)
-	{
-		FusionEditor.currentImage = element;
+            // If it has children
+            if($(this).children().length > 0)
+            {
+                // Loop through this element
+                FusionEditor.addEvents(id, this);
+            }
+        });
 
-		var editor = '<form onSubmit="FusionEditor.saveImage(\'' + id + '\'); return false">'
-						+ '<input type="text" value="' + element.src + '" id="editor_edit_image_' + id + '" />'
-						+ '<input type="submit" value="Save" />'
-						+ '</form>';
+    },
 
-		// Show menu
-		FusionEditor.open(id, editor);
+    addEvent: function(id, element)
+    {
+        if(typeof $(element).data('events') == "undefined")
+        {
+            // Add event
+            switch(element.nodeName.toLowerCase())
+            {
+                case "img":
+                    $(element).bind('click', function(e)
+                    {
+                        FusionEditor.imageMenu(e, element, id);
+                    });
+                break;
 
-		// Prevent further click event handling
-		e.stopPropagation();
+                case "a":
+                    $(element).bind('click', function(e)
+                    {
+                        FusionEditor.linkMenu(e, element, id);
+                    });
+                break;
+            }
+        }
+    },
 
-		// Make sure we don't stack the events
-		$(document).unbind('click');
+    currentImage: false,
 
-		// Add the "close" click event
-		$(document).bind('click', function()
-		{
-			$(document).unbind('click');
-			FusionEditor.close(id);
-		});
-	},
+    saveImage: function(id)
+    {
+        FusionEditor.currentImage.src = $("#editor_edit_image_" + id).val();
+        FusionEditor.close(id);
+    },
 
-	currentLink: false,
+    /**
+     * Link popup helper menu
+     */
+    imageMenu: function(e, element, id)
+    {
+        FusionEditor.currentImage = element;
 
-	saveLink: function(id)
-	{
-		FusionEditor.currentLink.href = $("#editor_edit_link_" + id).val();
-		FusionEditor.close(id);
-	},
+        var editor = '<form onSubmit="FusionEditor.saveImage(\'' + id + '\'); return false">'
+                        + '<input type="text" value="' + element.src + '" id="editor_edit_image_' + id + '" />'
+                        + '<input type="submit" value="Save" />'
+                        + '</form>';
 
-	/**
-	 * Link popup helper menu
-	 */
-	linkMenu: function(e, element, id)
-	{
-		FusionEditor.currentLink = element;
+        // Show menu
+        FusionEditor.open(id, editor);
 
-		var editor = '<form onSubmit="FusionEditor.saveLink(\'' + id + '\'); return false">'
-						+ '<input type="text" value="' + element.href + '" id="editor_edit_link_' + id + '" />'
-						+ '<input type="submit" value="Save" />'
-						+ '</form>';
+        // Prevent further click event handling
+        e.stopPropagation();
 
-		// Show menu
-		FusionEditor.open(id, editor);
+        // Make sure we don't stack the events
+        $(document).unbind('click');
 
-		// Prevent further click event handling
-		e.stopPropagation();
+        // Add the "close" click event
+        $(document).bind('click', function()
+        {
+            $(document).unbind('click');
+            FusionEditor.close(id);
+        });
+    },
 
-		// Make sure we don't stack the events
-		$(document).unbind('click');
+    currentLink: false,
 
-		// Add the "close" click event
-		$(document).bind('click', function()
-		{
-			$(document).unbind('click');
-			FusionEditor.close(id);
-		});
-	},
+    saveLink: function(id)
+    {
+        FusionEditor.currentLink.href = $("#editor_edit_link_" + id).val();
+        FusionEditor.close(id);
+    },
 
-	/**
-	 * Add the selected content to an element
-	 * @param String id
-	 * @param String beginTag
-	 * @param String endTag
-	 * @param String extra
-	 */
-	wrapSelection: function(id, element, extra)
-	{
-		// Get the selection values
-		var selection = window.getSelection();
-		var string = selection.toString();
+    /**
+     * Link popup helper menu
+     */
+    linkMenu: function(e, element, id)
+    {
+        FusionEditor.currentLink = element;
 
-		// Make sure we're modifying the correct element
-		if(string.length > 0
-		&& FusionEditor.hasParent(selection.anchorNode.parentElement, document.getElementById(id)))
-		{
-			// Get the selection
-			var selectedText = selection.getRangeAt(0).extractContents();
-			
-			// Add the content to the element
-			element.appendChild(selectedText);
+        var editor = '<form onSubmit="FusionEditor.saveLink(\'' + id + '\'); return false">'
+                        + '<input type="text" value="' + element.href + '" id="editor_edit_link_' + id + '" />'
+                        + '<input type="submit" value="Save" />'
+                        + '</form>';
 
-			// Replace the selected text with the element
-			selection.getRangeAt(0).insertNode(element);
-		}
-		else
-		{
-			if(extra)
-			{
-				element.innerHTML = extra;
-			}
-			
-			$("#" + id).append(element);
-		}
-	},
+        // Show menu
+        FusionEditor.open(id, editor);
 
-	/**
-	 * Check if element is the child of a specific element
-	 * @param Object element
-	 * @param Object goal
-	 * @return Boolean
-	 */
-	hasParent: function(element, goal)
-	{
-		// Check if current parent is the goal
-		if(element == goal)
-		{
-			return true;
-		}
-		else
-		{
-			// We have to go deeper :o
-			var test = element.parentNode;
+        // Prevent further click event handling
+        e.stopPropagation();
 
-			while(test != goal)
-			{
-				try
-				{
-					test = test.parentNode;
-				}
-				catch(error)
-				{
-					return false;
-				}
-			}
+        // Make sure we don't stack the events
+        $(document).unbind('click');
 
-			return true;
-		}
-	}
+        // Add the "close" click event
+        $(document).bind('click', function()
+        {
+            $(document).unbind('click');
+            FusionEditor.close(id);
+        });
+    },
+
+    /**
+     * Add the selected content to an element
+     * @param String id
+     * @param String beginTag
+     * @param String endTag
+     * @param String extra
+     */
+    wrapSelection: function(id, element, extra)
+    {
+        // Get the selection values
+        var selection = window.getSelection();
+        var string = selection.toString();
+
+        // Make sure we're modifying the correct element
+        if(string.length > 0
+        && FusionEditor.hasParent(selection.anchorNode.parentElement, document.getElementById(id)))
+        {
+            // Get the selection
+            var selectedText = selection.getRangeAt(0).extractContents();
+
+            // Add the content to the element
+            element.appendChild(selectedText);
+
+            // Replace the selected text with the element
+            selection.getRangeAt(0).insertNode(element);
+        }
+        else
+        {
+            if(extra)
+            {
+                element.innerHTML = extra;
+            }
+
+            $("#" + id).append(element);
+        }
+    },
+
+    /**
+     * Check if element is the child of a specific element
+     * @param Object element
+     * @param Object goal
+     * @return Boolean
+     */
+    hasParent: function(element, goal)
+    {
+        // Check if current parent is the goal
+        if(element == goal)
+        {
+            return true;
+        }
+        else
+        {
+            // We have to go deeper :o
+            var test = element.parentNode;
+
+            while(test != goal)
+            {
+                try
+                {
+                    test = test.parentNode;
+                }
+                catch(error)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
 };

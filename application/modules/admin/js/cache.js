@@ -1,201 +1,201 @@
 var Cache = {
 
-	load: function()
-	{
-		var up = true;
+    load: function()
+    {
+        var up = true;
 
-		var interval = setInterval(function()
-		{
-			if(up)
-			{
-				if($("#loading_dots").html() == "...")
-				{
-					$("#loading_dots").html("..");
+        var interval = setInterval(function()
+        {
+            if(up)
+            {
+                if($("#loading_dots").html() == "...")
+                {
+                    $("#loading_dots").html("..");
 
-					up = false;
-				}
-				else
-				{
-					$("#loading_dots").append(".");
-				}
-			}
-			else
-			{
-				if($("#loading_dots").html() == ".")
-				{
-					$("#loading_dots").html("");
-					
-					up = true;
-				}
-				else if($("#loading_dots").html() == "..")
-				{
-					$("#loading_dots").html(".");
-				}
-			}
-		}, 150);
+                    up = false;
+                }
+                else
+                {
+                    $("#loading_dots").append(".");
+                }
+            }
+            else
+            {
+                if($("#loading_dots").html() == ".")
+                {
+                    $("#loading_dots").html("");
 
-		$.get(Config.URL + "admin/cachemanager/get", function(data)
-		{
-			$("#cache_data").html(data);
-		});
-	},
+                    up = true;
+                }
+                else if($("#loading_dots").html() == "..")
+                {
+                    $("#loading_dots").html(".");
+                }
+            }
+        }, 150);
 
-	progressBars: function(type)
-	{
-		switch(type)
-		{
-			case "all_but_item":
-				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-				$("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-			break;
+        $.get(Config.URL + "admin/cachemanager/get", function(data)
+        {
+            $("#cache_data").html(data);
+        });
+    },
 
-			case "website":
-				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-			break;
+    progressBars: function(type)
+    {
+        switch(type)
+        {
+            case "all_but_item":
+                $("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+                $("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+            break;
 
-			case "message":
-				$("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-			break;
+            case "website":
+                $("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+            break;
 
-			case "all":
-				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-				$("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-				$("#row_item").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-			break;
-		}
-	},
+            case "message":
+                $("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+            break;
 
-	getPercent: function(part, whole)
-	{
-		console.log(part + " of " + whole);
+            case "all":
+                $("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+                $("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+                $("#row_item").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+            break;
+        }
+    },
 
-		if(!part || !whole)
-		{
-			return 0;
-		}
-		else
-		{
-			return Math.round((part / whole) * 100, 1);
-		}
-	},
+    getPercent: function(part, whole)
+    {
+        console.log(part + " of " + whole);
 
-	clear: function(type)
-	{
-		Cache.calculateTotal();
-		Cache.progressBars(type);
+        if(!part || !whole)
+        {
+            return 0;
+        }
+        else
+        {
+            return Math.round((part / whole) * 100, 1);
+        }
+    },
 
-		$.get(Config.URL + "admin/cachemanager/delete/" + type, function(data)
-		{
-			switch(type)
-			{
-				case "all_but_item":
-					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_website").html("0 files (0 B)");
-					});
+    clear: function(type)
+    {
+        Cache.calculateTotal();
+        Cache.progressBars(type);
 
-					$("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_message").html("0 files (0 B)");
-					});
-				break;
+        $.get(Config.URL + "admin/cachemanager/delete/" + type, function(data)
+        {
+            switch(type)
+            {
+                case "all_but_item":
+                    $("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
+                    {
+                        $("#row_website").html("0 files (0 B)");
+                    });
 
-				case "website":
-					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_website").html("0 files (0 B)");
-					});
-				break;
+                    $("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
+                    {
+                        $("#row_message").html("0 files (0 B)");
+                    });
+                break;
 
-				case "all":
-					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_website").html("0 files (0 B)");
-					});
+                case "website":
+                    $("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
+                    {
+                        $("#row_website").html("0 files (0 B)");
+                    });
+                break;
 
-					$("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_message").html("0 files (0 B)");
-					});
+                case "all":
+                    $("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
+                    {
+                        $("#row_website").html("0 files (0 B)");
+                    });
 
-					$("#row_item .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_item").html("0 files (0 B)");
-					});
-				break;
-			}
+                    $("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
+                    {
+                        $("#row_message").html("0 files (0 B)");
+                    });
 
-			setTimeout(Cache.calculateTotal, 300);
-		});
-	},
+                    $("#row_item .progress_bar a").animate({width:"100%"}, 200, function()
+                    {
+                        $("#row_item").html("0 files (0 B)");
+                    });
+                break;
+            }
 
-	calculateTotal: function()
-	{
-		var itemHTML = $("#row_item").html().replace(")", "").split(" files (");
+            setTimeout(Cache.calculateTotal, 300);
+        });
+    },
 
-		var item = {
-			files: parseInt(itemHTML[0]),
-			size: Cache.toBytes(itemHTML[1])
-		};
+    calculateTotal: function()
+    {
+        var itemHTML = $("#row_item").html().replace(")", "").split(" files (");
 
-		var websiteHTML = $("#row_website").html().replace(")", "").split(" files (");
+        var item = {
+            files: parseInt(itemHTML[0]),
+            size: Cache.toBytes(itemHTML[1])
+        };
 
-		var website = {
-			files: parseInt(websiteHTML[0]),
-			size: Cache.toBytes(websiteHTML[1])
-		};
+        var websiteHTML = $("#row_website").html().replace(")", "").split(" files (");
 
-		var messageHTML = $("#row_message").html().replace(")", "").split(" files (");
+        var website = {
+            files: parseInt(websiteHTML[0]),
+            size: Cache.toBytes(websiteHTML[1])
+        };
 
-		var message = {
-			files: parseInt(messageHTML[0]),
-			size: Cache.toBytes(messageHTML[1])
-		};
+        var messageHTML = $("#row_message").html().replace(")", "").split(" files (");
 
-		var totalFiles = message.files + website.files + item.files,
-			totalSize = Cache.formatSize(parseInt(website.size + item.size + message.size));
+        var message = {
+            files: parseInt(messageHTML[0]),
+            size: Cache.toBytes(messageHTML[1])
+        };
 
-		$("#row_total").html("<b>" + totalFiles + " files (" + totalSize + ")</b>")
+        var totalFiles = message.files + website.files + item.files,
+            totalSize = Cache.formatSize(parseInt(website.size + item.size + message.size));
 
-	},
+        $("#row_total").html("<b>" + totalFiles + " files (" + totalSize + ")</b>")
 
-	toBytes: function(string)
-	{
-		if(/ B$/.test(string))
-		{
-			return parseInt(string.replace(" B", ""));
-		}
-		else if(/ KB$/.test(string))
-		{
-			return parseInt(string.replace(" KB", "")) * 1024;
-		}
-		else if(/ MB$/.test(string))
-		{
-			return parseInt(string.replace(" MB", "")) * 1024 * 1024;
-		}
-		else if(/ GB$/.test(string))
-		{
-			return parseInt(string.replace(" GB", "")) * 1024 * 1024 * 1024;
-		}
-	},
+    },
 
-	formatSize: function(size)
-	{
-		if(size < 1024)
-		{
-			return size + " B";
-		}
-		else if(size < 1024 * 1024)
-		{
-			return Math.round(size / 1024) + " KB";
-		}
-		else if(size < 1024 * 1024 * 1024)
-		{
-			return Math.round(size / (1024 * 1024)) + " MB";
-		}
-		else
-		{
-			return Math.round(size / (1024 * 1024 * 1024)) + " GB";
-		}
-	}
+    toBytes: function(string)
+    {
+        if(/ B$/.test(string))
+        {
+            return parseInt(string.replace(" B", ""));
+        }
+        else if(/ KB$/.test(string))
+        {
+            return parseInt(string.replace(" KB", "")) * 1024;
+        }
+        else if(/ MB$/.test(string))
+        {
+            return parseInt(string.replace(" MB", "")) * 1024 * 1024;
+        }
+        else if(/ GB$/.test(string))
+        {
+            return parseInt(string.replace(" GB", "")) * 1024 * 1024 * 1024;
+        }
+    },
+
+    formatSize: function(size)
+    {
+        if(size < 1024)
+        {
+            return size + " B";
+        }
+        else if(size < 1024 * 1024)
+        {
+            return Math.round(size / 1024) + " KB";
+        }
+        else if(size < 1024 * 1024 * 1024)
+        {
+            return Math.round(size / (1024 * 1024)) + " MB";
+        }
+        else
+        {
+            return Math.round(size / (1024 * 1024 * 1024)) + " GB";
+        }
+    }
 };

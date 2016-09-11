@@ -9,14 +9,14 @@
  */
 function hasPermission($permissionName, $moduleName = false, $userId = false)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->acl->hasPermission($permissionName, $moduleName, $userId);
+    return $CI->acl->hasPermission($permissionName, $moduleName, $userId);
 }
 
 /**
@@ -27,14 +27,14 @@ function hasPermission($permissionName, $moduleName = false, $userId = false)
  */
 function hasViewPermission($permissionName, $moduleName)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->acl->hasViewPermission($permissionName, $moduleName);
+    return $CI->acl->hasViewPermission($permissionName, $moduleName);
 }
 
 /**
@@ -45,12 +45,12 @@ function hasViewPermission($permissionName, $moduleName)
  */
 function requirePermission($permissionName, $moduleName = false)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if(!$CI)
+    {
+        $CI = &get_instance();
+    }
 
-	return $CI->acl->requirePermission($permissionName, $moduleName);
+    return $CI->acl->requirePermission($permissionName, $moduleName);
 }
