@@ -4,10 +4,11 @@ class Activation_model extends CI_Model
 {
 	public function add($username, $password, $email)
 	{
+	    // TODO Add password security
 		$data = array(
 			'username' => $username,
 			'email' => $email,
-			'password' =>  $this->user->createHash($username, $password),
+			'password' =>  $password,
 			'timestamp' => time(),
 			'ip' => $this->input->ip_address(),
 			'key' => sha1($username.$email.$password.time())

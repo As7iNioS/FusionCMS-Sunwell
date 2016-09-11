@@ -131,35 +131,35 @@ class Register extends MX_Controller
 						"email_activation" => $this->config->item('enable_email_activation')
 					);
 
-			if($this->config->item('use_forum_bridge'))
+			if($data["email_activation"])
 			{
-				if(file_exists('application/modules/register/plugins/'.$this->config->item('forum_bridge').".php"))
-				{
-					//$this->plugins->{$this->config->item('forum_bridge')}->register($data['username'], $data['password'], $data['email']);
-				}
-				else
-				{
-					show_error("The forum bridge <b>".$this->config->item('forum_bridge')."</b> does not exist in <b>application/modules/register/plugins/</b>");
-					die();
-				}
-			}
-
-			if($this->config->item('enable_email_activation'))
-			{
-				$key = $this->activation_model->add($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
+				$key = $this->activation_model->add($data["username"], $data["password"], $data["email"]);
 				
 				$link = base_url().'register/activate/'.$key;
 
-				sendMail($this->input->post('register_email'), $this->config->item('activation_sender_mail'), $this->config->item('server_name').': activate account', 'You have created the account '.$this->input->post('register_username').', please go here to activate it: <a href="'.$link.'">'.$link.'</a>');
+				sendMail($data["email"], $this->config->item('activation_sender_mail'), $this->config->item('server_name').': activate account', 'You have created the account '.$data["username"].', please go here to activate it: <a href="'.$link.'">'.$link.'</a>');
 			}
 			else
 			{
 				//Register our user.
-				$this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
+				$this->external_account_model->createAccount($data["username"], $data["password"], $data["email"]);
+
+                if($this->config->item('use_forum_bridge'))
+                {
+                    if(file_exists('application/modules/register/plugins/'.$this->config->item('forum_bridge').".php"))
+                    {
+                        //$this->plugins->{$this->config->item('forum_bridge')}->register($data['username'], $data['password'], $data['email']);
+                    }
+                    else
+                    {
+                        show_error("The forum bridge <b>".$this->config->item('forum_bridge')."</b> does not exist in <b>application/modules/register/plugins/</b>");
+                        die();
+                    }
+                }
 
 				// Log in
-				$sha_pass_hash = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));
-				$check = $this->user->setUserDetails($this->input->post('register_username'), $sha_pass_hash);
+				$sha_pass_hash = $this->user->createHash($data["username"], $data["password"]);
+				$check = $this->user->setUserDetails($data["username"], $sha_pass_hash);
 			}
 
 			$title = ($data['email_activation']) ? lang("confirm_account", "register") : lang("created", "register");
@@ -220,7 +220,7 @@ class Register extends MX_Controller
 
 		$this->activation_model->remove($account['id'], $account['username'], $account['email']);
 
-		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], true);
+		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], false);
 
 		// Log in
 		$this->user->setUserDetails($account['username'], $account['password']);

@@ -933,8 +933,7 @@ body {
     font-family: "Myriad Pro", serif;
 }
 .jz-textalert {
-    margin-left: 20px;
-    width: 490px;
+    width: 90%;
     padding: 10px 13px;
     background-color: rgba(238, 179, 179, 0.59);
     border: solid 1px rgb(255, 0, 0);
@@ -942,6 +941,7 @@ body {
     font-size: 13px;
     line-height: 20px;
     color: #000;
+    margin-left: 2.5%;
 }
 .jz-text {
     float: left;

@@ -118,7 +118,7 @@ class External_account_model extends CI_Model
 
 		$data = array(
 			column("account", "username") => $username,
-			column("account", "password") => ($isHashed) ? $password : $this->user->createHash($username, $password),
+			column("account", "password") => ($isHashed) ? $password : $sha_pass_hash,
 			column("account", "email") => $email,
 			column("account", "last_ip") => $this->input->ip_address(),
 			column("account", "joindate") => date("Y-m-d"),
