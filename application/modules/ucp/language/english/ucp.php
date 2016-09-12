@@ -41,3 +41,7 @@ $lang['change_password'] = "Change password";
 $lang['pw_doesnt_match'] = "Passwords doesn't match!";
 $lang['changes_saved'] = "Changes have been saved!";
 $lang['invalid_pw'] = "Incorrect password!";
+
+$lang['yes'] = "yes";
+$lang['no'] = "no";
+$lang['none'] = "none";

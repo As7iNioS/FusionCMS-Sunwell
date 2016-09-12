@@ -31,7 +31,7 @@
 			"description": "View the donate module.",
 
 			"permissions": {
-				"view": true
+				"view": false
 			}
 		},
 

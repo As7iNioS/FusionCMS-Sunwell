@@ -42,3 +42,6 @@ $lang['pw_doesnt_match'] = "Hasła nie pasują do siebie!";
 $lang['changes_saved'] = "Zmiany zostały zapisane!";
 $lang['invalid_pw'] = "Nieprawidłowe hasło!";
 
+$lang['yes'] = "tak";
+$lang['no'] = "nie";
+$lang['none'] = "brak";

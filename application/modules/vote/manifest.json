@@ -20,7 +20,7 @@
 			"description": "View the vote module.",
 
 			"permissions": {
-				"view": true
+				"view": false
 			}
 		},
 

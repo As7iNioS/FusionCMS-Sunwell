@@ -24,7 +24,7 @@
 			"description": "View the store module.",
 
 			"permissions": {
-				"view": true
+				"view": false
 			}
 		},
 
