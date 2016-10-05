@@ -450,7 +450,8 @@ class Template
                     $child['name'] = $this->format(langColumn($child['name']), false, false);
                     if(!preg_match("/^\/|[a-z][a-z0-9+\-.]*:/i", $links[$key]['link']))
                     {
-                        $child['link'] = $this->page_url . $child['link'];
+                        if (!$child['direct_link'])
+                            $child['link'] = $this->page_url . $child['link'];
                     }
 
                     $child['linkon'] = ''.$child['link'].'';
