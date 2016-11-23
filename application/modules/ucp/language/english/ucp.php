@@ -7,7 +7,6 @@ $lang['info_title'] = "Information";
 $lang['last_login'] = "Last login";
 $lang['ip_address'] = "IP address";
 $lang['char_count'] = "Characters";
-$lang['acc_frozen'] = "Account frozen";
 $lang['vp_amount'] = "VP amount";
 $lang['pp_amount'] = "PP amount";
 $lang['pp_market'] = "PP on market";
