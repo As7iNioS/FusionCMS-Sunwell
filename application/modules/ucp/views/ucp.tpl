@@ -14,6 +14,10 @@
                 <td width="50%">{lang("char_count", "ucp")}</td>
                 <td width="50%">{$char_count}</td>
             </tr>
+            <tr>
+                <td width="50%">{lang("acc_frozen", "ucp")}</td>
+                <td width="50%">{$frozen_status}</td>
+            </tr>
             <tr><td colspan="2">&nbsp;</td></tr>
             <tr>
                 <td width="50%">{lang("vp_amount", "ucp")}</td>
