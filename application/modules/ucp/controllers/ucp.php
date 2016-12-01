@@ -51,6 +51,7 @@ class Ucp extends MX_Controller
             "last_login" => $this->external_account_model->getLastLogin(),
             "ip_address" => $_SERVER["REMOTE_ADDR"],
             "char_count" => $this->realms->getTotalCharacters(),
+            "frozen_status" => $this->external_account_model->getFrozen() ? lang("yes", "ucp") : lang("no", "ucp"),
             "market_pp" => 0, // TODO
             "privileges" => [
                 lang("none", "ucp")
