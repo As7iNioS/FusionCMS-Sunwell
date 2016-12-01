@@ -41,8 +41,8 @@ INSERT INTO `menu` (`id`, `name`, `link`, `side`, `rank`, `specific_rank`, `orde
   (107, '{"english":"Bugtracker"}', 'bugtracker', 'top', 1, 0, 4, 0, NULL, 102),
   (108, '{"english":"Premium","polish":"Premium"}', 'page/premium', 'top', 1, 0, 108, 0, NULL, 102),
   (109, '{"english":"Achievements","polish":"Odznaczenia"}', 'achievement_statistics', 'top', 1, 0, 1, 0, NULL, 104),
-  (109, '{"english":"PvP"}', 'pvp_statistics', 'top', 1, 0, 2, 0, NULL, 104),
-  (110, '{"english":"PvE"}', 'pve_statistics', 'top', 1, 0, 3, 0, NULL, 104);
+  (110, '{"english":"PvP"}', 'pvp_statistics', 'top', 1, 0, 2, 0, NULL, 104),
+  (111, '{"english":"PvE"}', 'pve_statistics', 'top', 1, 0, 3, 0, NULL, 104);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
